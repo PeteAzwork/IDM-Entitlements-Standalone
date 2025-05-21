@@ -7,7 +7,7 @@
 # 2. cd /path/to/openidm
 # 3. docker build -f bin/Custom.Dockerfile -t idm:latest .
 
-FROM gcr.io/forgerock-io/java-17:latest
+FROM idm-standalone/java-17:latest
 
 # fonts-dejavu font needed by Flowable workflow engine
 RUN apt-get update && \
