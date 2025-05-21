@@ -1,0 +1,7 @@
+{
+    "instanceUrl" : "https://fr-platform.iam.example.com/openidm/",
+    "authType" : "bearer",
+    "clientId" : "idm-provisioning",
+    "clientSecret" : "password",
+    "tokenEndpoint" : "https://fr-platform.iam.example.com/am/oauth2/realms/root/access_token"
+}

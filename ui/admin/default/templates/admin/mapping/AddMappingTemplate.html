@@ -1,0 +1,119 @@
+{{!
+  Copyright 2015-2021 ForgeRock AS. All Rights Reserved
+
+  Use of this code requires a commercial software license with ForgeRock AS.
+  or with one of its affiliates. All use shall be exclusively subject
+  to such license between the licensee and ForgeRock AS.
+}}
+<section>
+    <div class="fr-top-bar">
+        <div class="container">
+            <h3 class="fr-breadcrumb">
+                <a href="#mapping/">{{t "templates.mapping.mappings"}}</a>
+                <span class="seperator"></span>
+                <span>{{t "templates.mapping.newMapping"}}</span>
+            </h3>
+        </div>
+    </div>
+    <div class="container">
+        <div class="page-header">
+            <h1>{{t "templates.mapping.newMapping"}}
+                <div  class="pull-right help-link">
+                    <a href="{{docHelpUrl}}synchronization-guide/preface.html" target="_blank">{{t "templates.connector.help"}} <i class="fa fa-question-circle"></i></a>
+                </div>
+            </h1>
+        </div>
+    </div>
+    <div id="addMapping">
+        <div id="resourceMappingWrapper">
+            <div id="resourceMappingBody">
+
+            </div>
+        </div>
+        <div class="container">
+            <div class="section arrow-breaker">
+                <div class="arrow-box">
+                    <i class="fa fa-3x fa-arrow-up"></i>
+                </div>
+            </div>
+
+            <div class="toolbar page-toolbar" role="toolbar" aria-label="resource toolbar">
+                <div class="btn-group pull-left left-group" role="group">
+                    <form class="form-inline">
+                        <div class="form-group">
+                            <label>View: </label>
+                            <select class="form-control resource-type-filter">
+                                <option value="all">All Resource</option>
+                                <option value="connector">Connectors</option>
+                                <option value="managed">Managed Objects</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+                <div class="pull-right">
+                    <div class="btn-group btn-icon" data-toggle="btns">
+                        <a class="btn toggle-view-btn fr-btn-secondary active" href="#resourceCardContainer" data-toggle="tab"><i class="fa fa-th"></i></a>
+                        <a class="btn toggle-view-btn fr-btn-secondary" href="#resourceGridContainer" data-toggle="tab"><i class="fa fa-list"></i></a>
+                    </div>
+                    <div class="toolbar-search">
+                        <div class="form-group has-feedback has-feedback-left">
+                            <input type="text" class="form-control filter-input" aria-label="Connector Filter" placeholder="Filter...">
+                            <div class="form-control-feedback "><i class="fa fa-search"></i></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="tab-content">
+                <div id="resourceCardContainer" class="resource-container row tab-pane active">
+                    {{#each resourceList}}
+                            <div class="col-sm-6 col-md-3 card-spacer" data-resource-type="{{type}}" data-name="{{name}}">
+                                <div class="card-container" style="z-index: 5;">
+                                    <div class="resource-body card">
+                                        <div class="card-body resource-type-body managed-type">
+                                            <div class="image circle">
+                                                <i class="{{icon}}"></i>
+                                            </div>
+                                            <div class="content">
+                                                <div class="main resource-info">
+                                                    <h3 class="name resource-given-name truncate-ellipsis">{{name}}</h3>
+                                                    <p class="cardtype resource-type-name">{{displayName}}</p>
+                                                    {{#if displayObjectType}}
+                                                        <p class="objectType">{{displayObjectType}}</p>
+                                                    {{/if}}
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="card-footer">
+                                            <div class="resource-status-body">
+                                                <button type="button" class="btn btn-default add-resource-button btn-block"><i class="fa fa-plus"></i>{{t "templates.mapping.addToMapping"}}</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {{else}}
+                            <div class="well no-resource">
+                                <div class="message-icon text-primary"><i class="fa fa-cubes"></i></div>
+                                <h3>{{t "templates.connector.noResourceTitle"}}</h3>
+                                <p>
+                                    Mapping Resource text
+                                </p>
+                                <a href="#connectors/add/"><button class="btn btn-primary"><i class="fa fa-plus"></i>{{t "templates.connector.addConnector"}}</button></a>
+                                <a href="#managed/add/"><button class="btn btn-primary"><i class="fa fa-plus"></i>{{t "templates.managed.addManaged"}}</button></a>
+                            </div>
+                        {{/each}}
+                </div>
+
+                <div id="resourceGridContainer" class="tab-pane">
+                    <div class="panel panel-default">
+                        <div id="resourceGrid" class="panel-body">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

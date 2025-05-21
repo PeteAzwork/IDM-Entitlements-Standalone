@@ -1,0 +1,13 @@
+{
+    "enabled" : false,
+    "type" : "simple",
+    "repeatInterval" : 15000,
+    "persisted" : true,
+    "concurrentExecution" : false,
+    "invokeService" : "provisioner",
+    "invokeContext" : {
+        "action" : "liveSync",
+        "source" : "system/ldap/account"
+    },
+    "invokeLogLevel" : "debug"
+}

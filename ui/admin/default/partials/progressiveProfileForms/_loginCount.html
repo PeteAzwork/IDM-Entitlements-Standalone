@@ -1,0 +1,24 @@
+{{!--
+  Copyright 2017 ForgeRock AS. All Rights Reserved
+
+  Use of this code requires a commercial software license with ForgeRock AS.
+  or with one of its affiliates. All use shall be exclusively subject
+  to such license between the licensee and ForgeRock AS.
+--}}
+
+<div id="loginCount" class="form-group">
+    <label class="col-md-3 control-label">{{t "templates.progressiveProfile.show"}}</label>
+    <div class="col-md-7">
+        <div class="form-inline">
+            <select class="form-control" name="interval" id="loginCountIntervalSelect">
+                {{#staticSelect condition.interval}}
+                    {{#each intervals}}
+                        <option value="{{value}}">{{text}}</option>
+                    {{/each}}
+                {{/staticSelect}}
+            </select>
+            <input type="number" class="form-control" min="0" name="amount" value="{{condition.amount}}">
+            {{t "templates.progressiveProfile.logins"}}
+        </div>
+    </div>
+</div>

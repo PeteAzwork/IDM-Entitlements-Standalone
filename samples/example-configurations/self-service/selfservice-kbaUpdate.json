@@ -1,0 +1,22 @@
+{
+    "stageConfigs" : [
+        {
+            "name" : "conditionaluser",
+            "identityServiceUrl" : "managed/user",
+            "condition" : {
+                "type" : "kbaQuestions"
+            },
+            "evaluateConditionOnField" : "user",
+            "onConditionFalse" : {
+                "name" : "kbaUpdateStage",
+                "kbaConfig" : null,
+                "identityServiceUrl" : "managed/user",
+                "uiConfig" : {
+                    "displayName" : "Update your security questions",
+                    "purpose" : "Please review and update your security questions",
+                    "buttonText" : "Update"
+                }
+            }
+        }
+    ]
+}

@@ -1,0 +1,28 @@
+{{!--
+  Copyright 2017 ForgeRock AS. All Rights Reserved
+
+  Use of this code requires a commercial software license with ForgeRock AS.
+  or with one of its affiliates. All use shall be exclusively subject
+  to such license between the licensee and ForgeRock AS.
+--}}
+<tr class="edit-attribute-row">
+    <td class="renderable overflow-visible col-sm-5">
+        <select  class="edit-attributeName form-control">
+            {{#each availableProps}}
+            <option value="{{this.value}}">{{this.label}}</option>
+            {{/each}}
+        </select>
+    </td>
+    <td class="renderable">
+        <div class="checkbox-slider-primary checkbox-slider checkbox-slider--b checkbox-slider-md">
+            <label>
+                <input class="toggleBoolean edit-isRequired" type="checkbox" value="true" {{#if isRequired }}checked{{/if}}>
+                <span></span>
+            </label>
+        </div>
+    </td>
+    <td class="renderable">
+        <i class="fa fa-undo grid-icon col-sm-1 pull-right cancel-edit-attribute" title="{{t "templates.managed.schemaEditor.undo"}}"></i>
+        <i class="fa fa-check grid-icon col-sm-1 pull-right save-edit-attribute" title="{{t "common.form.save"}}"></i>
+    </td>
+</tr>

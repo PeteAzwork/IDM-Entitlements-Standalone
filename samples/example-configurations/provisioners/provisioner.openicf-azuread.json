@@ -1,0 +1,1076 @@
+{
+    "enabled" : false,
+    "excludeUnmodified" : true,
+    "connectorRef" : {
+        "connectorHostRef" : "#LOCAL",
+        "bundleVersion" : "[1.5.19.0,1.6.0.0]",
+        "bundleName" : "org.forgerock.openicf.connectors.msgraphapi-connector",
+        "connectorName" : "org.forgerock.openicf.connectors.msgraphapi.MSGraphAPIConnector"
+    },
+    "poolConfigOption" : {
+        "maxObjects" : 10,
+        "maxIdle" : 10,
+        "maxWait" : 150000,
+        "minEvictableIdleTimeMillis" : 120000,
+        "minIdle" : 0
+    },
+    "resultsHandlerConfig" : {
+        "enableNormalizingResultsHandler" : false,
+        "enableFilteredResultsHandler" : false,
+        "enableCaseInsensitiveFilter" : false,
+        "enableAttributesToGetSearchResultsHandler" : true
+    },
+    "operationTimeout" : {
+        "CREATE" : -1,
+        "UPDATE" : -1,
+        "DELETE" : -1,
+        "TEST" : -1,
+        "SCRIPT_ON_CONNECTOR" : -1,
+        "SCRIPT_ON_RESOURCE" : -1,
+        "GET" : -1,
+        "RESOLVEUSERNAME" : -1,
+        "AUTHENTICATE" : -1,
+        "SEARCH" : -1,
+        "VALIDATE" : -1,
+        "SYNC" : -1,
+        "SCHEMA" : -1
+    },
+    "configurationProperties" : {
+        "tenant" : "",
+        "clientId" : "",
+        "clientSecret" : null,
+        "readRateLimit" : null,
+        "writeRateLimit" : null,
+        "httpProxyHost" : null,
+        "httpProxyPort" : null,
+        "httpProxyUsername" : null,
+        "httpProxyPassword" : null
+    },
+    "objectTypes" : {
+        "subscribedSku" : {
+            "$schema" : "http://json-schema.org/draft-03/schema",
+            "id" : "subscribedSku",
+            "type" : "object",
+            "nativeType" : "subscribedSku",
+            "properties" : {
+                "appliesTo" : {
+                    "type" : "string",
+                    "nativeName" : "appliesTo",
+                    "nativeType" : "string",
+                    "flags" : [
+                        "NOT_CREATABLE",
+                        "NOT_UPDATEABLE"
+                    ]
+                },
+                "prepaidUnits" : {
+                    "type" : "object",
+                    "nativeName" : "prepaidUnits",
+                    "nativeType" : "object",
+                    "flags" : [
+                        "NOT_CREATABLE",
+                        "NOT_UPDATEABLE"
+                    ]
+                },
+                "capabilityStatus" : {
+                    "type" : "string",
+                    "nativeName" : "capabilityStatus",
+                    "nativeType" : "string",
+                    "flags" : [
+                        "NOT_CREATABLE",
+                        "NOT_UPDATEABLE"
+                    ]
+                },
+                "servicePlans" : {
+                    "type" : "array",
+                    "items" : {
+                        "type" : "object",
+                        "nativeType" : "object"
+                    },
+                    "nativeName" : "servicePlans",
+                    "nativeType" : "object",
+                    "flags" : [
+                        "NOT_CREATABLE",
+                        "NOT_UPDATEABLE"
+                    ]
+                },
+                "skuPartNumber" : {
+                    "type" : "string",
+                    "nativeName" : "skuPartNumber",
+                    "nativeType" : "string",
+                    "flags" : [
+                        "NOT_CREATABLE",
+                        "NOT_UPDATEABLE"
+                    ]
+                },
+                "__NAME__" : {
+                    "type" : "string",
+                    "nativeName" : "__NAME__",
+                    "nativeType" : "string"
+                },
+                "skuId" : {
+                    "type" : "string",
+                    "nativeName" : "skuId",
+                    "nativeType" : "string",
+                    "flags" : [
+                        "NOT_CREATABLE",
+                        "NOT_UPDATEABLE"
+                    ]
+                },
+                "consumedUnits" : {
+                    "type" : "number",
+                    "nativeName" : "consumedUnits",
+                    "nativeType" : "JAVA_TYPE_LONG",
+                    "flags" : [
+                        "NOT_CREATABLE",
+                        "NOT_UPDATEABLE"
+                    ]
+                }
+            }
+        },
+        "team" : {
+            "$schema" : "http://json-schema.org/draft-03/schema",
+            "id" : "team",
+            "type" : "object",
+            "nativeType" : "team",
+            "properties" : {
+                "displayName" : {
+                    "type" : "string",
+                    "nativeName" : "displayName",
+                    "nativeType" : "string"
+                },
+                "classification" : {
+                    "type" : "string",
+                    "nativeName" : "classification",
+                    "nativeType" : "string"
+                },
+                "internalId" : {
+                    "type" : "string",
+                    "nativeName" : "internalId",
+                    "nativeType" : "string"
+                },
+                "funSettings" : {
+                    "type" : "object",
+                    "nativeName" : "funSettings",
+                    "nativeType" : "object"
+                },
+                "visibility" : {
+                    "type" : "string",
+                    "nativeName" : "visibility",
+                    "nativeType" : "string"
+                },
+                "description" : {
+                    "type" : "string",
+                    "nativeName" : "description",
+                    "nativeType" : "string"
+                },
+                "isArchived" : {
+                    "type" : "boolean",
+                    "nativeName" : "isArchived",
+                    "nativeType" : "boolean"
+                },
+                "memberSettings" : {
+                    "type" : "object",
+                    "nativeName" : "memberSettings",
+                    "nativeType" : "object"
+                },
+                "guestSettings" : {
+                    "type" : "object",
+                    "nativeName" : "guestSettings",
+                    "nativeType" : "object"
+                },
+                "channels" : {
+                    "type" : "array",
+                    "items" : {
+                        "type" : "object",
+                        "nativeType" : "object"
+                    },
+                    "nativeName" : "channels",
+                    "nativeType" : "object"
+                },
+                "members" : {
+                    "type" : "array",
+                    "items" : {
+                        "type" : "object",
+                        "nativeType" : "object"
+                    },
+                    "nativeName" : "members",
+                    "nativeType" : "object"
+                },
+                "webUrl" : {
+                    "type" : "string",
+                    "nativeName" : "webUrl",
+                    "nativeType" : "string",
+                    "flags" : [
+                        "NOT_CREATABLE",
+                        "NOT_UPDATEABLE"
+                    ]
+                },
+                "specialization" : {
+                    "type" : "string",
+                    "nativeName" : "specialization",
+                    "nativeType" : "string"
+                },
+                "messagingSettings" : {
+                    "type" : "object",
+                    "nativeName" : "messagingSettings",
+                    "nativeType" : "object"
+                }
+            }
+        },
+        "group" : {
+            "$schema" : "http://json-schema.org/draft-03/schema",
+            "id" : "__GROUP__",
+            "type" : "object",
+            "nativeType" : "__GROUP__",
+            "properties" : {
+                "preferredDataLocation" : {
+                    "type" : "string",
+                    "nativeName" : "preferredDataLocation",
+                    "nativeType" : "string"
+                },
+                "proxyAddresses" : {
+                    "type" : "array",
+                    "items" : {
+                        "type" : "string",
+                        "nativeType" : "string"
+                    },
+                    "nativeName" : "proxyAddresses",
+                    "nativeType" : "string",
+                    "flags" : [
+                        "NOT_CREATABLE",
+                        "NOT_UPDATEABLE"
+                    ]
+                },
+                "autoSubscribeNewMembers" : {
+                    "type" : "boolean",
+                    "nativeName" : "autoSubscribeNewMembers",
+                    "nativeType" : "boolean",
+                    "flags" : [
+                        "NOT_CREATABLE",
+                        "NOT_RETURNED_BY_DEFAULT"
+                    ]
+                },
+                "hideFromOutlookClients" : {
+                    "type" : "boolean",
+                    "nativeName" : "hideFromOutlookClients",
+                    "nativeType" : "boolean",
+                    "flags" : [
+                        "NOT_RETURNED_BY_DEFAULT"
+                    ]
+                },
+                "onPremisesSecurityIdentifier" : {
+                    "type" : "string",
+                    "nativeName" : "onPremisesSecurityIdentifier",
+                    "nativeType" : "string",
+                    "flags" : [
+                        "NOT_CREATABLE",
+                        "NOT_UPDATEABLE"
+                    ]
+                },
+                "onPremisesDomainName" : {
+                    "type" : "string",
+                    "nativeName" : "onPremisesDomainName",
+                    "nativeType" : "string",
+                    "flags" : [
+                        "NOT_CREATABLE",
+                        "NOT_UPDATEABLE"
+                    ]
+                },
+                "mail" : {
+                    "type" : "string",
+                    "nativeName" : "mail",
+                    "nativeType" : "string"
+                },
+                "creationOptions" : {
+                    "type" : "array",
+                    "items" : {
+                        "type" : "string",
+                        "nativeType" : "string"
+                    },
+                    "nativeName" : "creationOptions",
+                    "nativeType" : "string",
+                    "flags" : [
+                        "NOT_CREATABLE",
+                        "NOT_UPDATEABLE"
+                    ]
+                },
+                "description" : {
+                    "type" : "string",
+                    "nativeName" : "description",
+                    "nativeType" : "string"
+                },
+                "membershipRule" : {
+                    "type" : "string",
+                    "nativeName" : "membershipRule",
+                    "nativeType" : "string"
+                },
+                "__NAME__" : {
+                    "type" : "string",
+                    "nativeName" : "__NAME__",
+                    "nativeType" : "string"
+                },
+                "onPremisesNetBiosName" : {
+                    "type" : "string",
+                    "nativeName" : "onPremisesNetBiosName",
+                    "nativeType" : "string",
+                    "flags" : [
+                        "NOT_CREATABLE",
+                        "NOT_UPDATEABLE"
+                    ]
+                },
+                "securityEnabled" : {
+                    "type" : "boolean",
+                    "nativeName" : "securityEnabled",
+                    "nativeType" : "boolean"
+                },
+                "deletedDateTime" : {
+                    "type" : "string",
+                    "nativeName" : "deletedDateTime",
+                    "nativeType" : "string",
+                    "flags" : [
+                        "NOT_CREATABLE",
+                        "NOT_UPDATEABLE"
+                    ]
+                },
+                "groupTypes" : {
+                    "type" : "array",
+                    "items" : {
+                        "type" : "string",
+                        "nativeType" : "string"
+                    },
+                    "nativeName" : "groupTypes",
+                    "nativeType" : "string"
+                },
+                "displayName" : {
+                    "type" : "string",
+                    "required" : true,
+                    "nativeName" : "displayName",
+                    "nativeType" : "string"
+                },
+                "onPremisesSamAccountName" : {
+                    "type" : "string",
+                    "nativeName" : "onPremisesSamAccountName",
+                    "nativeType" : "string",
+                    "flags" : [
+                        "NOT_CREATABLE",
+                        "NOT_UPDATEABLE"
+                    ]
+                },
+                "members" : {
+                    "type" : "array",
+                    "items" : {
+                        "type" : "string",
+                        "nativeType" : "string"
+                    },
+                    "nativeName" : "members",
+                    "nativeType" : "string"
+                },
+                "owners" : {
+                    "type" : "array",
+                    "items" : {
+                        "type" : "string",
+                        "nativeType" : "string"
+                    },
+                    "nativeName" : "owners",
+                    "nativeType" : "string"
+                },
+                "licenseProcessingState" : {
+                    "type" : "string",
+                    "nativeName" : "licenseProcessingState",
+                    "nativeType" : "string",
+                    "flags" : [
+                        "NOT_CREATABLE",
+                        "NOT_UPDATEABLE"
+                    ]
+                },
+                "renewedDataTime" : {
+                    "type" : "string",
+                    "nativeName" : "renewedDataTime",
+                    "nativeType" : "string",
+                    "flags" : [
+                        "NOT_CREATABLE",
+                        "NOT_UPDATEABLE"
+                    ]
+                },
+                "theme" : {
+                    "type" : "string",
+                    "nativeName" : "theme",
+                    "nativeType" : "string"
+                },
+                "classification" : {
+                    "type" : "string",
+                    "nativeName" : "classification",
+                    "nativeType" : "string"
+                },
+                "securityIdentifier" : {
+                    "type" : "string",
+                    "nativeName" : "securityIdentifier",
+                    "nativeType" : "string"
+                },
+                "mailEnabled" : {
+                    "type" : "boolean",
+                    "nativeName" : "mailEnabled",
+                    "nativeType" : "boolean"
+                },
+                "allowExternalSenders" : {
+                    "type" : "boolean",
+                    "nativeName" : "allowExternalSenders",
+                    "nativeType" : "boolean",
+                    "flags" : [
+                        "NOT_RETURNED_BY_DEFAULT"
+                    ]
+                },
+                "visibility" : {
+                    "type" : "string",
+                    "nativeName" : "visibility",
+                    "nativeType" : "string",
+                    "flags" : [
+                        "NOT_UPDATEABLE"
+                    ]
+                },
+                "hideFromAddressLists" : {
+                    "type" : "boolean",
+                    "nativeName" : "hideFromAddressLists",
+                    "nativeType" : "boolean",
+                    "flags" : [
+                        "NOT_RETURNED_BY_DEFAULT"
+                    ]
+                },
+                "createdDateTime" : {
+                    "type" : "string",
+                    "nativeName" : "createdDateTime",
+                    "nativeType" : "string",
+                    "flags" : [
+                        "NOT_CREATABLE",
+                        "NOT_UPDATEABLE"
+                    ]
+                },
+                "membershipRuleProcessingState" : {
+                    "type" : "string",
+                    "nativeName" : "membershipRuleProcessingState",
+                    "nativeType" : "string"
+                },
+                "preferredLanguage" : {
+                    "type" : "string",
+                    "nativeName" : "preferredLanguage",
+                    "nativeType" : "string"
+                },
+                "mailNickname" : {
+                    "type" : "string",
+                    "required" : true,
+                    "nativeName" : "mailNickname",
+                    "nativeType" : "string"
+                },
+                "onPremisesSyncEnabled" : {
+                    "type" : "boolean",
+                    "nativeName" : "onPremisesSyncEnabled",
+                    "nativeType" : "boolean",
+                    "flags" : [
+                        "NOT_CREATABLE",
+                        "NOT_UPDATEABLE"
+                    ]
+                },
+                "hasMembersWithLicenseErrors" : {
+                    "type" : "boolean",
+                    "nativeName" : "hasMembersWithLicenseErrors",
+                    "nativeType" : "boolean",
+                    "flags" : [
+                        "NOT_RETURNED_BY_DEFAULT"
+                    ]
+                }
+            }
+        },
+        "user" : {
+            "$schema" : "http://json-schema.org/draft-03/schema",
+            "id" : "__ACCOUNT__",
+            "type" : "object",
+            "nativeType" : "__ACCOUNT__",
+            "properties" : {
+                "memberOf" : {
+                    "type" : "array",
+                    "items" : {
+                        "type" : "string",
+                        "nativeType" : "string"
+                    },
+                    "nativeName" : "memberOf",
+                    "nativeType" : "string"
+                },
+                "licenses" : {
+                    "type" : "array",
+                    "items" : {
+                        "type" : "object",
+                        "nativeType" : "object"
+                    },
+                    "nativeName" : "licenses",
+                    "nativeType" : "object",
+                    "flags" : [
+                        "NOT_CREATABLE",
+                        "NOT_UPDATEABLE"
+                    ]
+                },
+                "removeLicenses" : {
+                    "type" : "array",
+                    "items" : {
+                        "type" : "string",
+                        "nativeType" : "string"
+                    },
+                    "nativeName" : "removeLicenses",
+                    "nativeType" : "string",
+                    "flags" : [
+                        "NOT_CREATABLE",
+                        "NOT_READABLE",
+                        "NOT_RETURNED_BY_DEFAULT"
+                    ]
+                },
+                "addLicenses" : {
+                    "type" : "array",
+                    "items" : {
+                        "type" : "object",
+                        "nativeType" : "object"
+                    },
+                    "nativeName" : "addLicenses",
+                    "nativeType" : "object",
+                    "flags" : [
+                        "NOT_READABLE",
+                        "NOT_RETURNED_BY_DEFAULT"
+                    ]
+                },
+                "externalUserState" : {
+                    "type" : "string",
+                    "nativeName" : "externalUserState",
+                    "nativeType" : "string"
+                },
+                "proxyAddresses" : {
+                    "type" : "array",
+                    "items" : {
+                        "type" : "string",
+                        "nativeType" : "string"
+                    },
+                    "nativeName" : "proxyAddresses",
+                    "nativeType" : "string",
+                    "flags" : [
+                        "NOT_CREATABLE",
+                        "NOT_UPDATEABLE"
+                    ]
+                },
+                "mobilePhone" : {
+                    "type" : "string",
+                    "nativeName" : "mobilePhone",
+                    "nativeType" : "string",
+                    "flags" : [
+                        "NOT_CREATABLE",
+                        "NOT_UPDATEABLE"
+                    ]
+                },
+                "userPrincipalName" : {
+                    "type" : "string",
+                    "required" : true,
+                    "nativeName" : "userPrincipalName",
+                    "nativeType" : "string"
+                },
+                "businessPhones" : {
+                    "type" : "array",
+                    "items" : {
+                        "type" : "string",
+                        "nativeType" : "string"
+                    },
+                    "nativeName" : "businessPhones",
+                    "nativeType" : "string"
+                },
+                "country" : {
+                    "type" : "string",
+                    "nativeName" : "country",
+                    "nativeType" : "string"
+                },
+                "id" : {
+                    "type" : "string",
+                    "nativeName" : "id",
+                    "nativeType" : "string"
+                },
+                "mail" : {
+                    "type" : "string",
+                    "nativeName" : "mail",
+                    "nativeType" : "string"
+                },
+                "onPremisesImmutableId" : {
+                    "type" : "string",
+                    "nativeName" : "onPremisesImmutableId",
+                    "nativeType" : "string"
+                },
+                "deletedDateTime" : {
+                    "type" : "string",
+                    "nativeName" : "deletedDateTime",
+                    "nativeType" : "string",
+                    "flags" : [
+                        "NOT_CREATABLE",
+                        "NOT_UPDATEABLE"
+                    ]
+                },
+                "displayName" : {
+                    "type" : "string",
+                    "required" : true,
+                    "nativeName" : "displayName",
+                    "nativeType" : "string"
+                },
+                "__PASSWORD__" : {
+                    "type" : "string",
+                    "nativeName" : "__PASSWORD__",
+                    "nativeType" : "JAVA_TYPE_GUARDEDSTRING",
+                    "flags" : [
+                        "NOT_READABLE",
+                        "NOT_RETURNED_BY_DEFAULT",
+                        "NOT_UPDATEABLE"
+                    ]
+                },
+                "showInAddressList" : {
+                    "type" : "boolean",
+                    "nativeName" : "showInAddressList",
+                    "nativeType" : "boolean"
+                },
+                "identities" : {
+                    "type" : "array",
+                    "items" : {
+                        "type" : "object",
+                        "nativeType" : "object"
+                    },
+                    "nativeName" : "identities",
+                    "nativeType" : "object"
+                },
+                "employeeId" : {
+                    "type" : "string",
+                    "nativeName" : "employeeId",
+                    "nativeType" : "string"
+                },
+                "employeeType" : {
+                    "type" : "string",
+                    "nativeName" : "employeeType",
+                    "nativeType" : "string"
+                },
+                "employeeHireDate" : {
+                    "type" : "string",
+                    "nativeName" : "employeeHireDate",
+                    "nativeType" : "string"
+                },
+                "department" : {
+                    "type" : "string",
+                    "nativeName" : "department",
+                    "nativeType" : "string"
+                },
+                "creationType" : {
+                    "type" : "string",
+                    "nativeName" : "creationType",
+                    "nativeType" : "string",
+                    "flags" : [
+                        "NOT_CREATABLE",
+                        "NOT_UPDATEABLE"
+                    ]
+                },
+                "forceChangePasswordNextSignIn" : {
+                    "type" : "boolean",
+                    "nativeName" : "forceChangePasswordNextSignIn",
+                    "nativeType" : "boolean"
+                },
+                "ageGroup" : {
+                    "type" : "string",
+                    "nativeName" : "ageGroup",
+                    "nativeType" : "string"
+                },
+                "createdDateTime" : {
+                    "type" : "string",
+                    "nativeName" : "createdDateTime",
+                    "nativeType" : "string",
+                    "flags" : [
+                        "NOT_CREATABLE",
+                        "NOT_UPDATEABLE"
+                    ]
+                },
+                "onPremisesUserPrincipalName" : {
+                    "type" : "string",
+                    "nativeName" : "onPremisesUserPrincipalName",
+                    "nativeType" : "string",
+                    "flags" : [
+                        "NOT_CREATABLE",
+                        "NOT_UPDATEABLE"
+                    ]
+                },
+                "preferredLanguage" : {
+                    "type" : "string",
+                    "nativeName" : "preferredLanguage",
+                    "nativeType" : "string"
+                },
+                "mailNickname" : {
+                    "type" : "string",
+                    "required" : true,
+                    "nativeName" : "mailNickname",
+                    "nativeType" : "string"
+                },
+                "jobTitle" : {
+                    "type" : "string",
+                    "nativeName" : "jobTitle",
+                    "nativeType" : "string"
+                },
+                "legalAgeGroupClassification" : {
+                    "type" : "string",
+                    "nativeName" : "legalAgeGroupClassification",
+                    "nativeType" : "string",
+                    "flags" : [
+                        "NOT_CREATABLE",
+                        "NOT_UPDATEABLE"
+                    ]
+                },
+                "otherMails" : {
+                    "type" : "array",
+                    "items" : {
+                        "type" : "string",
+                        "nativeType" : "string"
+                    },
+                    "nativeName" : "otherMails",
+                    "nativeType" : "string"
+                },
+                "usageLocation" : {
+                    "type" : "string",
+                    "nativeName" : "usageLocation",
+                    "nativeType" : "string"
+                },
+                "state" : {
+                    "type" : "string",
+                    "nativeName" : "state",
+                    "nativeType" : "string"
+                },
+                "onPremisesSecurityIdentifier" : {
+                    "type" : "string",
+                    "nativeName" : "onPremisesSecurityIdentifier",
+                    "nativeType" : "string",
+                    "flags" : [
+                        "NOT_CREATABLE",
+                        "NOT_UPDATEABLE"
+                    ]
+                },
+                "onPremisesDomainName" : {
+                    "type" : "string",
+                    "nativeName" : "onPremisesDomainName",
+                    "nativeType" : "string",
+                    "flags" : [
+                        "NOT_CREATABLE",
+                        "NOT_UPDATEABLE"
+                    ]
+                },
+                "accountEnabled" : {
+                    "type" : "boolean",
+                    "required" : true,
+                    "nativeName" : "accountEnabled",
+                    "nativeType" : "boolean"
+                },
+                "userType" : {
+                    "type" : "string",
+                    "nativeName" : "userType",
+                    "nativeType" : "string"
+                },
+                "imAddresses" : {
+                    "type" : "array",
+                    "items" : {
+                        "type" : "string",
+                        "nativeType" : "string"
+                    },
+                    "nativeName" : "imAddresses",
+                    "nativeType" : "string",
+                    "flags" : [
+                        "NOT_CREATABLE",
+                        "NOT_UPDATEABLE"
+                    ]
+                },
+                "__NAME__" : {
+                    "type" : "string",
+                    "nativeName" : "__NAME__",
+                    "nativeType" : "string"
+                },
+                "officeLocation" : {
+                    "type" : "string",
+                    "nativeName" : "officeLocation",
+                    "nativeType" : "string"
+                },
+                "givenName" : {
+                    "type" : "string",
+                    "nativeName" : "givenName",
+                    "nativeType" : "string"
+                },
+                "postalCode" : {
+                    "type" : "string",
+                    "nativeName" : "postalCode",
+                    "nativeType" : "string"
+                },
+                "onPremisesDistinguishedName" : {
+                    "type" : "string",
+                    "nativeName" : "onPremisesDistinguishedName",
+                    "nativeType" : "string",
+                    "flags" : [
+                        "NOT_CREATABLE",
+                        "NOT_UPDATEABLE"
+                    ]
+                },
+                "onPremisesSamAccountName" : {
+                    "type" : "string",
+                    "nativeName" : "onPremisesSamAccountName",
+                    "nativeType" : "string",
+                    "flags" : [
+                        "NOT_CREATABLE",
+                        "NOT_UPDATEABLE"
+                    ]
+                },
+                "surname" : {
+                    "type" : "string",
+                    "nativeName" : "surname",
+                    "nativeType" : "string"
+                },
+                "consentProvidedForMinor" : {
+                    "type" : "string",
+                    "nativeName" : "consentProvidedForMinor",
+                    "nativeType" : "string"
+                },
+                "onPremisesExtensionAttributes" : {
+                    "type" : "object",
+                    "nativeName" : "onPremisesExtensionAttributes",
+                    "nativeType" : "object"
+                },
+                "manager" : {
+                    "type" : "object",
+                    "nativeName" : "manager",
+                    "nativeType" : "object"
+                },
+                "city" : {
+                    "type" : "string",
+                    "nativeName" : "city",
+                    "nativeType" : "string"
+                },
+                "faxNumber" : {
+                    "type" : "string",
+                    "nativeName" : "faxNumber",
+                    "nativeType" : "string"
+                },
+                "passwordPolicies" : {
+                    "type" : "string",
+                    "nativeName" : "passwordPolicies",
+                    "nativeType" : "string"
+                },
+                "streetAddress" : {
+                    "type" : "string",
+                    "nativeName" : "streetAddress",
+                    "nativeType" : "string"
+                },
+                "companyName" : {
+                    "type" : "string",
+                    "nativeName" : "companyName",
+                    "nativeType" : "string"
+                },
+                "onPremisesSyncEnabled" : {
+                    "type" : "boolean",
+                    "nativeName" : "onPremisesSyncEnabled",
+                    "nativeType" : "boolean",
+                    "flags" : [
+                        "NOT_CREATABLE",
+                        "NOT_UPDATEABLE"
+                    ]
+                }
+            }
+        }
+    },
+    "operationOptions" : {
+        "CREATE" : {
+            "objectFeatures" : {
+                "__GROUP__" : {
+                    "operationOptionInfo" : {
+                        "$schema" : "http://json-schema.org/draft-03/schema",
+                        "type" : "object",
+                        "properties" : { }
+                    }
+                },
+                "__ACCOUNT__" : {
+                    "operationOptionInfo" : {
+                        "$schema" : "http://json-schema.org/draft-03/schema",
+                        "type" : "object",
+                        "properties" : { }
+                    }
+                }
+            }
+        },
+        "UPDATE" : {
+            "objectFeatures" : {
+                "__GROUP__" : {
+                    "operationOptionInfo" : {
+                        "$schema" : "http://json-schema.org/draft-03/schema",
+                        "type" : "object",
+                        "properties" : { }
+                    }
+                },
+                "__ACCOUNT__" : {
+                    "operationOptionInfo" : {
+                        "$schema" : "http://json-schema.org/draft-03/schema",
+                        "type" : "object",
+                        "properties" : { }
+                    }
+                }
+            }
+        },
+        "DELETE" : {
+            "objectFeatures" : {
+                "__GROUP__" : {
+                    "operationOptionInfo" : {
+                        "$schema" : "http://json-schema.org/draft-03/schema",
+                        "type" : "object",
+                        "properties" : { }
+                    }
+                },
+                "__ACCOUNT__" : {
+                    "operationOptionInfo" : {
+                        "$schema" : "http://json-schema.org/draft-03/schema",
+                        "type" : "object",
+                        "properties" : { }
+                    }
+                }
+            }
+        },
+        "TEST" : {
+            "objectFeatures" : { }
+        },
+        "SCRIPT_ON_CONNECTOR" : {
+            "objectFeatures" : { }
+        },
+        "SCRIPT_ON_RESOURCE" : {
+            "objectFeatures" : { }
+        },
+        "GET" : {
+            "objectFeatures" : {
+                "__GROUP__" : {
+                    "operationOptionInfo" : {
+                        "$schema" : "http://json-schema.org/draft-03/schema",
+                        "type" : "object",
+                        "properties" : {
+                            "ATTRS_TO_GET" : {
+                                "type" : "array",
+                                "items" : {
+                                    "type" : "string",
+                                    "nativeType" : "string"
+                                },
+                                "nativeType" : "string"
+                            },
+                            "PAGE_SIZE" : {
+                                "type" : "integer",
+                                "nativeType" : "integer"
+                            },
+                            "PAGED_RESULTS_COOKIE" : {
+                                "type" : "string",
+                                "nativeType" : "string"
+                            }
+                        }
+                    }
+                },
+                "__ACCOUNT__" : {
+                    "operationOptionInfo" : {
+                        "$schema" : "http://json-schema.org/draft-03/schema",
+                        "type" : "object",
+                        "properties" : {
+                            "ATTRS_TO_GET" : {
+                                "type" : "array",
+                                "items" : {
+                                    "type" : "string",
+                                    "nativeType" : "string"
+                                },
+                                "nativeType" : "string"
+                            },
+                            "PAGE_SIZE" : {
+                                "type" : "integer",
+                                "nativeType" : "integer"
+                            },
+                            "PAGED_RESULTS_COOKIE" : {
+                                "type" : "string",
+                                "nativeType" : "string"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "RESOLVEUSERNAME" : {
+            "objectFeatures" : { }
+        },
+        "AUTHENTICATE" : {
+            "objectFeatures" : { }
+        },
+        "SEARCH" : {
+            "objectFeatures" : {
+                "__GROUP__" : {
+                    "operationOptionInfo" : {
+                        "$schema" : "http://json-schema.org/draft-03/schema",
+                        "type" : "object",
+                        "properties" : {
+                            "ATTRS_TO_GET" : {
+                                "type" : "array",
+                                "items" : {
+                                    "type" : "string",
+                                    "nativeType" : "string"
+                                },
+                                "nativeType" : "string"
+                            },
+                            "PAGE_SIZE" : {
+                                "type" : "integer",
+                                "nativeType" : "integer"
+                            },
+                            "PAGED_RESULTS_COOKIE" : {
+                                "type" : "string",
+                                "nativeType" : "string"
+                            }
+                        }
+                    }
+                },
+                "__ACCOUNT__" : {
+                    "operationOptionInfo" : {
+                        "$schema" : "http://json-schema.org/draft-03/schema",
+                        "type" : "object",
+                        "properties" : {
+                            "ATTRS_TO_GET" : {
+                                "type" : "array",
+                                "items" : {
+                                    "type" : "string",
+                                    "nativeType" : "string"
+                                },
+                                "nativeType" : "string"
+                            },
+                            "PAGE_SIZE" : {
+                                "type" : "integer",
+                                "nativeType" : "integer"
+                            },
+                            "PAGED_RESULTS_COOKIE" : {
+                                "type" : "string",
+                                "nativeType" : "string"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "VALIDATE" : {
+            "objectFeatures" : { }
+        },
+        "SYNC" : {
+            "objectFeatures" : {
+                "__GROUP__" : {
+                    "operationOptionInfo" : {
+                        "$schema" : "http://json-schema.org/draft-03/schema",
+                        "type" : "object",
+                        "properties" : { }
+                    }
+                },
+                "__ACCOUNT__" : {
+                    "operationOptionInfo" : {
+                        "$schema" : "http://json-schema.org/draft-03/schema",
+                        "type" : "object",
+                        "properties" : { }
+                    }
+                }
+            }
+        },
+        "SCHEMA" : {
+            "objectFeatures" : { }
+        }
+    }
+}

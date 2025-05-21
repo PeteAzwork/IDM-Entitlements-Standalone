@@ -1,0 +1,137 @@
+{{!
+  Copyright 2017 ForgeRock AS. All Rights Reserved
+
+  Use of this code requires a commercial software license with ForgeRock AS.
+  or with one of its affiliates. All use shall be exclusively subject
+  to such license between the licensee and ForgeRock AS.
+}}
+<div class="fr-top-bar">
+    <div class="container">
+        <h3 class="fr-breadcrumb">
+            <a href="#connectors/">{{t "templates.connector.connectorTitle"}}</a>
+            <span class="seperator"></span>
+            <a href="{{urlTo 'connectorObjectTypesView' fullConnectorName }}">{{connectorId}}</a>
+            <span class="seperator"></span>
+            <a href="#objectType/edit/{{fullConnectorName}}/{{objectTypeName}}">{{objectTypeName}}</a>
+            <span class="seperator"></span>
+            <span>{{propertyName}}</span>
+        </h3>
+    </div>
+</div>
+<div class="container">
+    <div class="page-header clearfix">
+        <span class="header-icon pull-left"><i class="fa {{headerIcon}}"></i></span>
+        <h4 class="page-type">{{property.type}} {{t "templates.managed.property"}}</h4>
+        <div class="page-header-button-group">
+            <div class="btn-group">
+                <button type="button" class="btn btn-default btn-secondary dropdown-toggle btn-actions" data-toggle="dropdown" aria-expanded="false">
+                    <i class="fa fa-ellipsis-v fa-lg"></i>
+                </button>
+                <ul class="dropdown-menu pull-right" role="menu">
+                    {{#unless invalidProperty}}
+                    <li id="deleteProperty"><a href="#"><i class="fa fa-times"></i>{{t "common.form.delete"}}</a></li>
+                    {{/unless}}
+                </ul>
+            </div>
+        </div>
+        <h1>{{propertyName}}</h1>
+    </div>
+</div>
+<div class="container">
+    <form id="propertyDetailsForm" class="form-horizontal" role="form" autocomplete="off">
+        <div class="tab-content">
+            {{#unless invalidProperty}}
+            <div role="tabpanel" class="managedContainers tab-pane active" id="detailsContainer">
+                <div class="panel no-margin-bottom">
+                    <div class="panel-body">
+                        <div id="generalDetails" aria-labelledby="generalDetails">
+                            <div class="panel-body">
+                                <div class="form-group">
+                                    <label for="propertyNativeName" class="col-sm-3 control-label">{{t "templates.connector.objectTypes.nativeName"}}</label>
+                                    <div class="col-sm-6">
+                                        <input class="form-control" type="text" id="propertyNativeName" name="nativeName" value="{{property.nativeName}}"/>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="propertyNativeType" class="col-sm-3 control-label">{{t "templates.connector.objectTypes.nativeType"}}</label>
+                                    <div class="col-sm-6">
+                                        <select class="form-control" type="text" id="propertyNativeType" name="nativeType" value="{{property.nativeType}}">
+                                            {{#each nativeTypes}}
+                                            <option value="{{@this}}" {{#equals ../property.nativeType @this}}selected{{/equals}}>{{@this}}</option>
+                                            {{/each}}
+                                        </select>
+                                    </div>
+                                </div>
+
+                                {{> form/_tagSelectize options=flags value=property.flags label="templates.connector.objectTypes.flags" property="flags" noValidation="true" }}
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">{{t "common.form.validation.required"}}</label>
+                                    <div class="col-sm-6">
+                                        <div class="checkbox checkbox-slider checkbox-slider checkbox-slider-md checkbox-slider--b-flat checkbox-slider-primary">
+                                            <label><input type="checkbox" name="required" {{#if property.required}}checked{{/if}} value="true"><span></span></label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">{{t "templates.connector.objectTypes.runAsUser"}}</label>
+                                    <div class="col-sm-6">
+                                        <div class="checkbox checkbox-slider checkbox-slider checkbox-slider-md checkbox-slider--b-flat checkbox-slider-primary">
+                                            <label><input type="checkbox" name="runAsUser" {{#if property.runAsUser}}checked{{/if}} value="true"><span></span></label>
+                                        </div>
+                                    </div>
+                                </div>
+                                {{#equals property.type "array"}}
+                                <div id="arrayTypeContainer">
+                                    <label class="col-sm-3 control-label">{{t "templates.connector.objectTypes.items"}}</label>
+                                    <div class="col-sm-6">
+                                        <div class="well">
+                                            <div class="form-group">
+                                                <label for="propertyItemsType" class="col-sm-3 control-label">{{t "templates.connector.objectTypes.type"}}</label>
+                                                <div class="col-sm-6">
+                                                    <select class="form-control" type="text" id="propertyNativeType" name="items.type" value="{{property.items.type}}">
+                                                        {{#each idmTypes}}
+                                                        <option value="{{@this}}" {{#equals ../property.items.type @this}}selected{{/equals}}>{{@this}}</option>
+                                                        {{/each}}
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="propertyItemsNativeType" class="col-sm-3 control-label">{{t "templates.connector.objectTypes.nativeType"}}</label>
+                                                <div class="col-sm-6">
+                                                    <select class="form-control" type="text" id="propertyItemsNativeType" name="items.nativeType" value="{{property.items.nativeType}}">
+                                                        {{#each nativeTypes}}
+                                                        <option value="{{@this}}" {{#equals ../property.items.nativeType @this}}selected{{/equals}}>{{@this}}</option>
+                                                        {{/each}}
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {{/equals}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-footer clearfix">
+                        <div class="pull-left">
+                            <div class="changes-pending-container"></div>
+                        </div>
+                        <div class="pull-right">
+                            <a href="#objectType/edit/{{systemType}}_{{connectorId}}/{{objectTypeName}}">
+                                <button class="btn btn-default" type="button">{{t 'common.form.cancel'}}</button>
+                            </a>
+                            <input type="button" value="{{t 'common.form.save'}}" class="btn btn-save btn-primary savePropertyDetails" disabled>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div role="tabpanel" class="managedContainers tab-pane {{#if showSchema}}active{{/if}}" id="propertiesContainer">
+                <div class="panel no-margin-bottom">
+                    <div id="object-properties-list" class="panel-body"></div>
+                </div>
+            </div>
+            {{/unless}}
+        </div>
+    </form>
+</div>

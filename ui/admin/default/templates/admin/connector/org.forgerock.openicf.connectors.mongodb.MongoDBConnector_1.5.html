@@ -1,0 +1,273 @@
+{{!
+  Copyright 2018-2023 ForgeRock AS. All Rights Reserved
+
+  Use of this code requires a commercial software license with ForgeRock AS.
+  or with one of its affiliates. All use shall be exclusively subject
+  to such license between the licensee and ForgeRock AS.
+}}
+<div class='panel panel-default panel-collapse'>
+        <div class='panel-heading' role='tab' id='connectorSpecificBaseHeading'>
+          <h4 class='panel-title'>
+            <a data-toggle='collapse' href='#connectorSpecificBase' aria-controls='connectorSpecificBaseHeading' class=''>
+                {{t "templates.connector.mongoDB.basicGroup"}}
+            </a>
+          </h4>
+        </div>
+    <div id="connectorSpecificBase" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="connectorSpecificBase" aria-expanded="true">
+        <div class="panel-body">
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="connectionURI">{{t "templates.connector.mongoDB.connectionURI"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="connectionURI" name="configurationProperties.connectionURI" value="{{connectorDefaults.configurationProperties.connectionURI}}" />
+                    <span class='help-block'>{{t "templates.connector.mongoDB.connectionURIHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="host">{{t "templates.connector.mongoDB.host"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="host" name="configurationProperties.host" value="{{connectorDefaults.configurationProperties.host}}" />
+                    <span class='help-block'>{{t "templates.connector.mongoDB.hostHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="port">{{t "templates.connector.mongoDB.port"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="port" name="configurationProperties.port" value="{{connectorDefaults.configurationProperties.port}}" />
+                    <span class='help-block'>{{t "templates.connector.mongoDB.portHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="user">{{t "templates.connector.mongoDB.user"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="user" name="configurationProperties.user" value="{{connectorDefaults.configurationProperties.user}}" />
+                    <span class='help-block'>{{t "templates.connector.mongoDB.userHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="password">{{t "templates.connector.mongoDB.password"}}</label>
+                <div class="col-sm-8">
+                    <!-- autocomplete="new-password" is required to prevent chrome from auto-completing these form fields -->
+                    <input class="form-control" type="password" id="password" autocomplete="new-password" name="configurationProperties.password" value="" {{#if connectorDefaults.configurationProperties.password}} placeholder="********" {{/if}} />
+                    <span class='help-block'>{{t "templates.connector.mongoDB.passwordHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="userDatabase">{{t "templates.connector.mongoDB.userDatabase"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="userDatabase" name="configurationProperties.userDatabase" value="{{connectorDefaults.configurationProperties.userDatabase}}" />
+                    <span class='help-block'>{{t "templates.connector.mongoDB.userDatabaseHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="clusterAddresses">{{t "templates.connector.mongoDB.clusterAddresses"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="clusterAddresses" name="configurationProperties.clusterAddresses[]" value="{{connectorDefaults.configurationProperties.clusterAddresses}}" />
+                    <span class='help-block'>{{t "templates.connector.mongoDB.clusterAddressesHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="dateAttributes">{{t "templates.connector.mongoDB.dateAttributes"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="dateAttributes" name="configurationProperties.dateAttributes[]" value="{{connectorDefaults.configurationProperties.dateAttributes}}"/>
+                    <span class='help-block'>{{t "templates.connector.mongoDB.dateAttributesHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="database">{{t "templates.connector.mongoDB.database"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="database" name="configurationProperties.database" value="{{connectorDefaults.configurationProperties.database}}" />
+                    <span class='help-block'>{{t "templates.connector.mongoDB.databaseHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="arrayAttributes">{{t "templates.connector.mongoDB.arrayAttributes"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="arrayAttributes" name="configurationProperties.arrayAttributes[]" value="{{connectorDefaults.configurationProperties.arrayAttributes}}" />
+                    <span class='help-block'>{{t "templates.connector.mongoDB.arrayAttributesHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="includeNullValue">{{t "templates.connector.mongoDB.includeNullValue"}}</label>
+                <div class="col-sm-8">
+                    <div class="checkbox checkbox-slider-primary checkbox-slider checkbox-slider--b checkbox-slider-md">
+                        <label>
+                            <input class="toggleBoolean" id="includeNullValue" type="checkbox"
+                                   name="configurationProperties.includeNullValue"
+                                   value="true" {{#if connectorDefaults.configurationProperties.includeNullValue}} checked {{/if}} >
+                            <span></span>
+                        </label>
+                    </div>
+                    <span class='help-block'>{{t "templates.connector.mongoDB.includeNullValueHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="includeEmptyList">{{t "templates.connector.mongoDB.includeEmptyList"}}</label>
+                <div class="col-sm-8">
+                    <div class="checkbox checkbox-slider-primary checkbox-slider checkbox-slider--b checkbox-slider-md">
+                        <label>
+                            <input class="toggleBoolean" id="includeEmptyList" type="checkbox"
+                                   name="configurationProperties.includeEmptyList"
+                                   value="true" {{#if connectorDefaults.configurationProperties.includeEmptyList}} checked {{/if}} >
+                            <span></span>
+                        </label>
+                    </div>
+                    <span class='help-block'>{{t "templates.connector.mongoDB.includeEmptyListHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="dateFormat">{{t "templates.connector.mongoDB.dateFormat"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="dateFormat" name="configurationProperties.dateFormat" value="{{connectorDefaults.configurationProperties.dateFormat}}" />
+                    <span class='help-block'>{{t "templates.connector.mongoDB.dateFormatHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="timeZone">{{t "templates.connector.mongoDB.timeZone"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="timeZone" name="configurationProperties.timeZone" value="{{connectorDefaults.configurationProperties.timeZone}}" />
+                    <span class='help-block'>{{t "templates.connector.mongoDB.timeZoneHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="ICFName">{{t "templates.connector.mongoDB.ICFName"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="ICFName" name="configurationProperties.ICFName" value="{{connectorDefaults.configurationProperties.ICFName}}" />
+                    <span class='help-block'>{{t "templates.connector.mongoDB.ICFNameHelp"}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="panel panel-default panel-collapse">
+    <div class='panel-heading' role='tab' id='connectorConnectionHeading'>
+        <h4 class="panel-title">
+            <a data-toggle="collapse" href="#connectorConnection" aria-expanded="true" aria-controls="connectorConnectionHeading" class="">{{t "templates.connector.mongoDB.connectionGroup"}}</a>
+        </h4>
+    </div>
+    <div id="connectorConnection" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="connectorConnection" aria-expanded="true">
+        <div class="panel-body">
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="sslEnabled">{{t "templates.connector.mongoDB.sslEnabled"}}</label>
+                <div class="col-sm-8">
+                    <div class="checkbox checkbox-slider-primary checkbox-slider checkbox-slider--b checkbox-slider-md">
+                        <label>
+                            <input class="toggleBoolean" id="sslEnabled" type="checkbox"
+                                   name="configurationProperties.sslEnabled"
+                                   value="true" {{#if connectorDefaults.configurationProperties.sslEnabled}} checked {{/if}} >
+                            <span></span>
+                        </label>
+                    </div>
+                    <span class='help-block'>{{t "templates.connector.mongoDB.sslEnabledHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="sslHostNameValidation">{{t "templates.connector.mongoDB.sslHostNameValidation"}}</label>
+                <div class="col-sm-8">
+                    <div class="checkbox checkbox-slider-primary checkbox-slider checkbox-slider--b checkbox-slider-md">
+                        <label>
+                            <input class="toggleBoolean" id="sslHostNameValidation" type="checkbox"
+                                   name="configurationProperties.sslHostNameValidation"
+                                   value="true" {{#if connectorDefaults.configurationProperties.sslHostNameValidation}} checked {{/if}} >
+                            <span></span>
+                        </label>
+                    </div>
+                    <span class='help-block'>{{t "templates.connector.mongoDB.sslHostNameValidationHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="maxConnectionIdleTime">{{t "templates.connector.mongoDB.maxConnectionIdleTime"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="maxConnectionIdleTime" name="configurationProperties.maxConnectionIdleTime" value="{{connectorDefaults.configurationProperties.maxConnectionIdleTime}}" />
+                    <span class='help-block'>{{t "templates.connector.mongoDB.maxConnectionIdleTimeHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="maxConnectionLifeTime">{{t "templates.connector.mongoDB.maxConnectionLifeTime"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="maxConnectionLifeTime" name="configurationProperties.maxConnectionLifeTime" value="{{connectorDefaults.configurationProperties.maxConnectionLifeTime}}" />
+                    <span class='help-block'>{{t "templates.connector.mongoDB.maxConnectionLifeTimeHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="minConnectionsPerHost">{{t "templates.connector.mongoDB.minConnectionsPerHost"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="minConnectionsPerHost" name="configurationProperties.minConnectionsPerHost" value="{{connectorDefaults.configurationProperties.minConnectionsPerHost}}" />
+                    <span class='help-block'>{{t "templates.connector.mongoDB.minConnectionsPerHostHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="maxConnectionsPerHost">{{t "templates.connector.mongoDB.maxConnectionsPerHost"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="maxConnectionsPerHost" name="configurationProperties.maxConnectionsPerHost" value="{{connectorDefaults.configurationProperties.maxConnectionsPerHost}}" />
+                    <span class='help-block'>{{t "templates.connector.mongoDB.maxConnectionsPerHostHelp"}}</span>
+                </div>
+            </div>      
+        </div>
+    </div>
+</div>
+
+<!-- Script Panel -->
+<div class="panel panel-default panel-collapse">
+    <div class="panel-heading" role="tab" id="scriptHolderHeading">
+        <h4 class="panel-title">
+            <a data-toggle="collapse" href="#scriptHolder" aria-expanded="false" aria-controls="scriptHolder"
+               class="">{{t "templates.connector.scriptedShared.scriptsRootsTitle"}}</a>
+        </h4>
+    </div>
+    <div id="scriptHolder" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="scriptHolder" aria-expanded="true">
+        <div class="form-group">
+            <label class="col-sm-3 control-label" for="createScriptFileName">{{t "templates.connector.scriptedShared.createScriptFileName"}}</label>
+            <div class="col-sm-8">
+                <input class="form-control" data-validator="" type="text" id="createScriptFileName"
+                       name="configurationProperties.createScriptFileName"
+                       value="{{connectorDefaults.configurationProperties.createScriptFileName}}" />
+                <span class='help-block'>{{t "templates.connector.scriptedShared.createScriptFileNameHelp"}}</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label" for="deleteScriptFileName">{{t "templates.connector.scriptedShared.deleteScriptFileName"}}</label>
+            <div class="col-sm-8">
+                <input class="form-control" data-validator="" type="text" id="deleteScriptFileName"
+                       name="configurationProperties.deleteScriptFileName"
+                       value="{{connectorDefaults.configurationProperties.deleteScriptFileName}}" />
+                <span class='help-block'>{{t "templates.connector.scriptedShared.deleteScriptFileNameHelp"}}</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label" for="schemaScriptFileName">{{t "templates.connector.scriptedShared.schemaScriptFileName"}}</label>
+            <div class="col-sm-8">
+                <input class="form-control" data-validator="" type="text" id="schemaScriptFileName"
+                       name="configurationProperties.schemaScriptFileName"
+                       value="{{connectorDefaults.configurationProperties.schemaScriptFileName}}" />
+                <span class='help-block'>{{t "templates.connector.scriptedShared.schemaScriptFileNameHelp"}}</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label" for="searchScriptFileName">{{t "templates.connector.scriptedShared.searchScriptFileName"}}</label>
+            <div class="col-sm-8">
+                <input class="form-control" data-validator="" type="text" id="searchScriptFileName"
+                       name="configurationProperties.searchScriptFileName"
+                       value="{{connectorDefaults.configurationProperties.searchScriptFileName}}" />
+                <span class='help-block'>{{t "templates.connector.scriptedShared.searchScriptFileNameHelp"}}</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label" for="testScriptFileName">{{t "templates.connector.scriptedShared.testScriptFileName"}}</label>
+            <div class="col-sm-8">
+                <input class="form-control" data-validator="" type="text" id="testScriptFileName"
+                       name="configurationProperties.testScriptFileName"
+                       value="{{connectorDefaults.configurationProperties.testScriptFileName}}" />
+                <span class='help-block'>{{t "templates.connector.scriptedShared.testScriptFileNameHelp"}}</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label" for="updateScriptFileName">{{t "templates.connector.scriptedShared.updateScriptFileName"}}</label>
+            <div class="col-sm-8">
+                <input class="form-control" data-validator="" type="text" id="updateScriptFileName"
+                       name="configurationProperties.updateScriptFileName"
+                       value="{{connectorDefaults.configurationProperties.updateScriptFileName}}" />
+                <span class='help-block'>{{t "templates.connector.scriptedShared.updateScriptFileNameHelp"}}</span>
+            </div>
+        </div>
+    </div>
+</div>

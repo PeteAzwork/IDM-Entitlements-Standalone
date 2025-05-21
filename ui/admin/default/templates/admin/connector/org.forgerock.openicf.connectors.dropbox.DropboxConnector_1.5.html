@@ -1,0 +1,126 @@
+{{!
+  Copyright 2023 ForgeRock AS. All Rights Reserved
+
+  Use of this code requires a commercial software license with ForgeRock AS.
+  or with one of its affiliates. All use shall be exclusively subject
+  to such license between the licensee and ForgeRock AS.
+}}
+<!-- Base Details panel -->
+<div class="panel panel-default panel-collapse" id="dropboxConnector">
+    <div class="panel-heading" role="tab" id="connectorSpecificBaseHeading">
+        <h4 class="panel-title">
+            <a data-toggle="collapse" href="#connectorSpecificBase" aria-expanded="true" aria-controls="connectorSpecificBase" class="">{{t "templates.connector.baseTitle"}}</a>
+        </h4>
+    </div>
+    <div id="connectorSpecificBase" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="connectorSpecificBaseHeading" aria-expanded="true">
+        <div class="panel-body">
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="serviceUri">{{t "templates.connector.dropbox.serviceUri"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" data-validator="required" type="text" id="serviceUri" name="configurationProperties.serviceUri" value="{{connectorDefaults.configurationProperties.serviceUri}}" />
+                    <span class='help-block'>{{t "templates.connector.dropbox.serviceUriHelp"}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label" for="useBasicAuthForOauthTokenNeg">{{t "templates.connector.dropbox.useBasicAuthForOauthTokenNeg"}}</label>
+        <div class="col-sm-8">
+            <div class="checkbox checkbox-slider-primary checkbox-slider checkbox-slider--b checkbox-slider-md">
+                <label>
+                    <input class="toggleBoolean" id="useBasicAuthForOauthTokenNeg" type="checkbox"
+                           name="configurationProperties.useBasicAuthForOauthTokenNeg"
+                           value="true" {{#if connectorDefaults.configurationProperties.useBasicAuthForOauthTokenNeg}} checked {{/if}} >
+                    <span></span>
+                </label>
+            </div>
+            <span class='help-block'>{{t "templates.connector.dropbox.useBasicAuthForOauthTokenNegHelp"}}</span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label" for="maximumConnections">{{t "templates.connector.dropbox.maximumConnections"}}</label>
+        <div class="col-sm-8">
+            <input class="form-control" type="number" id="maximumConnections" name="configurationProperties.maximumConnections"
+                   value="{{connectorDefaults.configurationProperties.maximumConnections}}" />
+            <span class='help-block'>{{t "templates.connector.dropbox.maximumConnectionsHelp"}}</span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label" for="connectionTimeout">{{t "templates.connector.dropbox.connectionTimeout"}}</label>
+        <div class="col-sm-8">
+            <input class="form-control" type="number" id="connectionTimeout" name="configurationProperties.connectionTimeout"
+                   value="{{connectorDefaults.configurationProperties.connectionTimeout}}" />
+            <span class='help-block'>{{t "templates.connector.dropbox.connectionTimeoutHelp"}}</span>
+        </div>
+    </div>
+</div>
+<!-- Authentication Method Panel -->
+<div class="panel panel-default panel-collapse" id="DROPBOXAuthPanel">
+    <div class="panel-heading" role="tab" id="DROPBOXConnectorAuthPanelHeading">
+        <h4 class="panel-title">
+            <a data-toggle="collapse" href="#DROPBOXConnectorAuthPanel" aria-expanded="true" aria-controls="DROPBOXConnectorAuthPanel" class="">{{t "templates.connector.authentication"}}</a>
+        </h4>
+    </div>
+    <div id="DROPBOXConnectorAuthPanel" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="DROPBOXConnectorAuthPanelHeading" aria-expanded="true">
+        <div class="panel-body">
+            <input type="hidden" id="authenticationMethod" name="configurationProperties.authenticationMethod" value="OAUTH" />
+            <div class="form-group" data-authentication-method="oauth">
+                <label class="col-sm-3 control-label" for="tokenEndpoint">{{t "templates.connector.dropbox.tokenEndpoint"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" data-validator="" type="tokenEndpoint" id="tokenEndpoint" name="configurationProperties.tokenEndpoint" 
+                    value="{{connectorDefaults.configurationProperties.tokenEndpoint}}" />
+                    <span class='help-block'>{{t "templates.connector.dropbox.tokenEndpointHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group" data-authentication-method="oauth">
+                <label class="col-sm-3 control-label" for="clientId">{{t "templates.connector.dropbox.clientId"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" data-validator="required" type="text" id="clientId" name="configurationProperties.clientId"
+                    value="{{connectorDefaults.configurationProperties.clientId}}"  />
+                    <span class='help-block'>{{t "templates.connector.dropbox.clientIdHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group" data-authentication-method="oauth">
+                <label class="col-sm-3 control-label" for="clientSecret">{{t "templates.connector.dropbox.clientSecret"}}</label>
+                <div class="col-sm-8">
+                    <!-- autocomplete="new-password" is required to prevent chrome from auto-completing these form fields -->
+                    {{#ifObject connectorDefaults.configurationProperties.clientSecret}}
+                        {{#if connectorDefaults.configurationProperties.clientSecret.$crypto}}
+                            <input id="clientSecret" class="form-control" name="configurationProperties.clientSecret" type="password"
+                            {{#if connectorDefaults.configurationProperties.clientSecret}} placeholder="********" {{/if}} autocomplete="new-password" />
+                        {{else}}
+                            <input id="clientSecret" class="form-control" name="configurationProperties.clientSecret" type="password"
+                            placeholder="{{connectorDefaults.configurationProperties.clientSecret.$base64:decode}}" autocomplete="new-password" />
+                        {{/if}}
+                    {{else}}
+                        <input id="clientSecret" class="form-control" data-validator="required" type="password" name="configurationProperties.clientSecret"
+                        value="{{connectorDefaults.configurationProperties.clientSecret}}" autocomplete="new-password" />
+                    {{/ifObject}}
+                    <span class='help-block'>{{t "templates.connector.dropbox.clientSecretHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group" data-authentication-method="oauth">
+                <label class="col-sm-3 control-label" for="refreshToken">{{t "templates.connector.dropbox.refreshToken"}}</label>
+                <div class="col-sm-8">
+                    <!-- autocomplete="new-password" is required to prevent chrome from auto-completing these form fields -->
+                    {{#ifObject connectorDefaults.configurationProperties.refreshToken}}
+                    {{#if connectorDefaults.configurationProperties.refreshToken.$crypto}}
+                    <input id="refreshToken" class="form-control" name="configurationProperties.refreshToken"
+                           type="password"
+                           {{#if connectorDefaults.configurationProperties.refreshToken}} placeholder="********" {{/if}} autocomplete="new-password" />
+                    {{else}}
+                    <input id="refreshToken" class="form-control" name="configurationProperties.refreshToken" type="password"
+                           placeholder="{{connectorDefaults.configurationProperties.refreshToken.$base64:decode}}"
+                           autocomplete="new-password" />
+                    {{/if}}
+                    {{else}}
+                    <input id="refreshToken" class="form-control" data-validator="" type="password"
+                           name="configurationProperties.refreshToken"
+                           value="{{connectorDefaults.configurationProperties.refreshToken}}" autocomplete="new-password" />
+                    {{/ifObject}}
+                    <span class='help-block'>{{t "templates.connector.dropbox.refreshTokenHelp"}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

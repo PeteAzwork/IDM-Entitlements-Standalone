@@ -1,0 +1,210 @@
+{
+    "connectorRef" : {
+        "displayName" : "MongoDB Connector",
+        "bundleVersion" : "[1.5.0.0,1.6.0.0)",
+        "systemType" : "provisioner.openicf",
+        "bundleName" : "org.forgerock.openicf.connectors.mongodb-connector",
+        "connectorName" : "org.forgerock.openicf.connectors.mongodb.MongoDBConnector"
+    },
+    "resultsHandlerConfig" : {
+        "enableNormalizingResultsHandler" : false,
+        "enableFilteredResultsHandler" : false,
+        "enableCaseInsensitiveFilter" : false,
+        "enableAttributesToGetSearchResultsHandler" : true
+    },
+    "operationTimeout" : {
+        "CREATE" : -1,
+        "UPDATE" : -1,
+        "DELETE" : -1,
+        "TEST" : -1,
+        "SCRIPT_ON_CONNECTOR" : -1,
+        "SCRIPT_ON_RESOURCE" : -1,
+        "GET" : -1,
+        "RESOLVEUSERNAME" : -1,
+        "AUTHENTICATE" : -1,
+        "SEARCH" : -1,
+        "VALIDATE" : -1,
+        "SYNC" : -1,
+        "SCHEMA" : -1
+    },
+    "configurationProperties" : {
+        "arrayAttributes" : [ ],
+        "authenticateScriptFileName" : null,
+        "classpath" : [ ],
+        "clusterAddresses" : null,
+        "customConfiguration" : null,
+        "customSensitiveConfiguration" : null,
+        "customizerScriptFileName" : null,
+        "database" : "__CHANGEME__",
+        "dateAttributes" : [ ],
+        "dateFormat" : "yyyy-MM-dd'T'HH:mm:ss'Z'",
+        "debug" : "false",
+        "disabledGlobalASTTransformations" : null,
+        "host" : "localhost",
+        "ICFName" : "name",
+        "includeEmptyList" : "false",
+        "includeNullValue" : "false",
+        "maxConnectionIdleTime" : "0",
+        "maxConnectionLifeTime" : "0",
+        "maxConnectionsPerHost" : "5",
+        "minConnectionsPerHost" : "0",
+        "minimumRecompilationInterval" : "100",
+        "password" : "__CHANGEME__",
+        "port" : "27017",
+        "recompileGroovySource" : "false",
+        "resolveUsernameScriptFileName" : null,
+        "scriptBaseClass" : null,
+        "scriptExtensions" : "groovy",
+        "scriptOnResourceScriptFileName" : null,
+        "scriptRoots" : [
+            "jar:file:connectors/mongodb-connector-1.5.20.21.jar!/scripts/mongodb/usersRoles/"
+        ],
+        "sourceEncoding" : "UTF-8",
+        "sslEnabled" : "false",
+        "sslHostNameValidation" : "true",
+        "syncScriptFileName" : null,
+        "targetDirectory" : null,
+        "timeZone" : "UTC",
+        "tolerance" : "10",
+        "user" : "__CHANGEME__",
+        "userDatabase" : "admin",
+        "verbose" : false,
+        "warningLevel" : "1",
+        "createScriptFileName" : "Create.groovy",
+        "deleteScriptFileName" : "Delete.groovy",
+        "schemaScriptFileName" : "Schema.groovy",
+        "searchScriptFileName" : "Search.groovy",
+        "testScriptFileName" : "Test.groovy",
+        "updateScriptFileName" : "Update.groovy"
+    },
+    "enabled" : true,
+    "objectTypes" : {
+        "role" : {
+            "$schema" : "http://json-schema.org/draft-03/schema",
+            "id" : "role",
+            "type" : "object",
+            "nativeType" : "role",
+            "properties" : {
+                "role" : {
+                    "type" : "string",
+                    "required" : true,
+                    "nativeName" : "__NAME__",
+                    "nativeType" : "string",
+                    "flags" : [
+                        "NOT_UPDATEABLE"
+                    ]
+                },
+                "inheritedRoles" : {
+                    "type" : "array",
+                    "items" : {
+                        "type" : "object",
+                        "nativeType" : "object"
+                    },
+                    "nativeName" : "inheritedRoles",
+                    "nativeType" : "object",
+                    "flags" : [
+                        "NOT_CREATABLE",
+                        "NOT_UPDATEABLE"
+                    ]
+                },
+                "roles" : {
+                    "type" : "array",
+                    "items" : {
+                        "type" : "object",
+                        "nativeType" : "object"
+                    },
+                    "required" : true,
+                    "nativeName" : "roles",
+                    "nativeType" : "object"
+                },
+                "isBuiltin" : {
+                    "type" : "string",
+                    "nativeName" : "isBuiltin",
+                    "nativeType" : "string",
+                    "flags" : [
+                        "NOT_CREATABLE",
+                        "NOT_UPDATEABLE"
+                    ]
+                },
+                "db" : {
+                    "type" : "string",
+                    "nativeName" : "db",
+                    "nativeType" : "string",
+                    "flags" : [
+                        "NOT_CREATABLE",
+                        "NOT_UPDATEABLE"
+                    ]
+                },
+                "privileges" : {
+                    "type" : "array",
+                    "items" : {
+                        "type" : "object",
+                        "nativeType" : "object"
+                    },
+                    "required" : true,
+                    "nativeName" : "privileges",
+                    "nativeType" : "object"
+                },
+                "inheritedPrivileges" : {
+                    "type" : "array",
+                    "items" : {
+                        "type" : "object",
+                        "nativeType" : "object"
+                    },
+                    "nativeName" : "inheritedPrivileges",
+                    "nativeType" : "object",
+                    "flags" : [
+                        "NOT_CREATABLE",
+                        "NOT_UPDATEABLE"
+                    ]
+                }
+            }
+        },
+        "account" : {
+            "$schema" : "http://json-schema.org/draft-03/schema",
+            "id" : "__ACCOUNT__",
+            "type" : "object",
+            "nativeType" : "__ACCOUNT__",
+            "properties" : {
+                "roles" : {
+                    "type" : "array",
+                    "items" : {
+                        "type" : "object",
+                        "nativeType" : "object"
+                    },
+                    "required" : true,
+                    "nativeName" : "roles",
+                    "nativeType" : "object"
+                },
+                "pwd" : {
+                    "type" : "string",
+                    "nativeName" : "pwd",
+                    "nativeType" : "JAVA_TYPE_GUARDEDSTRING",
+                    "required" : true,
+                    "flags" : [
+                        "NOT_READABLE",
+                        "NOT_RETURNED_BY_DEFAULT"
+                    ]
+                },
+                "user" : {
+                    "type" : "string",
+                    "required" : true,
+                    "nativeName" : "__NAME__",
+                    "nativeType" : "string",
+                    "flags" : [
+                        "NOT_UPDATEABLE"
+                    ]
+                },
+                "db" : {
+                    "type" : "string",
+                    "nativeName" : "db",
+                    "nativeType" : "string",
+                    "flags" : [
+                        "NOT_CREATABLE",
+                        "NOT_UPDATEABLE"
+                    ]
+                }
+            }
+        }
+    }
+}

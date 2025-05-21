@@ -1,0 +1,20 @@
+{{!--
+  Copyright 2016-2017 ForgeRock AS. All Rights Reserved
+
+  Use of this code requires a commercial software license with ForgeRock AS.
+  or with one of its affiliates. All use shall be exclusively subject
+  to such license between the licensee and ForgeRock AS.
+--}}
+<tr class="resourceCollectionFieldEditableRow">
+    <td class="renderable overflow-visible">
+        <select  class="resourceCollectionFieldName form-control">
+            {{#each availableProps}}
+            <option value="{{this}}">{{this}}</option>
+            {{/each}}
+        </select>
+    </td>
+    <td class="renderable">
+        <i class="fa fa-undo grid-icon col-sm-1 pull-right cancelEditResourceCollectionFieldRow" title="{{t "templates.managed.schemaEditor.undo"}}"></i>
+        <i class="fa fa-check grid-icon col-sm-1 pull-right saveEditResourceCollectionFieldRow" title="{{t "common.form.save"}}"></i>
+    </td>
+</tr>

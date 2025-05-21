@@ -1,0 +1,51 @@
+{{!--
+  Copyright 2016-2018 ForgeRock AS. All Rights Reserved
+
+  Use of this code requires a commercial software license with ForgeRock AS.
+  or with one of its affiliates. All use shall be exclusively subject
+  to such license between the licensee and ForgeRock AS.
+--}}
+<div class="self-service-card card wide-card {{#unless icon}}disabled {{else}}active {{/unless}}" data-editable="{{editable}}" data-type="{{type}}">
+    <div class="card-body">
+
+        <div class="switch-holder panel-heading">
+            {{#unless icon}}
+            <div class="checkbox checkbox-slider-primary checkbox-slider checkbox-slider--b checkbox-slider-md">
+                <label>
+                    {{#if showEmailError}}
+                    <input disabled class="section-check has-email-error" type="checkbox"><span></span>
+                    {{else}}
+                    <input {{#unless ../enableSelfService}} disabled="true" {{/unless}} class="section-check" type="checkbox"><span></span>
+                    {{/if}}
+                </label>
+            </div>
+            {{else}}
+            <div class="image circle self-service-icon no-toggle">
+                <i class="fa fa-{{icon}}"></i>
+            </div>
+
+            {{/unless}}
+        </div>
+
+        <div class="details panel-body">
+            <div class="row">
+                <div class="col-sm-5">
+                    <h3>{{title}}</h3>
+                    <p class="status text-muted">{{help}}</p>
+                </div>
+                <div class="col-sm-5{{#if emailStep}} email-step-error-container{{/if}}" {{#unless showEmailError}}style="display:none;"{{/unless}}>
+                    <div class="selfservice-warning">
+                        <span class="text-danger"><i class="fa fa-exclamation-circle"></i>{{t "templates.selfservice.noEmailConfig"}} <a href="#emailsettings/provider/" class="error-help-link"><b>{{t "templates.selfservice.configureHere"}}</b></a></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel-footer">
+            {{#if editable}}
+                <button type="button" class="btn btn-link" data-toggle="dropdown" aria-expanded="false">
+                    <i class="fa fa-pencil"></i>
+                </button>
+            {{/if}}
+        </div>
+    </div>
+</div>

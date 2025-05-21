@@ -1,0 +1,268 @@
+{
+    "mappings" : [
+        {
+            "target" : "managed/user",
+            "source" : "system/azuread/user",
+            "name" : "systemAzureadUser_managedUser",
+            "reconSourceQueryPaging" : true,
+            "reconSourceQueryPageSize" : 20,
+            "sourceQueryFullEntry" : true,
+            "sourceQuery" : {
+                "_queryFilter" : "true"
+            },
+            "consentRequired" : false,
+            "icon" : null,
+            "displayName" : "Azure AD user to managed user",
+            "properties" : [
+                {
+                    "target" : "userName",
+                    "source" : "mailNickname"
+                },
+                {
+                    "target" : "givenName",
+                    "source" : "givenName"
+                },
+                {
+                    "target" : "sn",
+                    "source" : "surname"
+                },
+                {
+                    "target" : "mail",
+                    "source" : "mail"
+                },
+                {
+                    "target" : "description",
+                    "source" : "displayName"
+                },
+                {
+                    "target" : "telephoneNumber",
+                    "source" : "mobilePhone"
+                },
+                {
+                    "target" : "postalAddress",
+                    "source" : "streetAddress"
+                },
+                {
+                    "target" : "city",
+                    "source" : "city"
+                },
+                {
+                    "target" : "postalCode",
+                    "source" : "postalCode"
+                },
+                {
+                    "target" : "country",
+                    "source" : "country"
+                },
+                {
+                    "target" : "stateProvince",
+                    "source" : "state"
+                }
+            ],
+            "policies" : [
+                {
+                    "action" : "EXCEPTION",
+                    "situation" : "AMBIGUOUS"
+                },
+                {
+                    "action" : "EXCEPTION",
+                    "situation" : "SOURCE_MISSING"
+                },
+                {
+                    "action" : "EXCEPTION",
+                    "situation" : "MISSING"
+                },
+                {
+                    "action" : "EXCEPTION",
+                    "situation" : "FOUND_ALREADY_LINKED"
+                },
+                {
+                    "action" : "DELETE",
+                    "situation" : "UNQUALIFIED"
+                },
+                {
+                    "action" : "EXCEPTION",
+                    "situation" : "UNASSIGNED"
+                },
+                {
+                    "action" : "EXCEPTION",
+                    "situation" : "LINK_ONLY"
+                },
+                {
+                    "action" : "IGNORE",
+                    "situation" : "TARGET_IGNORED"
+                },
+                {
+                    "action" : "IGNORE",
+                    "situation" : "SOURCE_IGNORED"
+                },
+                {
+                    "action" : "IGNORE",
+                    "situation" : "ALL_GONE"
+                },
+                {
+                    "action" : "UPDATE",
+                    "situation" : "CONFIRMED"
+                },
+                {
+                    "action" : "UPDATE",
+                    "situation" : "FOUND"
+                },
+                {
+                    "action" : "CREATE",
+                    "situation" : "ABSENT"
+                }
+            ]
+        },
+        {
+            "target" : "system/azuread/user",
+            "source" : "managed/user",
+            "name" : "managedUser_systemAzureadUser",
+            "consentRequired" : false,
+            "icon" : null,
+            "displayName" : "Managed user to Azure AD user",
+            "properties" : [
+                {
+                    "target" : "userPrincipalName",
+                    "source" : "userName",
+                    "transform" : {
+                        "type" : "text/javascript",
+                        "globals" : { },
+                        "source" : "source +'@<my tenant>.onmicrosoft.com'"
+                    }
+                },
+                {
+                    "target" : "__PASSWORD__",
+                    "source" : "password",
+                    "transform" : {
+                        "type" : "text/javascript",
+                        "globals" : { },
+                        "source" : "openidm.decrypt(source);"
+                    },
+                    "condition" : {
+                        "type" : "text/javascript",
+                        "source" : "!!object.password"
+                    }
+                },
+                {
+                    "target" : "displayName",
+                    "source" : "",
+                    "transform" : {
+                        "type" : "text/javascript",
+                        "globals" : { },
+                        "source" : "source.givenName + ' ' + source.sn"
+                    }
+                },
+                {
+                    "target" : "mailNickname",
+                    "source" : "userName"
+                },
+                {
+                    "target" : "city",
+                    "source" : "city"
+                },
+                {
+                    "target" : "country",
+                    "source" : "country"
+                },
+                {
+                    "target" : "postalCode",
+                    "source" : "postalCode"
+                },
+                {
+                    "target" : "mobilePhone",
+                    "source" : "telephoneNumber"
+                },
+                {
+                    "target" : "streetAddress",
+                    "source" : "postalAddress"
+                },
+                {
+                    "target" : "state",
+                    "source" : "stateProvince"
+                },
+                {
+                    "target" : "givenName",
+                    "source" : "givenName"
+                },
+                {
+                    "target" : "mail",
+                    "source" : "mail"
+                },
+                {
+                    "target" : "mobilePhone",
+                    "source" : "telephoneNumber"
+                },
+                {
+                    "target" : "accountEnabled",
+                    "source" : "accountStatus",
+                    "default" : false,
+                    "transform" : {
+                        "type" : "text/javascript",
+                        "globals" : { },
+                        "source" : "source == 'inactive' ? false : source == 'active' ? true : source;"
+                    }
+                },
+                {
+                    "target" : "surname",
+                    "source" : "sn"
+                }
+            ],
+            "policies" : [
+                {
+                    "action" : "EXCEPTION",
+                    "situation" : "AMBIGUOUS"
+                },
+                {
+                    "action" : "EXCEPTION",
+                    "situation" : "SOURCE_MISSING"
+                },
+                {
+                    "action" : "EXCEPTION",
+                    "situation" : "MISSING"
+                },
+                {
+                    "action" : "EXCEPTION",
+                    "situation" : "FOUND_ALREADY_LINKED"
+                },
+                {
+                    "action" : "DELETE",
+                    "situation" : "UNQUALIFIED"
+                },
+                {
+                    "action" : "EXCEPTION",
+                    "situation" : "UNASSIGNED"
+                },
+                {
+                    "action" : "EXCEPTION",
+                    "situation" : "LINK_ONLY"
+                },
+                {
+                    "action" : "IGNORE",
+                    "situation" : "TARGET_IGNORED"
+                },
+                {
+                    "action" : "IGNORE",
+                    "situation" : "SOURCE_IGNORED"
+                },
+                {
+                    "action" : "IGNORE",
+                    "situation" : "ALL_GONE"
+                },
+                {
+                    "action" : "UPDATE",
+                    "situation" : "CONFIRMED"
+                },
+                {
+                    "action" : "UPDATE",
+                    "situation" : "FOUND"
+                },
+                {
+                    "action" : "CREATE",
+                    "situation" : "ABSENT"
+                }
+            ],
+            "links" : "systemAzureadUser_managedUser"
+        }
+    ]
+}

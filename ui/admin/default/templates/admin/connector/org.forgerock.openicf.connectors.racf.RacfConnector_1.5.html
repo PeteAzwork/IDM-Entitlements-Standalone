@@ -1,0 +1,125 @@
+{{!
+	Copyright 2022 ForgeRock AS. All Rights Reserved
+  
+    Use of this code requires a commercial software license with ForgeRock AS.
+    or with one of its affiliates. All use shall be exclusively subject
+    to such license between the licensee and ForgeRock AS.
+}}
+<!-- Base Details panel -->
+<div class="panel panel-default panel-collapse" id="racfConnector">
+    <div class="panel-heading" role="tab" id="connectorSpecificBaseHeading">
+        <h4 class="panel-title">
+            <a data-toggle="collapse" href="#connectorSpecificBase" aria-expanded="true" aria-controls="connectorSpecificBase"
+                class="">{{t "templates.connector.baseTitle"}}</a>
+        </h4>
+    </div>
+    <div id="connectorSpecificBase" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="connectorSpecificBaseHeading"
+        aria-expanded="true">
+        <div class="panel-body">
+			<div class="form-group">
+                <label class="col-sm-3 control-label" for="hostName">{{t "templates.connector.racf.hostName"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" data-validator="required" type="text" id="hostName" name="configurationProperties.hostName"
+                        value="{{connectorDefaults.configurationProperties.hostName}}" />
+                    <span class='help-block'>{{t "templates.connector.racf.hostNameHelp"}}</span>
+                </div>
+            </div>
+			<div class="form-group">
+                <label class="col-sm-3 control-label" for="port">{{t "templates.connector.racf.port"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" data-validator="required" type="text" id="port" name="configurationProperties.port"
+                        value="{{connectorDefaults.configurationProperties.port}}" />
+                    <span class='help-block'>{{t "templates.connector.racf.portHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="userId">{{t "templates.connector.racf.userId"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" data-validator="required" type="text" id="userId" name="configurationProperties.userId" value="{{connectorDefaults.configurationProperties.userId}}" />
+                    <span class='help-block'>{{t "templates.connector.racf.userIdHelp"}}</span>
+                </div>
+            </div>
+			<div class="form-group">
+                <label class="col-sm-3 control-label" for="password">{{t "templates.connector.racf.password"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" data-validator="required" type="text" id="password" name="configurationProperties.password" value="{{connectorDefaults.configurationProperties.password}}" />
+                    <span class='help-block'>{{t "templates.connector.racf.passwordHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="segments">{{t "templates.connector.racf.segments"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="segments" name="configurationProperties.segments" value="{{connectorDefaults.configurationProperties.segments}}" />
+                    <span class='help-block'>{{t "templates.connector.racf.segmentsHelp"}}</span>
+                </div>
+            </div>
+			<div class="form-group">
+                <label class="col-sm-3 control-label" for="acceptSelfSignedCertificates">{{t "templates.connector.racf.acceptSelfSignedCertificates"}}</label>
+                <div class="col-sm-8">
+                    <div class="checkbox checkbox-slider-primary checkbox-slider checkbox-slider--b checkbox-slider-md">
+                        <label>
+                            <input class="toggleBoolean" id="acceptSelfSignedCertificates" type="checkbox" name="configurationProperties.acceptSelfSignedCertificates" value="true" {{#if connectorDefaults.configurationProperties.acceptSelfSignedCertificates}} checked {{/if}} >
+                            <span></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+			<div class="form-group">
+                <label class="col-sm-3 control-label" for="clientCertAlias">{{t "templates.connector.racf.clientCertAlias"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="clientCertAlias" name="configurationProperties.clientCertAlias" value="{{connectorDefaults.configurationProperties.clientCertAlias}}" />
+                    <span class='help-block'>{{t "templates.connector.racf.clientCertAliasHelp"}}</span>
+                </div>
+            </div>
+			<div class="form-group">
+                <label class="col-sm-3 control-label" for="clientCertPassword">{{t "templates.connector.racf.clientCertPassword"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="clientCertPassword" name="configurationProperties.clientCertPassword" value="{{connectorDefaults.configurationProperties.clientCertPassword}}" />
+                    <span class='help-block'>{{t "templates.connector.racf.clientCertPasswordHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="httpProxyHost">{{t "templates.connector.racf.httpProxyHost"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="httpProxyHost" name="configurationProperties.httpProxyHost" value="{{connectorDefaults.configurationProperties.httpProxyHost}}" />
+                    <span class='help-block'>{{t "templates.connector.racf.httpProxyHostHelp"}}</span>
+                </div>
+            </div>
+			<div class="form-group">
+                <label class="col-sm-3 control-label" for="httpProxyPort">{{t "templates.connector.racf.httpProxyPort"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="httpProxyPort" name="configurationProperties.httpProxyPort" value="{{connectorDefaults.configurationProperties.httpProxyPort}}" />
+                    <span class='help-block'>{{t "templates.connector.racf.httpProxyPortHelp"}}</span>
+                </div>
+            </div>
+			<div class="form-group">
+                <label class="col-sm-3 control-label" for="httpProxyUsername">{{t "templates.connector.racf.httpProxyUsername"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="httpProxyUsername" name="configurationProperties.httpProxyUsername" value="{{connectorDefaults.configurationProperties.httpProxyUsername}}" />
+                    <span class='help-block'>{{t "templates.connector.racf.httpProxyUsernameHelp"}}</span>
+                </div>
+            </div>
+			<div class="form-group">
+                <label class="col-sm-3 control-label" for="httpProxyPassword">{{t "templates.connector.racf.httpProxyPassword"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="httpProxyPassword" name="configurationProperties.httpProxyPassword" value="{{connectorDefaults.configurationProperties.httpProxyPassword}}" />
+                    <span class='help-block'>{{t "templates.connector.racf.httpProxyPasswordHelp"}}</span>
+                </div>
+            </div>
+			<div class="form-group">
+                <label class="col-sm-3 control-label" for="maximumConnections">{{t "templates.connector.racf.maximumConnections"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="maximumConnections" name="configurationProperties.maximumConnections" value="{{connectorDefaults.configurationProperties.maximumConnections}}" />
+                    <span class='help-block'>{{t "templates.connector.racf.maximumConnectionsHelp"}}</span>
+                </div>
+            </div>
+			<div class="form-group">
+                <label class="col-sm-3 control-label" for="connectionTimeout">{{t "templates.connector.racf.connectionTimeout"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="connectionTimeout" name="configurationProperties.connectionTimeout" value="{{connectorDefaults.configurationProperties.connectionTimeout}}" />
+                    <span class='help-block'>{{t "templates.connector.racf.connectionTimeoutHelp"}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

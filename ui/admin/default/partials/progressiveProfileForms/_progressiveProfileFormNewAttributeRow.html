@@ -1,0 +1,28 @@
+{{!--
+  Copyright 2017 ForgeRock AS. All Rights Reserved
+
+  Use of this code requires a commercial software license with ForgeRock AS.
+  or with one of its affiliates. All use shall be exclusively subject
+  to such license between the licensee and ForgeRock AS.
+--}}
+<tr class="new-attribute-row gray-background hidden">
+    <td class="renderable overflow-visible col-sm-5">
+        <select  class="edit-attributeName form-control">
+            <option value="" selected>{{t "templates.managed.schemaEditor.selectProperty"}}</option>
+            {{#each availableProps}}
+            <option value="{{this.value}}">{{this.label}}</option>
+            {{/each}}
+        </select>
+    </td>
+    <td class="renderable">
+        <div class="checkbox-slider-primary checkbox-slider checkbox-slider--b checkbox-slider-md">
+            <label>
+                <input class="toggleBoolean edit-isRequired" type="checkbox" value="true">
+                <span></span>
+            </label>
+        </div>
+    </td>
+    <td>
+        <button class="btn btn-primary save-new-attribute pull-right">{{t "common.form.save"}}</button>
+    </td>
+</tr>

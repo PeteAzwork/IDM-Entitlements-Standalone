@@ -1,0 +1,50 @@
+{{!
+  Copyright 2016-2018 ForgeRock AS. All Rights Reserved
+
+  Use of this code requires a commercial software license with ForgeRock AS.
+  or with one of its affiliates. All use shall be exclusively subject
+  to such license between the licensee and ForgeRock AS.
+}}
+{{> dashboard/_widgetHeader}}
+<div class="panel-body clearfix fr-cluster-status-widget">
+    <h1 class="fr-total-count">
+        {{clusterCount}}
+    </h1>
+
+    {{#each cluster}}
+        <div class="fr-node-card col-sm-4">
+        <a class="panel panel-default col-sm-12" data-instance-index="{{@index}}">
+            <div class="panel-heading">
+                <h4 class="panel-title"><i class="fa fa-server fa-fw text-muted"></i> {{instanceId}}</h4>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h4 class="xs">{{t "dashboard.clusterStatusWidget.status"}}</h4>
+                        {{#equals state "down"}}
+                        <span class="text-danger"><i class="fa fa-exclamation-circle"></i> {{t "dashboard.clusterStatusWidget.down"}}</span>
+                        {{/equals}}
+                        {{#equals state "running"}}
+                        <span class="text-success" style="white-space:nowrap;"><i class="fa fa-check-circle"></i> {{t "dashboard.clusterStatusWidget.running"}}</span>
+                        {{/equals}}
+                    </div>
+                    <div class="col-sm-6">
+                        <h4 class="xs">{{t "dashboard.clusterStatusWidget.jobs"}}</h4>
+                        {{#if jobCount}}
+                            <span class="badge"
+                                  rel="tooltip"
+                                  data-placement="top"
+                                  data-container="body"
+                                  data-delay="100">
+                                <i class="fa fa-circle-o-notch fa-spin "></i> {{jobCount}}
+                            </span>
+                        {{else}}
+                        <span class="text-muted">n/a</span>
+                        {{/if}}
+                    </div>
+                </div>
+            </div>
+        </a>
+        </div>
+    {{/each}}
+</div>

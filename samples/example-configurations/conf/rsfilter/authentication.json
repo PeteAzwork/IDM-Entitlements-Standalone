@@ -1,0 +1,57 @@
+{
+    "rsFilter" : {
+        "clientId" : "",
+        "clientSecret" : "",
+        "tokenIntrospectUrl" : "http://am.example:8080/openam/oauth2/introspect",
+        "scopes" : [ ],
+        "cache" : {
+            "maxTimeout" : "300 seconds"
+        },
+        "augmentSecurityContext" : {
+            "type" : "text/javascript",
+            "source" : "require('auth/orgPrivileges').assignPrivilegesToUser(resource, security, properties, subjectMapping, privileges, 'privileges', 'privilegeAssignments');"
+        },
+        "subjectMapping" : [
+            {
+                "resourceTypeMapping" : {
+                    "usr" : "managed/user"
+                },
+                "propertyMapping" : {
+                    "sub" : "_id"
+                },
+                "userRoles" : "authzRoles/*",
+                "additionalUserFields" : [
+                    "adminOfOrg",
+                    "ownerOfOrg"
+                ],
+                "defaultRoles" : [
+                    "internal/role/openidm-authorized"
+                ]
+            }
+        ],
+        "staticUserMapping" : [
+            {
+                "subject" : "(usr!amadmin)",
+                "localUser" : "internal/user/openidm-admin",
+                "roles" : [
+                    "internal/role/openidm-authorized",
+                    "internal/role/openidm-admin"
+                ]
+            },
+            {
+                "subject" : "(age!idm-provisioning)",
+                "localUser" : "internal/user/idm-provisioning",
+                "roles" : [
+                    "internal/role/platform-provisioning"
+                ]
+            }
+        ],
+        "anonymousUserMapping" : {
+            "localUser" : "internal/user/anonymous",
+            "roles" : [
+                "internal/role/openidm-reg"
+            ],
+            "executeAugmentationScript" : false
+        }
+    }
+}

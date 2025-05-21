@@ -1,0 +1,27 @@
+{{!
+  Copyright 2017 ForgeRock AS. All Rights Reserved
+
+  Use of this code requires a commercial software license with ForgeRock AS.
+  or with one of its affiliates. All use shall be exclusively subject
+  to such license between the licensee and ForgeRock AS.
+}}
+<div class="panel no-margin-bottom">
+    <div class="table-responsive panel-body">
+        <div class="toolbar clearfix pull-left">
+            <form class="form-inline">
+                <ul class="nav nav-pills pull-left" role="tablist">
+                    {{#each objectTypesArray}}
+                    <li role="presentation" {{#if active}}class="active"{{/if}}><a class="data-tab-button" data-objecttype="{{type}}" href="#{{type}}-tab" aria-controls="home" role="tab" data-toggle="tab" aria-expanded="{{#if active}}true{{else}}false{{/if}}">{{camelCaseToTitle type}}</a></li>
+                    {{/each}}
+                </ul>
+            </form>
+        </div>
+        <div class="tab-content">
+            {{#each objectTypesArray}}
+            <div role="tabpanel" class="tab-pane data-list-view {{#if active}} active{{/if}}" id="{{type}}-tab">
+                {{> connector/_noConnectorData}}
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</div>

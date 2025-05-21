@@ -1,0 +1,54 @@
+{{!--
+  Copyright 2016-2017 ForgeRock AS. All Rights Reserved
+
+  Use of this code requires a commercial software license with ForgeRock AS.
+  or with one of its affiliates. All use shall be exclusively subject
+  to such license between the licensee and ForgeRock AS.
+--}}
+<div class="fr-top-bar">
+    <div class="container">
+        <h3 class="fr-breadcrumb">
+            {{#if origin}}
+            <a href="{{origin}}">{{t "templates.scheduler.mappingDetails"}}</a>
+            {{else}}
+            <a href="#scheduler/">{{t "templates.scheduler.schedules"}}</a>
+            {{/if}}
+            <span class="seperator"></span>
+            <span>{{t "templates.scheduler.newSchedule"}}</span>
+        </h3>
+    </div>
+</div>
+<div class="container">
+    <div class="page-header">
+        <h1>{{t "templates.scheduler.newSchedule"}}</h1>
+    </div>
+</div>
+
+<div class="container">
+    <div class="tab-content schedule-container">
+        <div role="tabpanel" class="tab-pane active new-schedule" id="scheduleDetailsTab">
+            <div class="tab-pane-body">
+                <div class="panel-collapse-group">
+                    <form class="form-horizontal" role="form" id="scheduleForm">
+                        <!-- inputs prevent browser autocompletion of form fields -->
+                        <input type="text" class="hidden">
+                        <input type="password" class="hidden">
+                        <div class="panel panel-default panel-collapse">
+                            <div id="scheduleDetails" class="panel-body">
+                                {{> scheduler/_scheduleForm}}
+                                <div class="changes-pending-container pull-left"></div>
+                            </div>
+                            <div class="panel-footer clearfix">
+                                <div class="pull-right save-cancel-btn-panel" disabled>
+                                    <a href="#scheduler/"><button class="btn save-cancel-btn btn-default btn-cancel" type="button">{{t 'common.form.cancel'}}</button></a>
+                                    <button  id="submitSchedule" name="submitSchedule" class="btn save-cancel-btn btn-primary btn-save" type="button">{{t "common.form.save"}}</button>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+{{!--
+  Copyright 2016-2017 ForgeRock AS. All Rights Reserved
+
+  Use of this code requires a commercial software license with ForgeRock AS.
+  or with one of its affiliates. All use shall be exclusively subject
+  to such license between the licensee and ForgeRock AS.
+--}}
+<form class="form-horizontal">
+    <div class="panel-description">
+        {{t callBackHelp}}
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">{{t "templates.socialProviders.redirectURI"}}</label>
+        <div class="col-sm-6">
+            <div class="input-group">
+                <input class="form-control fr-redirect-Uri" value="{{redirectUri}}" type="text" />
+                <div class="input-group-btn">
+                    <button class="btn btn-default btn-copy" type="button">
+                        <i class="fa fa-copy"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

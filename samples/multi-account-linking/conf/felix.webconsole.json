@@ -1,0 +1,4 @@
+{
+    "username" : "&{openidm.felix.webconsole.username|admin}",
+    "password" : "&{openidm.felix.webconsole.password|admin}"
+}

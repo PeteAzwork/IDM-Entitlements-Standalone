@@ -1,0 +1,32 @@
+{{!--
+  Copyright 2016-2018 ForgeRock AS. All Rights Reserved
+
+  Use of this code requires a commercial software license with ForgeRock AS.
+  or with one of its affiliates. All use shall be exclusively subject
+  to such license between the licensee and ForgeRock AS.
+--}}
+<div class="temporalConstraint well detailTable">
+    <div class="row">
+        {{> dashboard/widget/_timezoneGroup timezone=timezone }}
+    </div>
+    <div class="row">
+        <div class="form-group">
+          <label class="{{#if isScheduler}}col-sm-3{{else}}col-sm-2{{/if}} control-label text-right temporalConstraintsLabel">{{t "templates.admin.RoleEdit.startDate"}}</label>
+          <div class="{{#if isScheduler}}col-sm-9{{else}}col-sm-10{{/if}}">
+              <div class="control-group">
+                  <input class="form-control datetimepicker temporalConstraintStartDate" name="startTime" value="{{temporalConstraint.start}}">
+              </div>
+          </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group">
+          <label class="{{#if isScheduler}}col-sm-3{{else}}col-sm-2{{/if}} control-label text-right temporalConstraintsLabel">{{t "templates.admin.RoleEdit.endDate"}}</label>
+          <div class="{{#if isScheduler}}col-sm-9{{else}}col-sm-10{{/if}}">
+              <div class="control-group">
+                  <input class="form-control datetimepicker temporalConstraintEndDate" name="endTime" value="{{temporalConstraint.end}}">
+              </div>
+          </div>
+        </div>
+    </div>
+</div>

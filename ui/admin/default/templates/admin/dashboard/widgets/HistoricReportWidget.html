@@ -1,0 +1,28 @@
+{{> dashboard/_widgetHeader}}
+<div class="panel-body widget-body fr-historical-report-widget">
+    {{#unless noData}}
+        <h1 class="fr-total-count">
+            {{trend.total}}
+            {{#if trend.historicalRecords}}
+                <small class="fr-count-change">
+                    <i class="fa fa-arrow-{{#if trend.increase}}up{{else}}down{{/if}}"></i>
+                    {{trend.percent}}%
+                </small>
+            {{/if}}
+        </h1>
+        <div class="fr-chart"></div>
+    {{else}}
+        <h1 class="fr-total-count"></h1>
+        <div class="fr-no-data">
+            <span><i class="fa {{widget.graphType}}"></i></span>
+            {{#unless notConfiged}}
+                <h5>{{t "dashboard.historicalReportWidget.noData"}}</h5>
+                <p>{{t "dashboard.historicalReportWidget.help"}}</p>
+            {{else}}
+                <h5>{{widgetConfig.configServiceDesc}}</h5>
+                <a href="{{widgetConfig.configServiceLink}}"><button class="btn btn-default btn-transparent">{{widgetConfig.configServiceText}}
+                </button></a>
+            {{/unless}}
+        </div>
+    {{/unless}}
+</div>

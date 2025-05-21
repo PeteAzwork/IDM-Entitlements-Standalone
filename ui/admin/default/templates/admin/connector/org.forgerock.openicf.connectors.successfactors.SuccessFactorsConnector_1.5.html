@@ -1,0 +1,110 @@
+{{!
+	Copyright 2021-2022 ForgeRock AS. All Rights Reserved
+  
+    Use of this code requires a commercial software license with ForgeRock AS.
+    or with one of its affiliates. All use shall be exclusively subject
+    to such license between the licensee and ForgeRock AS.
+}}
+<!-- Base Details panel -->
+<div class="panel panel-default panel-collapse" id="successfactorsConnector">
+    <div class="panel-heading" role="tab" id="connectorSpecificBaseHeading">
+        <h4 class="panel-title">
+            <a data-toggle="collapse" href="#connectorSpecificBase" aria-expanded="true" aria-controls="connectorSpecificBase"
+                class="">{{t "templates.connector.baseTitle"}}</a>
+        </h4>
+    </div>
+    <div id="connectorSpecificBase" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="connectorSpecificBaseHeading"
+        aria-expanded="true">
+        <div class="panel-body">
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="host">{{t "templates.connector.successfactorsConnector.host"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" data-validator="required" type="text" id="host" name="configurationProperties.host"
+                        value="{{connectorDefaults.configurationProperties.host}}" />
+                    <span class='help-block'>{{t "templates.connector.successfactorsConnector.hostHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="clientId">{{t "templates.connector.successfactorsConnector.clientId"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" data-validator="required" type="text" id="clientId" name="configurationProperties.clientId"
+                        value="{{connectorDefaults.configurationProperties.clientId}}" />
+                    <span class='help-block'>{{t "templates.connector.successfactorsConnector.clientIdHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="companyId">{{t "templates.connector.successfactorsConnector.companyId"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" data-validator="required" type="text" id="companyId" name="configurationProperties.companyId"
+                        value="{{connectorDefaults.configurationProperties.companyId}}" />
+                    <span class='help-block'>{{t "templates.connector.successfactorsConnector.companyIdHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="userId">{{t "templates.connector.successfactorsConnector.userId"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" data-validator="required" type="text" id="userId" name="configurationProperties.userId" value="{{connectorDefaults.configurationProperties.userId}}" />
+                    <span class='help-block'>{{t "templates.connector.successfactorsConnector.userIdHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="privateKey">{{t "templates.connector.successfactorsConnector.privateKey"}}</label>
+                <div class="col-sm-8">
+                    <textarea class="form-control" data-validator="required" rows="5" cols="25" id="privateKey" name="configurationProperties.privateKey"
+                        placeholder="{{connectorDefaults.configurationProperties.privateKey}}" >
+						</textarea>
+                    <span class='help-block'>{{t "templates.connector.successfactorsConnector.privateKeyHelp"}}</span>
+                </div>
+            </div>
+	    <div class="form-group">
+                <label class="col-sm-3 control-label" for="personSegments">{{t "templates.connector.successfactorsConnector.personSegments"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="personSegments" name="configurationProperties.personSegments" value="{{connectorDefaults.configurationProperties.personSegments}}" />
+                    <span class='help-block'>{{t "templates.connector.successfactorsConnector.personSegmentsHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="httpProxyHost">{{t "templates.connector.successfactorsConnector.httpProxyHost"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" data-validator="optional" type="text" id="httpProxyHost" name="configurationProperties.httpProxyHost" value="{{connectorDefaults.configurationProperties.httpProxyHost}}" />
+                    <span class='help-block'>{{t "templates.connector.successfactorsConnector.httpProxyHostHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="httpProxyPort">{{t "templates.connector.successfactorsConnector.httpProxyPort"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" data-validator="optional" type="text" id="httpProxyPort" name="configurationProperties.httpProxyPort" value="{{connectorDefaults.configurationProperties.httpProxyPort}}" />
+                    <span class='help-block'>{{t "templates.connector.successfactorsConnector.httpProxyPortHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="httpProxyUsername">{{t "templates.connector.successfactorsConnector.httpProxyUsername"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" data-validator="optional" type="text" id="httpProxyUsername" name="configurationProperties.httpProxyUsername" value="{{connectorDefaults.configurationProperties.httpProxyUsername}}" />
+                    <span class='help-block'>{{t "templates.connector.successfactorsConnector.httpProxyUsernameHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="httpProxyPassword">{{t "templates.connector.successfactorsConnector.httpProxyPassword"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" data-validator="optional" type="password" id="httpProxyPassword" name="configurationProperties.httpProxyPassword" value="{{connectorDefaults.configurationProperties.httpProxyPassword}}" />
+                    <span class='help-block'>{{t "templates.connector.successfactorsConnector.httpProxyPasswordHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="maxConnections">{{t "templates.connector.successfactorsConnector.maxConnections"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" data-validator="optional" type="text" id="maxConnections" name="configurationProperties.maxConnections" value="{{connectorDefaults.configurationProperties.maxConnections}}" />
+                    <span class='help-block'>{{t "templates.connector.successfactorsConnector.maxConnectionsHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="connectionTimeout">{{t "templates.connector.successfactorsConnector.connectionTimeout"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" data-validator="optional" type="text" id="connectionTimeout" name="configurationProperties.connectionTimeout" value="{{connectorDefaults.configurationProperties.connectionTimeout}}" />
+                    <span class='help-block'>{{t "templates.connector.successfactorsConnector.connectionTimeout"}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,35 @@
+{{!--
+  Copyright 2017 ForgeRock AS. All Rights Reserved
+
+  Use of this code requires a commercial software license with ForgeRock AS.
+  or with one of its affiliates. All use shall be exclusively subject
+  to such license between the licensee and ForgeRock AS.
+--}}
+
+<div class="form-group timezone-group">
+    <label class="col-sm-3 control-label">{{t "dashboard.auditData.timezoneOffset"}}</label>
+    <div class="col-sm-6 form-inline offset-form">
+
+        <select class="form-control plus-minus offset-inputs">
+            <option value="+" {{#unless timezone.negative}}selected{{/unless}}>+</option>
+            <option value="-" {{#if timezone.negative}}selected{{/if}}>-</option>
+        </select>
+
+        <input id="offsetHours"
+               type="text"
+               class="form-control offset-hours offset-inputs"
+               maxlength="2"
+               placeholder="HH"
+               value="{{timezone.hours}}"/>
+
+        <input id="offsetMinutes"
+               type="text"
+               class="form-control offset-minutes offset-inputs"
+               maxlength="2"
+               placeholder="MM"
+               value="{{timezone.minutes}}"/>
+
+        <button class="btn btn-default local-offset">{{t "dashboard.auditData.localOffset"}}</button>
+
+    </div>
+</div>

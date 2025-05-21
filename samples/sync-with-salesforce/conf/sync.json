@@ -1,0 +1,208 @@
+{
+    "mappings" : [
+        {
+            "target" : "managed/user",
+            "source" : "system/salesforce/User",
+            "name" : "systemSalesforceUser_managedUser",
+            "displayName" : "systemSalesforceUser_managedUser",
+            "properties" : [
+                {
+                    "target" : "mail",
+                    "source" : "Email"
+                },
+                {
+                    "target" : "sn",
+                    "source" : "LastName"
+                },
+                {
+                    "target" : "givenName",
+                    "source" : "FirstName"
+                },
+                {
+                    "target" : "userName",
+                    "source" : "Username"
+                },
+                {
+                    "target" : "profileId",
+                    "source" : "ProfileId"
+                }
+            ],
+            "policies" : [
+                {
+                    "action" : "EXCEPTION",
+                    "situation" : "AMBIGUOUS"
+                },
+                {
+                    "action" : "EXCEPTION",
+                    "situation" : "SOURCE_MISSING"
+                },
+                {
+                    "action" : "EXCEPTION",
+                    "situation" : "MISSING"
+                },
+                {
+                    "action" : "EXCEPTION",
+                    "situation" : "FOUND_ALREADY_LINKED"
+                },
+                {
+                    "action" : "DELETE",
+                    "situation" : "UNQUALIFIED"
+                },
+                {
+                    "action" : "EXCEPTION",
+                    "situation" : "UNASSIGNED"
+                },
+                {
+                    "action" : "EXCEPTION",
+                    "situation" : "LINK_ONLY"
+                },
+                {
+                    "action" : "IGNORE",
+                    "situation" : "TARGET_IGNORED"
+                },
+                {
+                    "action" : "IGNORE",
+                    "situation" : "SOURCE_IGNORED"
+                },
+                {
+                    "action" : "IGNORE",
+                    "situation" : "ALL_GONE"
+                },
+                {
+                    "action" : "UPDATE",
+                    "situation" : "CONFIRMED"
+                },
+                {
+                    "action" : "UPDATE",
+                    "situation" : "FOUND"
+                },
+                {
+                    "action" : "CREATE",
+                    "situation" : "ABSENT"
+                }
+            ],
+            "validSource" : {
+                "type" : "text/javascript",
+                "globals" : { },
+                "source" : "source.Email.substring(0,8) !== \"autoproc\""
+            },
+            "validTarget" : {
+                "type" : "text/javascript",
+                "globals" : { },
+                "source" : "source.Email.substring(0,8) !== \"autoproc\""
+            }
+        },
+        {
+            "target" : "system/salesforce/User",
+            "source" : "managed/user",
+            "name" : "managedUser_systemSalesforceUser",
+            "links" : "systemSalesforceUser_managedUser",
+            "displayName" : "managedUser_systemSalesforceUser",
+            "properties" : [
+                {
+                    "target" : "Username",
+                    "source" : "userName"
+                },
+                {
+                    "target" : "LastName",
+                    "source" : "sn"
+                },
+                {
+                    "target" : "Email",
+                    "source" : "mail"
+                },
+                {
+                    "target" : "Alias",
+                    "source" : "givenName",
+                    "transform" : {
+                        "type" : "text/javascript",
+                        "globals" : { },
+                        "source" : "source.substring(0,8);"
+                    }
+                },
+                {
+                    "target" : "LocaleSidKey",
+                    "default" : "en_US"
+                },
+                {
+                    "target" : "EmailEncodingKey",
+                    "default" : "UTF-8"
+                },
+                {
+                    "target" : "LanguageLocaleKey",
+                    "default" : "en_US"
+                },
+                {
+                    "target" : "FirstName",
+                    "source" : "givenName"
+                },
+                {
+                    "target" : "TimeZoneSidKey",
+                    "default" : "America/Los_Angeles"
+                },
+                {
+                    "target" : "CommunityNickname",
+                    "source" : "userName"
+                },
+                {
+                    "target" : "ProfileId",
+                    "source" : "profileId"
+                }
+            ],
+            "policies" : [
+                {
+                    "action" : "EXCEPTION",
+                    "situation" : "AMBIGUOUS"
+                },
+                {
+                    "action" : "EXCEPTION",
+                    "situation" : "SOURCE_MISSING"
+                },
+                {
+                    "action" : "EXCEPTION",
+                    "situation" : "MISSING"
+                },
+                {
+                    "action" : "EXCEPTION",
+                    "situation" : "FOUND_ALREADY_LINKED"
+                },
+                {
+                    "action" : "DELETE",
+                    "situation" : "UNQUALIFIED"
+                },
+                {
+                    "action" : "EXCEPTION",
+                    "situation" : "UNASSIGNED"
+                },
+                {
+                    "action" : "EXCEPTION",
+                    "situation" : "LINK_ONLY"
+                },
+                {
+                    "action" : "IGNORE",
+                    "situation" : "TARGET_IGNORED"
+                },
+                {
+                    "action" : "IGNORE",
+                    "situation" : "SOURCE_IGNORED"
+                },
+                {
+                    "action" : "IGNORE",
+                    "situation" : "ALL_GONE"
+                },
+                {
+                    "action" : "UPDATE",
+                    "situation" : "CONFIRMED"
+                },
+                {
+                    "action" : "UPDATE",
+                    "situation" : "FOUND"
+                },
+                {
+                    "action" : "CREATE",
+                    "situation" : "ABSENT"
+                }
+            ]
+        }
+    ]
+}

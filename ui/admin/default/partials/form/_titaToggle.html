@@ -1,0 +1,22 @@
+{{!--
+  Copyright 2016-2017 ForgeRock AS. All Rights Reserved
+
+  Use of this code requires a commercial software license with ForgeRock AS.
+  or with one of its affiliates. All use shall be exclusively subject
+  to such license between the licensee and ForgeRock AS.
+--}}
+
+<div class="form-group">
+    <label for="toggle-{{property}}" class="col-sm-3 control-label">{{t label}}</label>
+    <div class="col-sm-6">
+        <div class="checkbox checkbox-slider-primary checkbox-slider checkbox-slider--b checkbox-slider-md">
+            <label>
+                <input id="toggle-{{property}}" {{#unless noForm2js}}name="{{property}}"{{/unless}} type="checkbox" {{#if enabled}}checked{{/if}} value="true"><span></span>
+            </label>
+        </div>
+
+        {{#if helpKey}}
+        <div class="help-block">{{t helpKey}}</div>
+        {{/if}}
+    </div>
+</div>

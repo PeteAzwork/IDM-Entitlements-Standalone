@@ -1,0 +1,77 @@
+{{!
+  Copyright 2017-2021 ForgeRock AS. All Rights Reserved
+
+  Use of this code requires a commercial software license with ForgeRock AS.
+  or with one of its affiliates. All use shall be exclusively subject
+  to such license between the licensee and ForgeRock AS.
+}}
+
+<form class="form-horizontal">
+    <div class="tab-pane-body">
+        <div class="toolbar btn-toolbar margin-top-0" role="toolbar" aria-label="">
+            <div class="btn-group" data-toggle="btns">
+                <a class="btn btn-default btn-toggle btn-level" href="#basic" data-condition-level="basic" data-toggle="tab" aria-controls="#basic" aria-expanded="true">{{t "templates.progressiveProfile.basic"}}</a>
+                <a class="btn btn-default btn-toggle btn-level" href="#advanced" data-toggle="tab" data-condition-level="advanced" aria-controls="#advanced" aria-expanded="true">{{t "templates.progressiveProfile.advanced"}}</a>
+            </div>
+        </div>
+        <div id="conditionDefinitionLevelTabsBody" class="tab-content">
+
+            <div id="basic" class="tab-pane" role="tabpanel" data-condition-level="basic">
+                <div class="tab-pane-body">
+                    <div class="panel-body">
+                        <p class="panel-description">{{t "templates.progressiveProfile.conditionDescription"}}</p>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label" for="">{{t "templates.progressiveProfile.conditionLabel" }}</label>
+                            <div class="col-md-7">
+                                <select id="typeSelect" class="form-control" name="type">
+                                    {{#staticSelect condition.type}}
+                                        {{#each types}}
+                                            <option value="{{value}}">{{text}}</option>
+                                        {{/each}}
+                                    {{/staticSelect}}
+                                </select>
+                            </div>
+                        </div>
+                        <div id="typeFormFields"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="advanced" class="tab-pane" role="tabpanel" data-condition-level="advanced">
+                <div class="tab-pane-body">
+                    <div class="panel-body">
+                        <p class="panel-description">{{t "templates.progressiveProfile.conditionDescriptionAdvanced"}}</p>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label" for="">{{t "templates.progressiveProfile.use" }}</label>
+                            <div class="col-md-10">
+                                <div class="btn-group" data-toggle="btns">
+                                    <a class="btn btn-default btn-toggle btn-editor" href="#queryFilter" data-advanced-editor="queryFilter" data-toggle="tab" aria-controls="#queryFilter" aria-expanded="true">{{t "templates.progressiveProfile.queryFilter"}}</a>
+                                    <a class="btn btn-default btn-toggle btn-editor" href="#script" data-advanced-editor="scripted" data-toggle="tab" aria-controls="#script" aria-expanded="true">{{t "templates.progressiveProfile.script"}}</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-content">
+                            <div id="queryFilter" class="tab-pane" role="tabpanel" data-advanced-editor="queryFilter">
+
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label" for="">{{t "templates.progressiveProfile.showIf" }}</label>
+                                    <div id="queryFilterContainer" class="col-md-10 filter-form form-horizontal"></div>
+                                </div>
+
+                            </div>
+                            <div id="script" class="tab-pane" role="tabpanel" data-advanced-editor="scripted">
+
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label" for="">{{t "templates.scriptEditor.type"}}</label>
+                                    <div id="scriptEditorContainer" class="col-md-8"></div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</form>

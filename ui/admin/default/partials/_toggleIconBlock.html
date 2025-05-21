@@ -1,0 +1,56 @@
+{{!--
+  Copyright 2016-2017 ForgeRock AS. All Rights Reserved
+
+  Use of this code requires a commercial software license with ForgeRock AS.
+  or with one of its affiliates. All use shall be exclusively subject
+  to such license between the licensee and ForgeRock AS.
+--}}
+<div class="self-service-card card wide-card {{#if off}} card-off {{/if}} {{#unless enabled}} disabled {{/unless}}" data-editable="{{editable}}" data-type="{{type}}" {{#if name}}data-name="{{name}}"{{/if}}>
+
+    <div class="card-body">
+        {{#if togglable}}
+        <div class="switch-holder panel-heading">
+            <div class="checkbox checkbox-slider-primary checkbox-slider checkbox-slider--b checkbox-slider-md">
+                <label>
+                    <input {{#if off}} disabled {{/if}} class="section-check" type="checkbox" {{#if enabled}}checked{{/if}}><span></span>
+                </label>
+            </div>
+        </div>
+        {{/if}}
+
+        <div class="details panel-body {{#unless togglable}}no-toggle{{/unless}}">
+            <div class="logo-holder">
+                {{#if uiConfig.iconClass}}
+                    {{> providers/_providerCircle size="large"}}
+                {{else}}
+                    {{#if displayIcon}}
+                        <div class="image circle self-service-icon">
+                            <i class="fa fa-{{displayIcon}}"></i>
+                        </div>
+                    {{/if}}
+                {{/if}}
+            </div>
+            {{#if details}}
+            <div class="logo-details">
+                <div class="fr-logo-details-info">
+                    <h3>{{name}}</h3>
+                    <p class="status text-muted">{{details}}</p>
+                </div>
+
+                {{#if showWarning}}
+                <div class="selfservice-warning">
+                    <p class="text-danger"><i class="fa fa-exclamation-circle"></i>{{warningMessage}} <a href="{{warningLink}}"><b>{{t "templates.selfservice.configureHere"}}</b></a></p>
+                </div>
+                {{/if}}
+            </div>
+            {{/if}}
+        </div>
+        <div class="panel-footer">
+            {{#if editable}}
+            <button type="button" class="btn btn-link" data-toggle="dropdown" aria-expanded="false">
+                <i class="fa fa-pencil"></i>
+            </button>
+            {{/if}}
+        </div>
+    </div>
+</div>

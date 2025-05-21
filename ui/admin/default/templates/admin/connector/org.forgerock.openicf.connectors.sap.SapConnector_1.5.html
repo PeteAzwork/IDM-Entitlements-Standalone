@@ -1,0 +1,492 @@
+{{!
+  Copyright 2023 ForgeRock AS. All Rights Reserved
+
+  Use of this code requires a commercial software license with ForgeRock AS.
+  or with one of its affiliates. All use shall be exclusively subject
+  to such license between the licensee and ForgeRock AS.
+}}
+<!-- Base Details panel -->
+<div class="panel panel-default panel-collapse" id="sapConnector">
+    <div class="panel-heading" role="tab" id="connectorSpecificBaseHeading">
+        <h4 class="panel-title">
+            <a data-toggle="collapse" href="#connectorSpecificBase" aria-expanded="true" aria-controls="connectorSpecificBase"
+               class="">{{t "templates.connector.baseTitle"}}</a>
+        </h4>
+    </div>
+    <div id="connectorSpecificBase" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="connectorSpecificBaseHeading"
+         aria-expanded="true">
+        <div class="panel-body">
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="gwHost">{{t "templates.connector.sap.gwHost"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" data-validator="" type="text" id="gwHost"
+                           name="configurationProperties.gwHost"
+                           value="{{connectorDefaults.configurationProperties.gwHost}}" />
+                    <span class='help-block'>{{t "templates.connector.sap.gwHostHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="asHost">{{t "templates.connector.sap.asHost"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" data-validator="" type="text" id="asHost"
+                           name="configurationProperties.asHost"
+                           value="{{connectorDefaults.configurationProperties.asHost}}" />
+                    <span class='help-block'>{{t "templates.connector.sap.asHostHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="client">{{t "templates.connector.sap.client"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" data-validator="required" type="number" id="client"
+                           name="configurationProperties.client"
+                           value="{{connectorDefaults.configurationProperties.client}}" />
+                    <span class='help-block'>{{t "templates.connector.sap.clientHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="language">{{t "templates.connector.sap.language"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" data-validator="required" type="text" id="language"
+                           name="configurationProperties.language"
+                           value="{{connectorDefaults.configurationProperties.language}}" />
+                    <span class='help-block'>{{t "templates.connector.sap.languageHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="sapRouter">{{t "templates.connector.sap.sapRouter"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" data-validator="" type="text" id="sapRouter"
+                           name="configurationProperties.sapRouter"
+                           value="{{connectorDefaults.configurationProperties.sapRouter}}" />
+                    <span class='help-block'>{{t "templates.connector.sap.sapRouterHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="cua">{{t "templates.connector.sap.cua"}}</label>
+                <div class="col-sm-8">
+                    <div class="checkbox checkbox-slider-primary checkbox-slider checkbox-slider--b checkbox-slider-md">
+                        <label>
+                            <input class="toggleBoolean" id="cua" type="checkbox"
+                                   name="configurationProperties.cua"
+                                   value="true" {{#if connectorDefaults.configurationProperties.cua}} checked {{/if}} >
+                            <span></span>
+                        </label>
+                    </div>
+                    <span class='help-block'>{{t "templates.connector.sap.cuaHelp"}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Script Panel -->
+<div class="panel panel-default panel-collapse" id="SAPScriptPanel">
+    <div class="panel-heading" role="tab" id="SAPConnectorScriptPanelHeading">
+        <h4 class="panel-title">
+            <a data-toggle="collapse" href="#SAPConnectorScriptPanel" aria-expanded="true" aria-controls="SAPConnectorScriptPanel"
+               class="">{{t "templates.connector.scriptedShared.scriptsRootsTitle"}}</a>
+        </h4>
+    </div>
+    <div id="SAPConnectorScriptPanel" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="SAPConnectorScriptPanelHeading"
+         aria-expanded="true">
+        <div class="panel-body">
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="searchScriptFileName">{{t "templates.connector.scriptedShared.searchScriptFileName"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" data-validator="" type="text" id="searchScriptFileName"
+                           name="configurationProperties.searchScriptFileName"
+                           value="{{connectorDefaults.configurationProperties.searchScriptFileName}}" />
+                    <span class='help-block'>{{t "templates.connector.scriptedShared.searchScriptFileNameHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="createScriptFileName">{{t "templates.connector.scriptedShared.createScriptFileName"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" data-validator="" type="text" id="createScriptFileName"
+                           name="configurationProperties.createScriptFileName"
+                           value="{{connectorDefaults.configurationProperties.createScriptFileName}}" />
+                    <span class='help-block'>{{t "templates.connector.scriptedShared.createScriptFileNameHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="updateScriptFileName">{{t "templates.connector.scriptedShared.updateScriptFileName"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" data-validator="" type="text" id="updateScriptFileName"
+                           name="configurationProperties.updateScriptFileName"
+                           value="{{connectorDefaults.configurationProperties.updateScriptFileName}}" />
+                    <span class='help-block'>{{t "templates.connector.scriptedShared.updateScriptFileNameHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="deleteScriptFileName">{{t "templates.connector.scriptedShared.deleteScriptFileName"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" data-validator="" type="text" id="deleteScriptFileName"
+                           name="configurationProperties.deleteScriptFileName"
+                           value="{{connectorDefaults.configurationProperties.deleteScriptFileName}}" />
+                    <span class='help-block'>{{t "templates.connector.scriptedShared.deleteScriptFileNameHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="testScriptFileName">{{t "templates.connector.scriptedShared.testScriptFileName"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" data-validator="" type="text" id="testScriptFileName"
+                           name="configurationProperties.testScriptFileName"
+                           value="{{connectorDefaults.configurationProperties.testScriptFileName}}" />
+                    <span class='help-block'>{{t "templates.connector.scriptedShared.testScriptFileNameHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="schemaScriptFileName">{{t "templates.connector.scriptedShared.schemaScriptFileName"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" data-validator="" type="text" id="schemaScriptFileName"
+                           name="configurationProperties.schemaScriptFileName"
+                           value="{{connectorDefaults.configurationProperties.schemaScriptFileName}}" />
+                    <span class='help-block'>{{t "templates.connector.scriptedShared.schemaScriptFileNameHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="syncScriptFileName">{{t "templates.connector.scriptedShared.syncScriptFileName"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="syncScriptFileName"
+                           name="configurationProperties.syncScriptFileName"
+                           value="{{connectorDefaults.configurationProperties.syncScriptFileName}}" />
+                    <span class='help-block'>{{t "templates.connector.scriptedShared.syncScriptFileNameHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="authenticateScriptFileName">{{t "templates.connector.scriptedShared.authenticateScriptFileName"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="authenticateScriptFileName"
+                           name="configurationProperties.authenticateScriptFileName"
+                           value="{{connectorDefaults.configurationProperties.authenticateScriptFileName}}" />
+                    <span class='help-block'>{{t "templates.connector.scriptedShared.authenticateScriptFileNameHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="scriptOnResourceScriptFileName">{{t "templates.connector.scriptedShared.scriptOnResourceScriptFileName"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="scriptOnResourceScriptFileName"
+                           name="configurationProperties.scriptOnResourceScriptFileName"
+                           value="{{connectorDefaults.configurationProperties.scriptOnResourceScriptFileName}}" />
+                    <span class='help-block'>{{t "templates.connector.scriptedShared.scriptOnResourceScriptFileNameHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="resolveUsernameScriptFileName">{{t "templates.connector.scriptedShared.resolveUsernameScriptFileName"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="resolveUsernameScriptFileName"
+                           name="configurationProperties.resolveUsernameScriptFileName"
+                           value="{{connectorDefaults.configurationProperties.resolveUsernameScriptFileName}}" />
+                    <span class='help-block'>{{t "templates.connector.scriptedShared.resolveUsernameScriptFileNameHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="customizerScriptFileName">{{t "templates.connector.scriptedShared.customizerScriptFileName"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="customizerScriptFileName"
+                           name="configurationProperties.customizerScriptFileName"
+                           value="{{connectorDefaults.configurationProperties.customizerScriptFileName}}" />
+                    <span class='help-block'>{{t "templates.connector.scriptedShared.customizerScriptFileNameHelp"}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Authentication Panel -->
+<div class="panel panel-default panel-collapse" id="SAPAuthPanel">
+    <div class="panel-heading" role="tab" id="SAPConnectorAuthPanelHeading">
+        <h4 class="panel-title">
+            <a data-toggle="collapse" href="#SAPConnectorAuthPanel" aria-expanded="true" aria-controls="SAPConnectorAuthPanel"
+               class="">{{t "templates.connector.authentication"}}</a>
+        </h4>
+    </div>
+    <div id="SAPConnectorAuthPanel" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="SAPConnectorAuthPanelHeading"
+         aria-expanded="true">
+        <div class="panel-body">
+            <label class="col-sm-3 control-label" for="user">{{t "templates.connector.sap.user"}}</label>
+            <div class="col-sm-8">
+                <input class="form-control" data-validator="required" type="text" id="user"
+                       name="configurationProperties.user"
+                       value="{{connectorDefaults.configurationProperties.user}}"  />
+                <span class='help-block'>{{t "templates.connector.sap.userHelp"}}</span>
+            </div>
+            <label class="col-sm-3 control-label" for="password">{{t "templates.connector.sap.password"}}</label>
+            <div class="col-sm-8">
+                <!-- autocomplete="new-password" is required to prevent chrome from auto-completing these form fields -->
+                {{#ifObject connectorDefaults.configurationProperties.password}}
+                    {{#if connectorDefaults.configurationProperties.password.$crypto}}
+                        <input id="password" class="form-control" name="configurationProperties.password"
+                               data-validator="required" type="password"
+                        {{#if connectorDefaults.configurationProperties.password}} placeholder="********" {{/if}} autocomplete="new-password" />
+                    {{else}}
+                        <input id="password" class="form-control" name="configurationProperties.password" type="password"
+                               placeholder="{{connectorDefaults.configurationProperties.password.$base64:decode}}"
+                               autocomplete="new-password" />
+                    {{/if}}
+                {{else}}
+                    <input id="password" class="form-control" data-validator="required" type="password"
+                           name="configurationProperties.password"
+                           value="{{connectorDefaults.configurationProperties.password}}" autocomplete="new-password" />
+                {{/ifObject}}
+                <span class='help-block'>{{t "templates.connector.sap.passwordHelp"}}</span>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- SNC Panel -->
+<div class="panel panel-default panel-collapse" id="SAPSNCPanel">
+    <div class="panel-heading" role="tab" id="SAPConnectorSNCPanelHeading">
+        <h4 class="panel-title">
+            <a data-toggle="collapse" href="#SAPConnectorSNCPanel" aria-expanded="true" aria-controls="SAPConnectorSNCPanel"
+               class="">{{t "templates.connector.sap.snc"}}</a>
+        </h4>
+    </div>
+    <div id="SAPConnectorSNCPanel" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="SAPConnectorSNCPanelHeading"
+         aria-expanded="true">
+        <div class="panel-body">
+            <div class="form-group">
+            <label class="col-sm-3 control-label" for="sncQoP">{{t "templates.connector.sap.sncQoP"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="sncQoP"
+                           name="configurationProperties.sncQoP"
+                           value="{{connectorDefaults.configurationProperties.sncQoP}}" />
+                    <span class='help-block'>{{t "templates.connector.sap.sncQoPHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+            <label class="col-sm-3 control-label" for="sncMyName">{{t "templates.connector.sap.sncMyName"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="sncMyName"
+                           name="configurationProperties.sncMyName"
+                           value="{{connectorDefaults.configurationProperties.sncMyName}}" />
+                    <span class='help-block'>{{t "templates.connector.sap.sncMyNameHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+            <label class="col-sm-3 control-label" for="sncSSO">{{t "templates.connector.sap.sncSSO"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="sncSSO"
+                           name="configurationProperties.sncSSO"
+                           value="{{connectorDefaults.configurationProperties.sncSSO}}" />
+                    <span class='help-block'>{{t "templates.connector.sap.sncSSOHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+            <label class="col-sm-3 control-label" for="sncMode">{{t "templates.connector.sap.sncMode"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="sncMode"
+                           name="configurationProperties.sncMode"
+                           value="{{connectorDefaults.configurationProperties.sncMode}}" />
+                    <span class='help-block'>{{t "templates.connector.sap.sncModeHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+            <label class="col-sm-3 control-label" for="sncLibrary">{{t "templates.connector.sap.sncLibrary"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="sncLibrary"
+                           name="configurationProperties.sncLibrary"
+                           value="{{connectorDefaults.configurationProperties.sncLibrary}}" />
+                    <span class='help-block'>{{t "templates.connector.sap.sncLibraryHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+            <label class="col-sm-3 control-label" for="sncPartnerName">{{t "templates.connector.sap.sncPartnerName"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="sncPartnerName"
+                           name="configurationProperties.sncPartnerName"
+                           value="{{connectorDefaults.configurationProperties.sncPartnerName}}" />
+                    <span class='help-block'>{{t "templates.connector.sap.sncPartnerNameHelp"}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Advanced Options Panel -->
+<div class="panel panel-default panel-collapse" id="SAPOptionalPanel">
+    <div class="panel-heading" role="tab" id="SAPConnectorOptionalPanelHeading">
+        <h4 class="panel-title">
+            <a data-toggle="collapse" href="#SAPConnectorOptionalPanel" aria-expanded="true" aria-controls="SAPConnectorOptionalPanel"
+               class="">{{t "templates.connector.sap.advanced"}}</a>
+        </h4>
+    </div>
+    <div id="SAPConnectorOptionalPanel" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="SAPConnectorOptionalPanelHeading"
+         aria-expanded="true">
+        <div class="panel-body">
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="directConnection">{{t "templates.connector.sap.directConnection"}}</label>
+                <div class="col-sm-8">
+                    <div class="checkbox checkbox-slider-primary checkbox-slider checkbox-slider--b checkbox-slider-md">
+                        <label>
+                            <input class="toggleBoolean" id="directConnection" type="checkbox"
+                                   name="configurationProperties.directConnection"
+                                   value="true" {{#if connectorDefaults.configurationProperties.directConnection}} checked {{/if}} >
+                            <span></span>
+                        </label>
+                    </div>
+                    <span class='help-block'>{{t "templates.connector.sap.directConnectionHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="customConfiguration">{{t "templates.connector.sap.customConfiguration"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="customConfiguration"
+                           name="configurationProperties.customConfiguration"
+                           value="{{connectorDefaults.configurationProperties.customConfiguration}}" />
+                    <span class='help-block'>{{t "templates.connector.sap.customConfigurationHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="sourceEncoding">{{t "templates.connector.scriptedShared.sourceEncoding"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="sourceEncoding"
+                           name="configurationProperties.sourceEncoding"
+                           value="{{connectorDefaults.configurationProperties.sourceEncoding}}" />
+                    <span class='help-block'>{{t "templates.connector.scriptedShared.sourceEncodingHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="customSensitiveConfiguration">{{t "templates.connector.sap.customSensitiveConfiguration"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="customSensitiveConfiguration"
+                           name="configurationProperties.customSensitiveConfiguration"
+                           value="{{connectorDefaults.configurationProperties.customSensitiveConfiguration}}" />
+                    <span class='help-block'>{{t "templates.connector.sap.customSensitiveConfigurationHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="gwServ">{{t "templates.connector.sap.gwServ"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="gwServ"
+                           name="configurationProperties.gwServ"
+                           value="{{connectorDefaults.configurationProperties.gwServ}}" />
+                    <span class='help-block'>{{t "templates.connector.sap.gwServHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="trace">{{t "templates.connector.sap.trace"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="trace"
+                           name="configurationProperties.trace"
+                           value="{{connectorDefaults.configurationProperties.trace}}" />
+                    <span class='help-block'>{{t "templates.connector.sap.traceHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="cpicTrace">{{t "templates.connector.sap.cpicTrace"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="cpicTrace"
+                           name="configurationProperties.cpicTrace"
+                           value="{{connectorDefaults.configurationProperties.cpicTrace}}" />
+                    <span class='help-block'>{{t "templates.connector.sap.cpicTraceHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="systemNumber">{{t "templates.connector.sap.systemNumber"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="systemNumber"
+                           name="configurationProperties.systemNumber"
+                           value="{{connectorDefaults.configurationProperties.systemNumber}}" />
+                    <span class='help-block'>{{t "templates.connector.sap.systemNumberHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="destination">{{t "templates.connector.sap.destination"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="destination"
+                           name="configurationProperties.destination"
+                           value="{{connectorDefaults.configurationProperties.destination}}" />
+                    <span class='help-block'>{{t "templates.connector.sap.destinationHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="msHost">{{t "templates.connector.sap.msHost"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="msHost"
+                           name="configurationProperties.msHost"
+                           value="{{connectorDefaults.configurationProperties.msHost}}" />
+                    <span class='help-block'>{{t "templates.connector.sap.msHostHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="msServ">{{t "templates.connector.sap.msServ"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="msServ"
+                           name="configurationProperties.msServ"
+                           value="{{connectorDefaults.configurationProperties.msServ}}" />
+                    <span class='help-block'>{{t "templates.connector.sap.msServHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="r3Name">{{t "templates.connector.sap.r3Name"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="r3Name"
+                           name="configurationProperties.r3Name"
+                           value="{{connectorDefaults.configurationProperties.r3Name}}" />
+                    <span class='help-block'>{{t "templates.connector.sap.r3NameHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="group">{{t "templates.connector.sap.group"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="group"
+                           name="configurationProperties.group"
+                           value="{{connectorDefaults.configurationProperties.group}}" />
+                    <span class='help-block'>{{t "templates.connector.sap.groupHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="expirationPeriod">{{t "templates.connector.sap.expirationPeriod"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="expirationPeriod"
+                           name="configurationProperties.expirationPeriod"
+                           value="{{connectorDefaults.configurationProperties.expirationPeriod}}" />
+                    <span class='help-block'>{{t "templates.connector.sap.expirationPeriodHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="x509Cert">{{t "templates.connector.sap.x509Cert"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="x509Cert"
+                           name="configurationProperties.x509Cert"
+                           value="{{connectorDefaults.configurationProperties.x509Cert}}" />
+                    <span class='help-block'>{{t "templates.connector.sap.x509CertHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="peakLimit">{{t "templates.connector.sap.peakLimit"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="peakLimit"
+                           name="configurationProperties.peakLimit"
+                           value="{{connectorDefaults.configurationProperties.peakLimit}}" />
+                    <span class='help-block'>{{t "templates.connector.sap.peakLimitHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="maxGetTime">{{t "templates.connector.sap.maxGetTime"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="maxGetTime"
+                           name="configurationProperties.maxGetTime"
+                           value="{{connectorDefaults.configurationProperties.maxGetTime}}" />
+                    <span class='help-block'>{{t "templates.connector.sap.maxGetTimeHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="poolCapacity">{{t "templates.connector.sap.poolCapacity"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="poolCapacity"
+                           name="configurationProperties.poolCapacity"
+                           value="{{connectorDefaults.configurationProperties.poolCapacity}}" />
+                    <span class='help-block'>{{t "templates.connector.sap.poolCapacityHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="expirationTime">{{t "templates.connector.sap.expirationTime"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="expirationTime"
+                           name="configurationProperties.expirationTime"
+                           value="{{connectorDefaults.configurationProperties.expirationTime}}" />
+                    <span class='help-block'>{{t "templates.connector.sap.expirationTimeHelp"}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

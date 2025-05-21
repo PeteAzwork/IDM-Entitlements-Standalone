@@ -1,0 +1,83 @@
+{{!--
+  Copyright 2016-2023 ForgeRock AS. All Rights Reserved
+
+  Use of this code requires a commercial software license with ForgeRock AS.
+  or with one of its affiliates. All use shall be exclusively subject
+  to such license between the licensee and ForgeRock AS.
+--}}
+<div class="form-group">
+    <label class="col-sm-3 control-label">{{t "templates.managed.schemaEditor.relationshipConfiguration"}}</label>
+    <div class="col-sm-8">
+        <div class="panel panel-default relationship-resource relationship-current-resource">
+            <div class="list-group no-border no-margin">
+                <div class="list-group-item">
+                    <div class="media">
+                        <div class="media-left">
+                            <div class="circle-icon-xs">
+                                <i class="fa {{icon}}" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <div class="media-body media-middle">
+                            <h4 class="list-group-item-heading">{{managedObjectName}}</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{! buttons }}
+<div class="form-group">
+    <div class="col-sm-8 col-sm-offset-3">
+        <div class="relationship-arrows-vertical">
+            <div class="row">
+                <div class="col-xs-6">
+                    <div class="arrow-line down">
+                        <div>
+                            <button type="button" class="btn btn-default btn-sm center-block btn-relationship-type" data-side="current" data-toggle="popover" data-value="{{relationshipType}}" data-original-title="{{t 'templates.managed.schemaEditor.relationship'}}">{{relationshipTypeTitle}} {{propertyName}}</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-6">
+                    <div class="arrow-line up {{#equals reverseRelationshipType 'none'}} disabled {{/equals}}">
+                        <div>
+                            <span><button {{#if noResources}} disabled {{/if}} type="button" class="btn btn-default btn-sm center-block btn-reverse-relationship-type" data-side="reverse" data-toggle="popover" data-value="{{reverseRelationshipType}}" title="" data-original-title="{{t 'templates.managed.schemaEditor.reverseRelationship'}}">
+                                {{#equals reverseRelationshipType "none"}}
+                                    <i class="fa fa-plus text-muted"></i>{{t "templates.managed.schemaEditor.twoWayRelationship"}}
+                                {{else}}
+                                    {{reverseRelationshipTypeTitle}} {{reversePropertyName}}
+                                {{/equals}}
+                            </button></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{! resource collection }}
+<div class="form-group">
+    <div class="col-sm-8 col-sm-offset-3">
+        <div class="new-relationship-resource">
+            <div class="panel panel-default relationship-resource editable" {{#if noResources}}style="border-color: #a94442"{{/if}}>
+                <div class="list-group no-border" id="resourceCollection"></div>
+                <div class="well relationship-resource-empty" {{#if noResources}}style="background-color: #a9444210"{{/if}}>
+                    <div class="relationship-resource-empty-label">
+                        <button class="btn btn-link add-resource"  {{#if noResources}}style="font-weight: bold; color: #a94442"{{/if}} type="button" data-toggle="modal"><i class="fa fa-plus fa-fw"></i>{{t "templates.managed.schemaEditor.relatedResource"}}</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{{! properties grid}}
+<div class="form-group">
+    <label class="col-sm-3 control-label">{{t "templates.managed.schemaEditor.relationshipProperties"}}</label>
+    <div class="col-sm-8">
+        <div class="refPropertiesList"></div>
+    </div>
+</div>

@@ -1,0 +1,53 @@
+{{!--
+  Copyright 2017 ForgeRock AS. All Rights Reserved
+
+  Use of this code requires a commercial software license with ForgeRock AS.
+  or with one of its affiliates. All use shall be exclusively subject
+  to such license between the licensee and ForgeRock AS.
+--}}
+<p class="form-steps">
+    1. {{t "templates.socialProviders.configureWeChat"}}
+</p>
+
+{{> social/_callback callBackHelp="templates.socialProviders.redirectURIHelp"}}
+
+<div class="form-steps">
+    2. {{t "templates.socialProviders.enterConfigure"}}
+</div>
+<form id="socialDialogForm" class="form-horizontal">
+    <p class="panel-description">
+        {{t "templates.socialProviders.wechatGeneralHelp"}}
+    </p>
+
+    <div class="form-group">
+        <label for="enabled" class="col-sm-3 control-label">{{t "templates.socialProviders.enabled"}}</label>
+        <div class="col-sm-8">
+            <div class="checkbox checkbox-slider-primary checkbox-slider checkbox-slider--b checkbox-slider-md">
+                <label>
+                    <input id="enabled" class="toggleBoolean" name="enabled" type="checkbox" value="true" {{#if enabled}} checked {{/if}}>
+                    <span></span>
+                </label>
+            </div>
+        </div>
+    </div>
+
+    {{> form/_basicInput value=clientId label="templates.socialProviders.clientId" property="clientId" noValidation="true"}}
+
+    {{> social/_clientSecret label="templates.socialProviders.clientSecret"}}
+
+    {{> form/_tagSelectize value=scope label="templates.socialProviders.scope" property="scope" noValidation="true" helpKey="templates.socialProviders.wechatScopeHelp" }}
+
+    <div class="form-group">
+        <div class="col-sm-8 col-sm-offset-3">
+            <a class="advanced-options-toggle collapsed" role="button" data-toggle="collapse" href="#advancedOptions" aria-expanded="false" aria-controls="advancedOptions">{{t "templates.socialProviders.showAdvanced"}}</a>
+        </div>
+    </div>
+
+    <div class="collapse" aria-expanded="false" id="advancedOptions">
+        {{> form/_basicInput value=authorizationEndpoint label="templates.socialProviders.authorizationEndpoint" property="authorizationEndpoint" noValidation="true"}}
+        {{> form/_basicInput value=tokenEndpoint label="templates.socialProviders.tokenEndpoint" property="tokenEndpoint" noValidation="true"}}
+        {{> form/_basicInput value=userInfoEndpoint label="templates.socialProviders.userInfoEndpoint" property="userInfoEndpoint" noValidation="true"}}
+
+        {{> social/_badgeButtonConfig}}
+    </div>
+</form>

@@ -1,0 +1,1652 @@
+=======================================================
+== OpenIDM sustaining/7.5.x - Open Source Copyrights ==
+=======================================================
+
+animal-sniffer-annotations-1.9.jar
+==================================
+Licensed under MIT
+License terms can be found at: https://repo.maven.apache.org/maven2/org/codehaus/mojo/animal-sniffer-annotations/1.9/animal-sniffer-annotations-1.9.pom
+Copyright 2009 codehaus.org
+
+antlr-runtime-3.5.2.jar
+=======================
+Licensed under BSD
+License terms can be found at: https://repo.maven.apache.org/maven2/org/antlr/antlr-runtime/3.5.2/antlr-runtime-3.5.2.pom
+Copyright ANTLR
+
+api-asn1-api-2.1.4.jar
+======================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/apache/directory/api/api-asn1-api/2.1.4/api-asn1-api-2.1.4.pom
+Copyright 2003-2023 The Apache Software Foundation
+
+api-i18n-2.1.4.jar
+==================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/apache/directory/api/api-i18n/2.1.4/api-i18n-2.1.4.pom
+Copyright 2003-2023 The Apache Software Foundation
+
+api-util-2.1.4.jar
+==================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/apache/directory/api/api-util/2.1.4/api-util-2.1.4.pom
+Copyright 2003-2023 The Apache Software Foundation
+
+asm-9.3.jar
+===========
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/ow2/asm/asm/9.3/asm-9.3.pom
+Copyright 2011 INRIA, France Telecom
+
+asm-analysis-9.3.jar
+====================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/ow2/asm/asm-analysis/9.3/asm-analysis-9.3.pom
+Copyright 2011 INRIA, France Telecom
+
+asm-commons-9.3.jar
+===================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/ow2/asm/asm-commons/9.3/asm-commons-9.3.pom
+Copyright 2011 INRIA, France Telecom
+
+asm-tree-9.3.jar
+================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/ow2/asm/asm-tree/9.3/asm-tree-9.3.pom
+Copyright 2011 INRIA, France Telecom
+
+asm-util-9.1.jar
+================
+Licensed under Apache 2.0
+License terms can be found at: http://repo.jfrog.org/artifactory/third-party-releases/org/ow2/asm/asm-util/9.1/asm-util-9.1.pom
+Copyright 2011-2012 Bull S.A.S
+Copyright 2000-2011 INRIA
+
+backgrid-filter.min-0.3.7.css
+=============================
+Licensed under MIT
+License terms can be found at: https://github.com/backgrid/backgrid-paginator/blob/v0.3.7/LICENSE-MIT
+Copyright 2012 Jimmy Yuen Ho Wong
+
+backgrid-filter.min-0.3.7.js
+============================
+Licensed under MIT
+License terms can be found at: https://github.com/backgrid/backgrid-paginator/blob/v0.3.7/LICENSE-MIT
+Copyright 2012 Jimmy Yuen Ho Wong
+
+backgrid-paginator.min-0.3.5.css
+================================
+Licensed under MIT
+License terms can be found at: https://github.com/cloudflare/backgrid-paginator/blob/0.3.5/LICENSE-MIT
+2012 2012 Copyright (c) 2012 Jimmy Yuen Ho Wong
+
+backgrid.min-0.3.5.less
+=======================
+Licensed under MIT
+License terms can be found at: https://github.com/cdnjs/cdnjs/blob/master/ajax/libs/backgrid.js/0.3.5/backgrid.js
+2014 2014 Copyright (c) 2014 Jimmy Yuen Ho Wong and contributors <wyuenho@gmail.com>
+
+bcmail-jdk18on-1.74.jar
+=======================
+Licensed under Bouncy Castle License
+License terms can be found at: https://repo.maven.apache.org/maven2/org/bouncycastle/bcmail-jdk18on/1.74/bcmail-jdk18on-1.74.pom
+Copyright 2000 The Legion of the Bouncy Castle Inc
+
+bcpkix-jdk18on-1.74.jar
+=======================
+Licensed under Bouncy Castle License
+License terms can be found at: https://repo.maven.apache.org/maven2/org/bouncycastle/bcpkix-jdk18on/1.74/bcpkix-jdk18on-1.74.pom
+Copyright 2013 Legion of the Bouncy Castle Inc. 
+
+bcprov-jdk18on-1.74.jar
+=======================
+Licensed under Bouncy Castle License
+License terms can be found at: https://repo.maven.apache.org/maven2/org/bouncycastle/bcprov-jdk18on/1.74/bcprov-jdk18on-1.74.pom
+Copyright 2013 Legion of the Bouncy Castle Inc. 
+
+bcutil-jdk18on-1.74.jar
+=======================
+Licensed under Bouncy Castle License
+License terms can be found at: https://repo.maven.apache.org/maven2/org/bouncycastle/bcutil-jdk18on/1.74/bcutil-jdk18on-1.74.pom
+Copyright 2013 Legion of the Bouncy Castle Inc. 
+
+bootstrap-datetimepicker-4.17.47.css
+====================================
+Licensed under MIT
+License terms can be found at: https://github.com/Eonasdan/tempus-dominus/blob/4.17.47/LICENSE
+Copyright 2015 (@Eonasdan)
+
+bootstrap-tabdrop-1.0.js
+========================
+Licensed under Apache 2.0
+License terms can be found at: https://github.com/nwhite89/bootstrap-tabdrop/blob/1.0.0/src/js/bootstrap-tabdrop.js
+2012 Copyright 2012 Stefan Petre
+
+cal-heatmap-3.6.2.css
+=====================
+Licensed under MIT
+License terms can be found at: https://github.com/wa0x6e/cal-heatmap/blob/3.6.2/LICENCE-MIT
+2012 Copyright (c) 2012 Tyler Kellen, contributors
+
+checker-qual-3.19.0.jar
+=======================
+Licensed under MIT
+License terms can be found at: https://repo.maven.apache.org/maven2/org/checkerframework/checker-qual/3.19.0/checker-qual-3.19.0.pom
+Copyright 2004 by the Checker Framework developers
+
+CodeMirror-4.10.zip
+===================
+Licensed under MIT
+License terms can be found at: https://github.com/codemirror/CodeMirror/blob/4.1.0/LICENSE
+2014 Copyright (C) 2014 by Marijn Haverbeke <marijnh@gmail.com> and others
+
+commons-codec-1.15.jar
+======================
+Licensed under Apache 2.0
+License terms can be found at: https://repository.apache.org/content/repositories/releases/commons-codec/commons-codec/1.15/commons-codec-1.15.pom
+Copyright 2020 The Apache Software Foundation
+
+commons-collections-3.2.2.jar
+=============================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.pom
+Copyright 2001-2015 The Apache Software Foundation
+
+commons-compress-1.26.0.jar
+===========================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/apache/commons/commons-compress/1.26.0/commons-compress-1.26.0.pom
+Copyright 2002-2024 The Apache Software Foundation
+
+commons-daemon-1.2.4.jar
+========================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/commons-daemon/commons-daemon/1.2.4/commons-daemon-1.2.4.pom
+Copyright 1999-2021 The Apache Software Foundation
+
+commons-email-1.5.jar
+=====================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/apache/commons/commons-email/1.5/commons-email-1.5.pom
+Copyright 2001-2017 The Apache Software Foundation
+
+commons-fileupload-1.5.jar
+==========================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/commons-fileupload/commons-fileupload/1.5/commons-fileupload-1.5.pom
+Copyright 2002-2023 The Apache Software Foundation
+
+commons-io-2.15.1.jar
+=====================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/commons-io/commons-io/2.15.1/commons-io-2.15.1.pom
+Copyright 2002-2023 The Apache Software Foundation
+
+commons-lang-2.6.jar
+====================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/commons-lang/commons-lang/2.6/commons-lang-2.6.pom
+Copyright 2001-2011 The Apache Software Foundation
+
+commons-lang3-3.12.0.jar
+========================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/apache/commons/commons-lang3/3.12.0/commons-lang3-3.12.0.pom
+Copyright 2001-2021 The Apache Software Foundation
+
+commons-logging-1.2.jar
+=======================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/commons-logging/commons-logging/1.2/commons-logging-1.2.pom
+Copyright 2003-2014 The Apache Software Foundation
+
+de.flapdoodle.embed.process-2.1.2.jar
+=====================================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/de/flapdoodle/embed/de.flapdoodle.embed.process/2.1.2/de.flapdoodle.embed.process-2.1.2.pom
+
+drools-compiler-7.73.0.Final.jar
+================================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/drools/drools-compiler/7.73.0.Final/drools-compiler-7.73.0.Final.pom
+
+drools-core-7.73.0.Final.jar
+============================
+Licensed under ANTLR 2
+License terms can be found at: https://repo.maven.apache.org/maven2/org/drools/drools-core/7.73.0.Final/drools-core-7.73.0.Final.pom
+
+drools-core-dynamic-7.73.0.Final.jar
+====================================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/drools/drools-core-dynamic/7.73.0.Final/drools-core-dynamic-7.73.0.Final.pom
+
+drools-core-reflective-7.73.0.Final.jar
+=======================================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/drools/drools-core-reflective/7.73.0.Final/drools-core-reflective-7.73.0.Final.pom
+
+drools-ecj-7.73.0.Final.jar
+===========================
+Licensed under Apache 2.0
+License terms can be found at: https://index.whitesourcesoftware.com/gri/app/reader/resource/content/asString/ea9b19bd-1fe0-4f16-980b-d4dfe69bcf64
+
+drools-mvel-7.73.0.Final.jar
+============================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/drools/drools-mvel/7.73.0.Final/drools-mvel-7.73.0.Final.pom
+Copyright 2020 (c)
+
+error_prone_annotations-2.1.3.jar
+=================================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/com/google/errorprone/error_prone_annotations/2.1.3/error_prone_annotations-2.1.3.pom
+2015 Copyright 2015 Google Inc. All Rights Reserved.
+
+failureaccess-1.0.1.jar
+=======================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1.pom
+Copyright 2020 Google LLC
+
+FastInfoset-1.2.16.jar
+======================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/com/sun/xml/fastinfoset/FastInfoset/1.2.16/FastInfoset-1.2.16.pom
+Copyright 2012-2018 Oracle and/or its affiliates
+Copyright 2007 Eclipse Foundation, Inc. and its licensors
+
+flowable-batch-service-6.8.0.jar
+================================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/flowable/flowable-batch-service/6.8.0/flowable-batch-service-6.8.0.pom
+
+flowable-batch-service-api-6.8.0.jar
+====================================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/flowable/flowable-batch-service-api/6.8.0/flowable-batch-service-api-6.8.0.pom
+
+flowable-bpmn-converter-6.8.0.jar
+=================================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/flowable/flowable-bpmn-converter/6.8.0/flowable-bpmn-converter-6.8.0.pom
+
+flowable-bpmn-model-6.8.0.jar
+=============================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/flowable/flowable-bpmn-model/6.8.0/flowable-bpmn-model-6.8.0.pom
+
+flowable-cmmn-api-6.8.0.jar
+===========================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/flowable/flowable-cmmn-api/6.8.0/flowable-cmmn-api-6.8.0.pom
+
+flowable-cmmn-model-6.8.0.jar
+=============================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/flowable/flowable-cmmn-model/6.8.0/flowable-cmmn-model-6.8.0.pom
+
+flowable-content-api-6.8.0.jar
+==============================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/flowable/flowable-content-api/6.8.0/flowable-content-api-6.8.0.pom
+
+flowable-dmn-api-6.8.0.jar
+==========================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/flowable/flowable-dmn-api/6.8.0/flowable-dmn-api-6.8.0.pom
+
+flowable-dmn-model-6.8.0.jar
+============================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/flowable/flowable-dmn-model/6.8.0/flowable-dmn-model-6.8.0.pom
+
+flowable-engine-6.8.0.jar
+=========================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/flowable/flowable-engine/6.8.0/flowable-engine-6.8.0.pom
+
+flowable-engine-common-6.8.0.jar
+================================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/flowable/flowable-engine-common/6.8.0/flowable-engine-common-6.8.0.pom
+
+flowable-engine-common-api-6.8.0.jar
+====================================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/flowable/flowable-engine-common-api/6.8.0/flowable-engine-common-api-6.8.0.pom
+
+flowable-entitylink-service-6.8.0.jar
+=====================================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/flowable/flowable-entitylink-service/6.8.0/flowable-entitylink-service-6.8.0.pom
+
+flowable-entitylink-service-api-6.8.0.jar
+=========================================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/flowable/flowable-entitylink-service-api/6.8.0/flowable-entitylink-service-api-6.8.0.pom
+
+flowable-event-registry-6.8.0.jar
+=================================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/flowable/flowable-event-registry/6.8.0/flowable-event-registry-6.8.0.pom
+
+flowable-event-registry-api-6.8.0.jar
+=====================================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/flowable/flowable-event-registry-api/6.8.0/flowable-event-registry-api-6.8.0.pom
+
+flowable-event-registry-configurator-6.8.0.jar
+==============================================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/flowable/flowable-event-registry-configurator/6.8.0/flowable-event-registry-configurator-6.8.0.pom
+
+flowable-event-registry-json-converter-6.8.0.jar
+================================================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/flowable/flowable-event-registry-json-converter/6.8.0/flowable-event-registry-json-converter-6.8.0.pom
+
+flowable-event-registry-model-6.8.0.jar
+=======================================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/flowable/flowable-event-registry-model/6.8.0/flowable-event-registry-model-6.8.0.pom
+
+flowable-eventsubscription-service-6.8.0.jar
+============================================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/flowable/flowable-eventsubscription-service/6.8.0/flowable-eventsubscription-service-6.8.0.pom
+
+flowable-eventsubscription-service-api-6.8.0.jar
+================================================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/flowable/flowable-eventsubscription-service-api/6.8.0/flowable-eventsubscription-service-api-6.8.0.pom
+
+flowable-form-api-6.8.0.jar
+===========================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/flowable/flowable-form-api/6.8.0/flowable-form-api-6.8.0.pom
+
+flowable-form-model-6.8.0.jar
+=============================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/flowable/flowable-form-model/6.8.0/flowable-form-model-6.8.0.pom
+
+flowable-http-common-6.8.0.jar
+==============================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/flowable/flowable-http-common/6.8.0/flowable-http-common-6.8.0.pom
+
+flowable-identitylink-service-6.8.0.jar
+=======================================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/flowable/flowable-identitylink-service/6.8.0/flowable-identitylink-service-6.8.0.pom
+
+flowable-identitylink-service-api-6.8.0.jar
+===========================================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/flowable/flowable-identitylink-service-api/6.8.0/flowable-identitylink-service-api-6.8.0.pom
+
+flowable-idm-api-6.8.0.jar
+==========================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/flowable/flowable-idm-api/6.8.0/flowable-idm-api-6.8.0.pom
+
+flowable-idm-engine-6.8.0.jar
+=============================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/flowable/flowable-idm-engine/6.8.0/flowable-idm-engine-6.8.0.pom
+
+flowable-idm-engine-configurator-6.8.0.jar
+==========================================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/flowable/flowable-idm-engine-configurator/6.8.0/flowable-idm-engine-configurator-6.8.0.pom
+
+flowable-image-generator-6.8.0.jar
+==================================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/flowable/flowable-image-generator/6.8.0/flowable-image-generator-6.8.0.pom
+
+flowable-job-service-6.8.0.jar
+==============================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/flowable/flowable-job-service/6.8.0/flowable-job-service-6.8.0.pom
+
+flowable-job-service-api-6.8.0.jar
+==================================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/flowable/flowable-job-service-api/6.8.0/flowable-job-service-api-6.8.0.pom
+
+flowable-osgi-6.8.0.jar
+=======================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/flowable/flowable-osgi/6.8.0/flowable-osgi-6.8.0.pom
+
+flowable-process-validation-6.8.0.jar
+=====================================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/flowable/flowable-process-validation/6.8.0/flowable-process-validation-6.8.0.pom
+
+flowable-task-service-6.8.0.jar
+===============================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/flowable/flowable-task-service/6.8.0/flowable-task-service-6.8.0.pom
+
+flowable-task-service-api-6.8.0.jar
+===================================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/flowable/flowable-task-service-api/6.8.0/flowable-task-service-api-6.8.0.pom
+
+flowable-variable-service-6.8.0.jar
+===================================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/flowable/flowable-variable-service/6.8.0/flowable-variable-service-6.8.0.pom
+
+flowable-variable-service-api-6.8.0.jar
+=======================================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/flowable/flowable-variable-service-api/6.8.0/flowable-variable-service-api-6.8.0.pom
+
+font-awesome-4.7.0.zip
+======================
+Licensed under MIT
+License terms can be found at: https://github.com/FortAwesome/Font-Awesome/tree/v4.7.0
+2016 Copyright @fontawesome
+
+form2js-2.0-769718a.js
+======================
+Licensed under MIT
+License terms can be found at: https://github.com/maxatwork/form2js/blob/master/license.txt
+2010 Copyright (c) 2010 Maxim Vasiliev
+
+freemarker-2.3.31.jar
+=====================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/freemarker/freemarker/2.3.31/freemarker-2.3.31.pom
+Copyright 2021 The Apache Software Foundation
+
+grizzly-framework-2.3.37-forgerock-0.jar
+========================================
+Licensed under CDDL 1.1
+License terms can be found at: https://repo.maven.apache.org/maven2/org/glassfish/grizzly/grizzly-framework/2.3.37/grizzly-framework-2.3.37.pom
+Copyright 2007 and/or its affiliates
+
+grizzly-http-2.3.37-forgerock-0.jar
+===================================
+Licensed under CDDL 1.1
+License terms can be found at: https://repo.maven.apache.org/maven2/org/glassfish/grizzly/grizzly-http-server/2.3.37/grizzly-http-server-2.3.37.pom
+Copyright 2007 and/or its affiliates
+
+grizzly-http-server-2.3.37-forgerock-0.jar
+==========================================
+Licensed under CDDL 1.1
+License terms can be found at: https://repo.maven.apache.org/maven2/org/glassfish/grizzly/grizzly-http-server/2.3.37/grizzly-http-server-2.3.37.pom
+Copyright 2007 and/or its affiliates
+
+grizzly-http-servlet-2.3.37-forgerock-0.jar
+===========================================
+Licensed under CDDL 1.1
+License terms can be found at: https://github.com/javaee/grizzly/blob/2_3_35/LICENSE.txt
+Unspecified Copyright
+Reviewed by the WhiteSource Research Team
+Library copyrights could not be established
+
+grizzly-websockets-2.3.37-forgerock-0.jar
+=========================================
+Licensed under CDDL 1.1
+License terms can be found at: https://github.com/javaee/grizzly/blob/2_3_35/LICENSE.txt
+Unspecified Copyright
+Reviewed by the WhiteSource Research Team
+Library copyrights could not be established
+
+groovy-3.0.9.jar
+================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/codehaus/groovy/groovy/3.0.9/groovy-3.0.9.pom
+Copyright 2003-2021 The Apache Software Foundation
+Copyright 1989-2006 developed by Terence Parr
+Copyright 2010-2012 Google Inc
+Copyright 2012-2017 The ANTLR Project
+
+groovy-datetime-3.0.9.jar
+=========================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/codehaus/groovy/groovy-datetime/3.0.9/groovy-datetime-3.0.9.pom
+Copyright 2010-2012 Google Inc
+Copyright 2003-2021 The Apache Software Foundation
+
+groovy-dateutil-3.0.9.jar
+=========================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/codehaus/groovy/groovy-dateutil/3.0.9/groovy-dateutil-3.0.9.pom
+Copyright 2003-2021 The Apache Software Foundation
+Copyright 2010-2012 Google Inc
+
+groovy-jmx-3.0.9.jar
+====================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/codehaus/groovy/groovy-jmx/3.0.9/groovy-jmx-3.0.9.pom
+Copyright 2010-2012 Google Inc
+Copyright 2003-2021 The Apache Software Foundation
+
+groovy-json-3.0.9.jar
+=====================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/codehaus/groovy/groovy-json/3.0.9/groovy-json-3.0.9.pom
+Copyright 2003-2021 The Apache Software Foundation
+Copyright 2010-2012 Google Inc
+
+groovy-jsr223-3.0.9.jar
+=======================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/codehaus/groovy/groovy-jsr223/3.0.9/groovy-jsr223-3.0.9.pom
+Copyright 2010-2012 Google Inc
+Copyright 2003-2021 The Apache Software Foundation
+
+groovy-macro-3.0.9.jar
+======================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/codehaus/groovy/groovy-macro/3.0.9/groovy-macro-3.0.9.pom
+Copyright 2010-2012 Google Inc
+Copyright 2003-2021 The Apache Software Foundation
+
+groovy-nio-3.0.9.jar
+====================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/codehaus/groovy/groovy-nio/3.0.9/groovy-nio-3.0.9.pom
+Copyright 2003-2021 The Apache Software Foundation
+Copyright 2010-2012 Google Inc
+
+groovy-sql-3.0.9.jar
+====================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/codehaus/groovy/groovy-sql/3.0.9/groovy-sql-3.0.9.pom
+Copyright 2010-2012 Google Inc
+Copyright 2003-2021 The Apache Software Foundation
+
+groovy-templates-3.0.9.jar
+==========================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/codehaus/groovy/groovy-templates/3.0.9/groovy-templates-3.0.9.pom
+Copyright 2010-2012 Google Inc
+Copyright 2003-2021 The Apache Software Foundation
+
+groovy-xml-3.0.9.jar
+====================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/codehaus/groovy/groovy-xml/3.0.9/groovy-xml-3.0.9.pom
+Copyright 2010-2012 Google Inc
+Copyright 2003-2021 The Apache Software Foundation
+
+gson-2.10.1.jar
+===============
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/com/google/code/gson/gson/2.10.1/gson-2.10.1.pom
+Copyright 2008 Google Inc.Licensed under the Apache License, Version 2.0 (the "License");
+
+guava-32.1.1-jre.jar
+====================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/com/google/guava/guava/32.1.1-jre/guava-32.1.1-jre.pom
+
+handlebars-4.3.1.jar
+====================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/com/github/jknack/handlebars/4.3.1/handlebars-4.3.1.pom
+Copyright 2012-2013 Edgar Espina
+
+HdrHistogram-2.1.12.jar
+=======================
+Licensed under BSD 2
+License terms can be found at: https://repo.maven.apache.org/maven2/org/hdrhistogram/HdrHistogram/2.1.12/HdrHistogram-2.1.12.pom
+Copyright 2014 Michael Barker
+Copyright 2014 Matt Warren
+Copyright 2012-2013 2014, 2015, 2016 Gil Tene
+
+hdrhistogram-metrics-reservoir-1.1.3.jar
+========================================
+Licensed under COIL 0.5
+License terms can be found at: https://repo.maven.apache.org/maven2/org/mpierce/metrics/reservoir/hdrhistogram-metrics-reservoir/1.1.3/hdrhistogram-metrics-reservoir-1.1.3.pom
+Copyright Marshall Pierce
+
+HikariCP-5.1.0.jar
+==================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/com/zaxxer/HikariCP/5.1.0/HikariCP-5.1.0.pom
+
+HikariCP-java7-2.4.13.jar
+=========================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/com/zaxxer/HikariCP-java7/2.4.13/HikariCP-java7-2.4.13.pom
+Copyright 2014 Brett Wooldridge
+
+htmlsanitizer-1.0.js
+====================
+Licensed under MIT
+License terms can be found at: https://github.com/jitbit/HtmlSanitizer/blob/1.0.0/LICENSE
+Copyright 2019 Jitbit
+
+httpasyncclient-osgi-4.1.4.jar
+==============================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/apache/httpcomponents/httpasyncclient-osgi/4.1.4/httpasyncclient-osgi-4.1.4.pom
+Copyright 2010-2018 The Apache Software Foundation
+
+httpclient-osgi-4.5.13-forgerock.jar
+====================================
+Licensed under Apache 2.0
+License terms can be found at: https://maven.forgerock.org/repo/internal-releases/org/apache/httpcomponents/httpclient-osgi/4.5.13-forgerock/httpclient-osgi-4.5.13-forgerock.pom
+Copyright 1999 The Apache Software Foundation
+
+httpcore-osgi-4.4.15.jar
+========================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/apache/httpcomponents/httpcore-osgi/4.4.15/httpcore-osgi-4.4.15.pom
+Copyright 2005-2021 The Apache Software Foundation
+
+httpcore5-5.2.jar
+=================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/apache/httpcomponents/core5/httpcore5/5.2/httpcore5-5.2.pom
+Copyright 2023 The Apache Software Foundation
+
+httpcore5-reactive-5.2.jar
+==========================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/apache/httpcomponents/core5/httpcore5-reactive/5.2/httpcore5-reactive-5.2.pom
+Copyright 2023 The Apache Software Foundation
+
+istack-commons-runtime-3.0.8.jar
+================================
+Licensed under BSD 3
+License terms can be found at: https://repo.maven.apache.org/maven2/com/sun/istack/istack-commons-runtime/3.0.8/istack-commons-runtime-3.0.8.pom
+Copyright 2017 Oracle and/or its affiliates
+Copyright 1997-2018 Oracle and/or its affiliates
+Copyright 2007 Eclipse Foundation, Inc. and its licensors
+
+jackson-annotations-2.16.1.jar
+==============================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/com/fasterxml/jackson/core/jackson-annotations/2.16.1/jackson-annotations-2.16.1.pom
+Copyright 2007 Tatu Saloranta (tatu.saloranta@iki.fi)
+
+jackson-core-2.16.1.jar
+=======================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/com/fasterxml/jackson/core/jackson-core/2.16.1/jackson-core-2.16.1.pom
+Copyright 2023 Werner Randelshofer, Switzerland
+Copyright 2021 The fast_float authors
+Copyright 2022 Daniel Lemire
+Copyright 2020 Tim Buktu. 2-clause BSD License
+Copyright 2007 Tatu Saloranta (tatu.saloranta@iki.fi)
+
+jackson-core-asl-1.9.13.jar
+===========================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/codehaus/jackson/jackson-core-asl/1.9.13/jackson-core-asl-1.9.13.pom
+
+jackson-databind-2.16.1.jar
+===========================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/com/fasterxml/jackson/core/jackson-databind/2.16.1/jackson-databind-2.16.1.pom
+Copyright 2007 Tatu Saloranta (tatu.saloranta@iki.fi)
+
+jackson-datatype-jsr310-2.16.1.jar
+==================================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/com/fasterxml/jackson/datatype/jackson-datatype-jsr310/2.16.1/jackson-datatype-jsr310-2.16.1.pom
+Copyright 2011 FasterXML, LLC.
+
+jackson-module-jsonSchema-2.16.1.jar
+====================================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/com/fasterxml/jackson/module/jackson-module-jsonSchema/2.16.1/jackson-module-jsonSchema-2.16.1.pom
+Copyright 2011 FasterXML, LLC.
+
+jakarta.activation-api-1.2.1.jar
+================================
+Licensed under BSD 3
+License terms can be found at: https://repo.maven.apache.org/maven2/jakarta/activation/jakarta.activation-api/1.2.1/jakarta.activation-api-1.2.1.pom
+Copyright 2018 Oracle and/or its affiliates
+Copyright 1997-2018 Oracle and/or its affiliates
+
+jasypt-1.9.3.jar
+================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/jasypt/jasypt/1.9.3/jasypt-1.9.3.pom
+Copyright 2007-2010 The JASYPT team (http://www.jasypt.org)
+Copyright 1995-2006 International Business Machines
+Copyright 2007-2010 The JASYPT team (http://www.jasypt.org)      -->
+
+java-uuid-generator-3.3.0.jar
+=============================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/com/fasterxml/uuid/java-uuid-generator/3.3.0/java-uuid-generator-3.3.0.pom
+Copyright 2011 FasterXML, LLC
+
+javax.activation-1.2.0.jar
+==========================
+Licensed under CDDL 1.1
+License terms can be found at: http://repo.jfrog.org/artifactory/list/repo1/com/sun/activation/javax.activation/1.2.0/javax.activation-1.2.0.pom
+Copyright 1997-2017 Oracle and/or its affiliates
+Copyright the combination of files containing Original Software with files containing Modifications, in each c
+Copyright the combination of files containing Original
+
+javax.activation-api-1.2.0.jar
+==============================
+Licensed under CDDL 1.1
+License terms can be found at: https://repo.maven.apache.org/maven2/javax/activation/javax.activation-api/1.2.0/javax.activation-api-1.2.0.pom
+Copyright 2017 Oracle
+
+javax.annotation-api-1.2.jar
+============================
+Licensed under CDDL 1.1
+License terms can be found at: https://repo.maven.apache.org/maven2/javax/annotation/javax.annotation-api/1.2/javax.annotation-api-1.2.pom
+Copyright 2013 Oracle
+
+javax.jms-api-2.0.1.jar
+=======================
+Licensed under CDDL 1.0
+License terms can be found at: https://mvnrepository.com/artifact/javax.jms/javax.jms-api/2.0.1
+Copyright 2015 Oracle and/or its affiliates
+
+javax.mail-1.6.2.jar
+====================
+Licensed under CDDL 1.1
+License terms can be found at: https://github.com/javaee/javamail/blob/JAVAMAIL-1_6_2/LICENSE.txt
+2017 Copyright (c) 1997-2017 Oracle and/or its affiliates. All rights reserved.
+
+javax.security.auth.message-3.1.1.jar
+=====================================
+Licensed under CDDL 1.1
+License terms can be found at: https://repo.maven.apache.org/maven2/org/glassfish/javax.security.auth.message/3.1.1/javax.security.auth.message-3.1.1.pom
+Copyright 2011 Oracle
+
+javax.servlet-api-3.1.0.jar
+===========================
+Licensed under CDDL 1.0
+License terms can be found at: https://opensource.org/licenses/CDDL-1.0
+Copyright 2013 Oracle
+
+jaxb-api-2.3.1.jar
+==================
+Licensed under CDDL 1.1
+License terms can be found at: http://repo.jfrog.org/artifactory/list/repo1/javax/xml/bind/jaxb-api/2.3.1/jaxb-api-2.3.1.pom
+Copyright 2023 Oracle
+
+jaxb-impl-2.3.2.jar
+===================
+Licensed under BSD 3
+License terms can be found at: https://repo.maven.apache.org/maven2/com/sun/xml/bind/jaxb-impl/2.3.2/jaxb-impl-2.3.2.pom
+Copyright 2013-2018 Oracle and/or its affiliates
+Copyright 2018 Oracle and/or its affiliates
+
+jaxb-ri-2.3.2.pom
+=================
+Licensed under BSD 3
+License terms can be found at: https://repo.maven.apache.org/maven2/com/sun/xml/bind/jaxb-ri/2.3.2/jaxb-ri-2.3.2.pom
+Copyright Oracle Corporation
+
+jaxb-runtime-2.3.2.jar
+======================
+Licensed under BSD 3
+License terms can be found at: https://repo.maven.apache.org/maven2/org/glassfish/jaxb/jaxb-runtime/2.3.2/jaxb-runtime-2.3.2.pom
+Copyright 2018 Oracle and/or its affiliates
+Copyright 2013-2018 Oracle and/or its affiliates
+
+jcip-annotations-1.0-1.jar
+==========================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/com/github/stephenc/jcip/jcip-annotations/1.0-1/jcip-annotations-1.0-1.pom
+Unspecified Copyright
+Reviewed by the WhiteSource Research Team
+Library copyrights could not be established
+
+jcl-over-slf4j-1.7.36.jar
+=========================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/slf4j/jcl-over-slf4j/1.7.36/jcl-over-slf4j-1.7.36.pom
+Copyright 2021 QOS.ch
+
+je-18.3.12.jar
+==============
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/com/sleepycat/je/18.3.12/je-18.3.12.pom
+Copyright 2014 Oracle Corporation
+
+jetty-client-9.4.53.v20231009.jar
+=================================
+Licensed under Apache 2.0
+Copyright 2008-2022 Mort Bay Consulting Pty Ltd and others
+Copyright 2008-2022 Mort Bay Consulting Pty Ltd an
+Copyright 1995-2018 Mort Bay Consulting Pty Ltd
+Copyright 1996 Aki Yoshida,
+Copyright d others
+Copyright Mort Bay Consulting Pty Ltd
+
+jetty-continuation-9.4.53.v20231009.jar
+=======================================
+Licensed under Apache 2.0
+License terms can be found at: https://index.whitesourcesoftware.com/gri/app/reader/resource/content/asString/cf34de58-3656-4437-bf31-f093eb647c9e
+Copyright Mort Bay Consulting Pty Ltd
+Copyright d others
+Copyright 1996 Aki Yoshida,
+Copyright 1995-2018 Mort Bay Consulting Pty Ltd
+Copyright 2008-2022 Mort Bay Consulting Pty Ltd an
+Copyright 2008-2022 Mort Bay Consulting Pty Ltd and others
+
+jetty-http-9.4.53.v20231009.jar
+===============================
+Licensed under Apache 2.0
+License terms can be found at: https://index.whitesourcesoftware.com/gri/app/reader/resource/content/asString/cf34de58-3656-4437-bf31-f093eb647c9e
+Copyright d others
+Copyright 1996 Aki Yoshida,
+Copyright 2008-2022 Mort Bay Consulting Pty Ltd and others
+Copyright 1995-2018 Mort Bay Consulting Pty Ltd
+Copyright Mort Bay Consulting Pty Ltd
+Copyright 2008-2022 Mort Bay Consulting Pty Ltd an
+
+jetty-io-9.4.53.v20231009.jar
+=============================
+Licensed under Apache 2.0
+License terms can be found at: https://index.whitesourcesoftware.com/gri/app/reader/resource/content/asString/cf34de58-3656-4437-bf31-f093eb647c9e
+Copyright 2008-2022 Mort Bay Consulting Pty Ltd an
+Copyright d others
+Copyright Mort Bay Consulting Pty Ltd
+Copyright 1996 Aki Yoshida,
+Copyright 2008-2022 Mort Bay Consulting Pty Ltd and others
+Copyright 1995-2018 Mort Bay Consulting Pty Ltd
+
+jetty-jaas-9.4.53.v20231009.jar
+===============================
+Licensed under Apache 2.0
+License terms can be found at: https://index.whitesourcesoftware.com/gri/app/reader/resource/content/asString/cf34de58-3656-4437-bf31-f093eb647c9e
+Copyright d others
+Copyright 1996 Aki Yoshida,
+Copyright 1995-2018 Mort Bay Consulting Pty Ltd
+Copyright Mort Bay Consulting Pty Ltd
+Copyright 2008-2022 Mort Bay Consulting Pty Ltd and others
+Copyright 2008-2022 Mort Bay Consulting Pty Ltd an
+
+jetty-security-9.4.53.v20231009.jar
+===================================
+Licensed under Apache 2.0
+License terms can be found at: https://index.whitesourcesoftware.com/gri/app/reader/resource/content/asString/cf34de58-3656-4437-bf31-f093eb647c9e
+Copyright 2008-2022 Mort Bay Consulting Pty Ltd and others
+Copyright 2008-2022 Mort Bay Consulting Pty Ltd an
+Copyright 1996 Aki Yoshida,
+Copyright Mort Bay Consulting Pty Ltd
+Copyright d others
+Copyright 1995-2018 Mort Bay Consulting Pty Ltd
+
+jetty-server-9.4.53.v20231009.jar
+=================================
+Licensed under Apache 2.0
+License terms can be found at: https://index.whitesourcesoftware.com/gri/app/reader/resource/content/asString/cf34de58-3656-4437-bf31-f093eb647c9e
+Copyright 1996 Aki Yoshida,
+Copyright d others
+Copyright 1995-2018 Mort Bay Consulting Pty Ltd
+Copyright Mort Bay Consulting Pty Ltd
+Copyright 2008-2022 Mort Bay Consulting Pty Ltd an
+Copyright 2008-2022 Mort Bay Consulting Pty Ltd and others
+
+jetty-servlet-9.4.53.v20231009.jar
+==================================
+Licensed under Apache 2.0
+Copyright 2008-2022 Mort Bay Consulting Pty Ltd and others
+Copyright 2008-2022 Mort Bay Consulting Pty Ltd an
+Copyright 1996 Aki Yoshida,
+Copyright 1995-2018 Mort Bay Consulting Pty Ltd
+Copyright Mort Bay Consulting Pty Ltd
+Copyright d others
+
+jetty-servlets-9.4.53.v20231009.jar
+===================================
+Licensed under Apache 2.0
+Copyright 2008-2022 Mort Bay Consulting Pty Ltd an
+Copyright Mort Bay Consulting Pty Ltd
+Copyright d others
+Copyright 2008-2022 Mort Bay Consulting Pty Ltd and others
+Copyright 1996 Aki Yoshida,
+Copyright 1995-2018 Mort Bay Consulting Pty Ltd
+
+jetty-util-9.4.53.v20231009.jar
+===============================
+Licensed under Apache 2.0
+License terms can be found at: https://index.whitesourcesoftware.com/gri/app/reader/resource/content/asString/cf34de58-3656-4437-bf31-f093eb647c9e
+Copyright 2008-2022 Mort Bay Consulting Pty Ltd and others
+Copyright 1996 Aki Yoshida,
+Copyright 2008-2022 Mort Bay Consulting Pty Ltd an
+Copyright d others
+Copyright 1995-2018 Mort Bay Consulting Pty Ltd
+Copyright Mort Bay Consulting Pty Ltd
+
+jetty-util-ajax-9.4.53.v20231009.jar
+====================================
+Licensed under Apache 2.0
+Copyright 2008-2022 Mort Bay Consulting Pty Ltd and others
+Copyright 1996 Aki Yoshida,
+Copyright Mort Bay Consulting Pty Ltd
+Copyright 2008-2022 Mort Bay Consulting Pty Ltd an
+Copyright 1995-2018 Mort Bay Consulting Pty Ltd
+Copyright d others
+
+jetty-xml-9.4.53.v20231009.jar
+==============================
+Licensed under Apache 2.0
+License terms can be found at: https://index.whitesourcesoftware.com/gri/app/reader/resource/content/asString/cf34de58-3656-4437-bf31-f093eb647c9e
+Copyright d others
+Copyright 2008-2022 Mort Bay Consulting Pty Ltd and others
+Copyright 1996 Aki Yoshida,
+Copyright 2008-2022 Mort Bay Consulting Pty Ltd an
+Copyright Mort Bay Consulting Pty Ltd
+Copyright 1995-2018 Mort Bay Consulting Pty Ltd
+
+jmail-1.6.2.jar
+===============
+Licensed under MIT
+License terms can be found at: https://repo.maven.apache.org/maven2/com/sanctionco/jmail/jmail/1.6.2/jmail-1.6.2.pom
+
+jna-5.11.0.jar
+==============
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/net/java/dev/jna/jna/5.11.0/jna-5.11.0.pom
+Copyright Timothy Wall
+
+jna-platform-5.11.0.jar
+=======================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/net/java/dev/jna/jna-platform/5.11.0/jna-platform-5.11.0.pom
+Copyright Timothy Wall
+
+joda-time-2.10.14.jar
+=====================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/joda-time/joda-time/2.10.14/joda-time-2.10.14.pom
+Copyright 2022 Joda.org
+
+jquery-cron-f831f2.js
+=====================
+Licensed under MIT
+License terms can be found at: https://github.com/shawnchin/jquery-cron/blob/master/LICENSE
+2010 Copyright (c) 2010 Shawn Chin
+
+js2form-2.0-769718a.js
+======================
+Licensed under MIT
+License terms can be found at: https://github.com/maxatwork/form2js/blob/master/src/js2form.js
+2010 Copyright (c) 2010 Maxim Vasiliev
+
+json-20090211_1.jar
+===================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/apache/geronimo/bundles/json/20090211_1/json-20090211_1.pom
+Copyright 2002 JSON.org
+Copyright 2003-2010 The Apache Software Foundation
+
+jsr305-3.0.2.jar
+================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.pom
+Unspecified Copyright
+Reviewed by the WhiteSource Research Team
+Library copyrights could not be established
+
+kie-api-7.73.0.Final.jar
+========================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/kie/kie-api/7.73.0.Final/kie-api-7.73.0.Final.pom
+
+kie-internal-7.73.0.Final.jar
+=============================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/kie/kie-internal/7.73.0.Final/kie-internal-7.73.0.Final.pom
+
+kie-memory-compiler-7.73.0.Final.jar
+====================================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/kie/kie-memory-compiler/
+
+kie-soup-commons-7.73.0.Final.jar
+=================================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/kie/soup/kie-soup-commons/7.73.0.Final/kie-soup-commons-7.73.0.Final.pom
+Copyright 2017 Red Hat, Inc. and/or its affiliates
+
+kie-soup-maven-support-7.73.0.Final.jar
+=======================================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/kie/soup/kie-soup-maven-support/7.73.0.Final/kie-soup-maven-support-7.73.0.Final.pom
+
+kie-soup-project-datamodel-api-7.73.0.Final.jar
+===============================================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/kie/soup/kie-soup-project-datamodel-api/7.73.0.Final/kie-soup-project-datamodel-api-7.73.0.Final.pom
+Copyright 2017 Red Hat, Inc. and/or its affiliates
+
+kie-soup-project-datamodel-commons-7.73.0.Final.jar
+===================================================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/kie/soup/kie-soup-project-datamodel-commons/7.73.0.Final/kie-soup-project-datamodel-commons-7.73.0.Final.pom
+Copyright 2017 Red Hat, Inc. and/or its affiliates
+
+kie-soup-xstream-7.73.0.Final.jar
+=================================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/kie/soup/kie-soup-xstream/7.73.0.Final/kie-soup-xstream-7.73.0.Final.pom
+Copyright 2017 Red Hat, Inc. and/or its affiliates
+
+listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar
+==============================================================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.pom
+Copyright 2020 Google LLC
+
+mchange-commons-java-0.2.15.jar
+===============================
+Licensed under Eclipse 1.0
+License terms can be found at: https://index.whitesourcesoftware.com/gri/app/reader/resource/content/asString/97520f9f-12e1-4194-ac15-3b9334fab118
+Copyright 2015 Machinery For Change Inc.
+
+metrics-core-3.2.5.jar
+======================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/io/dropwizard/metrics/metrics-core/3.2.5/metrics-core-3.2.5.pom
+2018 Copyright (c) 2010-2013 Coda Hale, Yammer.com
+
+metrics-graphite-3.2.5.jar
+==========================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/io/dropwizard/metrics/metrics-graphite/3.2.5/metrics-graphite-3.2.5.pom
+2018 Copyright (c) 2010-2013 Coda Hale, Yammer.com
+
+metrics-json-3.2.5.jar
+======================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/io/dropwizard/metrics/metrics-json/3.2.5/metrics-json-3.2.5.pom
+2018 Copyright (c) 2010-2013 Coda Hale, Yammer.com
+
+metrics-jvm-3.2.5.jar
+=====================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/io/dropwizard/metrics/metrics-jvm/3.2.5/metrics-jvm-3.2.5.pom
+2018 Copyright (c) 2010-2013 Coda Hale, Yammer.com
+
+moment-2.29.4.js
+================
+Licensed under MIT
+License terms can be found at: https://github.com/moment/moment/blob/2.29.4/LICENSE
+Copyright (c) JS Foundation and other contributors
+
+mvel2-2.4.14.Final.jar
+======================
+Licensed under Apache 2.0
+License terms can be found at: https://repository.jboss.org/nexus/content/repositories/releases/org/mvel/mvel2/2.4.14.Final/mvel2-2.4.14.Final.pom
+
+mxparser-1.2.2.jar
+==================
+Licensed under BSD 3
+License terms can be found at: https://repo.maven.apache.org/maven2/io/github/x-stream/mxparser/1.2.2/mxparser-1.2.2.pom
+Copyright 2020 XStream committers
+Copyright 2003 The Trustees of Indiana University
+
+mybatis-3.5.7.jar
+=================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/mybatis/mybatis/3.5.7/mybatis-3.5.7.pom
+Copyright 2004 Drew Davidson and Luke Blanshard
+Copyright 2009-2021 the original author or authors
+Copyright 2010 Adam Gent
+Copyright 2010 The Apache Software Foundation
+
+ops4j-base-lang-1.5.1.jar
+=========================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/ops4j/base/ops4j-base-lang/1.5.1/ops4j-base-lang-1.5.1.pom
+Copyright 2006-2019 OPS4J - Open Participation Software for Java
+
+ops4j-base-util-collections-1.5.1.jar
+=====================================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/ops4j/base/ops4j-base-util-collections/1.5.1/ops4j-base-util-collections-1.5.1.pom
+Copyright 2006-2019 OPS4J - Open Participation Software for Java
+
+ops4j-base-util-property-1.5.1.jar
+==================================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/ops4j/base/ops4j-base-util-property/1.5.1/ops4j-base-util-property-1.5.1.pom
+Copyright 2006-2019 OPS4J - Open Participation Software for Java
+
+ops4j-base-util-xml-1.5.1.jar
+=============================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/ops4j/base/ops4j-base-util-xml/1.5.1/ops4j-base-util-xml-1.5.1.pom
+Copyright 2006-2019 OPS4J - Open Participation Software for Java
+
+org.apache.aries.blueprint-1.1.0.jar
+====================================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/apache/aries/blueprint/org.apache.aries.blueprint/1.1.0/org.apache.aries.blueprint-1.1.0.pom
+Copyright 2009-2013 The Apache Software Foundation
+
+org.apache.aries.proxy-1.0.1.jar
+================================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/apache/aries/proxy/org.apache.aries.proxy/1.0.1/org.apache.aries.proxy-1.0.1.pom
+Copyright 2009-2013 The Apache Software Foundation
+
+org.apache.aries.spifly.dynamic.bundle-1.3.3.jar
+================================================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/apache/aries/spifly/org.apache.aries.spifly.dynamic.bundle/1.3.3/org.apache.aries.spifly.dynamic.bundle-1.3.3.pom
+Copyright 2009-2010 The Apache Software Foundation
+
+org.apache.aries.util-1.1.3.jar
+===============================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/apache/aries/org.apache.aries.util/1.1.3/org.apache.aries.util-1.1.3.pom
+Copyright 2009-2016 The Apache Software Foundation
+
+org.apache.felix.configadmin-1.9.22.jar
+=======================================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/apache/felix/org.apache.felix.configadmin/1.9.22/org.apache.felix.configadmin-1.9.22.pom
+Copyright 2006-2021 The Apache Software Foundation
+Copyright 2000 2012)
+
+org.apache.felix.eventadmin-1.6.2.jar
+=====================================
+Licensed under Apache 2.0
+License terms can be found at: http://repo.jfrog.org/artifactory/third-party-releases/org/apache/felix/org.apache.felix.eventadmin/1.6.2/org.apache.felix.eventadmin-1.6.2.pom
+Copyright 2000 2010)
+Copyright 2010 The Apache Software Foundation
+Copyright 2002 JSON.org
+Copyright 2006-2020 The Apache Software Foundation
+
+org.apache.felix.fileinstall-3.7.0.jar
+======================================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/apache/felix/org.apache.felix.fileinstall/3.7.0/org.apache.felix.fileinstall-3.7.0.pom
+Copyright 2006-2021 The Apache Software Foundation
+
+org.apache.felix.framework-7.0.1.jar
+====================================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/apache/felix/org.apache.felix.framework/7.0.1/org.apache.felix.framework-7.0.1.pom
+Copyright 2006-2021 The Apache Software Foundation
+Copyright 2000 2020)
+
+org.apache.felix.gogo.runtime-1.1.4.jar
+=======================================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/apache/felix/org.apache.felix.gogo.runtime/1.1.4/org.apache.felix.gogo.runtime-1.1.4.pom
+Copyright 2014 The Apache Software Foundation
+
+org.apache.felix.gogo.shell-1.1.4.jar
+=====================================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/apache/felix/org.apache.felix.gogo.shell/1.1.4/org.apache.felix.gogo.shell-1.1.4.pom
+Copyright 2011 The Apache Software Foundation
+
+org.apache.felix.inventory-1.1.0.jar
+====================================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/apache/felix/org.apache.felix.inventory/1.1.0/org.apache.felix.inventory-1.1.0.pom
+Copyright 2006-2020 The Apache Software Foundation
+
+org.apache.felix.log-1.2.4.jar
+==============================
+Licensed under Apache 2.0
+License terms can be found at: https://repository.apache.org/content/repositories/releases/org/apache/felix/org.apache.felix.log/1.2.4/org.apache.felix.log-1.2.4.pom
+Copyright 2000 2007)
+Copyright 2018 The Apache Software Foundation
+
+org.apache.felix.metatype-1.2.4.jar
+===================================
+Licensed under Apache 2.0
+License terms can be found at: http://repo.jfrog.org/artifactory/third-party-releases/org/apache/felix/org.apache.felix.metatype/1.2.4/org.apache.felix.metatype-1.2.4.pom
+Copyright 2000 2012)
+Copyright 2006-2021 The Apache Software Foundation
+Copyright 2002-2003 Stefan Haustein
+
+org.apache.felix.scr-2.1.28.jar
+===============================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/apache/felix/org.apache.felix.scr/2.1.28/org.apache.felix.scr-2.1.28.pom
+Copyright 2006-2021 The Apache Software Foundation
+Copyright 2000 2009)
+
+org.apache.felix.shell-1.4.3.jar
+================================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/apache/felix/org.apache.felix.shell/1.4.3/org.apache.felix.shell-1.4.3.pom
+Copyright 2000 2007)
+Copyright 2006-2012 The Apache Software Foundation
+
+org.apache.felix.shell.tui-1.4.1.jar
+====================================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/apache/felix/org.apache.felix.shell.tui/1.4.1/org.apache.felix.shell.tui-1.4.1.pom
+Copyright 2006-2009 The Apache Software Foundation
+Copyright 2000 2007)
+
+org.apache.felix.webconsole-4.8.4.jar
+=====================================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/apache/felix/org.apache.felix.webconsole/4.8.4/org.apache.felix.webconsole-4.8.4.pom
+
+org.apache.felix.webconsole.plugins.ds-2.1.0.jar
+================================================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/apache/felix/org.apache.felix.webconsole.plugins.ds/2.1.0/org.apache.felix.webconsole.plugins.ds-2.1.0.pom
+Copyright 2006-2018 The Apache Software Foundation
+
+org.apache.felix.webconsole.plugins.event-1.1.8.jar
+===================================================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/apache/felix/org.apache.felix.webconsole.plugins.event/1.1.8/org.apache.felix.webconsole.plugins.event-1.1.8.pom
+Copyright 2006-2017 The Apache Software Foundation
+
+org.apache.felix.webconsole.plugins.memoryusage-1.0.10.jar
+==========================================================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/apache/felix/org.apache.felix.webconsole.plugins.memoryusage/1.0.10/org.apache.felix.webconsole.plugins.memoryusage-1.0.10.pom
+Copyright 2006-2019 The Apache Software Foundation
+
+org.apache.felix.webconsole.plugins.obr-1.0.4.jar
+=================================================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/apache/felix/org.apache.felix.webconsole.plugins.obr/1.0.4/org.apache.felix.webconsole.plugins.obr-1.0.4.pom
+Copyright 2006-2017 The Apache Software Foundation
+
+org.apache.felix.webconsole.plugins.packageadmin-1.0.4.jar
+==========================================================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/apache/felix/org.apache.felix.webconsole.plugins.packageadmin/1.0.4/org.apache.felix.webconsole.plugins.packageadmin-1.0.4.pom
+Copyright 2006-2017 The Apache Software Foundation
+
+org.apache.servicemix.bundles.ant-1.10.13_1.jar
+===============================================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/apache/servicemix/bundles/org.apache.servicemix.bundles.ant/1.10.13_1/org.apache.servicemix.bundles.ant-1.10.13_1.pom
+Copyright 2005-2023 The Apache Software Foundation
+
+org.apache.servicemix.bundles.antlr-3.5.2_1.jar
+===============================================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/apache/servicemix/bundles/org.apache.servicemix.bundles.antlr/3.5.2_1/org.apache.servicemix.bundles.antlr-3.5.2_1.pom
+Copyright 2005-2014 The Apache Software Foundation
+
+org.apache.servicemix.bundles.c3p0-0.9.5.4_1.jar
+================================================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/apache/servicemix/bundles/org.apache.servicemix.bundles.c3p0/0.9.5.4_1/org.apache.servicemix.bundles.c3p0-0.9.5.4_1.pom
+Copyright 2018 The Apache Software Foundation
+
+org.apache.servicemix.bundles.javax-inject-1_3.jar
+==================================================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/apache/servicemix/bundles/org.apache.servicemix.bundles.javax-inject/1_3/org.apache.servicemix.bundles.javax-inject-1_3.pom
+Copyright 2005-2018 The Apache Software Foundation
+
+org.apache.servicemix.bundles.rhino-1.7.14_2.jar
+================================================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/apache/servicemix/bundles/org.apache.servicemix.bundles.rhino/1.7.14_2/org.apache.servicemix.bundles.rhino-1.7.14_2.pom
+Copyright 2018 The Apache Software Foundation
+
+org.apache.servicemix.bundles.spring-core-5.3.29_1.jar
+======================================================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/apache/servicemix/bundles/org.apache.servicemix.bundles.spring-core/5.3.29_1/org.apache.servicemix.bundles.spring-core-5.3.29_1.pom
+Copyright 2005-2023 The Apache Software Foundation
+
+org.apache.servicemix.bundles.xerces-2.12.2_1.jar
+=================================================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/apache/servicemix/bundles/org.apache.servicemix.bundles.xerces/2.12.2_1/org.apache.servicemix.bundles.xerces-2.12.2_1.pom
+
+org.apache.servicemix.bundles.xmlresolver-1.2_5.jar
+===================================================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/apache/servicemix/bundles/org.apache.servicemix.bundles.xmlresolver/1.2_5/org.apache.servicemix.bundles.xmlresolver-1.2_5.pom
+Copyright 2005-2012 The Apache Software Foundation
+
+org.osgi.service.log-1.5.0.jar
+==============================
+Licensed under Apache 2.0
+License terms can be found at: http://repo.jfrog.org/artifactory/third-party-releases/org/osgi/org.osgi.service.log/1.5.0/org.osgi.service.log-1.5.0.pom
+Copyright Reserved
+Copyright 2000 2020)
+Copyright 2019 The Apache Software Foundation, Licensed under the Apache License, Version 2.0
+
+org.osgi.util.function-1.1.0.jar
+================================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/osgi/org.osgi.util.function/1.1.0/org.osgi.util.function-1.1.0.pom
+Copyright 2019 The Apache Software Foundation, Licensed under the <a class="white" href="/licen
+
+org.osgi.util.promise-1.1.1.jar
+===============================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/osgi/org.osgi.util.promise/1.1.1/org.osgi.util.promise-1.1.1.pom
+Copyright 2000 2018)
+Copyright 2019 The Apache Software Foundation, Licensed under the <a class="white" href="/licen
+Copyright Reserved
+
+osgi.cmpn-7.0.0.jar
+===================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/osgi/osgi.cmpn/7.0.0/osgi.cmpn-7.0.0.pom
+Copyright 2019 The Apache Software Foundation, Licensed under the <a class="white" href="/licen
+Copyright 2000 2018)
+Copyright Reserved
+
+owasp-java-html-sanitizer-20211018.2.jar
+========================================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/com/googlecode/owasp-java-html-sanitizer/owasp-java-html-sanitizer/20211018.2/owasp-java-html-sanitizer-20211018.2.pom
+Copyright 2011 Mike Samuel
+
+pax-swissbox-core-1.8.4.jar
+===========================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/ops4j/pax/swissbox/pax-swissbox-core/1.8.4/pax-swissbox-core-1.8.4.pom
+Copyright The OPS4J Team
+
+pax-swissbox-extender-1.8.2.jar
+===============================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/ops4j/pax/swissbox/pax-swissbox-extender/1.8.2/pax-swissbox-extender-1.8.2.pom
+Unspecified Copyright
+Reviewed by the WhiteSource Research Team
+Library copyrights could not be established
+
+pax-swissbox-lifecycle-1.8.2.jar
+================================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/ops4j/pax/swissbox/pax-swissbox-lifecycle/1.8.2/pax-swissbox-lifecycle-1.8.2.pom
+Unspecified Copyright
+Reviewed by the WhiteSource Research Team
+Library copyrights could not be established
+
+pax-swissbox-optional-jcl-1.8.4.jar
+===================================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/ops4j/pax/swissbox/pax-swissbox-optional-jcl/1.8.4/pax-swissbox-optional-jcl-1.8.4.pom
+Copyright The OPS4J Team
+
+pax-swissbox-property-1.8.4.jar
+===============================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/ops4j/pax/swissbox/pax-swissbox-property/1.8.4/pax-swissbox-property-1.8.4.pom
+Copyright The OPS4J Team
+
+pax-swissbox-tracker-1.8.4.jar
+==============================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/ops4j/pax/swissbox/pax-swissbox-tracker/1.8.4/pax-swissbox-tracker-1.8.4.pom
+Copyright The OPS4J Team
+
+pax-web-api-7.3.12.jar
+======================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/ops4j/pax/web/pax-web-api/7.3.12/pax-web-api-7.3.12.pom
+Copyright 2007-2009 Open Participation for Java
+Copyright 2000 2007)
+Copyright 2000-2009 Mort Bay Consulting Pty
+
+pax-web-jetty-7.3.12.jar
+========================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/ops4j/pax/web/pax-web-jetty/7.3.12/pax-web-jetty-7.3.12.pom
+Copyright 2000 2007)
+Copyright 2000-2009 Mort Bay Consulting Pty
+Copyright 2001-2020 The Apache Software Foundation
+Copyright 2007-2009 Open Participation for Java
+
+pax-web-runtime-7.3.12.jar
+==========================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/ops4j/pax/web/pax-web-runtime/7.3.12/pax-web-runtime-7.3.12.pom
+Copyright 2007-2010 The JASYPT team
+Copyright 1995-2006 International Business Machines
+Copyright 2000-2009 Mort Bay Consulting Pty
+Copyright 2000 2007)
+Copyright 2007-2009 Open Participation for Java
+
+pax-web-spi-7.3.12.jar
+======================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/ops4j/pax/web/pax-web-spi/7.3.12/pax-web-spi-7.3.12.pom
+Copyright 2006-2019 OPS
+
+postgresql-42.7.2.jar
+=====================
+Licensed under BSD 2
+License terms can be found at: https://repo.maven.apache.org/maven2/org/postgresql/postgresql/42.7.2/postgresql-42.7.2.pom
+Copyright 2003-2020 PostgreSQL Global Developme
+Copyright nt Group
+Copyright 1997 PostgreSQL Global Development Group
+
+postgresql-embedded-2.10.6.jar
+==============================
+Licensed under Apache 2.0
+License terms can be found at: https://github.com/yandex-qatools/postgresql-embedded/blob/postgresql-embedded-2.10/LICENSE
+Copyright 2015 YANDEX
+
+protobuf-java-3.21.7.jar
+========================
+Licensed under BSD 3
+License terms can be found at: https://repo.maven.apache.org/maven2/com/google/protobuf/protobuf-java/3.21.7/protobuf-java-3.21.7.pom
+Copyright 2008 Google Inc
+
+quartz-2.3.2.jar
+================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/quartz-scheduler/quartz/2.3.2/quartz-2.3.2.pom
+Copyright 2001 Terracotta, Inc
+
+qunit-1.15.0.css
+================
+Licensed under MIT
+License terms can be found at: https://github.com/qunitjs/qunit/blob/1.15.0/LICENSE.txt
+2018 Copyright 2006, 2014 jQuery Foundation and other contributors,
+
+r-2.1.10.js
+===========
+Licensed under BSD
+License terms can be found at: https://github.com/requirejs/r.js/blob/2.1.10/LICENSE
+2018 Copyright (c) 2010-2011, The Dojo Foundation
+
+reactive-streams-1.0.4.jar
+==========================
+Licensed under MIT
+License terms can be found at: https://repo.maven.apache.org/maven2/org/reactivestreams/reactive-streams/1.0.4/reactive-streams-1.0.4.pom
+Copyright 5000 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and as
+
+rxjava-3.1.5.jar
+================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/io/reactivex/rxjava3/rxjava/3.1.5/rxjava-3.1.5.pom
+Copyright 2016 RxJava Contributors
+
+simpleclient-0.0.21.jar
+=======================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/io/prometheus/simpleclient/0.0.21/simpleclient-0.0.21.pom
+2015 Copyright 2012-2015 The Prometheus Authors
+
+simpleclient_common-0.0.21.jar
+==============================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/io/prometheus/simpleclient_common/0.0.21/simpleclient_common-0.0.21.pom
+2015 Copyright 2015 The Prometheus Authors
+
+simpleclient_dropwizard-0.0.21.jar
+==================================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/io/prometheus/simpleclient_dropwizard/0.0.21/simpleclient_dropwizard-0.0.21.pom
+2015 Copyright 2012-2015 The Prometheus Authors
+
+slf4j-api-1.7.36.jar
+====================
+Licensed under MIT
+License terms can be found at: https://repo.maven.apache.org/maven2/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.pom
+Copyright 2021 QOS.ch
+
+slf4j-jdk14-1.7.36.jar
+======================
+Licensed under MIT
+License terms can be found at: https://repo.maven.apache.org/maven2/org/slf4j/slf4j-jdk14/1.7.36/slf4j-jdk14-1.7.36.pom
+Copyright 2021 QOS.ch
+
+spring-jcl-5.3.29.jar
+=====================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/springframework/spring-jcl/5.3.29/spring-jcl-5.3.29.pom
+Copyright 2006-2019 Joe Walnes
+Copyright 2002-2023 Pivotal, Inc
+Copyright 2000-2011 INRIA
+Copyright 1999-2009 OW2 Consortium
+
+ST4-4.0.8.jar
+=============
+Licensed under BSD
+License terms can be found at: https://www.stringtemplate.org/
+Copyright 2011-2013 Terence Parr
+
+stax-ex-1.8.1.jar
+=================
+Licensed under BSD 3
+License terms can be found at: https://repo.maven.apache.org/maven2/org/jvnet/staxex/stax-ex/1.8.1/stax-ex-1.8.1.pom
+Copyright 2017 Oracle and/or its affiliates
+Copyright 1997-2018 Oracle and/or its affiliates
+Copyright 2007 Eclipse Foundation, Inc. and its licensors
+
+super-csv-2.4.0.jar
+===================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/net/sf/supercsv/super-csv/2.4.0/super-csv-2.4.0.pom
+Copyright 2007 Kasper B
+Copyright 2019 The Apache Software Foundation, Licensed under the Apache License, Version 2.0
+
+swagger-models-1.5.16.jar
+=========================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/io/swagger/swagger-models/1.5.16/swagger-models-1.5.16.pom
+2018 Copyright 2016 SmartBear Software
+
+trumbowyg-2.4.2.svg
+===================
+Licensed under MIT
+License terms can be found at: https://github.com/Alex-D/Trumbowyg/blob/v2.4.2/LICENSE
+2016 Copyright (c) 2012-2016 Alexandre Demode (Alex-D)
+
+txw2-2.3.2.jar
+==============
+Licensed under BSD 3
+License terms can be found at: https://repo.maven.apache.org/maven2/org/glassfish/jaxb/txw2/2.3.2/txw2-2.3.2.pom
+Copyright 2005-2018 Oracle and/or its affiliates
+Copyright 2018 Oracle and/or its affiliates
+
+univocity-parsers-2.8.1.jar
+===========================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/com/univocity/univocity-parsers/2.8.1/univocity-parsers-2.8.1.pom
+Copyright 2022 univocity
+
+validation-api-1.1.0.Final.jar
+==============================
+Licensed under Apache 2.0
+License terms can be found at: https://nexus.opendaylight.org/content/groups/public/javax/validation/validation-api/1.1.0.Final/validation-api-1.1.0.Final.pom
+2009 Copyright 2009-2013, Red Hat, Inc. and/or its affiliates, and individual contributors
+
+websocket-api-9.4.53.v20231009.jar
+==================================
+Licensed under Apache 2.0
+Copyright 1996 Aki Yoshida,
+Copyright 2008-2022 Mort Bay Consulting Pty Ltd an
+Copyright d others
+Copyright 1995-2018 Mort Bay Consulting Pty Ltd
+Copyright 2008-2022 Mort Bay Consulting Pty Ltd and others
+Copyright Mort Bay Consulting Pty Ltd
+
+websocket-client-9.4.53.v20231009.jar
+=====================================
+Licensed under Apache 2.0
+License terms can be found at: https://index.whitesourcesoftware.com/gri/app/reader/resource/content/asString/cf34de58-3656-4437-bf31-f093eb647c9e
+Copyright 1996 Aki Yoshida,
+Copyright d others
+Copyright Mort Bay Consulting Pty Ltd
+Copyright 2008-2022 Mort Bay Consulting Pty Ltd an
+Copyright 1995-2018 Mort Bay Consulting Pty Ltd
+Copyright 2008-2022 Mort Bay Consulting Pty Ltd and others
+
+websocket-common-9.4.53.v20231009.jar
+=====================================
+Licensed under Apache 2.0
+Copyright 2008-2022 Mort Bay Consulting Pty Ltd and others
+Copyright 2008-2022 Mort Bay Consulting Pty Ltd an
+Copyright 1996 Aki Yoshida,
+Copyright Mort Bay Consulting Pty Ltd
+Copyright d others
+Copyright 1995-2018 Mort Bay Consulting Pty Ltd
+
+websocket-server-9.4.53.v20231009.jar
+=====================================
+Licensed under Apache 2.0
+Copyright Mort Bay Consulting Pty Ltd
+Copyright 1995-2018 Mort Bay Consulting Pty Ltd
+Copyright 1996 Aki Yoshida,
+Copyright 2008-2022 Mort Bay Consulting Pty Ltd an
+Copyright 2008-2022 Mort Bay Consulting Pty Ltd and others
+Copyright d others
+
+websocket-servlet-9.4.53.v20231009.jar
+======================================
+Licensed under Apache 2.0
+License terms can be found at: https://index.whitesourcesoftware.com/gri/app/reader/resource/content/asString/cf34de58-3656-4437-bf31-f093eb647c9e
+Copyright 1996 Aki Yoshida,
+Copyright 2008-2022 Mort Bay Consulting Pty Ltd and others
+Copyright Mort Bay Consulting Pty Ltd
+Copyright d others
+Copyright 1995-2018 Mort Bay Consulting Pty Ltd
+Copyright 2008-2022 Mort Bay Consulting Pty Ltd an
+
+xbean-bundleutils-4.21.jar
+==========================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/apache/xbean/xbean-bundleutils/4.21/xbean-bundleutils-4.21.pom
+Copyright 2005-2022 The Apache Software Foundation
+
+xbean-finder-4.21.jar
+=====================
+Licensed under Apache 2.0
+License terms can be found at: https://repo.maven.apache.org/maven2/org/apache/xbean/xbean-finder/4.21/xbean-finder-4.21.pom
+Copyright 2005-2022 The Apache Software Foundation
+
+xmlpull-1.1.3.1.jar
+===================
+Licensed under Public Domain
+License terms can be found at: https://repo.maven.apache.org/maven2/xmlpull/xmlpull/1.1.3.1/xmlpull-1.1.3.1.pom
+Unspecified Copyright
+Reviewed by the WhiteSource Research Team
+Library copyrights could not be established
+
+xstream-1.4.20.jar
+==================
+Licensed under BSD 3
+License terms can be found at: https://repo.maven.apache.org/maven2/com/thoughtworks/xstream/xstream/1.4.20/xstream-1.4.20.pom
+Copyright 2003-2006 Joe Walnes
+Copyright 2006-2021 XStream committers
+Copyright 2006-2022 XStream committers
+Copyright 2006 Joe Walnes
+Copyright 2006-2015 XStream Committers
+Copyright 2006-2019 XStream Committers
+Copyright 2005-2006 Joe Walnes
+
+xz-1.8.jar
+==========
+Licensed under Public Domain
+License terms can be found at: https://repo.maven.apache.org/maven2/org/tukaani/xz/1.8/xz-1.8.pom
+Copyright 2018 Lasse Collin (lasse.collin@tukaani.org)

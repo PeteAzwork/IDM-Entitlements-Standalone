@@ -1,0 +1,59 @@
+{{!
+	Copyright 2023 ForgeRock AS. All Rights Reserved
+  
+    Use of this code requires a commercial software license with ForgeRock AS.
+    or with one of its affiliates. All use shall be exclusively subject
+    to such license between the licensee and ForgeRock AS.
+}}
+<!-- Base Details panel -->
+<div class="panel panel-default panel-collapse" id="oracleebsConnector">
+    <div class="panel-heading" role="tab" id="connectorSpecificBaseHeading">
+        <h4 class="panel-title">
+            <a data-toggle="collapse" href="#connectorSpecificBase" aria-expanded="true" aria-controls="connectorSpecificBase"
+                class="">{{t "templates.connector.baseTitle"}}</a>
+        </h4>
+    </div>
+    <div id="connectorSpecificBase" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="connectorSpecificBaseHeading"
+        aria-expanded="true">
+        <div class="panel-body">
+			<div class="form-group">
+                <label class="col-sm-3 control-label" for="username">{{t "templates.connector.oracleebs.username"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" data-validator="required" type="text" id="username" name="configurationProperties.username"
+                        value="{{connectorDefaults.configurationProperties.username}}" />
+                    <span class='help-block'>{{t "templates.connector.oracleebs.usernameHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="password">{{t "templates.connector.oracleebs.password"}}</label>
+                <div class="col-sm-8">
+                    <!-- autocomplete="new-password" is required to prevent chrome from auto-completing these form fields -->
+                    {{#ifObject connectorDefaults.configurationProperties.password}}
+                    {{#if connectorDefaults.configurationProperties.password.$crypto}}
+                    <input id="password" class="form-control" data-validator="required" type="password" name="configurationProperties.password" {{#if connectorDefaults.configurationProperties.password}} placeholder="********" {{/if}} />
+                    {{else}}
+                    <input id="password" class="form-control" data-validator="required" type="password" name="configurationProperties.password" placeholder="{{connectorDefaults.configurationProperties.password.$base64:decode}}" />
+                    {{/if}}
+                    {{else}}
+                    <input id="password" class="form-control" data-validator="required" type="password" autocomplete="new-password" name="configurationProperties.password" value="{{connectorDefaults.configurationProperties.password}}" data-validator-event="keyup blur" />
+                    {{/ifObject}}
+                    <span class='help-block'>{{t "templates.connector.oracleebs.passwordHelp"}}</span>
+                </div>
+            </div>
+			<div class="form-group">
+                <label class="col-sm-3 control-label" for="url">{{t "templates.connector.oracleebs.url"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" data-validator="required" type="text" id="url" name="configurationProperties.url" value="{{connectorDefaults.configurationProperties.url}}" />
+                    <span class='help-block'>{{t "templates.connector.oracleebs.urlHelp"}}</span>
+                </div>
+            </div>
+			<div class="form-group">
+                <label class="col-sm-3 control-label" for="pageSize">{{t "templates.connector.oracleebs.pageSize"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="pageSize" name="configurationProperties.pageSize" value="{{connectorDefaults.configurationProperties.pageSize}}" />
+                    <span class='help-block'>{{t "templates.connector.oracleebs.pageSizeHelp"}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

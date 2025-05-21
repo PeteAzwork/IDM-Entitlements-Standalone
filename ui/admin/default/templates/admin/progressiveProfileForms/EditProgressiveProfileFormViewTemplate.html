@@ -1,0 +1,91 @@
+{{!
+  Copyright 2017 ForgeRock AS. All Rights Reserved
+
+  Use of this code requires a commercial software license with ForgeRock AS.
+  or with one of its affiliates. All use shall be exclusively subject
+  to such license between the licensee and ForgeRock AS.
+}}
+<div class="fr-top-bar">
+    <div class="container">
+        <h3 class="fr-breadcrumb">
+            <a href="#progressiveProfileForms/" class="backToList">{{t "templates.progressiveProfile.listPageTitle"}}</a>
+            <span class="seperator"></span>
+            <span>{{formDisplayName}}</span>
+        </h3>
+    </div>
+</div>
+<div class="container">
+    <div class="page-header clearfix">
+        <span class="header-icon pull-left"><i class="fa fa-list"></i></span>
+        <h4 class="page-type">{{t "templates.progressiveProfile.form"}}</h4>
+        <div class="page-header-button-group">
+            <div class="btn-group">
+                <button type="button" class="btn btn-default btn-secondary dropdown-toggle btn-actions" data-toggle="dropdown" aria-expanded="false">
+                    <i class="fa fa-ellipsis-v fa-lg"></i>
+                </button>
+                <ul class="dropdown-menu pull-right" role="menu">
+                    <li id="deleteProgressiveProfileCompletionForm"><a href="#"><i class="fa fa-times"></i>{{t "common.form.delete"}}</a></li>
+                </ul>
+            </div>
+        </div>
+        <h1 id="formDisplayName">{{formDisplayName}}</h1>
+    </div>
+</div>
+<div class="container">
+    <div class="tab-menu">
+        <ul class="nav nav-tabs" role="tablist">
+            <li class="dropdown pull-right tabdrop hide">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="icon-align-justify"></i> <i class="fa fa-ellipsis-v"></i></a>
+                <ul class="dropdown-menu"></ul>
+            </li>
+            <li class="{{#unless showAttributesTab}}active{{/unless}}"><a href="#detailsContainer" role="tab" data-toggle="tab" aria-expanded="false">{{t "templates.managed.details"}}</a></li>
+            <li class=""><a href="#conditionContainer" role="tab" data-toggle="tab" aria-expanded="false">{{t "templates.progressiveProfile.displayCondition"}}</a></li>
+            <li class="{{#if showAttributesTab}}active{{/if}}"><a href="#attributesContainer" role="tab" data-toggle="tab" aria-expanded="false">{{t "templates.progressiveProfile.attributes"}}</a></li>
+        </ul>
+    </div>
+    <div class="tab-content">
+        <div role="tabpanel" class="managedContainers tab-pane{{#unless showAttributesTab}} active{{/unless}}" id="detailsContainer">
+            <div class="panel no-margin-bottom">
+                <form id="detailsFormBB" class="form-horizontal" role="form" autocomplete="off">
+                    <div class="panel no-margin-bottom">
+                        <div id="detailsFormContainer" class="panel-body"></div>
+                    </div>
+                </form>
+                <div class="panel-footer clearfix">
+                    <div class="pull-left">
+                        <div class="changes-pending-container"></div>
+                    </div>
+                    <div class="pull-right save-cancel-btn-panel">
+                        <button name="saveForm" class="btn save-cancel-btn btn-primary btn-save" type="button" disabled>{{t "common.form.save"}}</button>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div role="tabpanel" class="managedContainers tab-pane" id="conditionContainer">
+            <div class="panel no-margin-bottom">
+                <form id="conditionFormBB" class="form-horizontal" role="form" autocomplete="off">
+                    <div class="panel no-margin-bottom">
+                        <div id="conditionFormContainer" class="panel-body"></div>
+                    </div>
+                </form>
+                <div class="panel-footer clearfix">
+                    <div class="pull-left">
+                        <div class="changes-pending-container"></div>
+                    </div>
+                    <div class="pull-right save-cancel-btn-panel">
+                        <button class="btn save-cancel-btn btn-primary btn-save" type="button" disabled>{{t "common.form.save"}}</button>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div role="tabpanel" class="managedContainers tab-pane{{#if showAttributesTab}} active{{/if}}" id="attributesContainer">
+            <div class="panel no-margin-bottom">
+                <div class="panel no-margin-bottom">
+                    <div id="attributesFormContainer" class="panel-body"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,63 @@
+{{!--
+Copyright 2016-2020 ForgeRock AS. All Rights Reserved
+
+Use of this code requires a commercial software license with ForgeRock AS.
+or with one of its affiliates. All use shall be exclusively subject
+to such license between the licensee and ForgeRock AS.
+--}}
+<div class="row" id="addWidgetDialog">
+    <div class="col-sm-12 add-widget-toolbar" role="toolbar">
+
+        <select placeholder="{{t 'dashboard.selectWidget'}}" class="widget-select col-sm-6 pull-left">
+            {{#each widgetGroups}}
+            <optgroup label="{{groupName}}">
+                <option selected></option>
+                {{#each widgets}}
+                <option value="{{key}}">{{name}}</option>
+                {{/each}}
+            </optgroup>
+            {{/each}}
+        </select>
+
+        <div class="col-sm-6">
+            <div class="pull-right btn-group btn-icon" data-toggle="btns">
+                <a class="btn toggle-view-btn fr-btn-secondary active widget-preview-btn" href="#widgetPreview"
+                    data-toggle="tab"><i class="fa fa-eye"></i>{{t "dashboard.preview"}}</a>
+                <a class="btn toggle-view-btn fr-btn-secondary widget-settings-btn" href="#widgetSettings"
+                    data-toggle="tab"><i class="fa fa-gear"></i>{{t "dashboard.settings"}}</a>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="tab-content col-sm-12">
+
+        <div id="widgetPreview" class="tab-pane active">
+            <div class="preview-container col-sm-12">
+
+                <div class="no-data">
+                    <div class="well">
+                        <div class="message-icon text-primary"><i class="fa fa-flag"></i></div>
+                        <h3>{{t "dashboard.selectWidgetToPreview"}}</h3>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <form id="widgetSettings" class="tab-pane col-sm-12">
+            <div class="panel has-border hidden">
+                <div class="panel-body"></div>
+            </div>
+
+            <div class="no-data">
+                <div class="well">
+                    <div class="message-icon text-primary"><i class="fa fa-flag"></i></div>
+                    <h3 class="no-widget">{{t "dashboard.selectWidgetToConfigure"}}</h3>
+                    <h3 class="no-settings" style="display:none;">{{t "dashboard.noSettings"}}</h3>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</div>

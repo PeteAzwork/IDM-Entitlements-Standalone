@@ -1,0 +1,29 @@
+{
+    "enabled" : true,
+    "type" : "simple",
+    "repeatInterval" : 3600000,
+    "persisted" : true,
+    "concurrentExecution" : false,
+    "invokeService" : "taskscanner",
+    "invokeContext" : {
+        "waitForCompletion" : false,
+        "numberOfThreads" : 5,
+        "scan" : {
+            "_queryFilter" : "((/sunset/date lt \"${Time.now}\") AND !(/sunset/task-completed pr))",
+            "object" : "managed/user",
+            "taskState" : {
+                "started" : "/sunset/task-started",
+                "completed" : "/sunset/task-completed"
+            },
+            "recovery" : {
+                "timeout" : "10m"
+            }
+        },
+        "task" : {
+            "script" : {
+                "type" : "text/javascript",
+                "file" : "script/sunset.js"
+            }
+        }
+    }
+}

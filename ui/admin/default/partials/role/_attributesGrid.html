@@ -1,0 +1,29 @@
+{{!--
+  Copyright 2018 ForgeRock AS. All Rights Reserved
+
+  Use of this code requires a commercial software license with ForgeRock AS.
+  or with one of its affiliates. All use shall be exclusively subject
+  to such license between the licensee and ForgeRock AS.
+--}}
+<table class="table" >
+  <thead>
+    <tr>
+      <th scope="col">{{t "common.user.name"}}</th>
+      <th scope="col">{{t "templates.admin.RoleEdit.permissions"}}</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each attributes}}
+    <tr>
+      <td class="mt-5">{{title}}</td>
+      <td>
+          <select class="selectize-me" id="{{propName}}Select">
+              <option value="none" {{#equals permissions 'none'}}selected{{/equals}}>{{t "templates.admin.RoleEdit.none"}}</option>
+              <option value="read" {{#equals permissions 'read'}}selected{{/equals}}>{{t "templates.admin.RoleEdit.read"}}</option>
+              <option value="readWrite"  {{#equals permissions 'readWrite'}}selected{{/equals}}>{{t "templates.admin.RoleEdit.readWrite"}}</option>
+          </select>
+      </td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>

@@ -1,0 +1,33 @@
+<div class="row fr-quick-mapping-body">
+    <div class="col-sm-4">
+        <h4>{{leftTitle}}</h4>
+        <ul class="list-group fr-left-props fr-drag-list">
+            {{#if leftSideEmpty}}
+                <li draggable="true" class="fr-list-item fr-empty list-group-item" id="defaultEmptyLeft" data-group="left"></li>
+            {{/if}}
+            {{#each leftSide}}
+                <li draggable="true" title="{{this}}" class="fr-list-item list-group-item" id="left{{this}}" data-group="left">{{this}}</li>
+            {{/each}}
+        </ul>
+    </div>
+    <div class="col-sm-4">
+        <h4>{{quickMappingTitle}}</h4>
+        <div class="fr-quick-mapping-props">
+            <ul class="list-group"></ul>
+            <div class="well fr-empty-list">
+                No {{quickMappingTitle}}
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <h4>{{rightTitle}}</h4>
+        <ul class="list-group fr-right-props fr-drag-list">
+            {{#if rightSideEmpty}}
+                <li draggable="true" class="fr-list-item fr-empty list-group-item" id="defaultEmptyRight" data-group="right"></li>
+            {{/if}}
+            {{#each rightSide}}
+                <li draggable="true" title="{{this}}" class="fr-list-item list-group-item" id="right{{this}}" data-group="right">{{this}}</li>
+            {{/each}}
+        </ul>
+    </div>
+</div>

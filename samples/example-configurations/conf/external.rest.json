@@ -1,0 +1,14 @@
+{
+    "socketTimeout" : "10 s",
+    "connectionTimeout" : "10 s",
+    "reuseConnections" : true,
+    "retryRequests" : true,
+    "maxConnections" : 64,
+    "tlsVersion" : "&{openidm.external.rest.tls.version}",
+    "hostnameVerifier" : "&{openidm.external.rest.hostnameVerifier}",
+    "proxy" : {
+        "proxyUri" : "",
+        "userName" : "",
+        "password" : ""
+    }
+}

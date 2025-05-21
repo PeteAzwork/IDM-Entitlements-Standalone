@@ -1,0 +1,48 @@
+{{!--
+  Copyright 2017 ForgeRock AS. All Rights Reserved
+
+  Use of this code requires a commercial software license with ForgeRock AS.
+  or with one of its affiliates. All use shall be exclusively subject
+  to such license between the licensee and ForgeRock AS.
+--}}
+<tr class="propertiesNewRow active-row" style="display:none;">
+    <td class="overflow-visible">
+        <input type="hidden" class="newPropertyName"/>
+
+        <select class="newPropertyNameSelect form-control selectize">
+            <option value=""></option>
+            {{#each availableProperties}}
+            <option value="{{@key}}">{{camelCaseToTitle @key}}</option>
+            {{/each}}
+        </select>
+    </td>
+    <td class="overflow-visible">
+        <input type="hidden" class="newPropertyType"/>
+
+        <select class="newPropertyTypeSelect form-control selectize">
+            {{#each idmTypes}}
+            <option value="{{@this}}" {{#equals @this "string"}}selected{{/equals}}>{{camelCaseToTitle @this}}</option>
+            {{/each}}
+        </select>
+    </td>
+    <td class="overflow-visible">
+        <input type="hidden" class="newPropertyNativeType"/>
+
+        <select class="newPropertyNativeTypeSelect form-control selectize">
+            {{#each nativeTypes}}
+            <option value="{{@this}}" {{#equals @this "string"}}selected{{/equals}}>{{camelCaseToTitle @this}}</option>
+            {{/each}}
+        </select>
+    </td>
+    <td>
+        <div class="checkbox-slider-primary checkbox-slider checkbox-slider--b checkbox-slider-md">
+            <label>
+                <input class="toggleBoolean newPropertyIsRequired" type="checkbox" value="true">
+                <span></span>
+            </label>
+        </div>
+    </td>
+    <td>
+        <button class="btn btn-primary addNewPropertyButton pull-right">{{t "common.form.save"}}</button>
+    </td>
+</tr>

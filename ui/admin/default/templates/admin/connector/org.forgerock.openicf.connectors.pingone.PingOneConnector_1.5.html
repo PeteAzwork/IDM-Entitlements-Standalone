@@ -1,0 +1,225 @@
+{{!
+  Copyright 2024 ForgeRock AS. All Rights Reserved
+
+  Use of this code requires a commercial software license with ForgeRock AS.
+  or with one of its affiliates. All use shall be exclusively subject
+  to such license between the licensee and ForgeRock AS.
+}}
+<!-- Base Details panel -->
+<div class="panel panel-default panel-collapse" id="pingoneConnector">
+    <div class="panel-heading" role="tab" id="connectorSpecificBaseHeading">
+        <h4 class="panel-title">
+            <a data-toggle="collapse" href="#connectorSpecificBase" aria-expanded="true" aria-controls="connectorSpecificBase" class="">{{t "templates.connector.baseTitle"}}</a>
+        </h4>
+    </div>
+    <div id="connectorSpecificBase" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="connectorSpecificBaseHeading" aria-expanded="true">
+        <div class="panel-body">
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="serviceUri">{{t "templates.connector.saasCommons.serviceUri"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" data-validator="required" type="text" id="serviceUri" name="configurationProperties.serviceUri" {{#if connectorDefaults.configurationProperties.serviceUri}} value="{{connectorDefaults.configurationProperties.serviceUri}}" {{else}} value="https://api.pingone.com/v1" {{/if}}
+                                required />
+                    <span class='help-block'>{{t "templates.connector.saasCommons.serviceUriHelp"}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="environmentId">{{t "templates.connector.pingone.environmentId"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" data-validator="required" type="text" id="environmentId" name="configurationProperties.environmentId" value="{{connectorDefaults.configurationProperties.environmentId}}"/>
+                    <span class='help-block'>{{t "templates.connector.pingone.environmentIdHelp"}}</span>
+                </div>
+            </div>
+        </div>
+        <input name="configurationProperties.serviceUri" id="serviceUri" type="hidden" value="https://api.pingone.com/v1">
+        <input name="configurationProperties.grantType" id="grantType" type="hidden" value="client_credentials">
+    </div>
+</div>
+<!-- Authentication Method Panel -->
+<div class="panel panel-default panel-collapse" id="PingOneAuthPanel">
+    <div class="panel-heading" role="tab" id="PingOneConnectorAuthPanelHeading">
+        <h4 class="panel-title">
+            <a data-toggle="collapse" href="#PingOneConnectorAuthPanel" aria-expanded="true" aria-controls="PingOneConnectorAuthPanel" class="">{{t "templates.connector.authentication"}}</a>
+        </h4>
+    </div>
+    <div id="PingOneConnectorAuthPanel" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="PingOneConnectorAuthPanelHeading" aria-expanded="true">
+        <div class="panel-body">
+            <input type="hidden" id="authenticationMethod" name="configurationProperties.authenticationMethod" value="OAUTH" />
+            <div class="form-group" data-authentication-method="oauth">
+                <label class="col-sm-3 control-label" for="tokenEndpoint">{{t "templates.connector.saasCommons.tokenEndpoint"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" data-validator="required" type="tokenEndpoint" id="tokenEndpoint" name="configurationProperties.tokenEndpoint"
+                    value="{{connectorDefaults.configurationProperties.tokenEndpoint}}" />
+                    <span class='help-block'>{{t "templates.connector.saasCommons.tokenEndpointHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group" data-authentication-method="oauth">
+                <label class="col-sm-3 control-label" for="clientId">{{t "templates.connector.saasCommons.clientId"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" data-validator="required" type="text" id="clientId" name="configurationProperties.clientId"
+                    value="{{connectorDefaults.configurationProperties.clientId}}"  />
+                    <span class='help-block'>{{t "templates.connector.saasCommons.clientIdHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group" data-authentication-method="oauth">
+                <label class="col-sm-3 control-label" for="clientSecret">{{t "templates.connector.saasCommons.clientSecret"}}</label>
+                <div class="col-sm-8">
+                    <!-- autocomplete="new-password" is required to prevent chrome from auto-completing these form fields -->
+                    {{#ifObject connectorDefaults.configurationProperties.clientSecret}}
+                        {{#if connectorDefaults.configurationProperties.clientSecret.$crypto}}
+                            <input id="clientSecret" class="form-control" name="configurationProperties.clientSecret" type="password"
+                            {{#if connectorDefaults.configurationProperties.clientSecret}} placeholder="********" {{/if}} autocomplete="new-password" />
+                        {{else}}
+                            <input id="clientSecret" class="form-control" name="configurationProperties.clientSecret" type="password"
+                            placeholder="{{connectorDefaults.configurationProperties.clientSecret.$base64:decode}}" autocomplete="new-password" />
+                        {{/if}}
+                    {{else}}
+                        <input id="clientSecret" class="form-control" data-validator="required" type="password" name="configurationProperties.clientSecret"
+                        value="{{connectorDefaults.configurationProperties.clientSecret}}" autocomplete="new-password" />
+                    {{/ifObject}}
+                    <span class='help-block'>{{t "templates.connector.saasCommons.clientSecretHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="useBasicAuthForOauthTokenNeg">{{t "templates.connector.saasCommons.useBasicAuthForOauthTokenNeg"}}</label>
+                <div class="col-sm-8">
+                    <div class="checkbox checkbox-slider-primary checkbox-slider checkbox-slider--b checkbox-slider-md">
+                        <label>
+                            <input class="toggleBoolean" id="useBasicAuthForOauthTokenNeg" type="checkbox"
+                                   name="configurationProperties.useBasicAuthForOauthTokenNeg"
+                                   value="true" {{#if connectorDefaults.configurationProperties.useBasicAuthForOauthTokenNeg}} checked {{/if}} >
+                            <span></span>
+                        </label>
+                    </div>
+                    <span class='help-block'>{{t "templates.connector.saasCommons.useBasicAuthForOauthTokenNegHelp"}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Additional Options Panel -->
+<div class="panel panel-default panel-collapse" id="PingOneAdditionalOptPanel">
+    <div class="panel-heading" role="tab" id="PingOneAdditionalOptPanelHeading">
+        <h4 class="panel-title">
+            <a data-toggle="collapse" href="#PingOneAdditionalOptPanel" aria-expanded="true" aria-controls="PingOneAdditionalOptPanel"
+               class="">{{t "templates.connector.saasCommons.additionalOptions"}}</a>
+        </h4>
+    </div>
+    <div id="PingOneConnectorAdditionalOptPanel" class="panel-collapse collapse in" role="tabpanel"
+         aria-labelledby="PingOneConnectorAdditionalOptPanelHeading"
+         aria-expanded="true">
+        <div class="panel-body">
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="maximumConnections">{{t "templates.connector.saasCommons.maximumConnections"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="number" id="maximumConnections" name="configurationProperties.maximumConnections"
+                           value="{{connectorDefaults.configurationProperties.maximumConnections}}" />
+                    <span class='help-block'>{{t "templates.connector.saasCommons.maximumConnectionsHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="connectionTimeout">{{t "templates.connector.saasCommons.connectionTimeout"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="number" id="connectionTimeout" name="configurationProperties.connectionTimeout"
+                           value="{{connectorDefaults.configurationProperties.connectionTimeout}}" />
+                    <span class='help-block'>{{t "templates.connector.saasCommons.connectionTimeoutHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="clientCertAlias">{{t "templates.connector.saasCommons.clientCertAlias"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" data-validator="" type="text" id="clientCertAlias"
+                           name="configurationProperties.clientCertAlias"
+                           value="{{connectorDefaults.configurationProperties.clientCertAlias}}" />
+                    <span class='help-block'>{{t "templates.connector.saasCommons.clientCertAliasHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="clientCertPassword">{{t "templates.connector.saasCommons.clientCertPassword"}}</label>
+                <div class="col-sm-8">
+                    <!-- autocomplete="new-password" is required to prevent chrome from auto-completing these form fields -->
+                    {{#ifObject connectorDefaults.configurationProperties.clientCertPassword}}
+                    {{#if connectorDefaults.configurationProperties.clientCertPassword.$crypto}}
+                    <input id="clientCertPassword" class="form-control" name="configurationProperties.clientCertPassword"
+                           type="password"
+                           {{#if connectorDefaults.configurationProperties.clientCertPassword}} placeholder="********" {{/if}} autocomplete="new-password" />
+                    {{else}}
+                    <input id="clientCertPassword" class="form-control" name="configurationProperties.clientCertPassword" type="password"
+                           placeholder="{{connectorDefaults.configurationProperties.clientCertPassword.$base64:decode}}"
+                           autocomplete="new-password" />
+                    {{/if}}
+                    {{else}}
+                    <input id="clientCertPassword" class="form-control" data-validator="" type="password"
+                           name="configurationProperties.clientCertPassword"
+                           value="{{connectorDefaults.configurationProperties.clientCertPassword}}" autocomplete="new-password" />
+                    {{/ifObject}}
+                    <span class='help-block'>{{t "templates.connector.saasCommons.clientCertPasswordHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="disableHttpCompression">{{t "templates.connector.saasCommons.disableHttpCompression"}}</label>
+                <div class="col-sm-8">
+                    <div class="checkbox checkbox-slider-primary checkbox-slider checkbox-slider--b checkbox-slider-md">
+                        <label>
+                            <input class="toggleBoolean" id="disableHttpCompression" type="checkbox"
+                                   name="configurationProperties.disableHttpCompression"
+                                   value="true" {{#if connectorDefaults.configurationProperties.disableHttpCompression}} checked {{/if}} >
+                            <span></span>
+                        </label>
+                    </div>
+                    <span class='help-block'>{{t "templates.connector.saasCommons.disableHttpCompressionHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="httpProxyHost">{{t "templates.connector.saasCommons.httpProxyHost"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" data-validator="" type="text" id="httpProxyHost"
+                           name="configurationProperties.httpProxyHost"
+                           value="{{connectorDefaults.configurationProperties.httpProxyHost}}" />
+                    <span class='help-block'>{{t "templates.connector.saasCommons.httpProxyHostHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="httpProxyPort">{{t "templates.connector.saasCommons.httpProxyPort"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" data-validator="" type="number" id="httpProxyPort"
+                           name="configurationProperties.httpProxyPort"
+                           value="{{connectorDefaults.configurationProperties.httpProxyPort}}" />
+                    <span class='help-block'>{{t "templates.connector.saasCommons.httpProxyPortHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="httpProxyUsername">{{t "templates.connector.saasCommons.httpProxyUsername"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" data-validator="" type="text" id="httpProxyUsername"
+                           name="configurationProperties.httpProxyUsername"
+                           value="{{connectorDefaults.configurationProperties.httpProxyUsername}}" />
+                    <span class='help-block'>{{t "templates.connector.saasCommons.httpProxyUsernameHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="httpProxyPassword">{{t "templates.connector.saasCommons.httpProxyPassword"}}</label>
+                <div class="col-sm-8">
+                    <!-- autocomplete="new-password" is required to prevent chrome from auto-completing these form fields -->
+                    {{#ifObject connectorDefaults.configurationProperties.httpProxyPassword}}
+                    {{#if connectorDefaults.configurationProperties.httpProxyPassword.$crypto}}
+                    <input id="httpProxyPassword" class="form-control" name="configurationProperties.httpProxyPassword"
+                           type="password"
+                           {{#if connectorDefaults.configurationProperties.httpProxyPassword}} placeholder="********" {{/if}} autocomplete="new-password" />
+                    {{else}}
+                    <input id="httpProxyPassword" class="form-control" name="configurationProperties.httpProxyPassword" type="password"
+                           placeholder="{{connectorDefaults.configurationProperties.httpProxyPassword.$base64:decode}}"
+                           autocomplete="new-password" />
+                    {{/if}}
+                    {{else}}
+                    <input id="httpProxyPassword" class="form-control" data-validator="" type="password"
+                           name="configurationProperties.httpProxyPassword"
+                           value="{{connectorDefaults.configurationProperties.httpProxyPassword}}" autocomplete="new-password" />
+                    {{/ifObject}}
+                    <span class='help-block'>{{t "templates.connector.saasCommons.httpProxyPasswordHelp"}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,195 @@
+{{!
+  Copyright 2016-2018 ForgeRock AS. All Rights Reserved
+
+  Use of this code requires a commercial software license with ForgeRock AS.
+  or with one of its affiliates. All use shall be exclusively subject
+  to such license between the licensee and ForgeRock AS.
+}}
+<div class="panel no-margin-bottom">
+    <div class="panel-body">
+        <form id="kbaSecurityAnswerDefinitionStage" class="form-horizontal">
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="input-minimumAnswersToDefine">{{t "templates.selfservice.kbaStage.numberOfQuestions"}}</label>
+                <div class="col-sm-6">
+                    <input id="input-minimumAnswersToDefine"
+                           class="form-control"
+                           type="text"
+                           name="minimumAnswersToDefine"
+                           value="{{minimumAnswersToDefine}}"
+                           required
+                           data-validator-event="keyup blur"
+                           data-validator="isPositiveNumber"/>
+
+                    <div class="validation-message"></div>
+                    <span class="form-control-feedback"><i class="fa validation-icon"></i></span>
+                    <div class="help-block">{{t "templates.selfservice.kbaStage.numberOfQuestionsHelp"}}</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="input-minimumAnswersToVerify">{{t "templates.selfservice.kbaStage.numberOfQuestionsUserMustAnswer"}}</label>
+                <div class="col-sm-6">
+                    <input id="input-minimumAnswersToVerify"
+                           class="form-control"
+                           type="text"
+                           name="numberOfQuestionsUserMustAnswer"
+                           value="{{minimumAnswersToVerify}}"
+                           required
+                           data-validator-event="keyup blur"
+                           data-validator="isPositiveNumber"/>
+
+                    <div class="validation-message"></div>
+                    <span class="form-control-feedback"><i class="fa validation-icon"></i></span>
+                    <div class="help-block">{{t "templates.selfservice.kbaStage.numberOfQuestionsUserMustAnswerHelp"}}</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="numberOfAttemptsAllowed">{{t "templates.selfservice.kbaStage.lockOutAfter"}}</label>
+
+                <div class="col-sm-3">
+                    <input id="numberOfAttemptsAllowed"
+                           class="form-control fr-conditional-validation"
+                           type="text"
+                           name="numberOfAttemptsAllowed"
+                           value="{{numberOfAttemptsAllowed}}"
+                           data-validator="bothOptionalWithValidation isPositiveNumberOrEmpty"/>
+
+                    <div class="validation-message"></div>
+                    <span class="form-control-feedback"><i class="fa validation-icon"></i></span>
+                </div>
+
+                <div class="fr-text-after-input margin-top-5">
+                    {{t "templates.selfservice.kbaStage.incorrectAnswers"}}
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="kbaAttemptsPropertyName">{{t "templates.selfservice.kbaStage.propertyName"}}</label>
+
+                <div class="col-sm-6">
+                    <input id="kbaAttemptsPropertyName"
+                           class="form-control fr-conditional-validation"
+                           type="text"
+                           name="kbaAttemptsPropertyName"
+                           value="{{kbaAttemptsPropertyName}}"
+                           data-validator="bothOptionalWithValidation string">
+
+                    <div class="validation-message"></div>
+                    <span class="form-control-feedback"><i class="fa validation-icon"></i></span>
+               </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label">{{t "templates.selfservice.kbaStage.questions"}}</label>
+                <div class="col-sm-8">
+                    <div class="help-block">{{t "templates.selfservice.kbaStage.questionsHelp"}}</div>
+
+                    <ul>
+                    {{#each questions}}
+                        <li class="preview-row" data-question-key="{{@key}}">
+                            <span class="col-xs-10">
+                                {{this.[0].translation}}
+                                {{#each this}}
+                                <span class="badge">{{this.locale}}</span>
+                                {{/each}}
+                            </span>
+                            <span class="icon-container col-xs-2">
+                                <i class="fa fa-times grid-icon pull-right"></i>
+                                <i class="fa fa-pencil grid-icon pull-right"></i>
+                            </span>
+                        </li>
+
+                        <li class="editPanel add-edit-panel" style="display: none;" data-question-key="{{@key}}">
+                            <div class="clearfix col-xs-12">
+                                <h5 class="text-primary">{{t "templates.selfservice.kbaStage.editQuestion"}}</h5>
+                                <ul>
+                                    {{#each this}}
+                                        {{> selfservice/_kbaTranslation locale=this.locale translation=this.translation}}
+                                    {{/each}}
+                                    <li class="input-row">
+                                        <span class="col-xs-2">
+                                            <select class="translation-locale form-control" placeholder="{{t "templates.selfservice.kbaStage.locale"}}">
+                                                <option value="" disabled selected>{{t "templates.selfservice.kbaStage.locale"}}</option>
+                                                {{#each ../locales}}
+                                                <option value="{{this}}">{{this}}</option>
+                                                {{/each}}
+                                            </select>
+                                        </span>
+                                        <span class="col-xs-8">
+                                            <input class="translation-value form-control" type="text"/>
+                                        </span>
+                                        <span class="col-xs-2">
+                                            <button class="add-translation btn btn-default disabled"><i class="fa fa-plus"></i>{{t "common.form.add"}}</button>
+                                        </span>
+                                    </li>
+                                </ul>
+
+                                {{> _alert
+                                    type="danger"
+                                    class="local-alert"
+                                    hidden=true
+                                    heading="common.notification.types.warning"
+                                    message="templates.selfservice.kbaStage.localeError"
+                                }}
+
+                                <div class="form-button-bar">
+                                    <button class="update-add-edit btn btn-primary pull-right">{{t "common.form.update"}}</button>
+                                    <button class="cancel-add-edit btn btn-default pull-right">{{t "common.form.cancel"}}</button>
+                                </div>
+                            </div>
+                        </li>
+                    {{/each}}
+                        <li class="addPanel add-edit-panel" style="display: none;">
+                            <div class="clearfix col-xs-12">
+                                <h5 class="text-primary">{{t "templates.selfservice.kbaStage.addQuestion"}}</h5>
+                                <ul>
+                                    <li class="input-row">
+                                        <span class="col-xs-2">
+                                            <select class="translation-locale form-control" placeholder="{{t "templates.selfservice.kbaStage.locale"}}">
+                                                <option value="" disabled selected>{{t "templates.selfservice.kbaStage.locale"}}</option>
+                                                {{#each locales}}
+                                                <option value="{{this}}">{{this}}</option>
+                                                {{/each}}
+                                            </select>
+                                        </span>
+                                        <span class="col-xs-8">
+                                            <input class="translation-value form-control" type="text"/>
+                                        </span>
+                                        <span class="col-xs-2">
+                                            <button class="add-translation btn btn-default disabled"><i class="fa fa-plus"></i>{{t "common.form.add"}}</button>
+                                        </span>
+                                    </li>
+                                </ul>
+
+                                {{> _alert
+                                    type="danger"
+                                    class="local-alert"
+                                    hidden=true
+                                    heading="common.notification.types.warning"
+                                    message="templates.selfservice.kbaStage.localeError"
+                                }}
+
+                                <div class="form-button-bar">
+                                    <button class="update-add-edit btn btn-primary pull-right">{{t "common.form.done"}}</button>
+                                    <button class="cancel-add-edit btn btn-default pull-right">{{t "common.form.cancel"}}</button>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                    <button class="add-question btn btn-default"><i class="fa fa-plus"></i>{{t "templates.selfservice.kbaStage.addAQuestion"}}</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="panel-footer clearfix">
+        <div class="pull-left">
+            <div class="questions-changes-pending-container"></div>
+        </div>
+        <div class="pull-right save-cancel-btn-panel">
+            <button class="btn save-cancel-btn btn-primary btn-save save-kbaQuestions-config" type="button" disabled>{{t "common.form.save"}}</button>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>

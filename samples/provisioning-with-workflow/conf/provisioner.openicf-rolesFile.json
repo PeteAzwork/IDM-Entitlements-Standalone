@@ -1,0 +1,54 @@
+{
+    "connectorRef" : {
+        "bundleName" : "org.forgerock.openicf.connectors.csvfile-connector",
+        "bundleVersion" : "[1.5.0.0,1.6.0.0)",
+        "connectorName" : "org.forgerock.openicf.csvfile.CSVFileConnector"
+    },
+    "operationTimeout" : {
+        "CREATE" : -1,
+        "VALIDATE" : -1,
+        "TEST" : -1,
+        "SCRIPT_ON_CONNECTOR" : -1,
+        "SCHEMA" : -1,
+        "DELETE" : -1,
+        "UPDATE" : -1,
+        "SYNC" : -1,
+        "AUTHENTICATE" : -1,
+        "GET" : -1,
+        "SCRIPT_ON_RESOURCE" : -1,
+        "SEARCH" : -1
+    },
+    "configurationProperties" : {
+        "csvFile" : "&{idm.instance.dir}/data/roles.csv",
+        "headerUid" : "id"
+    },
+    "resultsHandlerConfig" : {
+        "enableAttributesToGetSearchResultsHandler" : true
+    },
+    "syncFailureHandler" : {
+        "maxRetries" : 5,
+        "postRetryAction" : "logged-ignore"
+    },
+    "objectTypes" : {
+        "role" : {
+            "$schema" : "http://json-schema.org/draft-03/schema",
+            "id" : "role",
+            "type" : "object",
+            "nativeType" : "__ACCOUNT__",
+            "properties" : {
+                "id" : {
+                    "type" : "string",
+                    "nativeName" : "__UID__",
+                    "nativeType" : "string"
+                },
+                "name" : {
+                    "type" : "string",
+                    "required" : true,
+                    "nativeName" : "name",
+                    "nativeType" : "string"
+                }
+            }
+        }
+    },
+    "operationOptions" : { }
+}

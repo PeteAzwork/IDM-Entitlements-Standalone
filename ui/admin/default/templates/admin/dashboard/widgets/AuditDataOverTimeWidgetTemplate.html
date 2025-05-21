@@ -1,0 +1,60 @@
+{{!
+  Copyright 2017 ForgeRock AS. All Rights Reserved
+
+  Use of this code requires a commercial software license with ForgeRock AS.
+  or with one of its affiliates. All use shall be exclusively subject
+  to such license between the licensee and ForgeRock AS.
+}}
+{{> dashboard/_widgetHeader}}
+<div class="panel-body widget-body audit-over-time-widget">
+    <div class="toolbar clearfix audit-filters" {{#unless toolbar}}style="display:none;"{{/unless}}>
+        <form class="form-inline" role="form">
+
+            {{#if topic}}
+            <div class="form-group">
+                <label class="inline">{{t "dashboard.auditData.eventPickerLabel"}}:</label>
+                {{> dashboard/widget/_auditTopics}}
+            </div>
+            {{/if}}
+
+
+            <div class="form-group" {{#unless filter}}style="display:'none'"{{/unless}}>
+                <label class="inline">{{t "dashboard.auditData.eventFilterLabel"}}:</label>
+                {{> dashboard/widget/_filters}}
+            </div>
+
+        </form>
+    </div>
+
+
+    <div class="row">
+        <div class="audit-nav-btns col-sm-3" role="group">
+            <button type="button" class="btn btn-default btn-secondary today disabled">{{t "dashboard.auditData.today"}}</button>
+
+            <div class="btn-group">
+                <button type="button" class="btn btn-default btn-secondary arrows prevView"><i class="fa fa-angle-left"></i></button>
+                <button type="button" class="btn btn-default btn-secondary arrows disabled nextView"><i class="fa fa-angle-right"></i></button>
+            </div>
+        </div>
+
+        <span class="viewed-dates text-center col-sm-6"></span>
+
+        <div class="audit-nav-btns btn-group col-sm-3" role="group">
+            <div class="pull-right">
+                <button type="button" class="btn btn-default btn-secondary viewSelector" data-granularity="week">{{t "dashboard.auditData.week"}}</button>
+                <button type="button" class="btn btn-default btn-primary viewSelector" data-granularity="month">{{t "dashboard.auditData.month"}}</button>
+                <button type="button" class="btn btn-default btn-secondary viewSelector" data-granularity="year">{{t "dashboard.auditData.year"}}</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="audit-cal-heatmap-container">
+        <div class="cal-heatmap"></div>
+    </div>
+
+    <div class="audit-details text-center">
+        <span class="result-count"></span>
+        <span class="event-details-header"><span class="event-type"></span> {{t "dashboard.auditData.events"}}</span>
+    </div>
+</div>
+

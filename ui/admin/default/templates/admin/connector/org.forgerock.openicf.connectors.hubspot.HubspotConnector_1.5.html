@@ -1,0 +1,103 @@
+{{! Copyright 2018 ForgeRock AS. All Rights Reserved Use of this code requires a commercial software license with ForgeRock
+    AS. or with one of its affiliates. All use shall be exclusively subject to such license between the licensee and ForgeRock
+    AS. }}
+    <!-- Base Details panel -->
+    <div class="panel panel-default panel-collapse" id="hubspotConnector">
+        <div class="panel-heading" role="tab" id="connectorSpecificBaseHeading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" href="#connectorSpecificBase" aria-expanded="true" aria-controls="connectorSpecificBase" class="">{{t "templates.connector.baseTitle"}}</a>
+            </h4>
+        </div>
+        <div id="connectorSpecificBase" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="connectorSpecificBaseHeading"
+            aria-expanded="true">
+            <div class="panel-body">
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="clientId">{{t "templates.connector.hubspot.clientId"}}</label>
+                    <div class="col-sm-8">
+                        <input class="form-control" data-validator="required" type="text" id="clientId" name="configurationProperties.clientId" value="{{connectorDefaults.configurationProperties.clientId}}"/>
+                        <span class="help-block">{{t "templates.connector.hubspot.clientIdHelp"}}</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="clientSecret">{{t "templates.connector.hubspot.clientSecret"}}</label>
+                    <div class="col-sm-8">
+                        <input class="form-control" type="password" id="clientSecret" autocomplete="new-password" name="configurationProperties.clientSecret"
+                            value="" {{#if connectorDefaults.configurationProperties.clientSecret}} placeholder="********" {{/if}}/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="refreshToken">{{t "templates.connector.hubspot.refreshToken"}}</label>
+                    <div class="col-sm-8">
+                        <input class="form-control" type="password" id="refreshToken" autocomplete="new-password" name="configurationProperties.refreshToken"
+                            value="" {{#if connectorDefaults.configurationProperties.refreshToken}} placeholder="********" {{/if}}/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Hubspot connection Panel -->
+    <div class="panel panel-default panel-collapse" id="hubspotConnectionPanel">
+        <div class="panel-heading" role="tab" id="connectorSpecificAdvancedHeading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" href="#connectorSpecificAdvanced" aria-expanded="true" aria-controls="connectorSpecificAdvanced"
+                    class="">{{t "templates.connector.hubspot.advancedTitle"}}</a>
+            </h4>
+        </div>
+        <div id="connectorSpecificAdvanced" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="connectorSpecificAdvancedHeading"
+            aria-expanded="true">
+            <div class="panel-body">
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="acceptSelfSignedCertificates">{{t "templates.connector.hubspot.acceptSelfSignedCertificates"}}</label>
+                    <div class="col-sm-8">
+                        <div class="checkbox checkbox-slider-primary checkbox-slider checkbox-slider--b checkbox-slider-md">
+                            <label>
+                                <input class="toggleBoolean" id="acceptSelfSignedCertificates" type="checkbox" name="configurationProperties.acceptSelfSignedCertificates"
+                                    value="true" {{#if connectorDefaults.configurationProperties.acceptSelfSignedCertificates}} checked
+                                    {{/if}}>
+                                <span></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="readSchema">{{t "templates.connector.hubspot.readSchema"}}</label>
+                    <div class="col-sm-8">
+                        <div class="checkbox checkbox-slider-primary checkbox-slider checkbox-slider--b checkbox-slider-md">
+                            <label>
+                                <input class="toggleBoolean" id="readSchema" type="checkbox" name="configurationProperties.readSchema"
+                                    value="true" {{#if connectorDefaults.configurationProperties.readSchema}} checked
+                                    {{/if}}>
+                                <span></span>
+                            </label>
+                        </div>
+                        <span class="help-block">{{t "templates.connector.hubspot.readSchemaHelp"}}</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="disableHostNameVerifier">{{t "templates.connector.hubspot.disableHostNameVerifier"}}</label>
+                    <div class="col-sm-8">
+                        <div class="checkbox checkbox-slider-primary checkbox-slider checkbox-slider--b checkbox-slider-md">
+                            <label>
+                                <input class="toggleBoolean" id="disableHostNameVerifier" type="checkbox" name="configurationProperties.disableHostNameVerifier"
+                                    value="true" {{#if connectorDefaults.configurationProperties.disableHostNameVerifier}} checked{{/if}}>
+                                    <span></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="maximumConnections">{{t "templates.connector.hubspot.maximumConnections"}}</label>
+                    <div class="col-sm-8">
+                        <input class="form-control" type="number" id="maximumConnections" name="configurationProperties.maximumConnections" value="{{connectorDefaults.configurationProperties.maximumConnections}}"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="permitsPerSecond">{{t "templates.connector.hubspot.permitsPerSecond"}}</label>
+                    <div class="col-sm-8">
+                        <input class="form-control" type="number" id="permitsPerSecond" name="configurationProperties.permitsPerSecond" value="{{connectorDefaults.configurationProperties.permitsPerSecond}}"/>
+                        <span class="help-block">{{t "templates.connector.hubspot.permitsPerSecondHelp"}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

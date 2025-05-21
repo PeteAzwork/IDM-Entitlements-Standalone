@@ -1,0 +1,114 @@
+{
+    "auditServiceConfig" : {
+        "handlerForQueries" : "repo",
+        "availableAuditEventHandlers" : [
+            "org.forgerock.audit.handlers.csv.CsvAuditEventHandler",
+            "org.forgerock.audit.handlers.jms.JmsAuditEventHandler",
+            "org.forgerock.audit.handlers.json.JsonAuditEventHandler",
+            "org.forgerock.openidm.audit.impl.RepositoryAuditEventHandler",
+            "org.forgerock.openidm.audit.impl.RouterAuditEventHandler",
+            "org.forgerock.audit.handlers.syslog.SyslogAuditEventHandler"
+        ],
+        "filterPolicies" : {
+            "field" : {
+                "excludeIf" : [ ],
+                "includeIf" : [ ]
+            }
+        }
+    },
+    "eventHandlers" : [
+        {
+            "class" : "org.forgerock.audit.handlers.json.JsonAuditEventHandler",
+            "config" : {
+                "name" : "json",
+                "logDirectory" : "&{idm.data.dir}/audit",
+                "buffering" : {
+                    "maxSize" : 100000,
+                    "writeInterval" : "100 millis"
+                },
+                "topics" : [
+                    "access",
+                    "activity",
+                    "sync",
+                    "authentication",
+                    "config"
+                ]
+            }
+        },
+        {
+            "class" : "org.forgerock.openidm.audit.impl.RepositoryAuditEventHandler",
+            "config" : {
+                "name" : "repo",
+                "topics" : [
+                    "access",
+                    "activity",
+                    "sync",
+                    "authentication",
+                    "config"
+                ]
+            }
+        },
+        {
+            "class" : "org.forgerock.audit.handlers.jms.JmsAuditEventHandler",
+            "config" : {
+                "name" : "jms",
+                "enabled" : true,
+                "topics" : [
+                    "access",
+                    "activity",
+                    "config",
+                    "authentication",
+                    "sync"
+                ],
+                "deliveryMode" : "NON_PERSISTENT",
+                "sessionMode" : "AUTO",
+                "batch" : {
+                    "writeInterval" : "1 second",
+                    "capacity" : 1000,
+                    "maxBatchedEvents" : 100
+                },
+                "jndi" : {
+                    "contextProperties" : {
+                        "java.naming.factory.initial" : "org.apache.activemq.artemis.jndi.ActiveMQInitialContextFactory",
+                        "java.naming.provider.url" : "tcp://127.0.0.1:61616?daemon=true",
+                        "topic.forgerock.idm.audit" : "forgerock.idm.audit"
+                    },
+                    "topicName" : "forgerock.idm.audit",
+                    "connectionFactoryName" : "ConnectionFactory"
+                }
+            }
+        }
+    ],
+    "eventTopics" : {
+        "config" : {
+            "filter" : {
+                "actions" : [
+                    "create",
+                    "update",
+                    "delete",
+                    "patch",
+                    "action"
+                ]
+            }
+        },
+        "activity" : {
+            "filter" : {
+                "actions" : [
+                    "create",
+                    "update",
+                    "delete",
+                    "patch",
+                    "action"
+                ]
+            },
+            "watchedFields" : [ ],
+            "passwordFields" : [
+                "password"
+            ]
+        }
+    },
+    "exceptionFormatter" : {
+        "type" : "text/javascript",
+        "file" : "bin/defaults/script/audit/stacktraceFormatter.js"
+    }
+}

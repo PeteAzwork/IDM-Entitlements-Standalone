@@ -1,0 +1,21 @@
+{{!--
+  Copyright 2017 ForgeRock AS. All Rights Reserved
+
+  Use of this code requires a commercial software license with ForgeRock AS.
+  or with one of its affiliates. All use shall be exclusively subject
+  to such license between the licensee and ForgeRock AS.
+--}}
+
+<div class="form-group">
+    <label class="col-md-3 control-label">{{t "templates.progressiveProfile.showAfter"}}</label>
+    <div class="col-md-7">
+        <div class="row">
+            {{#each timeIntervals}}
+            <div class="col-md-4">
+                <input type="number" min="0" name="{{interval}}" class="form-control" value="{{value}}">
+                {{intervalName}}
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</div>

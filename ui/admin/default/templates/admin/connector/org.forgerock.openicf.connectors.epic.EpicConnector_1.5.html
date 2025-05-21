@@ -1,0 +1,144 @@
+{{!
+	Copyright 2021-2022 ForgeRock AS. All Rights Reserved
+  
+    Use of this code requires a commercial software license with ForgeRock AS.
+    or with one of its affiliates. All use shall be exclusively subject
+    to such license between the licensee and ForgeRock AS.
+}}
+<!-- Base Details panel -->
+<div class="panel panel-default panel-collapse" id="epicConnector">
+    <div class="panel-heading" role="tab" id="connectorSpecificBaseHeading">
+        <h4 class="panel-title">
+            <a data-toggle="collapse" href="#connectorSpecificBase" aria-expanded="true" aria-controls="connectorSpecificBase"
+                class="">{{t "templates.connector.baseTitle"}}</a>
+        </h4>
+    </div>
+    <div id="connectorSpecificBase" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="connectorSpecificBaseHeading"
+        aria-expanded="true">
+        <div class="panel-body">
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="clientId">{{t "templates.connector.epicConnector.clientId"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" data-validator="required" type="text" id="clientId" name="configurationProperties.clientId"
+                        value="{{connectorDefaults.configurationProperties.clientId}}" />
+                    <span class='help-block'>{{t "templates.connector.epicConnector.clientIdHelp"}}</span>
+                </div>
+            </div>
+			<div class="form-group">
+                <label class="col-sm-3 control-label" for="privateKey">{{t "templates.connector.epicConnector.privateKey"}}</label>
+                <div class="col-sm-8">
+                    <textarea class="form-control" data-validator="required" rows="5" cols="25" id="privateKey" name="configurationProperties.privateKey"
+                        placeholder="{{connectorDefaults.configurationProperties.privateKey}}" ></textarea>
+                    <span class='help-block'>{{t "templates.connector.epicConnector.privateKeyHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="userName">{{t "templates.connector.epicConnector.userName"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" data-validator="required" type="text" id="userName" name="configurationProperties.userName"
+                        value="{{connectorDefaults.configurationProperties.userName}}" />
+                    <span class='help-block'>{{t "templates.connector.epicConnector.userNameHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="password">{{t "templates.connector.epicConnector.password"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" data-validator="required" type="text" id="password" name="configurationProperties.password"
+                        value="{{connectorDefaults.configurationProperties.password}}" />
+                    <span class='help-block'>{{t "templates.connector.epicConnector.passwordHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="userTemplatesFilePath">{{t "templates.connector.epicConnector.userTemplatesFilePath"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="userTemplatesFilePath" name="configurationProperties.userTemplatesFilePath" value="{{connectorDefaults.configurationProperties.userTemplatesFilePath}}" />
+                    <span class='help-block'>{{t "templates.connector.epicConnector.userTemplatesFilePathHelp"}}</span>
+                </div>
+            </div>
+			<div class="form-group">
+                <label class="col-sm-3 control-label" for="subTemplatesFilePath">{{t "templates.connector.epicConnector.subTemplatesFilePath"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="subTemplatesFilePath" name="configurationProperties.subTemplatesFilePath" value="{{connectorDefaults.configurationProperties.subTemplatesFilePath}}" />
+                    <span class='help-block'>{{t "templates.connector.epicConnector.subTemplatesFilePathHelp"}}</span>
+                </div>
+            </div>
+			<div class="form-group">
+                <label class="col-sm-3 control-label" for="inBasketFilePath">{{t "templates.connector.epicConnector.inBasketFilePath"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="inBasketFilePath" name="configurationProperties.inBasketFilePath" value="{{connectorDefaults.configurationProperties.inBasketFilePath}}" />
+                    <span class='help-block'>{{t "templates.connector.epicConnector.inBasketFilePathHelp"}}</span>
+                </div>
+            </div>
+			<div class="form-group">
+                <label class="col-sm-3 control-label" for="groupsFilePath">{{t "templates.connector.epicConnector.groupsFilePath"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="groupsFilePath" name="configurationProperties.groupsFilePath" value="{{connectorDefaults.configurationProperties.groupsFilePath}}" />
+                    <span class='help-block'>{{t "templates.connector.epicConnector.groupsFilePathHelp"}}</span>
+                </div>
+            </div>
+			<div class="form-group">
+                <label class="col-sm-3 control-label" for="restEndpoint">{{t "templates.connector.epicConnector.restEndpoint"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="restEndpoint" name="configurationProperties.restEndpoint" value="{{connectorDefaults.configurationProperties.restEndpoint}}" />
+                    <span class='help-block'>{{t "templates.connector.epicConnector.restEndpointHelp"}}</span>
+                </div>
+            </div>
+			<div class="form-group">
+                <label class="col-sm-3 control-label" for="soapEndpoint">{{t "templates.connector.epicConnector.soapEndpoint"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="soapEndpoint" name="configurationProperties.soapEndpoint" value="{{connectorDefaults.configurationProperties.soapEndpoint}}" />
+                    <span class='help-block'>{{t "templates.connector.epicConnector.soapEndpointHelp"}}</span>
+                </div>
+            </div>
+			<div class="form-group">
+                <label class="col-sm-3 control-label" for="maxRecords">{{t "templates.connector.epicConnector.maxRecords"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="maxRecords" name="configurationProperties.maxRecords" value="{{connectorDefaults.configurationProperties.maxRecords}}" />
+                    <span class='help-block'>{{t "templates.connector.epicConnector.maxRecordsHelp"}}</span>
+                </div>
+            </div>
+			<div class="form-group">
+                <label class="col-sm-3 control-label" for="maxConnections">{{t "templates.connector.epicConnector.maxConnections"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="maxConnections" name="configurationProperties.maxConnections" value="{{connectorDefaults.configurationProperties.maxConnections}}" />
+                    <span class='help-block'>{{t "templates.connector.epicConnector.maxConnectionsHelp"}}</span>
+                </div>
+            </div>
+			<div class="form-group">
+                <label class="col-sm-3 control-label" for="connectionTimeout">{{t "templates.connector.epicConnector.connectionTimeout"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="connectionTimeout" name="configurationProperties.connectionTimeout" value="{{connectorDefaults.configurationProperties.connectionTimeout}}" />
+                    <span class='help-block'>{{t "templates.connector.epicConnector.connectionTimeoutHelp"}}</span>
+                </div>
+            </div>
+			<div class="form-group">
+                <label class="col-sm-3 control-label" for="httpProxyHost">{{t "templates.connector.epicConnector.httpProxyHost"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="httpProxyHost" name="configurationProperties.httpProxyHost" value="{{connectorDefaults.configurationProperties.httpProxyHost}}" />
+                    <span class='help-block'>{{t "templates.connector.epicConnector.httpProxyHostHelp"}}</span>
+                </div>
+            </div>
+			<div class="form-group">
+                <label class="col-sm-3 control-label" for="httpProxyPort">{{t "templates.connector.epicConnector.httpProxyPort"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="httpProxyPort" name="configurationProperties.httpProxyPort" value="{{connectorDefaults.configurationProperties.httpProxyPort}}" />
+                    <span class='help-block'>{{t "templates.connector.epicConnector.httpProxyPortHelp"}}</span>
+                </div>
+            </div>
+			<div class="form-group">
+                <label class="col-sm-3 control-label" for="httpProxyUsername">{{t "templates.connector.epicConnector.httpProxyUsername"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="httpProxyUsername" name="configurationProperties.httpProxyUsername" value="{{connectorDefaults.configurationProperties.httpProxyUsername}}" />
+                    <span class='help-block'>{{t "templates.connector.epicConnector.httpProxyUsernameHelp"}}</span>
+                </div>
+            </div>
+			<div class="form-group">
+                <label class="col-sm-3 control-label" for="httpProxyPassword">{{t "templates.connector.epicConnector.httpProxyPassword"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="httpProxyPassword" name="configurationProperties.httpProxyPassword" value="{{connectorDefaults.configurationProperties.httpProxyPassword}}" />
+                    <span class='help-block'>{{t "templates.connector.epicConnector.httpProxyPasswordHelp"}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,15 @@
+{
+    "databaseName" : "openidm",
+    "jsonDataSource" : {
+        "class" : "oracle.ucp.jdbc.PoolDataSourceImpl",
+        "settings" : {
+            "connectionFactoryClassName" : "oracle.jdbc.pool.OracleDataSource",
+            "url" : "jdbc:oracle:thin:@&{openidm.repo.host}:&{openidm.repo.port}:<SID>",
+            "user" : "openidm",
+            "password" : "openidm",
+            "connectionTimeout" : 30000,
+            "minPoolSize" : 20,
+            "maxPoolSize" : 50
+        }
+    }
+}

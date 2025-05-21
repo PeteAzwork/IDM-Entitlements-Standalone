@@ -1,0 +1,55 @@
+{{!--
+  Copyright 2017 ForgeRock AS. All Rights Reserved
+
+  Use of this code requires a commercial software license with ForgeRock AS.
+  or with one of its affiliates. All use shall be exclusively subject
+  to such license between the licensee and ForgeRock AS.
+--}}
+<div class="panel no-margin-bottom">
+    <div class="table-responsive panel-body">
+        <table id="objectTypeTable" class="group-field-block table">
+            <thead>
+                <tr>
+                    <th class="col-sm-11">Object Types</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each objectTypes}}
+                <tr data-objectType="{{@key}}">
+                    <td>
+                        {{@key}}
+                    </td>
+                    <td>
+                        <button class="btn btn-link edit-objectType"><i class="fa fa-pencil"></i></button>
+                        <button class="btn btn-link delete-objectType"><i class="fa fa-times"></i></button>
+                    </td>
+
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+
+        <div>
+            <form class="form-inline">
+                <div class="form-group">
+                    {{#if hasAvailableObjectTypes}}
+                    <select class="form-control" type="text" id="availableObjectTypes">
+                        <option value="">{{t "templates.connector.objectTypes.chooseObjectType"}}</option>
+                        {{#each availableObjectTypes}}
+                        <option value="{{@key}}">{{@key}}</option>
+                        {{/each}}
+                    </select>
+                    <div class="btn-group">
+                        <button id="addObjectType" class="btn btn-default"><i class="fa fa-plus"></i>{{t "common.form.add"}}</button>
+                    </div>
+                    {{else}}
+                    <div class="btn-group">
+                        <button id="addObjectType" class="btn btn-default"><i class="fa fa-plus"></i>{{t "templates.connector.addObjectType"}}</button>
+                    </div>
+                    {{/if}}
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,49 @@
+{{!
+  Copyright 2017 ForgeRock AS. All Rights Reserved
+
+  Use of this code requires a commercial software license with ForgeRock AS.
+  or with one of its affiliates. All use shall be exclusively subject
+  to such license between the licensee and ForgeRock AS.
+}}
+<section>
+    <div class="container">
+        <div class="page-header">
+            <h1>{{t "templates.progressiveProfile.progressiveProfileCompletion"}}</h1>
+        </div>
+
+        {{#if showGrid}}
+        <div class="toolbar page-toolbar" role="toolbar" aria-label="...">
+            <div class="btn-group pull-left left-group" role="group" aria-label="...">
+                <a href="#progressiveProfileForms/add/"><button type="button" class="btn btn-primary"><i class="fa fa-plus"></i>{{t "templates.progressiveProfile.newForm"}}</button></a>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        {{/if}}
+    </div>
+</section>
+<section>
+    <div class="container">
+        {{#if showGrid}}
+        <div id="formsGridContainer">
+            <div class="panel panel-default">
+                <div class="panel-body" id="formsGrid"></div>
+            </div>
+        </div>
+        {{else}}
+        <div class="well well-empty">
+          <div class="text-center">
+            <p class="text-primary">
+              <i class="fa fa fa-list fa-4x"></i>
+            </p>
+            <h3>{{t "templates.progressiveProfile.noFormsConfigured"}}</h3>
+            <p class="panel-description">
+              {{t "templates.progressiveProfile.noFormsDescription"}}
+              </p>
+            <p>
+              <a href="#progressiveProfileForms/add/"><button type="button" class="btn btn-primary"><i class="fa fa-plus"></i>{{t "templates.progressiveProfile.newForm"}}</button></a>
+            </p>
+          </div>
+        </div>
+        {{/if}}
+    </div>
+</section>

@@ -1,0 +1,35 @@
+{{!--
+  Copyright 2016-2023 ForgeRock AS. All Rights Reserved
+
+  Use of this code requires a commercial software license with ForgeRock AS.
+  or with one of its affiliates. All use shall be exclusively subject
+  to such license between the licensee and ForgeRock AS.
+--}}
+<div class="form-group">
+    <label class="col-sm-3 control-label" for="{{this.name}}">{{this.title}}</label>
+    <div class="col-sm-8">
+        <div class="checkbox checkbox-slider-primary checkbox-slider checkbox-slider--b checkbox-slider-md">
+            <label>
+                <input class="toggleBoolean advancedMappingParam"
+                    id="{{this.name}}"
+                    type="checkbox"
+                    name="{{this.name}}"
+                    value="true"
+                    data-panel-id="{{this.panelId}}"
+                    actualvalue="{{this.configuredValue}}"
+                    {{#if this.configuredValue}}
+                        checked
+                    {{/if}} >
+                <span></span>
+            </label>
+
+        </div>
+        <span class="help-block">
+            {{this.helpText}}
+            {{#if this.helpLink}}
+                <a href="{{this.helpLink}}" target="_blank">{{t "common.help.help"}}</a>
+            {{/if}}
+        </span>
+
+    </div>
+</div>

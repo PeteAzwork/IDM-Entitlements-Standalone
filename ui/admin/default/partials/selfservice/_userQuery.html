@@ -1,0 +1,13 @@
+{{!--
+  Copyright 2016-2017 ForgeRock AS. All Rights Reserved
+
+  Use of this code requires a commercial software license with ForgeRock AS.
+  or with one of its affiliates. All use shall be exclusively subject
+  to such license between the licensee and ForgeRock AS.
+--}}
+<form id="configDialogForm" class="form-horizontal">
+    {{> form/_tagSelectize value=validQueryFields label="templates.selfservice.userQuery.validQueryFields" property="validQueryFields" options=identityServiceProperties}}
+    {{> form/_basicSelectize value=identityIdField label="templates.selfservice.userQuery.identityIdField" property="identityIdField" options=identityServiceProperties}}
+    {{> form/_basicSelectize value=identityEmailField label="templates.selfservice.userQuery.identityEmailField" property="identityEmailField" options=identityServiceProperties}}
+    {{> form/_basicSelectize value=identityUsernameField label="templates.selfservice.userQuery.identityUsernameField" property="identityUsernameField" options=identityServiceProperties}}
+</form>

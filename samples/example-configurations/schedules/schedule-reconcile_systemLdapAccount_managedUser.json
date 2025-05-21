@@ -1,0 +1,12 @@
+{
+    "enabled" : true,
+    "type" : "simple",
+    "repeatInterval" : 3600000,
+    "persisted" : true,
+    "concurrentExecution" : false,
+    "invokeService" : "sync",
+    "invokeContext" : {
+        "action" : "reconcile",
+        "mapping" : "systemLdapAccount_managedUser"
+    }
+}

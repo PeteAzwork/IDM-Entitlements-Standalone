@@ -1,0 +1,6 @@
+{
+    "instanceUrl" : "https://localhost:8443/openidm/",
+    "authType" : "basic",
+    "userName" : "openidm-admin",
+    "password" : "openidm-admin"
+}

@@ -1,0 +1,112 @@
+{{!
+  Copyright 2023 ForgeRock AS. All Rights Reserved
+
+  Use of this code requires a commercial software license with ForgeRock AS.
+  or with one of its affiliates. All use shall be exclusively subject
+  to such license between the licensee and ForgeRock AS.
+}}
+<!-- Base Details panel -->
+<div class="panel panel-default panel-collapse" id="saphanadbConnector">
+    <div class="panel-heading" role="tab" id="connectorSpecificBaseHeading">
+        <h4 class="panel-title">
+            <a data-toggle="collapse" href="#connectorSpecificBase" aria-expanded="true" aria-controls="connectorSpecificBase" class="">{{t "templates.connector.baseTitle"}}</a>
+        </h4>
+    </div>
+    <div id="connectorSpecificBase" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="connectorSpecificBaseHeading" aria-expanded="true">
+        <div class="panel-body">
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="username">{{t "templates.connector.saphanadb.username"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" data-validator="required" type="text" id="username" name="configurationProperties.username" value="{{connectorDefaults.configurationProperties.username}}" />
+                    <span class='help-block'>{{t "templates.connector.saphanadb.usernameHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="password">{{t "templates.connector.saphanadb.password"}}</label>
+                <div class="col-sm-8">
+                    <!-- autocomplete="new-password" is required to prevent chrome from auto-completing these form fields -->
+                    {{#ifObject connectorDefaults.configurationProperties.password}}
+                        {{#if connectorDefaults.configurationProperties.password.$crypto}}
+                            <input id="password" class="form-control" name="configurationProperties.password" type="password"
+                            {{#if connectorDefaults.configurationProperties.password}} placeholder="********" {{/if}} autocomplete="new-password" />
+                        {{else}}
+                            <input id="password" class="form-control" name="configurationProperties.password" type="password"
+                            placeholder="{{connectorDefaults.configurationProperties.password.$base64:decode}}" autocomplete="new-password" />
+                        {{/if}}
+                    {{else}}
+                        <input id="password" class="form-control" data-validator="required" type="password" name="configurationProperties.password"
+                        value="{{connectorDefaults.configurationProperties.password}}" autocomplete="new-password" />
+                    {{/ifObject}}
+                    <span class='help-block'>{{t "templates.connector.saphanadb.passwordHelp"}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="connectorSpecificBase" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="connectorSpecificBaseHeading" aria-expanded="true">
+        <div class="panel-body">
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="url">{{t "templates.connector.saphanadb.url"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" data-validator="required" type="text" id="url" name="configurationProperties.url" value="{{connectorDefaults.configurationProperties.url}}" />
+                    <span class='help-block'>{{t "templates.connector.saphanadb.urlHelp"}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="connectorSpecificBase" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="connectorSpecificBaseHeading" aria-expanded="true">
+        <div class="panel-body">
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="driverClassName">{{t "templates.connector.saphanadb.driverClassName"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" data-validator="required" type="text" id="driverClassName" name="configurationProperties.driverClassName" value="{{connectorDefaults.configurationProperties.driverClassName}}" />
+                    <span class='help-block'>{{t "templates.connector.saphanadb.driverClassNameHelp"}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="connectorSpecificBase" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="connectorSpecificBaseHeading" aria-expanded="true">
+        <div class="panel-body">
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="pageSize">{{t "templates.connector.saphanadb.pageSize"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" data-validator="required" type="number" id="pageSize" name="configurationProperties.pageSize" value="{{connectorDefaults.configurationProperties.pageSize}}" />
+                    <span class='help-block'>{{t "templates.connector.saphanadb.pageSizeHelp"}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="objectClass" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="objectClassHeading" aria-expanded="true">
+        <div class="panel-body connector-array-component" id="objectClassWrapper">
+            <div>
+                <button type="button" field_type="objectClass" id="addObjectClassButton" name="addObjectClassButton" class="btn btn-primary add-btn"><i class="fa fa-plus"></i><span>{{t "templates.connector.saphanadb.ignoreUsers"}}</span></button>
+            </div>
+
+        {{#if connectorDefaults.configurationProperties.ignoreUsers.length}}
+            {{#each_with_index connectorDefaults.configurationProperties.ignoreUsers}}
+            <div class="form-group has-feedback field">
+                <label class="control-label col-sm-3">{{t "templates.connector.saphanadb.ignoreUsers"}}</label>
+                <div class="input-group col-sm-8">
+                    <input class="form-control" autocomplete="off" type="text" name="configurationProperties.ignoreUsers[]" value={{value}} />
+                    <div class="input-group-addon">
+                        <button field_type="objectClass" class="clean-btn remove-btn"><i class="fa fa-lg fa-times-circle"></i></button>
+                    </div>
+                </div>
+            </div>
+            {{/each_with_index}}
+        {{else}}
+        <div class="form-group has-feedback field">
+            <label class="control-label col-sm-3">{{t "templates.connector.saphanadb.user"}}</label>
+            <div class="input-group col-sm-8">
+                <input class="form-control" autocomplete="off" type="text" name="configurationProperties.ignoreUsersHelp[]" value="User" />
+                <div class="input-group-addon">
+                    <button field_type="objectClass" class="clean-btn remove-btn"><i class="fa fa-lg fa-times-circle"></i></button>
+                </div>
+            </div>
+        </div>
+        {{/if}}
+    </div>
+</div>
+
+</div>

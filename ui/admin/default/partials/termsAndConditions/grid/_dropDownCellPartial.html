@@ -1,0 +1,18 @@
+{{!
+  Copyright 2018 ForgeRock AS. All Rights Reserved
+
+  Use of this code requires a commercial software license with ForgeRock AS.
+  or with one of its affiliates. All use shall be exclusively subject
+  to such license between the licensee and ForgeRock AS.
+}}
+
+<div class="btn-group pull-right dropdown" data-container-key="{{cid}}">
+    <button id="{{cid}}" aria-expanded="false" class="btn btn-link dropdown-toggle btn-actions bottom-0" data-toggle="dropdown" type="button"><i class="fa fa-ellipsis-v fa-lg dropdown-icon"></i></button>
+    {{#unless active}}
+        <ul class="dropdown-menu pull-right" role="menu">
+            <li>
+                <a href="#" class="make-active" data-key="{{cid}}"><i class="fa fa-check-circle"></i>{{t "templates.selfservice.termsAndConditions.makeActive"}}</a>
+            </li>
+        </ul>
+    {{/unless}}
+</div>

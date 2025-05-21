@@ -1,0 +1,7 @@
+{
+    "enabled" : true,
+    "fileHandler" : {
+        "type" : "file",
+        "root" : "images"
+    }
+}

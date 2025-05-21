@@ -1,0 +1,185 @@
+{{!
+    Copyright 2024 ForgeRock AS. All Rights Reserved
+
+    Use of this code requires a commercial software license with ForgeRock AS.
+    or with one of its affiliates. All use shall be exclusively subject
+    to such license between the licensee and ForgeRock AS.
+  }}
+<div class="panel panel-default panel-collapse">
+    <div class="panel-heading" role="tab" id="connectorSpecificBaseHeading">
+        <h4 class="panel-title">
+            <a data-toggle="collapse" href="#connectorSpecificBase" aria-expanded="true"
+                aria-controls="connectorSpecificBaseHeading">{{t "templates.connector.baseTitle"}}</a>
+        </h4>
+    </div>
+    <div id="connectorSpecificBase" class="panel-collapse collapse in" role="tabpanel"
+        aria-labelledby="connectorSpecificBase" aria-expanded="true">
+        <div class="panel-body">
+            <div>
+                <p>
+                    <a target="_blank" rel="noopener noreferrer"
+                        href="https://developer.webex.com/docs/integrations">{{t "templates.connector.webex.gettingStarted"}}</a>
+                </p>
+                <ol>
+                    <li>
+                        <p>{{t "templates.connector.webex.callbackUrlMessage"}}</p>
+                        <p><span class="important">{{callbackURL}}</span></p>
+                    </li>
+                    <li>
+                        <p>{{t "templates.connector.webex.listHeader"}}</p>
+                        <ul class="indented-list">
+                            <li>{{t "templates.connector.webex.listItemOne"}}</li>
+                            <li>{{t "templates.connector.webex.listItemTwo"}}</li>
+                            <li>{{t "templates.connector.webex.listItemThree"}}</li>
+                            <li>{{t "templates.connector.webex.listItemFour"}}</li>
+                            <li>{{t "templates.connector.webex.listItemFive"}}</li>
+                            <li>{{t "templates.connector.webex.listItemSix"}}</li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+
+            <div class="form-group has-feedback">
+                <label class="col-sm-3 control-label" for="clientId">{{t "templates.connector.saasCommons.clientId"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" value="{{connectorDefaults.configurationProperties.clientId}}" type="text" id="clientId" name="configurationProperties.clientId" data-validator-event="keyup blur" data-validator="required">
+                    <div class="validation-message"></div>
+                    <span class="error form-control-feedback"><i class='fa validation-icon'></i></span>
+                </div>
+            </div>
+
+            <div class="form-group has-feedback">
+                <label class="col-sm-3 control-label" for="clientSecret">{{t "templates.connector.saasCommons.clientSecret"}}</label>
+                <div class="col-sm-8">
+                    <!-- autocomplete="new-password" is required to prevent chrome from auto-completing these form fields -->
+                    {{#if connectorDefaults.configurationProperties.clientSecret}}
+                    {{#if connectorDefaults.configurationProperties.clientSecret.$crypto}}
+                    <input id="clientSecret" class="form-control" name="configurationProperties.clientSecret" data-validator-event="keyup blur" data-validator="changed" type="password"
+                           {{#if connectorDefaults.configurationProperties.clientSecret}} placeholder="********" {{/if}} autocomplete="new-password" />
+                    {{else}}
+                    <input id="clientSecret" class="form-control" name="configurationProperties.clientSecret" type="password" autocomplete="new-password"
+                           placeholder="{{connectorDefaults.configurationProperties.clientSecret.$base64:decode}}" />
+                    {{/if}}
+                    {{else}}
+                    <input id="clientSecret" data-validator-event="keyup blur" data-validator="required" autocomplete="new-password"
+                           class="form-control" type="password" name="configurationProperties.clientSecret" required>
+                    {{/if}}
+                    <div class="validation-message"></div>
+                    <span class="error form-control-feedback"><i class='fa validation-icon'></i></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="maximumConnections">{{t "templates.connector.scim.maximumConnections"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="number" id="maximumConnections" name="configurationProperties.maximumConnections"
+                           value="{{connectorDefaults.configurationProperties.maximumConnections}}" />
+                    <span class='help-block'>{{t "templates.connector.scim.maximumConnectionsHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="connectionTimeout">{{t "templates.connector.scim.connectionTimeout"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="number" id="connectionTimeout" name="configurationProperties.connectionTimeout"
+                           value="{{connectorDefaults.configurationProperties.connectionTimeout}}" />
+                    <span class='help-block'>{{t "templates.connector.scim.connectionTimeoutHelp"}}</span>
+                </div>
+            </div>
+        </div>
+        <input id="OAuthurl" type="hidden" value="https://webexapis.com/v1/authorize">
+        <input name="configurationProperties.serviceUri" id="serviceUri" type="hidden" value="https://webexapis.com/v1">
+        <input name="configurationProperties.tokenEndpoint" id="OAuthTokenUrl" type="hidden" value="https://webexapis.com/v1/access_token">
+        <input name="configurationProperties.grantType" id="grantType" type="hidden" value="refresh_token">
+    </div>
+</div>
+
+<!-- Additional Options Panel -->
+<div class="panel panel-default panel-collapse">
+    <div class="panel-heading" role="tab" id="connectorOptionalHeading">
+        <h4 class="panel-title">
+            <a data-toggle="collapse" href="#connectorOptional" aria-expanded="true"
+               aria-controls="connectorOptionalHeading">{{t "templates.connector.webex.additionalOptions"}}</a>
+        </h4>
+    </div>
+    <div id="connectorOptional" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="connectorOptional"
+         aria-expanded="true">
+        <div class="panel-body">
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="disableHttpCompression">{{t "templates.connector.saasCommons.disableHttpCompression"}}</label>
+                <div class="col-sm-8">
+                    <div class="checkbox checkbox-slider-primary checkbox-slider checkbox-slider--b checkbox-slider-md">
+                        <label>
+                            <input class="toggleBoolean" id="disableHttpCompression" type="checkbox"
+                                   name="configurationProperties.disableHttpCompression"
+                                   value="true" {{#if connectorDefaults.configurationProperties.disableHttpCompression}} checked {{/if}} >
+                            <span></span>
+                        </label>
+                    </div>
+                    <span class='help-block'>{{t "templates.connector.saasCommons.disableHttpCompressionHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="httpProxyHost">{{t "templates.connector.saasCommons.httpProxyHost"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" data-validator="" type="text" id="httpProxyHost"
+                           name="configurationProperties.httpProxyHost"
+                           value="{{connectorDefaults.configurationProperties.httpProxyHost}}" />
+                    <span class='help-block'>{{t "templates.connector.saasCommons.httpProxyHostHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="httpProxyPort">{{t "templates.connector.saasCommons.httpProxyPort"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" data-validator="" type="number" id="httpProxyPort"
+                           name="configurationProperties.httpProxyPort"
+                           value="{{connectorDefaults.configurationProperties.httpProxyPort}}" />
+                    <span class='help-block'>{{t "templates.connector.saasCommons.httpProxyPortHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="httpProxyUsername">{{t "templates.connector.saasCommons.httpProxyUsername"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" data-validator="" type="text" id="httpProxyUsername"
+                           name="configurationProperties.httpProxyUsername"
+                           value="{{connectorDefaults.configurationProperties.httpProxyUsername}}" />
+                    <span class='help-block'>{{t "templates.connector.saasCommons.httpProxyUsernameHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="httpProxyPassword">{{t "templates.connector.saasCommons.httpProxyPassword"}}</label>
+                <div class="col-sm-8">
+                    <!-- autocomplete="new-password" is required to prevent chrome from auto-completing these form fields -->
+                    {{#ifObject connectorDefaults.configurationProperties.httpProxyPassword}}
+                    {{#if connectorDefaults.configurationProperties.httpProxyPassword.$crypto}}
+                    <input id="httpProxyPassword" class="form-control" name="configurationProperties.httpProxyPassword"
+                           type="password"
+                           {{#if connectorDefaults.configurationProperties.httpProxyPassword}} placeholder="********" {{/if}} autocomplete="new-password" />
+                    {{else}}
+                    <input id="httpProxyPassword" class="form-control" name="configurationProperties.httpProxyPassword" type="password"
+                           placeholder="{{connectorDefaults.configurationProperties.httpProxyPassword.$base64:decode}}"
+                           autocomplete="new-password" />
+                    {{/if}}
+                    {{else}}
+                    <input id="httpProxyPassword" class="form-control" data-validator="" type="password"
+                           name="configurationProperties.httpProxyPassword"
+                           value="{{connectorDefaults.configurationProperties.httpProxyPassword}}" autocomplete="new-password" />
+                    {{/ifObject}}
+                    <span class='help-block'>{{t "templates.connector.saasCommons.httpProxyPasswordHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="readRateLimit">{{t "templates.connector.webex.readRateLimit"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="readRateLimit" name="configurationProperties.readRateLimit" value="{{connectorDefaults.configurationProperties.readRateLimit}}" />
+                    <span class='help-block'>{{t "templates.connector.webex.readRateLimitHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="writeRateLimit">{{t "templates.connector.webex.writeRateLimit"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="writeRateLimit" name="configurationProperties.writeRateLimit" value="{{connectorDefaults.configurationProperties.writeRateLimit}}" />
+                    <span class='help-block'>{{t "templates.connector.webex.writeRateLimitHelp"}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

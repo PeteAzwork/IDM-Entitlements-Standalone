@@ -1,0 +1,45 @@
+{{!--
+  Copyright 2015-2017 ForgeRock AS. All Rights Reserved
+
+  Use of this code requires a commercial software license with ForgeRock AS.
+  or with one of its affiliates. All use shall be exclusively subject
+  to such license between the licensee and ForgeRock AS.
+--}}
+<form id="widgetConfigForm" class="form-horizontal">
+    <div class="form-group">
+        <label class="col-sm-3 control-label" for="widgetSize">{{t "dashboard.generalConfig.widgetSize"}}</label>
+        <div class="col-sm-8">
+            <select id="widgetSize" class="form-control" name="size" required>
+                {{#staticSelect size}}
+                <option value="small">{{t "dashboard.generalConfig.small"}}</option>
+                <option value="medium">{{t "dashboard.generalConfig.medium"}}</option>
+                <option value="large">{{t "dashboard.generalConfig.large"}}</option>
+                {{/staticSelect}}
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label" for="chartType">{{t "dashboard.relationshipWidget.chartType"}}</label>
+        <div class="col-sm-8">
+            <select id="chartType" class="form-control" name="chartType" required>
+                {{#staticSelect chartType}}
+                <option value="collapsibleTree">{{t "dashboard.relationshipWidget.collapsibleTreeLayout"}}</option>
+                <option value="force">{{t "dashboard.relationshipWidget.radialLayout"}}</option>
+                {{/staticSelect}}
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label" for="defaultObject">{{t "dashboard.relationshipWidget.defaultObject"}}</label>
+        <div class="col-sm-8">
+            <select class="form-control defaultObjectDropdown"  name="defaultObject"></select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label" for="searchProperty">{{t "dashboard.relationshipWidget.searchProperty"}}</label>
+        <div class="col-sm-8">
+            <input class="form-control relationship-widget-search-property" type="hidden" name="searchProperty" value="{{searchProperty}}" />
+            <div class="searchFieldsList"></div>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,163 @@
+{
+    "mappings" : [
+        {
+            "name" : "systemCsvfileAccounts_managedUser",
+            "source" : "system/csvfile/account",
+            "target" : "managed/user",
+            "correlationQuery" : {
+                "type" : "text/javascript",
+                "source" : "var query = {'_queryId' : 'for-userName', 'uid' : source.name};query;"
+            },
+            "targetQuery" : {
+                "_queryFilter" : "true",
+                "_fields" : "*,authzRoles"
+            },
+            "properties" : [
+                {
+                    "source" : "description",
+                    "target" : "description"
+                },
+                {
+                    "source" : "firstname",
+                    "target" : "givenName"
+                },
+                {
+                    "source" : "email",
+                    "target" : "mail"
+                },
+                {
+                    "source" : "lastname",
+                    "target" : "sn"
+                },
+                {
+                    "source" : "name",
+                    "target" : "userName"
+                },
+                {
+                    "source" : "mobileTelephoneNumber",
+                    "target" : "telephoneNumber"
+                },
+                {
+                    "source" : "roles",
+                    "transform" : {
+                        "type" : "text/javascript",
+                        "source" : "source.split(',').map(function(role) { return {'_ref': role.indexOf('internal/') === -1  ? 'internal/role/' + role : role}; });"
+                    },
+                    "target" : "authzRoles"
+                }
+            ],
+            "policies" : [
+                {
+                    "situation" : "CONFIRMED",
+                    "action" : "UPDATE"
+                },
+                {
+                    "situation" : "FOUND",
+                    "action" : "IGNORE"
+                },
+                {
+                    "situation" : "ABSENT",
+                    "action" : "CREATE"
+                },
+                {
+                    "situation" : "AMBIGUOUS",
+                    "action" : "IGNORE"
+                },
+                {
+                    "situation" : "MISSING",
+                    "action" : "IGNORE"
+                },
+                {
+                    "situation" : "SOURCE_MISSING",
+                    "action" : "IGNORE"
+                },
+                {
+                    "situation" : "UNQUALIFIED",
+                    "action" : "IGNORE"
+                },
+                {
+                    "situation" : "UNASSIGNED",
+                    "action" : "IGNORE"
+                }
+            ]
+        },
+        {
+            "name" : "managedUser_systemCsvfileAccounts",
+            "source" : "managed/user",
+            "target" : "system/csvfile/account",
+            "links" : "systemCsvfileAccounts_managedUser",
+            "sourceQuery" : {
+                "_queryFilter" : "true",
+                "_fields" : "*,authzRoles"
+            },
+            "properties" : [
+                {
+                    "source" : "description",
+                    "target" : "description"
+                },
+                {
+                    "source" : "givenName",
+                    "target" : "firstname"
+                },
+                {
+                    "source" : "mail",
+                    "target" : "email"
+                },
+                {
+                    "source" : "sn",
+                    "target" : "lastname"
+                },
+                {
+                    "source" : "userName",
+                    "target" : "name"
+                },
+                {
+                    "source" : "telephoneNumber",
+                    "target" : "mobileTelephoneNumber"
+                },
+                {
+                    "source" : "authzRoles",
+                    "transform" : {
+                        "type" : "text/javascript",
+                        "source" : "source.map(function (r) { return r._ref; } ).join(',');"
+                    },
+                    "target" : "roles"
+                }
+            ],
+            "policies" : [
+                {
+                    "situation" : "CONFIRMED",
+                    "action" : "UPDATE"
+                },
+                {
+                    "situation" : "FOUND",
+                    "action" : "IGNORE"
+                },
+                {
+                    "situation" : "ABSENT",
+                    "action" : "CREATE"
+                },
+                {
+                    "situation" : "AMBIGUOUS",
+                    "action" : "IGNORE"
+                },
+                {
+                    "situation" : "MISSING",
+                    "action" : "IGNORE"
+                },
+                {
+                    "situation" : "SOURCE_MISSING",
+                    "action" : "IGNORE"
+                },
+                {
+                    "situation" : "UNQUALIFIED",
+                    "action" : "IGNORE"
+                },
+                {
+                    "situation" : "UNASSIGNED",
+                    "action" : "IGNORE"
+                }
+            ]
+        }
+    ]
+}

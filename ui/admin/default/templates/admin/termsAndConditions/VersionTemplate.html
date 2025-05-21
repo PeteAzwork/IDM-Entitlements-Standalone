@@ -1,0 +1,72 @@
+{{!--
+    Copyright 2018 ForgeRock AS. All Rights Reserved
+
+    Use of this code requires a commercial software license with ForgeRock AS.
+    or with one of its affiliates. All use shall be exclusively subject
+    to such license between the licensee and ForgeRock AS.
+--}}
+
+<div class="fr-top-bar">
+    <div class="container">
+        <h3 class="fr-breadcrumb">
+            <a href="#termsAndConditions/">{{t "templates.selfservice.termsAndConditions.title"}}</a>
+            <span class="seperator"></span>
+            <span>{{t "templates.selfservice.termsAndConditions.version"}} {{version}}</span>
+        </h3>
+    </div>
+</div>
+<div class="container">
+    <div class="page-header clearfix">
+        <span class="header-icon pull-left"><i class="fa fa-align-left"></i></span>
+        <h4 class="page-type">{{t "templates.selfservice.termsAndConditions.title"}} {{t "templates.selfservice.termsAndConditions.version"}}</h4> {{#if active}} | <span class="text-success"><i class="fa fa-check-circle"></i>{{t "templates.selfservice.termsAndConditions.activeLabel"}}</span>{{/if}}
+        <div class="page-header-button-group">
+            {{#unless active}}
+            <button id="makeActive" type="button" title="{{t "templates.selfservice.termsAndConditions.makeActive"}}" class="btn btn-default btn-actions">
+                <i class="fa fa-check-circle"></i>
+                <span>{{t "templates.selfservice.termsAndConditions.makeActive"}}</span>
+            </button>
+            {{/unless}}
+        </div>
+        <h1>{{version}}</h1>
+    </div>
+</div>
+<div class="container" id="detailsContainer">
+    <form class="form-horizontal" role="presentation">
+        <div class="panel panel-default no-margin-bottom margin-top-15">
+            <div id="versionContainer" class="margin-top-15">
+                <div class="form-group">
+                    <label class="col-xs-3 control-label">{{t "templates.selfservice.termsAndConditions.consentMessage"}}</label>
+                    <div class="col-xs-7">
+                        <div class="translation-map-group form-group" field="termsTranslations" data-uses-codemirror="true" data-uses-notextarea="">
+                            <div class="col-xs-12">
+                                <div class="list-table-inline-edit">
+                                    <ul class="list-group list-unstyled">
+                                        <li class="list-group-header-empty"></li>
+                                        {{#each translations}}
+                                            <li locale="en" class="list-group-item">
+                                                <div class="list-group-item-content">
+                                                    <div class="row">
+                                                        <div class="col-sm-2">
+                                                            <span class="locale-badge">{{locale}}</span>
+                                                        </div>
+                                                        <div class="col-sm-10">
+                                                            <p class="localizedText">{{{value}}}</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="list-group-item-actions">
+                                                    <div class="btn-group">
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        {{/each}}
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

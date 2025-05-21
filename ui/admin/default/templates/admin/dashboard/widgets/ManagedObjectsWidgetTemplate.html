@@ -1,0 +1,17 @@
+{{!
+  Copyright 2017 ForgeRock AS. All Rights Reserved
+
+  Use of this code requires a commercial software license with ForgeRock AS.
+  or with one of its affiliates. All use shall be exclusively subject
+  to such license between the licensee and ForgeRock AS.
+}}
+{{> dashboard/_widgetHeader hideSettings=true}}
+<div class="panel-body widget-body">
+    {{#if relationships.length}}
+    <div id="managedObjectsDisplay"></div>
+    {{else}}
+    <div class="well recon-message">
+        <h3>{{t "dashboard.managedObjectsWidget.configureWidget"}}</h3>
+    </div>
+    {{/if}}
+</div>

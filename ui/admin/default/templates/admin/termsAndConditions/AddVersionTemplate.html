@@ -1,0 +1,40 @@
+{{!--
+  Copyright 2018 ForgeRock AS. All Rights Reserved
+
+  Use of this code requires a commercial software license with ForgeRock AS.
+  or with one of its affiliates. All use shall be exclusively subject
+  to such license between the licensee and ForgeRock AS.
+--}}
+
+<div class="fr-top-bar">
+    <div class="container">
+        <h3 class="fr-breadcrumb">
+            <a href="#termsAndConditions/">{{t "templates.selfservice.termsAndConditions.title"}}</a>
+            <span class="seperator"></span>
+            <span>{{t "templates.selfservice.termsAndConditions.newVersion"}}</span>
+        </h3>
+    </div>
+</div>
+<div class="container">
+    <div class="page-header">
+        <h1>{{t "templates.selfservice.termsAndConditions.newVersionTitle"}}</h1>
+    </div>
+</div>
+<div class="container" id="detailsContainer">
+    <div class="panel panel-default">
+        <form id="detailsForm" class="form-horizontal" role="form" autocomplete="off">
+            <div class="panel no-margin-bottom margin-top-15">
+                <div id="versionFormContainer">
+                    {{> termsAndConditions/_versionFormPartial }}
+                </div>
+            </div>
+        </form>
+        <div class="panel-footer clearfix">
+            <div class="pull-right save-cancel-btn-panel">
+                <a href="#termsAndConditions/"><button class="btn save-cancel-btn btn-default btn-cancel" type="button">{{t 'common.form.cancel'}}</button></a>
+                <button class="btn save-cancel-btn btn-primary btn-save" type="button" disabled>{{t "common.form.save"}}</button>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>

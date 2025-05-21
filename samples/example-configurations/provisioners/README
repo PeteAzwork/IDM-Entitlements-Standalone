@@ -1,0 +1,35 @@
+Copyright
+=============
+Copyright 2014-2017 ForgeRock AS. All Rights Reserved
+
+Use of this code requires a commercial software license with ForgeRock AS.
+or with one of its affiliates. All use shall be exclusively subject
+to such license between the licensee and ForgeRock AS.
+
+Provisioners
+=============
+
+This folder contains example configuration files for many different OpenICF connectors. The goal
+is for these to aid in the process of creating a new OpenIDM project configuration. It is expected
+that these will need to be updated in various ways to make them work with the particular remote
+system in question.
+
+In addition to providing a general collection of example connector configurations, some of these
+files are also copied into the various OpenIDM sample folders. Below is a listing of where each is used:
+
+provisioner.openicf-adldap.json
+ - livesync-with-ad. This is copied to samples/livesync-with-ad/alternatives/provisioner.openicf-realad.json
+
+provisioner.openicf-ldap.json
+ - sync-with-ldap-bidirectional
+ - sync-with-ldap
+ - sync-with-ldap-group-membership
+ - sync-with-ldap-groups
+ - livesync-with-ad
+ - openam
+
+provisioner.openicf-hrdb.json
+ - scripted-sql-with-mysql
+
+provisioner.openicf-scriptedrest.json
+- scripted-rest-with-dj

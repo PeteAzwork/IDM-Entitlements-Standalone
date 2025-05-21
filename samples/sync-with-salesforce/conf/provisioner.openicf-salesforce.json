@@ -1,0 +1,231 @@
+{
+    "connectorRef" : {
+        "connectorHostRef" : "#LOCAL",
+        "bundleVersion" : "[1.5.0.0,1.6.0.0)",
+        "bundleName" : "org.forgerock.openicf.connectors.salesforce-connector",
+        "connectorName" : "org.forgerock.openicf.connectors.salesforce.SalesforceConnector"
+    },
+    "resultsHandlerConfig" : {
+        "enableNormalizingResultsHandler" : false,
+        "enableFilteredResultsHandler" : false,
+        "enableCaseInsensitiveFilter" : false,
+        "enableAttributesToGetSearchResultsHandler" : true
+    },
+    "operationTimeout" : {
+        "CREATE" : -1,
+        "UPDATE" : -1,
+        "DELETE" : -1,
+        "TEST" : -1,
+        "SCRIPT_ON_CONNECTOR" : -1,
+        "SCRIPT_ON_RESOURCE" : -1,
+        "GET" : -1,
+        "RESOLVEUSERNAME" : -1,
+        "AUTHENTICATE" : -1,
+        "SEARCH" : -1,
+        "VALIDATE" : -1,
+        "SYNC" : -1,
+        "SCHEMA" : -1
+    },
+    "configurationProperties" : {
+        "clientId" : null,
+        "clientSecret" : null,
+        "refreshToken" : null,
+        "grantType" : "refresh_token",
+        "loginUrl" : "https://test.salesforce.com/services/oauth2/token",
+        "instanceUrl" : null,
+        "version" : 44,
+        "connectTimeout" : 120000,
+        "proxyHost" : null,
+        "proxyPort" : 3128,
+        "maximumConnections" : 10,
+        "supportedObjectTypes" : [
+            "User"
+        ]
+    },
+    "enabled" : false,
+    "objectTypes" : {
+        "User" : {
+            "$schema" : "http://json-schema.org/draft-03/schema",
+            "id" : "User",
+            "type" : "object",
+            "nativeType" : "User",
+            "properties" : {
+                "__NAME__" : {
+                    "type" : "string",
+                    "nativeName" : "__NAME__",
+                    "nativeType" : "string"
+                },
+                "Id" : {
+                    "type" : "string",
+                    "nativeName" : "Id",
+                    "nativeType" : "string"
+                },
+                "Username" : {
+                    "type" : "string",
+                    "required" : true,
+                    "nativeName" : "Username",
+                    "nativeType" : "string"
+                },
+                "FirstName" : {
+                    "type" : "string",
+                    "nativeName" : "FirstName",
+                    "nativeType" : "string"
+                },
+                "LastName" : {
+                    "type" : "string",
+                    "required" : true,
+                    "nativeName" : "LastName",
+                    "nativeType" : "string"
+                },
+                "Name" : {
+                    "type" : "string",
+                    "nativeName" : "Name",
+                    "nativeType" : "string"
+                },
+                "CompanyName" : {
+                    "type" : "string",
+                    "nativeName" : "CompanyName",
+                    "nativeType" : "string"
+                },
+                "Division" : {
+                    "type" : "string",
+                    "nativeName" : "Division",
+                    "nativeType" : "string"
+                },
+                "Department" : {
+                    "type" : "string",
+                    "nativeName" : "Department",
+                    "nativeType" : "string"
+                },
+                "Title" : {
+                    "type" : "string",
+                    "nativeName" : "Title",
+                    "nativeType" : "string"
+                },
+                "Street" : {
+                    "type" : "string",
+                    "nativeName" : "Street",
+                    "nativeType" : "string"
+                },
+                "City" : {
+                    "type" : "string",
+                    "nativeName" : "City",
+                    "nativeType" : "string"
+                },
+                "State" : {
+                    "type" : "string",
+                    "nativeName" : "State",
+                    "nativeType" : "string"
+                },
+                "PostalCode" : {
+                    "type" : "string",
+                    "nativeName" : "PostalCode",
+                    "nativeType" : "string"
+                },
+                "Country" : {
+                    "type" : "string",
+                    "nativeName" : "Country",
+                    "nativeType" : "string"
+                },
+                "Phone" : {
+                    "type" : "string",
+                    "nativeName" : "Phone",
+                    "nativeType" : "string"
+                },
+                "Email" : {
+                    "type" : "string",
+                    "required" : true,
+                    "nativeName" : "Email",
+                    "nativeType" : "string"
+                },
+                "Alias" : {
+                    "type" : "string",
+                    "required" : true,
+                    "nativeName" : "Alias",
+                    "nativeType" : "string"
+                },
+                "LocaleSidKey" : {
+                    "type" : "string",
+                    "required" : true,
+                    "nativeName" : "LocaleSidKey",
+                    "nativeType" : "string"
+                },
+                "EmailEncodingKey" : {
+                    "type" : "string",
+                    "required" : true,
+                    "nativeName" : "EmailEncodingKey",
+                    "nativeType" : "string"
+                },
+                "LanguageLocaleKey" : {
+                    "type" : "string",
+                    "required" : true,
+                    "nativeName" : "LanguageLocaleKey",
+                    "nativeType" : "string"
+                },
+                "TimeZoneSidKey" : {
+                    "type" : "string",
+                    "required" : true,
+                    "nativeName" : "TimeZoneSidKey",
+                    "nativeType" : "string"
+                },
+                "CommunityNickname" : {
+                    "type" : "string",
+                    "required" : true,
+                    "nativeName" : "CommunityNickname",
+                    "nativeType" : "string"
+                },
+                "ProfileId" : {
+                    "type" : "string",
+                    "required" : true,
+                    "nativeName" : "ProfileId",
+                    "nativeType" : "string"
+                },
+                "MobilePhone" : {
+                    "type" : "string",
+                    "nativeName" : "MobilePhone",
+                    "nativeType" : "string"
+                },
+                "FederationIdentifier" : {
+                    "type" : "string",
+                    "nativeName" : "FederationIdentifier",
+                    "nativeType" : "string"
+                },
+                "IsActive" : {
+                    "type" : "boolean",
+                    "nativeName" : "IsActive",
+                    "nativeType" : "boolean"
+                },
+                "UserPermissionsMarketingUser" : {
+                    "type" : "boolean",
+                    "nativeName" : "UserPermissionsMarketingUser",
+                    "nativeType" : "boolean"
+                },
+                "ManagerId" : {
+                    "type" : "string",
+                    "nativeName" : "ManagerId",
+                    "nativeType" : "string"
+                },
+                "Address" : {
+                    "type" : "object",
+                    "nativeName" : "Address",
+                    "nativeType" : "object"
+                },
+                "UserPermissionsSFContentUser" : {
+                    "type" : "boolean",
+                    "nativeName" : "UserPermissionsSFContentUser",
+                    "nativeType" : "boolean"
+                },
+                "UserRoleId" : {
+                    "type" : "string",
+                    "nativeName" : "UserRoleId",
+                    "nativeType" : "string"
+                },
+                "Fax" : {
+                    "type" : "string",
+                    "nativeName" : "Fax",
+                    "nativeType" : "string"
+                }
+            }
+        }
+    }
+}

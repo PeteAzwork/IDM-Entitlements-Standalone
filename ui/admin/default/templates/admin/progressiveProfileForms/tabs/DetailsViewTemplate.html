@@ -1,0 +1,29 @@
+{{!--
+  Copyright 2017-2018 ForgeRock AS. All Rights Reserved
+
+  Use of this code requires a commercial software license with ForgeRock AS.
+  or with one of its affiliates. All use shall be exclusively subject
+  to such license between the licensee and ForgeRock AS.
+--}}
+
+<div class="form-group">
+    <label class="col-xs-3 control-label" for="name">{{t "templates.progressiveProfile.formDisplayName"}}</label>
+    <div class="col-xs-7">
+        <input class="form-control" data-validator="required" data-validator-event="keyup blur" name="displayName" type="text" placeholder='{{t "templates.progressiveProfile.displayNamePlaceholder"}}' value="{{uiConfig.displayName}}">
+        <span class="help-block">{{t "templates.progressiveProfile.formDisplayNameHelpText"}}</span>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-xs-3 control-label" for="purpose">{{t "templates.progressiveProfile.formPurpose"}}</label>
+    <div class="col-xs-7">
+        <input class="form-control" type="text" name="purpose"  placeholder="" value="{{uiConfig.purpose}}">
+        <span class="help-block">{{t "templates.progressiveProfile.formPurposeHelpText"}}</span>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-xs-3 control-label" for="buttonText">{{t "templates.progressiveProfile.formButtonText"}}</label>
+    <div class="col-xs-7">
+        <input class="form-control" type="text" name="buttonText" value="{{uiConfig.buttonText}}">
+        <span class="help-block">{{t "templates.progressiveProfile.formButtonTextHelpText"}}</span>
+    </div>
+</div>

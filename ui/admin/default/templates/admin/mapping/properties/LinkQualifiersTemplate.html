@@ -1,0 +1,49 @@
+{{!
+  Copyright 2015-2017 ForgeRock AS. All Rights Reserved
+
+  Use of this code requires a commercial software license with ForgeRock AS.
+  or with one of its affiliates. All use shall be exclusively subject
+  to such license between the licensee and ForgeRock AS.
+}}
+<div class="panel-body">
+    <div role="tabpanel" class="tab-pane">
+        <p>{{t "templates.correlation.linkQualifierInfo"}}</p>
+
+        <div class="btn-group btn-group-tabs" data-toggle="btns" id="linkQualifierTabs">
+            <a role="presentation" id="staticQualifierTab" class="btn btn-default active" href="#staticLinkQualifier" aria-controls="home" role="tab" data-toggle="tab">{{t "templates.correlation.static"}}</a>
+            <a role="presentation" id="scriptQualifierTab" class="btn btn-default" href="#scriptLinkQualifier" aria-controls="home" role="tab" data-toggle="tab">{{t "templates.correlation.dynamic"}}</a>
+        </div>
+
+        <div id="linkQualifierTabBodies" class="tab-content">
+            <div class="tab-pane active" id="staticLinkQualifier">
+                <p>{{t "templates.correlation.linkQualifierStaticInfo"}}</p>
+                <div class="form-group addLinkQualifierContainer">
+                    <input style="width:90%;" value="{{displayLinkQualifiers}}" class="form-control static-link-qualifier" autocomplete="off" type="text" placeholder="{{t "templates.correlation.linkQualifier"}}" />
+                </div>
+            </div>
+            <div class="tab-pane" id="scriptLinkQualifier">
+                <p>{{t "templates.correlation.linkQualifierScriptInfo"}}</p>
+                <div id="scriptLinkQualifierBody"></div>
+
+                {{> _alert
+                    type="success"
+                    hidden=true
+                    heading="templates.correlation.generatedLinkQualifier"
+                    icon="fa-check-circle-o"
+                    id="scriptLinkQualifierList"
+                }}
+
+                {{> _alert
+                    type="danger"
+                    hidden=true
+                    heading="common.form.error"
+                    icon="fa-exclamation-circle"
+                    id="badLinkQualifierScript"
+                }}
+            </div>
+        </div>
+    </div>
+</div>
+<div class="panel-footer clearfix">
+    <input type="button" class="btn linkQualifierSave btn-primary pull-right" value="{{t "common.form.save"}}"/>
+</div>

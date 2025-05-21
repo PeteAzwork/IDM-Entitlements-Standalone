@@ -1,0 +1,103 @@
+{{!--
+  Copyright 2016-2017 ForgeRock AS. All Rights Reserved
+
+  Use of this code requires a commercial software license with ForgeRock AS.
+  or with one of its affiliates. All use shall be exclusively subject
+  to such license between the licensee and ForgeRock AS.
+--}}
+
+<section>
+    <div class="fr-top-bar">
+        <div class="container">
+            <h3 class="fr-breadcrumb">
+                <a href="#connectors/">{{t "templates.connector.connectors"}}</a>
+                <span class="seperator"></span>
+                <span>{{connectorId}}</span>
+            </h3>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="page-header clearfix">
+            <span class="header-icon pull-left"><i class="fa {{connectorIcon.iconClass}}"></i></span>
+            <h4 class="page-type">{{displayConnectorType}} - {{fullversion}}</h4>
+            <div class="page-header-button-group">
+                <a href="#mapping/add/connector/{{connectorName}}">
+                    <button type="button" class="btn btn-primary btn-actions">
+                        <i class="fa fa-plus"></i> {{t "templates.connector.addMapping"}}
+                    </button>
+                </a>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-default btn-secondary dropdown-toggle btn-actions" data-toggle="dropdown" aria-expanded="false">
+                        <i class="fa fa-ellipsis-v fa-lg"></i>
+                    </button>
+                    <ul class="dropdown-menu pull-right" role="menu">
+                        <li id="deleteResource"><a href="#"><i class="fa fa-times"></i>{{t "common.form.delete"}}</a></li>
+                    </ul>
+                </div>
+            </div>
+            <h1>{{connectorId}}</h1>
+        </div>
+    </div>
+</section>
+
+<div class="tab-menu">
+    <div class="container">
+        <ul class="nav nav-tabs" role="tablist" id="connectorTabs">
+            <li role="presentation" class="active" id="connectorDetailsTabHeader" data-route-name="connectorDetailsView">
+                <a href="#connectorDetailsTab" aria-controls="attributes" role="tab" data-toggle="tab">
+                    <span class="glyph-title">{{t "templates.connector.detailsTab"}}</span>
+                </a>
+            </li>
+
+            <li role="presentation" id="connectorObjectTypesTabHeader" data-route-name="connectorObjectTypesView">
+                <a href="#connectorObjectTypesTab" aria-controls="object types" role="tab" data-toggle="tab">
+                    <span>{{t "templates.connector.objectTypeTab"}}</span>
+                </a>
+            </li>
+
+            <li role="presentation" id="connectorSyncTabHeader" data-route-name="connectorSyncView">
+                <a href="#connectorSyncTab" aria-controls="sync" role="tab" data-toggle="tab">
+                    <span>{{t "templates.connector.syncTab"}}</span>
+                </a>
+            </li>
+
+            <li role="presentation" id="connectorAdvancedTabHeader" data-route-name="connectorAdvancedView">
+                <a href="#connectorAdvancedTab" aria-controls="sync" role="tab" data-toggle="tab">
+                    <span>{{t "templates.connector.advancedTab"}}</span>
+                </a>
+            </li>
+
+            {{#if versionCheck}}
+            <li role="presentation" id="connectorDataTabHeader" data-route-name="connectorDataView">
+                <a href="#connectorDataTab" aria-controls="sync" role="tab" data-toggle="tab">
+                    <span>{{t "templates.admin.ResourceEdit.data"}}</span>
+                </a>
+            </li>
+            {{/if}}
+
+        </ul>
+    </div>
+</div>
+
+<div class="container connector-container">
+    <div class="tab-content" id="connectorContainer">
+        <div role="tabpanel" class="tab-pane active" id="connectorDetailsTab"></div>
+        <div role="tabpanel" class="tab-pane" id="connectorObjectTypesTab"></div>
+        <div role="tabpanel" class="tab-pane" id="connectorSyncTab"></div>
+        <div role="tabpanel" class="tab-pane" id="connectorAdvancedTab"></div>
+        <div role="tabpanel" class="tab-pane" id="connectorDataTab"></div>
+    </div>
+
+    <div role="alert" id="connectorErrorMessage" class="alert alert-danger" style="display:none;">
+        <i class='fa fa-exclamation-circle'></i>
+        <strong>{{t "common.form.error" }}</strong>
+        <span class='message'></span>
+    </div>
+
+    <div role="alert" id="connectorWarningMessage" class="alert alert-warning" style="display:none;">
+        <i class='fa fa-exclamation-circle'></i>
+        <strong>{{t "common.form.warning" }}</strong>
+        <span class='message'></span>
+    </div>
+</div>

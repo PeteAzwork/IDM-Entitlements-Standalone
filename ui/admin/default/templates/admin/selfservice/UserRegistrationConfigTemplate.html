@@ -1,0 +1,116 @@
+{{!--
+  Copyright 2016-2017 ForgeRock AS. All Rights Reserved
+
+  Use of this code requires a commercial software license with ForgeRock AS.
+  or with one of its affiliates. All use shall be exclusively subject
+  to such license between the licensee and ForgeRock AS.
+--}}
+<div class="container">
+    <div class="page-header">
+        <h1>{{t "templates.selfservice.userRegistration"}}</h1>
+    </div>
+    <div class="toggle-header list-group fr-media-toggle">
+        <div class="list-group-item">
+            <div class="row">
+                <div class="col-xs-9">
+                    <div class="media">
+                        <div class="media-left">
+                            <div class="checkbox checkbox-slider-primary checkbox-slider checkbox-slider--b checkbox-slider-md">
+                                <label>
+                                    <input class="all-check" type="checkbox"><span></span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="media-body">
+                            <h4 class="list-group-item-heading">{{t "templates.selfservice.enableUserRegistration"}}</h4>
+                        </div>
+                    </div>
+                </div>
+                <div id="enableSelfServiceModalHolder" class="col-xs-3">
+                    <a {{#unless enableSelfService}} style="display:none;" {{/unless}} href="#" class="self-service-modal-edit" id="enableRegistrationModal">
+                        <i class="fa fa-pencil pull-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="self-service-body" id="userRegistrationConfigBody">
+        <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" id="registrationFormTab" class="active"><a href="#registrationForm" data-toggle="tab" aria-controls="registrationForm" role="tab">{{t "templates.selfservice.registrationFormTab"}}</a></li>
+            <li role="presentation" id="socialTab"><a href="#social" data-toggle="tab" aria-controls="social" role="tab">{{t "templates.selfservice.socialTab"}}</a></li>
+            <li role="presentation" id="optionsTab"><a href="#options" data-toggle="tab" aria-controls="options" role="tab">{{t "templates.selfservice.options"}}</a></li>
+        </ul>
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="registrationForm">
+                <div class="panel panel-default fr-panel-tab">
+                    <div class="panel-body">
+                        <p class="panel-description">
+                            {{t "templates.selfservice.registrationPanelDescription"}}
+                        </p>
+                        <div id="registrationFormBody"></div>
+                        <div class="grid-footer toolbar clearfix">
+                            <div class="form-inline">
+                                <select class="registration-select" style="width: 250px;" class="form-control"></select>
+                                <button class="btn btn-primary add-registration-field"><i class="fa fa-plus"></i>Add</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="social">
+                <div class="panel panel-default fr-panel-tab">
+                    <div class="panel-body">
+                        <div class="selfservice-holder">
+                            <div class="simple-section clearfix">
+                                <div class="col-sm-12">
+                                    <div class="self-service-card card {{#unless socialProviders.providerList}} card-off {{/unless}} wide-card {{#unless socialProviders.enabled}}disabled{{/unless}}" data-editable="{{socialProviders.editable}}" data-type="{{socialProviders.type}}" {{#if socialProviders.name}}data-name="{{name}}"{{/if}}>
+                                        <div class="card-body">
+                                            <div class="switch-holder panel-heading">
+                                                <div class="checkbox checkbox-slider-primary checkbox-slider checkbox-slider--b checkbox-slider-md">
+                                                    <label>
+                                                        <input {{#unless socialProviders.providerList}} disabled {{/unless}} class="section-check" type="checkbox"><span></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="details panel-body clearfix">
+                                                <div class="logo-details no-icon pull-left">
+                                                    <h3>{{t "templates.selfservice.social.title"}}
+                                                        {{#each socialProviders.providerList}}
+                                                            {{> providers/_providerBadge}}
+                                                        {{/each}}
+                                                    </h3>
+                                                    <p class="status text-muted">{{t "templates.selfservice.social.details"}}</p>
+                                                </div>
+
+                                                {{#unless socialProviders.providerList}}
+                                                    <div class="selfservice-warning pull-right">
+                                                        <p class="text-danger"><i class="fa fa-exclamation-circle"></i>{{t "templates.selfservice.social.noSocialMessage"}} <a href="#social/"><b>{{t "templates.selfservice.configureHere"}}</b></a></p>
+                                                    </div>
+                                                {{/unless}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="display:none;" id="attributesGrid"></div>
+                    </div>
+                </div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="options">
+                <div class="panel-body">
+                    <div class="selfservice-holder">
+                        <div class="simple-section clearfix">
+                            <div class="col-sm-12">
+                                {{#each registrationOptions}}
+                                {{> _toggleIconBlock this}}
+                                {{/each}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

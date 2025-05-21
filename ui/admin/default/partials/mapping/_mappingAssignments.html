@@ -1,0 +1,17 @@
+{{!--
+  Copyright 2016-2020 ForgeRock AS. All Rights Reserved
+
+  Use of this code requires a commercial software license with ForgeRock AS.
+  or with one of its affiliates. All use shall be exclusively subject
+  to such license between the licensee and ForgeRock AS.
+--}}
+{{#each assignments}}
+    <h5>{{ title }}:</h5>
+    <ul>
+    {{#each items}}
+    <li>{{name}}</li>
+    {{else}}
+    <li>{{ t "templates.mapping.noAssociated" }} {{ t "templates.mapping.assignments" }}</li>
+    {{/each}}
+    </ul>
+{{/each}}

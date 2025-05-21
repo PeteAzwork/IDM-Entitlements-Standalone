@@ -1,0 +1,39 @@
+{{!--
+  Copyright 2018 ForgeRock AS. All Rights Reserved
+
+  Use of this code requires a commercial software license with ForgeRock AS.
+  or with one of its affiliates. All use shall be exclusively subject
+  to such license between the licensee and ForgeRock AS.
+--}}
+
+<div class="form-group">
+    <label class="col-xs-3 control-label" for="version">{{t "templates.selfservice.termsAndConditions.version"}}</label>
+    <div class="col-xs-7">
+        <input class="form-control" data-validator="required uniqueShortList" data-unique-list="{{existingVersions}}" data-validator-event="keyup blur" name="version" type="text" placeholder='{{t "templates.selfservice.termsAndConditions.versionPlaceholder"}}' value="{{version}}">
+        <span class="help-block">{{t "templates.selfservice.termsAndConditions.versionHelp"}}</span>
+    </div>
+</div>
+{{#unless firstVersion}}
+    <div class="form-group">
+        <label class="col-xs-3 control-label" for="setAsActive">{{t "templates.selfservice.termsAndConditions.setAsActiveLabel"}}</label>
+        <div class="col-xs-7">
+            <div class="checkbox checkbox-slider-primary checkbox-slider checkbox-slider--b checkbox-slider-md">
+                <label>
+                    <input name="setAsActive" class="all-check" type="checkbox" {{#if active}}checked{{/if}}><span></span>
+                </label>
+            </div>
+            <span class="help-block">{{t "templates.selfservice.termsAndConditions.setAsActiveHelp"}}</span>
+        </div>
+    </div>
+{{/unless}}
+<div class="form-group">
+    <label class="col-xs-3 control-label">{{t "templates.selfservice.termsAndConditions.consentMessage"}}</label>
+    <div class="col-xs-7">
+        <span class="help-block">{{t "templates.selfservice.termsAndConditions.consentMessageHelp"}}</span>
+        
+        {{> termsAndConditions/_translationMap
+        property=termsTranslations
+        fieldName="termsTranslations"}}
+    </div>
+</div>
+

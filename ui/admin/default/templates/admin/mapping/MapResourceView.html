@@ -1,0 +1,29 @@
+{{!
+  Copyright 2015-2017 ForgeRock AS. All Rights Reserved
+
+  Use of this code requires a commercial software license with ForgeRock AS.
+  or with one of its affiliates. All use shall be exclusively subject
+  to such license between the licensee and ForgeRock AS.
+}}
+<div class="container">
+    <div class="mapping-body row clearfix">
+
+        {{> mapping/_mapResourceCard
+            id="mappingSource"
+            title="templates.mapping.selectSourceResource"
+        }}
+
+        <div class="col-md-2 column mapping-swap-holder">
+            <button type="button" class="mapping-swap btn btn-default center-block"><i class="fa fa-lg fa-exchange"></i></button>
+        </div>
+
+        {{> mapping/_mapResourceCard
+            id="mappingTarget"
+            title="templates.mapping.selectTargetResource"
+        }}
+
+        <div class="mapping-create-body col-md-12 text-center">
+            <button id="createMapping" disabled="true" type="button" class="add-mapping btn btn-primary">{{t "templates.mapping.createMapping"}}</button>
+        </div>
+    </div>
+</div>

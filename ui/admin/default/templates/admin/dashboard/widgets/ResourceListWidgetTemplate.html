@@ -1,0 +1,105 @@
+<!--
+  Copyright 2015-2018 ForgeRock AS. All Rights Reserved
+
+  Use of this code requires a commercial software license with ForgeRock AS.
+  or with one of its affiliates. All use shall be exclusively subject
+  to such license between the licensee and ForgeRock AS.
+-->
+{{> dashboard/_widgetHeader}}
+<div class="panel-body widget-body">
+    <div class="row resource-widget">
+        <div class="col-sm-4">
+            <ul class="list-group resource-group">
+                <li class="list-group-item fr-resource-count">
+                    <p class="fr-resource-title">{{t "dashboard.resourceWidget.connectors"}}</p>
+                    <p class="fr-resource-count-number text-primary">{{count.connectors}}</p>
+                </li>
+                {{#each connectors}}
+                    <li class="list-group-item">
+                        <div class="clearfix">
+                            <div class="resource-details">
+                                <p class="resource-name">
+                                    <span class="resource-circle bg-primary"><i class="{{this.iconClass}}"></i></span>
+                                    <a href="#connectors/edit/{{cleanUrlName}}/">{{name}}</a>
+                                </p>
+                                <p class="resounce-type">{{displayName}}</p>
+                            </div>
+                        </div>
+                    </li>
+                    {{else}}
+                    <li class="list-group-item no-resource">
+                        <p class="title text-primary">{{t "dashboard.resourceWidget.noConnectorsTitle" }}</p>
+                        <p class="message">{{t "dashboard.resourceWidget.noConnectorsMessage" }}</p>
+                    </li>
+                {{/each}}
+                <li class="list-group-item text-center fr-list-end">
+                    <a href="#connectors/"><i class="fa fa-th fa-fw"></i>{{t "dashboard.resourceWidget.viewAll" }}</a>
+                    <span class="fr-pipe">|</span>
+                    <a href="#connectors/add/"><i class="fa fa-plus fa-fw"></i>{{t "dashboard.resourceWidget.newConnector" }}</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="col-sm-4">
+            <ul class="list-group resource-group">
+                <li class="list-group-item fr-resource-count">
+                    <p class="fr-resource-title">{{t "dashboard.resourceWidget.mappings" }}</p>
+                    <p class="fr-resource-count-number text-primary">{{count.mappings}}</p>
+                </li>
+                {{#each mappings}}
+                <li class="list-group-item">
+                    <div class="clearfix">
+                        <div class="resource-details">
+                            <p class="resource-name">
+                                <span class="resource-circle bg-primary"><i class="fa fa-map-marker"></i></span>
+                                <a href="#properties/{{name}}/">{{name}}</a>
+                            </p>
+                        </div>
+                    </div>
+                </li>
+                {{else}}
+                <li class="list-group-item no-resource">
+                    <p class="title text-primary">{{t "dashboard.resourceWidget.noMappingTitle" }}</p>
+                    <p class="message">{{t "dashboard.resourceWidget.noMappingMessage" }}</p>
+                </li>
+                {{/each}}
+                <li class="list-group-item text-center fr-list-end">
+                    <a href="#mapping/"><i class="fa fa-th fa-fw"></i>{{t "dashboard.resourceWidget.viewAll" }}</a>
+                    <span class="fr-pipe">|</span>
+                    <a href="#mapping/add/"><i class="fa fa-plus fa-fw"></i>{{t "dashboard.resourceWidget.newMapping" }}</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="col-sm-4">
+            <ul class="list-group resource-group">
+                <li class="list-group-item fr-resource-count">
+                    <p class="fr-resource-title">{{t "dashboard.resourceWidget.managedObjects" }}</p>
+                    <p class="fr-resource-count-number text-primary">{{count.managed}}</p>
+                </li>
+                {{#each managed}}
+                    <li class="list-group-item">
+                        <div class="clearfix">
+                            <div class="resource-details">
+                                <p class="resource-name">
+                                    <span class="resource-circle bg-primary"><i class="fa {{#if schema.icon}}{{schema.icon}}{{else}}icon-database{{/if}}"></i></span>
+                                    <a href="#managed/edit/{{name}}/">{{name}}</a>
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                {{else}}
+                    <li class="list-group-item no-resource">
+                        <p class="title text-primary">{{t "dashboard.resourceWidget.noManagedObjectTitle" }}</p>
+                        <p class="message">{{t "dashboard.resourceWidget.noManagedObjectMessage" }}</p>
+                    </li>
+                {{/each}}
+                <li class="list-group-item text-center fr-list-end">
+                    <a href="#managed/"><i class="fa fa-th fa-fw"></i>{{t "dashboard.resourceWidget.viewAll" }}</a>
+                    <span class="fr-pipe">|</span>
+                    <a href="#managed/add/"><i class="fa fa-plus fa-fw"></i>{{t "dashboard.resourceWidget.newManagedObject" }}</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

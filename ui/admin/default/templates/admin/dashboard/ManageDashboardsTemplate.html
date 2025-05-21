@@ -1,0 +1,118 @@
+{{!
+    Copyright 2017 ForgeRock AS. All Rights Reserved
+
+    Use of this code requires a commercial software license with ForgeRock AS.
+    or with one of its affiliates. All use shall be exclusively subject
+    to such license between the licensee and ForgeRock AS.
+}}
+<section>
+    <div class="container">
+        <div class="page-header">
+            <h1>{{t "config.AppConfiguration.Navigation.links.dashboard"}}</h1>
+        </div>
+
+        {{#if adminDashboards}}
+            <div class="toolbar page-toolbar" role="toolbar">
+                <div class="btn-group pull-left left-group" role="group">
+                    <a href="#newDashboard/"><button type="button" class="btn btn-primary"><i class="fa fa-plus"></i>{{t "dashboard.new.newDashboard"}}</button></a>
+                </div>
+
+                <div class="pull-right">
+                    <div class="btn-group btn-icon right-group" data-toggle="btns">
+                        <a class="btn toggle-view-btn fr-btn-secondary card-button{{#unless renderWithGrid}} active{{/unless}}" href="#dashboardCardContainer" data-toggle="tab"><i class="fa fa-th"></i></a>
+                        <a class="btn toggle-view-btn fr-btn-secondary grid-button{{#if renderWithGrid}} active{{/if}}" href="#dashboardGridContainer" data-toggle="tab"><i class="fa fa-list"></i></a>
+                    </div>
+                </div>
+
+                <div class="clearfix"></div>
+            </div>
+        {{/if}}
+    </div>
+</section>
+
+
+<section>
+    <div class="container">
+        {{#if adminDashboards}}
+            <div class="tab-content tab-content-transparent">
+                <div id="dashboardCardContainer" class="tab-pane{{#unless renderWithGrid}} active{{/unless}}">
+                    <div class="row">
+                        {{#each adminDashboards}}
+                        <div class="col-sm-6 col-md-3 card-spacer">
+                            <div class="card-container" style="z-index: 5;">
+                                <div class="card dashboard-card" data-index="{{@index}}">
+                                    <div class="card-heading">
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-link fa-lg dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                                <i class="fa fa-ellipsis-v"></i>
+                                            </button>
+
+                                            <ul class="dropdown-menu pull-right" role="menu">
+                                                <li class="dashboard-rename"><a href="#"><i class="fa fa-pencil"></i>{{t "dashboard.rename"}}</a></li>
+                                                <li class="dashboard-make-default"><a href="#"><i class="fa fa fa-check-square-o"></i>{{t "dashboard.setAsDefault"}}</a></li>
+                                                <li class="divider"></li>
+                                                <li class="dashboard-delete"><a href="#"><i class="fa fa-times"></i>{{t "common.form.delete"}}</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <a href="#dashboard/{{@index}}/">
+                                            <div class="image circle">
+                                                <i class="fa fa-dashboard"></i>
+                                            </div>
+                                            <div class="content">
+                                                <div class="main">
+                                                    <h3 class="name truncate-ellipsis">{{name}}</h3>
+                                                    <p class="cardtype">
+                                                        {{#if embeddedDashboard}}
+                                                        {{t "dashboard.new.embedded"}}
+                                                        {{else}}
+                                                        {{t "dashboard.new.widgets"}}
+                                                        {{/if}}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+
+                                    {{#if isDefault}}
+                                        <div class="card-footer">
+                                            <span class="text-success"><i class="fa fa-check"></i> {{t "dashboard.new.default"}}</span>
+                                        </div>
+                                    {{/if}}
+                                </div>
+                            </div>
+                        </div>
+                        {{/each}}
+                        <div class="col-sm-6 col-md-3 ">
+                            <div class="add-card" style="z-index: 3;">
+                                <div class="">
+                                    <a href="#newDashboard/">
+                                        <div class="image circle">
+                                            <i class="fa fa-plus"></i>
+                                        </div>
+                                        <div class="content">
+                                            {{t "dashboard.new.newDashboard"}}
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="dashboardGridContainer" class="tab-pane{{#if renderWithGrid}} active{{/if}}">
+                    <div class="panel panel-default">
+                        <div class="panel-body" id="dashboardGrid"></div>
+                    </div>
+                </div>
+            </div>
+
+        {{else}}
+            {{> util/_noData
+                icon="fa fa-dashboard"
+                titleKey="dashboard.new.noDashboardConfig"
+                buttonTranslationKey="dashboard.new.newDashboard"
+                buttonLink="#newDashboard/"}}
+        {{/if}}
+    </div>
+</section>

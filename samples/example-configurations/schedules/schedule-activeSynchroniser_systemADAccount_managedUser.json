@@ -1,0 +1,12 @@
+{
+    "enabled" : true,
+    "type" : "simple",
+    "repeatInterval" : 3600000,
+    "persisted" : true,
+    "concurrentExecution" : false,
+    "invokeService" : "provisioner",
+    "invokeContext" : {
+        "action" : "liveSync",
+        "source" : "system/ActiveDirectory/account"
+    }
+}

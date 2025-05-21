@@ -1,0 +1,100 @@
+{{!--
+  Copyright 2016-2020 ForgeRock AS. All Rights Reserved
+
+  Use of this code requires a commercial software license with ForgeRock AS.
+  or with one of its affiliates. All use shall be exclusively subject
+  to such license between the licensee and ForgeRock AS.
+--}}
+
+    <form class="form-horizontal">
+
+        <div class="form-group">
+            <label class="col-sm-3 control-label text-right">{{t "templates.managed.schemaEditor.resource"}}</label>
+            <div class="col-sm-7">
+
+                {{#if existingResource}}
+                    <div class="panel panel-default">
+                        <div class="list-group no-border no-margin">
+                            <div class="list-group-item">
+                                <div class="media">
+                                    <div class="media-left">
+                                        <div class="circle-icon circle-icon-xs">
+                                            <i class="fa {{icon}}" aria-hidden="true"></i>
+                                        </div>
+                                    </div>
+                                    <div class="media-body media-middle">
+                                        <h4 class="list-group-item-heading">{{name}}</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {{else}}
+                    <select class="form-control col-sm-7" name="resource">
+                        <option value="" placeHolder="{{t 'templates.managed.schemaEditor.selectResource'}}" ></option>
+                        {{#each managedObjects}}
+                            <option value="managed/{{name}}" data-icon="{{schema.icon}}">{{name}}</option>
+                        {{/each}}
+                    </select>
+                {{/if}}
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-3 control-label">{{t "templates.managed.schemaEditor.notify"}}</label>
+            <div class="col-sm-7">
+                <div class="checkbox checkbox-slider checkbox-slider checkbox-slider-md checkbox-slider--b-flat checkbox-slider-primary checkbox-slider-enable-email">
+                    <label><input type="checkbox" name="notify" {{#if currentValue.notify}}checked{{/if}} value="true"><span></span></label>
+                </div>
+                <span class="help-block">{{t "templates.managed.schemaEditor.notifyHelp"}}</span>
+            </div>
+        </div>
+
+        {{#if reverseRelationship}}
+            <div class="form-group">
+                <label class="col-sm-3 control-label text-right">{{t "templates.managed.schemaEditor.reversePropertyName"}}</label>
+                <div class="col-sm-7">
+                    <input class="form-control" placeholder="" name="propertyName" data-validator-events="keyup blur" data-validator="required uniqueShortList" data-unique-list="{{stringify invalidPropertyNames}}" data-error-message="{{t 'templates.managed.schemaEditor.propertyNameErrorMessage'}}"  required>
+                    <span class="help-block">{{t "templates.managed.schemaEditor.reversePropertyNameHelp"}} <em>{{name}}</em>.</span>
+                </div>
+            </div>
+        {{/if}}
+
+        <div class="form-group resource-dependent hidden">
+            <label class="col-sm-3 control-label text-right">{{t "templates.managed.schemaEditor.displayProperties"}}</label>
+            <div class="col-sm-7">
+                <div class="resource-collection-fields-list"></div>
+            </div>
+        </div>
+
+        <div class="form-group resource-dependent hidden">
+            <div class="col-sm-7 col-sm-offset-3">
+                <a class="advanced-options-toggle" role="button" href="#">{{t "common.form.showAdvancedOptions"}}</a>
+                <a class="advanced-options-toggle" role="button" href="#" style="display:none;">{{t "common.form.hideAdvancedOptions"}}</a>
+            </div>
+        </div>
+
+        {{#if reverseRelationship}}
+            <div class="form-group">
+                <label class="col-sm-3 control-label">{{t "templates.managed.schemaEditor.validate"}}</label>
+                <div class="col-sm-7">
+                    <div class="checkbox checkbox-slider checkbox-slider checkbox-slider-md checkbox-slider--b-flat checkbox-slider-primary">
+                        <label><input type="checkbox" name="validate" value="true"><span></span></label>
+                    </div>
+                </div>
+            </div>
+        {{/if}}
+
+        <div class="advanced-show-hide" style="display:none;">
+            <div class="well">
+                <div class="form-group">
+                    <label class="col-sm-3 control-label text-right">{{t "templates.managed.schemaEditor.queryFilter"}}</label>
+                    <div class="col-sm-7">
+                        <input type="text" class="form-control col-sm-7 resource-collection-query-filter"  value="{{currentValue.query.queryFilter}}"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </form>

@@ -1,0 +1,135 @@
+{{!
+Copyright 2018 ForgeRock AS. All Rights Reserved
+
+Use of this code requires a commercial software license with ForgeRock AS.
+or with one of its affiliates. All use shall be exclusively subject
+to such license between the licensee and ForgeRock AS.
+}}
+<!-- Base Details panel -->
+<div class="panel panel-default panel-collapse" id="docusignConnector">
+    <div class="panel-heading" role="tab" id="connectorSpecificBaseHeading">
+        <h4 class="panel-title">
+            <a data-toggle="collapse" href="#connectorSpecificBase" aria-expanded="true" aria-controls="connectorSpecificBase"
+                class="">{{t "templates.connector.baseTitle"}}</a>
+        </h4>
+    </div>
+    <div id="connectorSpecificBase" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="connectorSpecificBaseHeading"
+        aria-expanded="true">
+        <div class="panel-body">
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="host">{{t "templates.connector.docusign.host"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" data-validator="required" type="text" id="host" name="configurationProperties.host"
+                        value="{{connectorDefaults.configurationProperties.host}}" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="oAuthHost">{{t "templates.connector.docusign.oAuthHost"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="oAuthHost" name="configurationProperties.oAuthHost"
+                        value="{{connectorDefaults.configurationProperties.oAuthHost}}" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="integratorKey">{{t
+                    "templates.connector.docusign.integratorKey"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="integratorKey" name="configurationProperties.integratorKey"
+                        value="{{connectorDefaults.configurationProperties.integratorKey}}" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="accountId">{{t "templates.connector.docusign.accountId"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="accountId" name="configurationProperties.accountId"
+                        value="{{connectorDefaults.configurationProperties.accountId}}" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="userId">{{t "templates.connector.docusign.userId"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="userId" name="configurationProperties.userId" value="{{connectorDefaults.configurationProperties.userId}}" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="publicKeyFilePath">{{t
+                    "templates.connector.docusign.publicKeyFilePath"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="publicKeyFilePath" name="configurationProperties.publicKeyFilePath"
+                        value="{{connectorDefaults.configurationProperties.publicKeyFilePath}}" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="privateKeyFilePath">{{t
+                    "templates.connector.docusign.privateKeyFilePath"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="privateKeyFilePath" name="configurationProperties.privateKeyFilePath"
+                        value="{{connectorDefaults.configurationProperties.privateKeyFilePath}}" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="panel panel-default panel-collapse" id="docusignConnectionPanel">
+    <div class="panel-heading" role="tab" id="connectorSpecificAdvancedHeading">
+        <h4 class="panel-title">
+            <a data-toggle="collapse" href="#connectorSpecificAdvanced" aria-expanded="true" aria-controls="connectorSpecificAdvanced"
+                class="">{{t "templates.connector.docusign.advancedTitle"}}</a>
+        </h4>
+    </div>
+    <div id="connectorSpecificAdvanced" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="connectorSpecificAdvancedHeading"
+        aria-expanded="true">
+        <div class="panel-body">
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="organizationConsent">{{t
+                    "templates.connector.docusign.organizationConsent"}}</label>
+                <div class="col-sm-8">
+                    <div class="checkbox checkbox-slider-primary checkbox-slider checkbox-slider--b checkbox-slider-md">
+                        <label>
+                            <input class="toggleBoolean" id="organizationConsent" type="checkbox" name="configurationProperties.organizationConsent"
+                                value="true" {{#if connectorDefaults.configurationProperties.organizationConsent}}
+                                checked{{/if}}> <span></span>
+                            <span class="help-block">{{t "templates.connector.docusign.organizationConsentHelp"}}</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="acceptSelfSignedCertificates">{{t
+                    "templates.connector.docusign.acceptSelfSignedCertificates"}}</label>
+                <div class="col-sm-8">
+                    <div class="checkbox checkbox-slider-primary checkbox-slider checkbox-slider--b checkbox-slider-md">
+                        <label>
+                            <input class="toggleBoolean" id="acceptSelfSignedCertificates" type="checkbox" name="configurationProperties.acceptSelfSignedCertificates"
+                                value="true"
+                                {{#if connectorDefaults.configurationProperties.acceptSelfSignedCertificates}} checked
+                                {{/if}}>
+                            <span></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="disableHostNameVerifier">{{t
+                    "templates.connector.docusign.disableHostNameVerifier"}}</label>
+                <div class="col-sm-8">
+                    <div class="checkbox checkbox-slider-primary checkbox-slider checkbox-slider--b checkbox-slider-md">
+                        <label>
+                            <input class="toggleBoolean" id="disableHostNameVerifier" type="checkbox" name="configurationProperties.disableHostNameVerifier"
+                                value="true" {{#if connectorDefaults.configurationProperties.disableHostNameVerifier}}
+                                checked{{/if}}> <span></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="maximumConnections">{{t
+                    "templates.connector.docusign.maximumConnections"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="number" id="maximumConnections" name="configurationProperties.maximumConnections"
+                        value="{{connectorDefaults.configurationProperties.maximumConnections}}" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

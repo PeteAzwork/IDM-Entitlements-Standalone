@@ -1,0 +1,29 @@
+{{!--
+  Copyright 2017 ForgeRock AS. All Rights Reserved
+
+  Use of this code requires a commercial software license with ForgeRock AS.
+  or with one of its affiliates. All use shall be exclusively subject
+  to such license between the licensee and ForgeRock AS.
+--}}
+<div class="list-group-item">
+    <div class="media">
+        <div class="media-left">
+            <div class="circle-icon-xs">
+                <i class="fa {{icon}}" aria-hidden="true"></i>
+            </div>
+        </div>
+        <div class="media-body media-middle">
+            <h4 class="list-group-item-heading">{{name}}</h4>
+        </div>
+        <div class="media-body">
+            <div class="btn-group pull-right ">
+                <button class="btn btn-link btn-edit edit-resource" data-resource-key="{{key}}" type="button">
+                    <i class="fa fa-pencil"></i>
+                </button>
+                <button class="btn btn-link btn-delete delete-resource" data-resource-key="{{key}}" type="button">
+                    <i class="fa fa-times"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

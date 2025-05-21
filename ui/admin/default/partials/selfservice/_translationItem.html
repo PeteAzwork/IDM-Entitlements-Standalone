@@ -1,0 +1,36 @@
+{{!--
+  Copyright 2015-2017 ForgeRock AS. All Rights Reserved
+
+  Use of this code requires a commercial software license with ForgeRock AS.
+  or with one of its affiliates. All use shall be exclusively subject
+  to such license between the licensee and ForgeRock AS.
+--}}
+<li locale="{{locale}}" class="list-group-item">
+
+    <div class="list-group-item-content">
+        <div class="row">
+            <div class="col-sm-2">
+                <span class="locale-badge">{{locale}}</span>
+            </div>
+
+            <div class="col-sm-10">
+                {{#if noTextArea}}
+                    <p class="localizedText">{{{text}}}</p>
+                {{else}}
+                    {{#if useCodeMirror}}
+                        <textarea class="email-message-code-mirror-disabled localizedText form-control" disabled="true">{{text}}</textarea>
+                    {{else}}
+                        <p class="localizedText">{{{text}}}</p>
+                    {{/if}}
+                {{/if}}
+            </div>
+        </div>
+    </div>
+
+    <div class="list-group-item-actions">
+        <div class="btn-group">
+            <button type="button" class="btn btn-link btn-delete-item delete"><i class="fa fa-times"></i></button>
+        </div>
+    </div>
+
+</li>

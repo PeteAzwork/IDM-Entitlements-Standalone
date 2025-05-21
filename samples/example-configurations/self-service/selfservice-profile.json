@@ -1,0 +1,29 @@
+{
+    "stageConfigs" : [
+        {
+            "name" : "conditionaluser",
+            "identityServiceUrl" : "managed/user",
+            "condition" : {
+                "type" : "loginCount",
+                "interval" : "at",
+                "amount" : 25
+            },
+            "evaluateConditionOnField" : "user",
+            "onConditionTrue" : {
+                "name" : "attributecollection",
+                "identityServiceUrl" : "managed/user",
+                "uiConfig" : {
+                    "displayName" : "Add your telephone number",
+                    "purpose" : "Help us verify your identity",
+                    "buttonText" : "Save"
+                },
+                "attributes" : [
+                    {
+                        "name" : "telephoneNumber",
+                        "isRequired" : true
+                    }
+                ]
+            }
+        }
+    ]
+}

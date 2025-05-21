@@ -1,0 +1,26 @@
+{{!--
+  Copyright 2016-2017 ForgeRock AS. All Rights Reserved
+
+  Use of this code requires a commercial software license with ForgeRock AS.
+  or with one of its affiliates. All use shall be exclusively subject
+  to such license between the licensee and ForgeRock AS.
+--}}
+<!-- STEPS View -->
+<div class="panel panel-default panel-collapse">
+    <div id="stepsBody" role="tabpanel">
+        <div class="panel-body">
+            <p class="section-help">{{helpText}}</p>
+            <div role="alert" id="captchaNotConfiguredWarning" class="alert alert-danger">
+                <i class="fa fa-exclamation-circle"></i><strong>{{t "templates.selfservice.error"}}</strong>
+                <span class="message">{{t "templates.selfservice.captchaNotConfigured"}} <a id="configureCaptcha" class="alert-link" href="#">{{t "templates.selfservice.emailConfigLink"}}</a></span>
+            </div>
+
+            <h3 class="block-header">{{blockHeaderText}}</h3>
+            <div class="selfservice-holder">
+                {{#each configList}}
+                {{> selfservice/_selfserviceblock this}}
+                {{/each}}
+            </div>
+        </div>
+    </div>
+</div>

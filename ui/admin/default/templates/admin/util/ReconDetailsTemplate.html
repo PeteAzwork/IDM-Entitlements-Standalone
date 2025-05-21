@@ -1,0 +1,194 @@
+{{!
+  Copyright 2015-2023 ForgeRock AS. All Rights Reserved
+
+  Use of this code requires a commercial software license with ForgeRock AS.
+  or with one of its affiliates. All use shall be exclusively subject
+  to such license between the licensee and ForgeRock AS.
+}}
+<div class="sync-details-container">
+    {{#if syncDetails}}
+    <div class="sync-results">
+        <ul class="list-group data-panel">
+            <li class="list-group-item no-sort">
+                <div class="toggle-data" id="showReconResults">
+                    <div class="pull-right toggle-arrow">
+                        <i class="fa {{#if showReconResults}}fa-angle-down{{else}}fa-angle-up{{/if}} fa-lg"></i>
+                    </div>
+                    <div class="media-left">
+                        <h4>{{t "templates.mapping.reconAnalysis.reconciliationResults"}}</h4>
+                    </div>
+                    <div class="data-panel-heading-stat text-success">
+                        <i class="fa fa-check-circle fa-2x"></i>
+                        <span class="display-number">{{syncDetails.statusSummary.SUCCESS}}</span>
+                        <span>{{t "templates.mapping.reconAnalysis.succeeded"}}<span>
+                    </div>
+                    <div class="data-panel-heading-stat text-danger">
+                        <i class="fa fa-exclamation-circle fa-2x"></i>
+                        <span class="display-number">{{syncDetails.statusSummary.FAILURE}}</span>
+                        <span>{{t "templates.mapping.reconAnalysis.failed"}}<span>
+                    </div>
+                    {{#if showReconFailureMessage}}
+                    <div class="display-inline">
+                        <span>{{t "templates.mapping.reconAnalysis.failureSummaryPersistMessage"}}</span>
+                    </div>
+                    {{/if}}
+                </div>
+
+            </li>
+            {{#if showReconResults}}
+            <li class="list-group-item no-sort sync-detail-list" id="reconSummaryTabs">
+            <div class="tab-panel tab-panel-min" id="reconAnalysisTabs">
+                <div class="tab-menu{{#unless showReconSummaryTabMenu}} hidden{{/unless}}">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active">
+                            <a aria-controls="situations" data-toggle="tab" href="#situations" role="tab" aria-expanded="true" class="summary-toggle">{{t "templates.mapping.reconAnalysis.situationSummary"}}</a>
+                        </li>
+                        <li class="" role="presentation">
+                            <a aria-controls="failures" data-toggle="tab" href="#failures" role="tab" aria-expanded="false" class="summary-toggle">{{t "templates.mapping.reconAnalysis.failureSummary"}}</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="situations">
+                        <ul class="list-group data-panel">
+                            {{#each situationDetails}}
+                                <li class="list-group-item no-sort sync-detail-list">
+                                    <div class="sync-item row">
+                                        <div class="col-sm-4">
+                                            <i class="fa {{displayType}}-display fa-circle"></i>
+                                            <span>{{situation}}</span>
+                                        </div>
+                                        <div class="col-sm-4 margin-top-10">
+                                            <span class="display-number">{{recordCount}}</span>
+                                        </div>
+                                        <div class="col-sm-4 tooltip-info-circle">
+                                            <i data-title="{{situationMessage}}" class="fa fa-info-circle"></i>
+                                        </div>
+                                    </div>
+                                </li>
+                            {{/each}}
+                        </ul>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="failures">
+                        <ul class="list-group data-panel">
+                            {{#each reconFailuresAuditReportResults}}
+                                <li class="list-group-item no-sort sync-detail-list">
+                                    <div class="sync-item row">
+                                        <div class="col-sm-6">
+                                            <div class="media">
+                                                <div class="media-left">
+                                                    <i class="fa failure-display fa-circle"></i>
+                                                </div>
+                                                <div class="media-body">
+                                                    <span class="message-head">{{message}}</span>
+                                                    {{#if policyFailureReport}}
+                                                        {{#each policyFailureReport}}<div class="text-muted">{{this}}</div>{{/each}}
+                                                    {{else}}
+                                                        <div class="text-muted">{{messageDetail}}</div>
+                                                    {{/if}}
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3 margin-top-10">
+                                            <span class="display-number">{{count}}</span>
+                                        </div>
+                                        <div class="col-sm-3 tooltip-info-circle">
+                                            <i class="fa fa-info-circle view-failure-details" data-title="{{t 'templates.mapping.reconAnalysis.viewEntries'}}" data-key={{@index}}></i>
+                                        </div>
+                                    </div>
+                                </li>
+                            {{/each}}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </li>
+        {{/if}}
+        </ul>
+        <ul class="list-group data-panel">
+            <li class="list-group-item no-sort">
+                <div class="toggle-data" id="showDuration">
+                <div class="pull-right toggle-arrow">
+                    <i class="fa {{#if showDuration}}fa-angle-down{{else}}fa-angle-up{{/if}} fa-lg"></i>
+                </div>
+                    <div class="media-left">
+                        <h4>{{t "templates.mapping.reconAnalysis.duration"}}</h4>
+                    </div>
+                    <div class="data-panel-heading-stat text-success">
+                        <span class="display-number">{{millisecondsToTimeDisplay syncDetails.duration}}</span>
+                    </div>
+                </div>
+            </li>
+            {{#if showDuration}}
+            {{#each syncDetails.durationSummary}}
+            <li class="list-group-item no-sort sync-detail-list">
+                <div class="sync-item row">
+                    <div class="col-sm-4 margin-top-10">
+                        <span>{{camelCaseToTitle @key}}</span>
+                        <span class="badge">{{count}}</span>
+                    </div>
+                    <div class="col-sm-4 margin-top-10">
+                        <span class="display-number">{{millisecondsToTimeDisplay sum}}</span>
+                    </div>
+                    <div class="col-sm-4 tooltip-info-circle">
+                        <i data-original-title="{{camelCaseToTitle @key}}" data-title="
+                            <table class='sync-phase-duration-info'>
+                                <tbody>
+                                    <tr>
+                                        <th>{{t "templates.mapping.reconAnalysis.totalTime"}}</th>
+                                        <td>{{millisecondsToTimeDisplay sum}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>{{t "templates.mapping.reconAnalysis.minimum"}}</th>
+                                        <td>{{millisecondsToTimeDisplay min}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>{{t "templates.mapping.reconAnalysis.maximum"}}</th>
+                                        <td>{{millisecondsToTimeDisplay max}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>{{t "templates.mapping.reconAnalysis.mean"}}</th>
+                                        <td>{{millisecondsToTimeDisplay mean}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>{{t "templates.mapping.reconAnalysis.standardDeviation"}}</th>
+                                        <td>{{millisecondsToTimeDisplay stdDev}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>" class="fa fa-info-circle"></i>
+                    </div>
+                </div>
+            </li>
+            {{/each}}
+            {{/if}}
+        </ul>
+        {{#if syncDetails.sourceProcessedByNode}}
+        <ul class="list-group data-panel">
+            <li class="list-group-item no-sort">
+                <div class="media-left">
+                    <h4>{{t "templates.mapping.reconAnalysis.recordsProcessedByNode"}}</h4>
+                </div>
+            </li>
+            {{#each  syncDetails.sourceProcessedByNode}}
+            <li class="list-group-item no-sort sync-detail-list">
+                <div class="sync-item row">
+                    <div class="col-sm-4 margin-top-10">
+                        <i class="fa fa-server fr-small-circle bg-primary"></i>
+                        <span>{{@key}}</span>
+                    </div>
+                    <div class="col-sm-4 margin-top-10">
+                        <span class="display-number">{{this}}</span>
+                    </div>
+                </div>
+            </li>
+            {{/each}}
+        </ul>
+        {{/if}}
+    </div>
+    {{else}}
+    <div class="fr-no-data text-center well">
+        <h4 class="text-muted">{{t "templates.mapping.reconAnalysis.noSync"}}</h4>
+    </div>
+    {{/if}}
+</div>

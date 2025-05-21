@@ -1,0 +1,44 @@
+#
+# Copyright 2011-2020 ForgeRock AS. All Rights Reserved
+#
+# Use of this code requires a commercial software license with ForgeRock AS.
+# or with one of its affiliates. All use shall be exclusively subject
+# to such license between the licensee and ForgeRock AS.
+#
+dn: dc=fakead,dc=com
+objectClass: domain
+objectClass: top
+dc: fakead
+
+dn: ou=People,dc=fakead,dc=com
+ou: People
+description: people
+objectclass: organizationalunit
+
+dn: uid=bobf,ou=People,dc=fakead,dc=com
+objectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+objectClass: top
+givenName: Bob
+uid: bobf
+cn: Bob Fleming
+telephoneNumber: 1-555-444-4444
+sn: Fleming
+mail: bobf@exampleAD.com
+description: Fake Active Directory User
+userPassword: 5up35tr0ng
+
+dn: uid=stony,ou=People,dc=fakead,dc=com
+objectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+objectClass: top
+givenName: Swiss
+uid: stony
+cn: Swiss Tony
+telephoneNumber: 1-555-444-5555
+sn: Tony
+mail: stony@exampleAD.com
+description: Fake Active Directory User
+userPassword: 5up35tr0ng

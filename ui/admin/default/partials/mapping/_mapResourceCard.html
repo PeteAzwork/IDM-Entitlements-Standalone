@@ -1,0 +1,38 @@
+{{!
+Copyright 2017 ForgeRock AS. All Rights Reserved
+
+Use of this code requires a commercial software license with ForgeRock AS.
+or with one of its affiliates. All use shall be exclusively subject
+to such license between the licensee and ForgeRock AS.
+}}
+
+<div class="col-md-5 column mapping-resource-body" id="{{id}}">
+    <div class="mapping-resource-empty text-center well">
+        <div class="mapping-resource-empty-details">
+            <i class="fa fa-question-circle text-muted"></i>
+            <div>{{t title}}</div>
+        </div>
+    </div>
+    <div class="panel panel-default mapping-resource card" style="display:none;">
+        <div class="panel-heading">
+            <div class="media">
+                <button type="button" class="close select-resource" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+                <div class="media-left">
+                    <div class="image circle">
+                        <i class="resource-small-icon"></i>
+                    </div>
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading resource-given-name"></h4>
+                    <span class="resource-type-name text-muted"></span>
+                </div>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="object-type-name text-muted text-center">{{t "templates.mapping.noObjectType"}}</div>
+            <select style="display:none;" class="resource-object-type-select form-control"></select>
+        </div>
+    </div>
+</div>

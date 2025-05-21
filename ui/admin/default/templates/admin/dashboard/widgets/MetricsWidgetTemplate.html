@@ -1,0 +1,27 @@
+{{!
+    Copyright 2017-2021 ForgeRock AS. All Rights Reserved
+  
+    Use of this code requires a commercial software license with ForgeRock AS.
+    or with one of its affiliates. All use shall be exclusively subject
+    to such license between the licensee and ForgeRock AS.
+}}
+{{> dashboard/_widgetHeader hideSettings=true}}
+<div class="panel-body widget-body">
+    {{#if formattedMetricsData.length}}
+    <div id="metricsGraph"></div>
+    <div id="metricsTable"></div>
+    <div class="pull-right">
+        <button type="button" class="remove-all-series btn btn-danger btn-sm">{{t "dashboard.metricsWidget.removeAll"}}</button>
+    </div>
+    {{else}}
+    <div class="no-data">
+        <div class="well">
+            <div class="message-icon text-primary"><i class="fa fa-flag"></i></div>
+            <h3>{{t "dashboard.metricsWidget.getStartedTitle"}}</h3>
+            <p>
+                {{t "dashboard.metricsWidget.metricsOff"}}
+            </p>
+        </div>
+    </div>
+    {{/if}}
+</div>

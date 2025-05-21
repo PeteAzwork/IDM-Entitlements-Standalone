@@ -1,0 +1,19 @@
+{
+    "type" : "msgraph",
+    "mailEndpoint" : "https://graph.microsoft.com/v1.0/users/example@myTenant.onmicrosoft.com/sendMail",
+    "from" : "example@myTenant.onmicrosoft.com",
+    "auth" : {
+        "enable" : true,
+        "type" : "oauth2",
+        "clientId" : "clientId",
+        "clientSecret" : "clientSecret",
+        "tokenEndpoint" : "https://login.microsoftonline.com/myTenant.onmicrosoft.com/oauth2/v2.0/token",
+        "scope" : [
+            "https://graph.microsoft.com/.default"
+        ]
+    },
+    "timeout" : 300000,
+    "writetimeout" : 300000,
+    "connectiontimeout" : 300000,
+    "threadPoolSize" : 20
+}

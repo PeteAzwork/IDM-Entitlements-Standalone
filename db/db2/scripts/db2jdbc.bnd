@@ -1,0 +1,6 @@
+version=1.4.0
+Export-Package: *;version=${version}
+Bundle-Name: IBM JCC JDBC 4 Driver
+Bundle-SymbolicName: com.ibm.db2.jcc
+Bundle-Version: ${version}
+Import-Package: *;resolution:=optional

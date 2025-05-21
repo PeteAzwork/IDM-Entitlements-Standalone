@@ -1,0 +1,15 @@
+{{#if expired}}
+<span class='text-muted small text-uppercase'>{{t "templates.admin.RoleList.expired"}}</span>
+<p>
+    <i class='fa fa-clock-o'></i> {{temporalConstraint.end}}
+</p>
+{{else}}
+<span class='text-muted small text-uppercase'>{{t "templates.admin.RoleList.validFrom"}}</span>
+<p class="small">
+    <i class='fa fa-clock-o'></i> {{temporalConstraint.start}}
+</p>
+<span class='text-muted small text-uppercase'>{{t "templates.admin.RoleList.validUntil"}}</span>
+<p class="small">
+    <i class='fa fa-clock-o'></i> {{temporalConstraint.end}}
+</p>
+{{/if}}

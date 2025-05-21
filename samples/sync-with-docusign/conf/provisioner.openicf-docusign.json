@@ -1,0 +1,474 @@
+{
+    "connectorRef" : {
+        "displayName" : "DocuSign Connector",
+        "bundleVersion" : "[1.5.0.0,1.6.0.0]",
+        "systemType" : "provisioner.openicf",
+        "bundleName" : "org.forgerock.openicf.connectors.docusign-connector",
+        "connectorName" : "org.forgerock.openicf.connectors.docusign.DocuSignConnector"
+    },
+    "resultsHandlerConfig" : {
+        "enableNormalizingResultsHandler" : false,
+        "enableFilteredResultsHandler" : false,
+        "enableCaseInsensitiveFilter" : false,
+        "enableAttributesToGetSearchResultsHandler" : true
+    },
+    "operationTimeout" : {
+        "CREATE" : -1,
+        "UPDATE" : -1,
+        "DELETE" : -1,
+        "TEST" : -1,
+        "SCRIPT_ON_CONNECTOR" : -1,
+        "SCRIPT_ON_RESOURCE" : -1,
+        "GET" : -1,
+        "RESOLVEUSERNAME" : -1,
+        "AUTHENTICATE" : -1,
+        "SEARCH" : -1,
+        "VALIDATE" : -1,
+        "SYNC" : -1,
+        "SCHEMA" : -1
+    },
+    "configurationProperties" : {
+        "host" : "_CHANGEME_",
+        "oAuthHost" : "_CHANGEME_",
+        "accountId" : "_CHANGEME_",
+        "integratorKey" : "_CHANGEME_",
+        "privateKeyFilePath" : "_CHANGEME_",
+        "publicKeyFilePath" : "_CHANGEME_",
+        "userId" : "_CHANGEME_",
+        "acceptSelfSignedCertificates" : false,
+        "disableHostNameVerifier" : false,
+        "maximumConnections" : 10,
+        "httpProxyHost" : null,
+        "httpProxyPort" : null,
+        "organizationConsent" : false
+    },
+    "enabled" : false,
+    "objectTypes" : {
+        "signingGroup" : {
+            "$schema" : "http://json-schema.org/draft-03/schema",
+            "id" : "signingGroup",
+            "type" : "object",
+            "nativeType" : "signingGroup",
+            "properties" : {
+                "groupEmail" : {
+                    "type" : "string",
+                    "nativeName" : "groupEmail",
+                    "nativeType" : "string"
+                },
+                "created" : {
+                    "type" : "string",
+                    "nativeName" : "created",
+                    "nativeType" : "string"
+                },
+                "modifiedBy" : {
+                    "type" : "string",
+                    "nativeName" : "modifiedBy",
+                    "nativeType" : "string"
+                },
+                "groupName" : {
+                    "type" : "string",
+                    "nativeName" : "__NAME__",
+                    "nativeType" : "string"
+                },
+                "signingGroupId" : {
+                    "type" : "string",
+                    "nativeName" : "signingGroupId",
+                    "nativeType" : "string"
+                },
+                "groupType" : {
+                    "type" : "string",
+                    "nativeName" : "groupType",
+                    "nativeType" : "string"
+                },
+                "modified" : {
+                    "type" : "string",
+                    "nativeName" : "modified",
+                    "nativeType" : "string"
+                },
+                "users" : {
+                    "type" : "string",
+                    "nativeName" : "users",
+                    "nativeType" : "string"
+                },
+                "createdBy" : {
+                    "type" : "string",
+                    "nativeName" : "createdBy",
+                    "nativeType" : "string"
+                }
+            }
+        },
+        "account" : {
+            "$schema" : "http://json-schema.org/draft-03/schema",
+            "id" : "account",
+            "type" : "object",
+            "nativeType" : "account",
+            "properties" : {
+                "suffixName" : {
+                    "type" : "string",
+                    "nativeName" : "suffixName",
+                    "nativeType" : "string"
+                },
+                "groupList" : {
+                    "type" : "array",
+                    "items" : {
+                        "type" : "object",
+                        "nativeType" : "object"
+                    },
+                    "nativeName" : "groupList",
+                    "nativeType" : "object"
+                },
+                "profileImageUri" : {
+                    "type" : "string",
+                    "nativeName" : "profileImageUri",
+                    "nativeType" : "string"
+                },
+                "workAddress" : {
+                    "type" : "object",
+                    "nativeName" : "workAddress",
+                    "nativeType" : "object"
+                },
+                "firstName" : {
+                    "type" : "string",
+                    "nativeName" : "firstName",
+                    "nativeType" : "string"
+                },
+                "customSettings" : {
+                    "type" : "array",
+                    "items" : {
+                        "type" : "object",
+                        "nativeType" : "object"
+                    },
+                    "nativeName" : "customSettings",
+                    "nativeType" : "object"
+                },
+                "email" : {
+                    "type" : "string",
+                    "required" : true,
+                    "nativeName" : "email",
+                    "nativeType" : "string",
+                    "flags" : [
+                        "NOT_UPDATEABLE"
+                    ]
+                },
+                "uri" : {
+                    "type" : "string",
+                    "nativeName" : "uri",
+                    "nativeType" : "string"
+                },
+                "userProfileLastModifiedDate" : {
+                    "type" : "string",
+                    "nativeName" : "userProfileLastModifiedDate",
+                    "nativeType" : "string"
+                },
+                "passwordExpiration" : {
+                    "type" : "string",
+                    "nativeName" : "passwordExpiration",
+                    "nativeType" : "string"
+                },
+                "activationAccessCode" : {
+                    "type" : "string",
+                    "nativeName" : "activationAccessCode",
+                    "nativeType" : "string"
+                },
+                "accountManagementGranular" : {
+                    "type" : "array",
+                    "items" : {
+                        "type" : "object",
+                        "nativeType" : "object"
+                    },
+                    "nativeName" : "accountManagementGranular",
+                    "nativeType" : "object"
+                },
+                "middleName" : {
+                    "type" : "string",
+                    "nativeName" : "middleName",
+                    "nativeType" : "string"
+                },
+                "lastName" : {
+                    "type" : "string",
+                    "nativeName" : "lastName",
+                    "nativeType" : "string"
+                },
+                "userType" : {
+                    "type" : "string",
+                    "nativeName" : "userType",
+                    "nativeType" : "string"
+                },
+                "userName" : {
+                    "type" : "string",
+                    "required" : true,
+                    "nativeName" : "__NAME__",
+                    "nativeType" : "string"
+                },
+                "userStatus" : {
+                    "type" : "string",
+                    "nativeName" : "userStatus",
+                    "nativeType" : "string"
+                },
+                "permissionProfileId" : {
+                    "type" : "string",
+                    "nativeName" : "permissionProfileId",
+                    "nativeType" : "string"
+                },
+                "permissionProfileName" : {
+                    "type" : "string",
+                    "nativeName" : "permissionProfileName",
+                    "nativeType" : "string"
+                },
+                "sendActivationEmail" : {
+                    "type" : "string",
+                    "nativeName" : "sendActivationEmail",
+                    "nativeType" : "string"
+                },
+                "userSettings" : {
+                    "type" : "array",
+                    "items" : {
+                        "type" : "object",
+                        "nativeType" : "object"
+                    },
+                    "nativeName" : "userSettings",
+                    "nativeType" : "object"
+                },
+                "signatureImageUri" : {
+                    "type" : "string",
+                    "nativeName" : "signatureImageUri",
+                    "nativeType" : "string"
+                },
+                "homeAddress" : {
+                    "type" : "array",
+                    "items" : {
+                        "type" : "object",
+                        "nativeType" : "object"
+                    },
+                    "nativeName" : "homeAddress",
+                    "nativeType" : "object"
+                },
+                "initialsImageUri" : {
+                    "type" : "string",
+                    "nativeName" : "initialsImageUri",
+                    "nativeType" : "string"
+                },
+                "enableConnectForUser" : {
+                    "type" : "string",
+                    "nativeName" : "enableConnectForUser",
+                    "nativeType" : "string"
+                },
+                "password" : {
+                    "type" : "string",
+                    "nativeName" : "password",
+                    "nativeType" : "JAVA_TYPE_GUARDEDSTRING",
+                    "flags" : [
+                        "NOT_READABLE",
+                        "NOT_RETURNED_BY_DEFAULT"
+                    ]
+                },
+                "createdDateTime" : {
+                    "type" : "string",
+                    "nativeName" : "createdDateTime",
+                    "nativeType" : "string"
+                },
+                "isAdmin" : {
+                    "type" : "string",
+                    "nativeName" : "isAdmin",
+                    "nativeType" : "string"
+                },
+                "title" : {
+                    "type" : "string",
+                    "nativeName" : "title",
+                    "nativeType" : "string"
+                },
+                "sendActivationOnInvalidLogin" : {
+                    "type" : "string",
+                    "nativeName" : "sendActivationOnInvalidLogin",
+                    "nativeType" : "string"
+                },
+                "loginStatus" : {
+                    "type" : "string",
+                    "nativeName" : "loginStatus",
+                    "nativeType" : "string"
+                },
+                "lastLogin" : {
+                    "type" : "string",
+                    "nativeName" : "lastLogin",
+                    "nativeType" : "string"
+                },
+                "jobTitle" : {
+                    "type" : "string",
+                    "nativeName" : "jobTitle",
+                    "nativeType" : "string"
+                },
+                "forgottenPasswordInfo" : {
+                    "type" : "array",
+                    "items" : {
+                        "type" : "object",
+                        "nativeType" : "object"
+                    },
+                    "nativeName" : "forgottenPasswordInfo",
+                    "nativeType" : "object"
+                }
+            }
+        },
+        "contact" : {
+            "$schema" : "http://json-schema.org/draft-03/schema",
+            "id" : "contact",
+            "type" : "object",
+            "nativeType" : "contact",
+            "properties" : {
+                "signingGroup" : {
+                    "type" : "string",
+                    "nativeName" : "signingGroup",
+                    "nativeType" : "string"
+                },
+                "organization" : {
+                    "type" : "string",
+                    "nativeName" : "organization",
+                    "nativeType" : "string"
+                },
+                "shared" : {
+                    "type" : "string",
+                    "nativeName" : "shared",
+                    "nativeType" : "string"
+                },
+                "signingGroupName" : {
+                    "type" : "string",
+                    "nativeName" : "signingGroupName",
+                    "nativeType" : "string"
+                },
+                "signingGroupUsers" : {
+                    "type" : "string",
+                    "nativeName" : "signingGroupUsers",
+                    "nativeType" : "string"
+                },
+                "emails" : {
+                    "type" : "string",
+                    "nativeName" : "emails",
+                    "nativeType" : "string"
+                },
+                "contactId" : {
+                    "type" : "string",
+                    "nativeName" : "contactId",
+                    "nativeType" : "string"
+                },
+                "contactPhoneNumbers" : {
+                    "type" : "string",
+                    "nativeName" : "contactPhoneNumbers",
+                    "nativeType" : "string"
+                },
+                "name" : {
+                    "type" : "string",
+                    "required" : true,
+                    "nativeName" : "__NAME__",
+                    "nativeType" : "string"
+                }
+            }
+        },
+        "userSignature" : {
+            "$schema" : "http://json-schema.org/draft-03/schema",
+            "id" : "userSignature",
+            "type" : "object",
+            "nativeType" : "userSignature",
+            "properties" : {
+                "signature150ImageId" : {
+                    "type" : "string",
+                    "nativeName" : "signature150ImageId",
+                    "nativeType" : "string"
+                },
+                "stampFormat" : {
+                    "type" : "string",
+                    "nativeName" : "stampFormat",
+                    "nativeType" : "string"
+                },
+                "stampType" : {
+                    "type" : "string",
+                    "nativeName" : "stampType",
+                    "nativeType" : "string"
+                },
+                "signatureFont" : {
+                    "type" : "string",
+                    "nativeName" : "signatureFont",
+                    "nativeType" : "string"
+                },
+                "signatureName" : {
+                    "type" : "string",
+                    "nativeName" : "__NAME__",
+                    "nativeType" : "string"
+                },
+                "stampImageUri" : {
+                    "type" : "string",
+                    "nativeName" : "stampImageUri",
+                    "nativeType" : "string"
+                },
+                "adoptedDateTime" : {
+                    "type" : "string",
+                    "nativeName" : "adoptedDateTime",
+                    "nativeType" : "string"
+                },
+                "initialsImageUri" : {
+                    "type" : "string",
+                    "nativeName" : "initialsImageUri",
+                    "nativeType" : "string"
+                },
+                "signatureImageUri" : {
+                    "type" : "string",
+                    "nativeName" : "signatureImageUri",
+                    "nativeType" : "string"
+                },
+                "initials150ImageId" : {
+                    "type" : "string",
+                    "nativeName" : "initials150ImageId",
+                    "nativeType" : "string"
+                },
+                "isDefault" : {
+                    "type" : "string",
+                    "nativeName" : "isDefault",
+                    "nativeType" : "string"
+                },
+                "signatureType" : {
+                    "type" : "string",
+                    "nativeName" : "signatureType",
+                    "nativeType" : "string"
+                },
+                "createdDateTime" : {
+                    "type" : "string",
+                    "nativeName" : "createdDateTime",
+                    "nativeType" : "string"
+                },
+                "phoneticName" : {
+                    "type" : "string",
+                    "nativeName" : "phoneticName",
+                    "nativeType" : "string"
+                },
+                "userId" : {
+                    "type" : "string",
+                    "nativeName" : "userId",
+                    "nativeType" : "string"
+                },
+                "signatureInitials" : {
+                    "type" : "string",
+                    "nativeName" : "signatureInitials",
+                    "nativeType" : "string"
+                },
+                "stampSizeMM" : {
+                    "type" : "string",
+                    "nativeName" : "stampSizeMM",
+                    "nativeType" : "string"
+                },
+                "imageType" : {
+                    "type" : "string",
+                    "nativeName" : "imageType",
+                    "nativeType" : "string"
+                },
+                "signatureId" : {
+                    "type" : "string",
+                    "nativeName" : "signatureId",
+                    "nativeType" : "string"
+                },
+                "externalID" : {
+                    "type" : "string",
+                    "nativeName" : "externalID",
+                    "nativeType" : "string"
+                }
+            }
+        }
+    }
+}

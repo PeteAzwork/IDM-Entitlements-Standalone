@@ -1,0 +1,46 @@
+{{!--
+  Copyright 2015-2018 ForgeRock AS. All Rights Reserved
+
+  Use of this code requires a commercial software license with ForgeRock AS.
+  or with one of its affiliates. All use shall be exclusively subject
+  to such license between the licensee and ForgeRock AS.
+--}}
+
+<div class="translationMapGroup form-group" field="{{fieldName}}" data-uses-codemirror="{{useCodeMirror}}" data-uses-noTextArea="{{noTextArea}}">
+    <label class="col-md-3 control-label">{{t label}}</label>
+    <div class="col-md-7">
+        <div class="list-table-inline-edit">
+            <ul class="list-group list-unstyled">
+                <li class="list-group-header-empty"></li>
+                {{#each property}}
+                    {{> selfservice/_translationItem locale=@key text=this useCodeMirror=../useCodeMirror noTextArea=../noTextArea}}
+                {{/each}}
+
+                <li class="list-group-item">
+                    <div class="list-group-item-add">
+                        <div class="form-group">
+                            <div class="col-xs-12">
+                                <select type="text" data-translation-type="{{t label}}" class="newTranslationLocale form-control" placeholder="{{t "templates.selfservice.locale"}}"></select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-12">
+                                {{#if useCodeMirror}}
+                                    <textarea class="email-message-code-mirror newTranslationText email-message-code-mirror newTranslationText form-control"></textarea>
+                                {{else}}
+                                    <input type="text" class="newTranslationText form-control" placeholder="{{t "templates.selfservice.localText"}}"/>
+                                {{/if}}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-12">
+                                <button type="button" disabled class="btn btn-default btn-add-locale add"><i class="fa fa-plus"></i>{{t "common.form.add"}}</button>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</div>

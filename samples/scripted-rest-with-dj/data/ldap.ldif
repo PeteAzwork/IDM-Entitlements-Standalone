@@ -1,0 +1,57 @@
+#
+# Copyright 2017-2020 ForgeRock AS. All Rights Reserved
+#
+# Use of this code requires a commercial software license with ForgeRock AS.
+# or with one of its affiliates. All use shall be exclusively subject
+# to such license between the licensee and ForgeRock AS.
+#
+
+
+#Enable logs for HTTP
+#dn: cn=File-Based HTTP Access Logger,cn=Loggers,cn=config
+#changetype: modify
+#replace: ds-cfg-enabled
+#ds-cfg-enabled: true
+
+#create rest of the tree
+dn: dc=example,dc=com
+changetype: add
+objectClass: domain
+objectClass: top
+dc: example
+aci: (targetattr="*")(version 3.0; acl "IDM Access"; allow (all)
+  userdn="ldap:///uid=idm,ou=Administrators,dc=example,dc=com";)
+
+dn: ou=Administrators, dc=example,dc=com
+changetype: add
+objectclass: top
+objectclass: organizationalunit
+ou: Administrators
+
+dn: uid=idm, ou=Administrators,dc=example,dc=com
+changetype: add
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+uid: idm
+cn: IDM Administrator
+sn: IDM Administrator
+description: Special LDAP acccount used by openIDM
+ou: Administrators
+userPassword: 5up35tr0ng
+ds-privilege-name: bypass-acl
+ds-privilege-name: changelog-read
+
+dn: ou=People,dc=example,dc=com
+changetype: add
+ou: people
+description: people
+objectclass: organizationalunit
+
+dn: ou=Groups,dc=example,dc=com
+changetype: add
+ou: Groups
+objectClass: organizationalUnit
+objectClass: top
+

@@ -1,0 +1,117 @@
+{{!
+    Copyright 2021 ForgeRock AS. All Rights Reserved
+  
+    Use of this code requires a commercial software license with ForgeRock AS.
+    or with one of its affiliates. All use shall be exclusively subject
+    to such license between the licensee and ForgeRock AS.
+  }}
+  <div class="panel panel-default panel-collapse" id="forCsvFileConnector">
+      <div class="panel-heading" role="tab" id="connectorSpecificBaseHeading">
+          <h4 class="panel-title">
+              <a data-toggle="collapse" href="#connectorSpecificBase" aria-expanded="true" aria-controls="connectorSpecificBaseHeading">{{t "templates.connector.baseTitle"}}</a>
+          </h4>
+      </div>
+      <div id="connectorSpecificBase" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="connectorSpecificBase" aria-expanded="true">
+          <div class="panel-body">
+              <div class="form-group has-feedback">
+                  <label class="col-sm-3 control-label" for="tenant">{{t "templates.connector.MSGraphConnector.tenant"}}</label>
+                  <div class="col-sm-8">
+                      <input class="form-control" type="text" id="tenant" name="configurationProperties.tenant" value="{{connectorDefaults.configurationProperties.tenant}}"  data-validator-event="keyup blur" data-validator="required" />
+                      <div class="validation-message"></div>
+                      <span class="error form-control-feedback"><i class='fa validation-icon'></i></span>
+                      <span class='help-block'>{{t "templates.connector.MSGraphConnector.tenantHelp"}}</span>
+                  </div>
+              </div>
+              <div class="form-group has-feedback">
+                  <label class="col-sm-3 control-label" for="clientId">{{t "templates.connector.MSGraphConnector.clientId"}}</label>
+                  <div class="col-sm-8">
+                      <input class="form-control" type="text" id="clientId" name="configurationProperties.clientId" value="{{connectorDefaults.configurationProperties.clientId}}" data-validator-event="keyup blur" data-validator="required" />
+                      <div class="validation-message"></div>
+                      <span class="error form-control-feedback"><i class='fa validation-icon'></i></span>
+                      <span class='help-block'>{{t "templates.connector.MSGraphConnector.clientIdHelp"}}</span>
+                  </div>
+              </div>
+
+              <div class="form-group has-feedback">
+                <label class="col-sm-3 control-label" for="clientSecret">{{t "templates.connector.MSGraphConnector.clientSecret"}}</label>
+                <div class="col-sm-8">
+                    <!-- autocomplete="new-password" is required to prevent chrome from auto-completing these form fields -->
+                    {{#ifObject connectorDefaults.configurationProperties.clientSecret}}
+                        {{#if connectorDefaults.configurationProperties.clientSecret.$crypto}}
+                            <input id="clientSecret" data-validator-event="keyup blur" data-validator="changed" placeholder="********" class="form-control" 
+                            autocomplete="new-password" type="password" name="configurationProperties.clientSecret" />
+                        {{else}}
+                            <input id="clientSecret" data-validator-event="keyup blur" data-validator="changed" value="{{connectorDefaults.configurationProperties.clientSecret.$base64:decode}}" 
+                                autocomplete="new-password" class="form-control" type="password" name="configurationProperties.clientSecret" />
+                            {{/if}}
+                    {{else}}
+                        <input id="clientSecret" data-validator-event="keyup blur" data-validator="required" class="form-control" type="password" 
+                        autocomplete="new-password" name="configurationProperties.clientSecret" value="{{connectorDefaults.configurationProperties.clientSecret}}" />
+                    {{/ifObject}}
+
+                    <div class="validation-message"></div>
+                    <span class="error form-control-feedback"><i class='fa validation-icon'></i></span>
+                    <span class='help-block'>{{t "templates.connector.MSGraphConnector.clientSecretHelp"}}</span>
+                </div>
+            </div>
+            <!---
+              <div class="form-group">
+                  <label class="col-sm-3 control-label" for="httpProxyHost">{{t "templates.connector.MSGraphConnector.httpProxyHost"}}</label>
+                  <div class="col-sm-8">
+                      <input class="form-control" type="text" id="httpProxyHost" name="configurationProperties.httpProxyHost" value="{{connectorDefaults.configurationProperties.httpProxyHost}}" />
+                  </div>
+              </div>
+              <div class="form-group">
+                  <label class="col-sm-3 control-label" for="httpProxyPort">{{t "templates.connector.MSGraphConnector.httpProxyPort"}}</label>
+                  <div class="col-sm-8">
+                      <input class="form-control" type="text" id="httpProxyPort" name="configurationProperties.httpProxyPort" value="{{connectorDefaults.configurationProperties.httpProxyPort}}" />
+                  </div>
+              </div>
+              <div class="form-group">
+                  <label class="col-sm-3 control-label" for="httpProxyUsername">{{t "templates.connector.MSGraphConnector.httpProxyUsername"}}</label>
+                  <div class="col-sm-8">
+                      <input class="form-control" type="text" id="httpProxyUsername" name="configurationProperties.httpProxyUsername" value="{{connectorDefaults.configurationProperties.httpProxyUsername}}" />
+                  </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-3 control-label" for="httpProxyPassword">{{t "templates.connector.MSGraphConnector.httpProxyPassword"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="httpProxyPassword" name="configurationProperties.httpProxyPassword" value="{{connectorDefaults.configurationProperties.httpProxyPassword}}" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="maximumConnections">{{t "templates.connector.MSGraphConnector.maximumConnections"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="maximumConnections" name="configurationProperties.maximumConnections" value="{{connectorDefaults.configurationProperties.maximumConnections}}" />
+                </div>
+            </div>
+        -->
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="readRateLimit">{{t "templates.connector.MSGraphConnector.readRateLimit"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="readRateLimit" name="configurationProperties.readRateLimit" value="{{connectorDefaults.configurationProperties.readRateLimit}}" />
+                    <span class='help-block'>{{t "templates.connector.MSGraphConnector.readRateLimitHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="writeRateLimit">{{t "templates.connector.MSGraphConnector.writeRateLimit"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="writeRateLimit" name="configurationProperties.writeRateLimit" value="{{connectorDefaults.configurationProperties.writeRateLimit}}" />
+                    <span class='help-block'>{{t "templates.connector.MSGraphConnector.writeRateLimitHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="connectorType" class="col-sm-3 control-label">{{t "templates.connector.MSGraphConnector.performHardDelete"}}</label>
+                <div class="col-sm-8">
+                    <div class="checkbox checkbox-slider-primary checkbox-slider checkbox-slider--b checkbox-slider-md">
+                        <label>
+                            <input class="toggleBoolean" id="performHardDelete" type="checkbox" name="performHardDelete" value="true" {{#if connectorDefaults.configurationProperties.performHardDelete}} checked {{/if}}>
+                            <span></span>
+                        </label>
+                    </div>
+                    <span class='help-block'>{{t "templates.connector.MSGraphConnector.performHardDeleteHelp"}}</span>
+                </div>
+            </div>
+      </div>
+  </div>
+  

@@ -1,0 +1,52 @@
+{{!
+  Copyright 2015-2017 ForgeRock AS. All Rights Reserved
+
+  Use of this code requires a commercial software license with ForgeRock AS.
+  or with one of its affiliates. All use shall be exclusively subject
+  to such license between the licensee and ForgeRock AS.
+}}
+<div class="panel-body">
+    <div class="toolbar clearfix">
+        <div class="btn-group pull-left">
+            <form action="#" method="get">
+                <button type="submit" class="btn btn-primary add-property"><i class="fa fa-plus"></i>{{t "templates.mapping.addProperty"}}</button>
+                {{#if missingRequiredProperties}}
+                <button type="button" id="missingRequiredPropertiesButton" class="btn btn-default">{{t "common.form.add"}} {{t "templates.mapping.missingRequiredProperties"}} ({{missingRequiredProperties.length}})</button>
+                {{/if}}
+
+                {{#if isNewMapping}}
+                <button type="button" id="mappingWizard" class="btn btn-default"><i class="fa fa-magic"></i>Quick Mapping</button>
+                {{/if}}
+            </form>
+        </div>
+        <div class="tool-group-right">
+            <form class="form-inline" role="form">
+                {{#if usesDynamicSampleSource}}
+                <div class="form-group selectize-holder">
+                    <select style="width:250px;" type="text" placeholder="{{t 'templates.mapping.sampleSource'}}" id="findSampleSource" class="form-control" value="{{sampleSource_txt}}"></select>
+                </div>
+                {{/if}}
+
+                {{#if usesLinkQualifier}}
+                <div class="form-group selectize-holder">
+                    <select style="width:200px;" type="select" id="linkQualifierSelect" class="form-control">
+                        <option selected value=""></option>
+                        {{#each linkQualifiers}}
+                        <option value="{{this}}">{{this}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+                {{/if}}
+            </form>
+        </div>
+    </div>
+    <div>
+        <span id="allPropertiesMapped" style="display:none;">{{t "templates.mapping.allPropertiesMapped"}}</span>
+        <div id="attributesGridHolder"></div>
+    </div>
+
+    <div role="alert" class="changesPending alert alert-warning" style="display:none;">
+        <i class='fa fa-exclamation-circle'></i><strong>{{t "common.form.warning" }}</strong>
+        <span class='message'>{{t "templates.mapping.changesPending"}}</span>
+    </div>
+</div>

@@ -1,0 +1,162 @@
+{{!
+	Copyright 2023 ForgeRock AS. All Rights Reserved
+	Use of this code requires a commercial software license with ForgeRock AS.
+	or with one of its affiliates. All use shall be exclusively subject
+	to such license between the licensee and ForgeRock AS.
+}}
+<div class="panel panel-default panel-collapse">
+	<div class="panel-heading" role="tab" id="connectorSpecificBaseHeading">
+		<h4 class="panel-title">
+			<a data-toggle="collapse" href="#connectorSpecificBase" aria-expanded="true" aria-controls="connectorSpecificBaseHeading" class="">{{t "templates.connector.baseTitle"}}</a>
+		</h4>
+	</div>
+	<div id="connectorSpecificBase" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="connectorSpecificBase" aria-expanded="true">
+		<div class="panel-body">
+			<div class="form-group">
+				<ol>
+					<li>
+						<p>{{t "templates.connector.salesforce.callbackUrlMessage"}}</p>
+						<p><span class="important">{{callbackURL}}</span></p>
+					</li>
+					<li>
+						<p>{{t "templates.connector.salesforce.listHeader"}}</p>
+						<ul class="indented-list">
+							<li>{{t "templates.connector.salesforce.listItemOne"}}</li>
+							<li>{{t "templates.connector.salesforce.listItemTwo"}}</li>
+							<li>{{t "templates.connector.salesforce.listItemThree"}}</li>
+						</ul>
+					</li>
+				</ol>
+			</div>
+			<div class="form-group">
+				<div class="radio-group-holder">
+					{{#each urlTypes}}
+					<label class="url-radio-label" for="{{id}}">{{name}}</label>
+					<input {{#if selected}} checked {{/if}} {{#if readonly}} readonly {{/if}} name="urlRadio" class="url-radio" id="{{id}}" type="radio" value="{{value}}">
+					{{/each}}
+				</div>
+			</div>
+
+			<div class="form-group has-feedback">
+				<label class="col-sm-3 control-label" for="OAuthurl">{{t "templates.connector.salesforce.loginUrl"}}</label>
+				<div class="col-sm-8">
+					<input id="OAuthurl" class="form-control" data-validator="required" type="text" name="configurationProperties.loginUrl"
+							data-validator-event="keyup blur change" {{#if connectorDefaults.configurationProperties.loginUrl}} value="{{connectorDefaults.configurationProperties.loginUrl}}" {{else}} value="https://login.salesforce.com/services/oauth2/token" {{/if}}
+							required {{#unless urlTypes.2.selected}}readonly{{/unless}}>
+					<span></span>
+					<div class="validation-message"></div>
+					<span class="error form-control-feedback"><i class='fa validation-icon'></i></span>
+				</div>
+			</div>
+
+			<div class="form-group has-feedback">
+				<label class="col-sm-3 control-label" for="clientId">{{t "templates.connector.salesforce.clientId"}}</label>
+				<div class="col-sm-8">
+					<input class="form-control" value="{{connectorDefaults.configurationProperties.clientId}}" type="text" id="clientId" name="configurationProperties.clientId" data-validator-event="keyup blur" data-validator="required">
+					<div class="validation-message"></div>
+					<span class="error form-control-feedback"><i class='fa validation-icon'></i></span>
+				</div>
+			</div>
+
+			<div class="form-group has-feedback">
+				<label class="col-sm-3 control-label" for="clientSecret">{{t "templates.connector.salesforce.clientSecret"}}</label>
+				<div class="col-sm-8">
+					<!-- autocomplete="new-password" is required to prevent chrome from auto-completing these form fields -->
+					{{#if connectorDefaults.configurationProperties.clientSecret}}
+						{{#if connectorDefaults.configurationProperties.clientSecret.$crypto}}
+							<input id="clientSecret" class="form-control" name="configurationProperties.clientSecret" data-validator-event="keyup blur" data-validator="changed" type="password"
+							{{#if connectorDefaults.configurationProperties.clientSecret}} placeholder="********" {{/if}} autocomplete="new-password" />
+						{{else}}
+							<input id="clientSecret" class="form-control" name="configurationProperties.clientSecret" type="password" autocomplete="new-password"
+							placeholder="{{connectorDefaults.configurationProperties.clientSecret.$base64:decode}}" />
+						{{/if}}
+					{{else}}
+						<input id="clientSecret" data-validator-event="keyup blur" data-validator="required" autocomplete="new-password"
+						class="form-control" type="password" name="configurationProperties.clientSecret" required>
+					{{/if}}
+					<div class="validation-message"></div>
+					<span class="error form-control-feedback"><i class='fa validation-icon'></i></span>
+				</div>
+			</div>
+
+			<div class="form-group" data-authentication-method="oauth">
+				<label class="col-sm-3 control-label" for="grantType">{{t "templates.connector.saasCommons.grantType"}}</label>
+				<div class="col-sm-8">
+					<div class="form-group">
+						<div class="radio-group-holder">
+							{{#each grantTypes}}
+							<label class="granttype-radio-label" for="{{id}}">{{name}}</label>
+							<input name="configurationProperties.grantType" required class="grantType-radio" id="{{id}}" type="radio" value="{{value}}"  {{#if selected}} checked {{/if}} >
+							{{/each}}
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div id="instanceUrlHolder" class="form-group has-feedback panel-collapse collapse {{#unless grantTypes.0.selected}} in {{/unless}}">
+				<label class="col-sm-3 control-label" for="instanceUrl">{{t
+					"templates.connector.salesforce.instanceUrl"}}</label>
+				<div class="col-sm-8">
+					<input id="instanceUrl" class="form-control" type="text" name="configurationProperties.instanceUrl"
+								 data-validator-event="keyup blur change"
+								 data-validator="required"
+								 value="{{connectorDefaults.configurationProperties.instanceUrl}}">
+					<span></span>
+					<div class="validation-message"></div>
+					<span class="error form-control-feedback"><i class='fa validation-icon'></i></span>
+				</div>
+			</div>
+
+			<div class="group-details">
+				<u><a target="_blank" href="http://www.salesforce.com/us/developer/docs/api_rest/Content/quickstart_oauth.htm">{{t "templates.connector.salesforce.needHelpKey"}}</a></u>
+			</div>
+			<div class="group-details">
+				<p><span class="important">{{t "templates.connector.salesforce.changeHeader"}}</span></p>
+				<p class="large-paragraph">
+					{{t "templates.connector.salesforce.changeDetails"}}
+				</p>
+			</div>
+		</div>
+		<input id="" type="hidden" name="configurationProperties.instanceUrl" value="{{connectorDefaults.configurationProperties.instanceUrl}}">
+	</div>
+</div>
+
+<!-- object panel -->
+<div class="panel panel-default panel-collapse">
+	<div class="panel-heading" role="tab" id="objectHeading">
+		<h4 class="panel-title">
+			<a data-toggle="collapse" href="#object" aria-expanded="true" aria-controls="object" class="">{{t "templates.connector.salesforce.objectTitle"}}</a>
+		</h4>
+	</div>
+	<div id="objectClass" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="objectClassHeading" aria-expanded="true">
+			<div class="panel-body connector-array-component" id="objectClassWrapper">
+				<div>
+					<button type="button" field_type="objectClass" id="addObjectClassButton" name="addObjectClassButton" class="btn btn-primary add-btn"><i class="fa fa-plus"></i><span>{{t "templates.connector.salesforce.objectClassAdd"}}</span></button>
+				</div>
+
+			{{#if connectorDefaults.configurationProperties.supportedObjectTypes.length}}
+				{{#each_with_index connectorDefaults.configurationProperties.supportedObjectTypes}}
+				<div class="form-group has-feedback field">
+					<label class="control-label col-sm-3">{{t "templates.connector.salesforce.object"}}</label>
+					<div class="input-group col-sm-8">
+						<input class="form-control" autocomplete="off" type="text" name="configurationProperties.supportedObjectTypes[]" value={{value}} />
+						<div class="input-group-addon">
+							<button field_type="objectClass" class="clean-btn remove-btn"><i class="fa fa-lg fa-times-circle"></i></button>
+						</div>
+					</div>
+				</div>
+				{{/each_with_index}}
+			{{else}}
+			<div class="form-group has-feedback field">
+				<label class="control-label col-sm-3">{{t "templates.connector.salesforce.object"}}</label>
+				<div class="input-group col-sm-8">
+					<input class="form-control" autocomplete="off" type="text" name="configurationProperties.supportedObjectTypes[]" value="User" />
+					<div class="input-group-addon">
+						<button field_type="objectClass" class="clean-btn remove-btn"><i class="fa fa-lg fa-times-circle"></i></button>
+					</div>
+				</div>
+			</div>
+			{{/if}}
+		</div>
+	</div>
+</div>

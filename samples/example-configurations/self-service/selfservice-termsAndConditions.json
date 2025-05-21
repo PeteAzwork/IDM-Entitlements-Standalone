@@ -1,0 +1,19 @@
+{
+    "stageConfigs" : [
+        {
+            "name" : "conditionaluser",
+            "identityServiceUrl" : "managed/user",
+            "condition" : {
+                "type" : "terms"
+            },
+            "evaluateConditionOnField" : "user",
+            "onConditionTrue" : {
+                "name" : "termsAndConditions"
+            }
+        },
+        {
+            "name" : "patchObject",
+            "identityServiceUrl" : "managed/user"
+        }
+    ]
+}

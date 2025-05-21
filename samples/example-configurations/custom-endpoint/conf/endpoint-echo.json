@@ -1,0 +1,108 @@
+{
+    "file" : "echo.groovy",
+    "type" : "groovy",
+    "_file" : "echo.js",
+    "_type" : "text/javascript",
+    "apiDescription" : {
+        "title" : "Echo",
+        "description" : "Service that echo's your HTTP requests.",
+        "mvccSupported" : false,
+        "create" : {
+            "description" : "Echo a CREATE request.",
+            "mode" : "ID_FROM_SERVER",
+            "singleton" : false
+        },
+        "read" : {
+            "description" : "Echo a READ request."
+        },
+        "update" : {
+            "description" : "Echo an UPDATE request."
+        },
+        "delete" : {
+            "description" : "Echo a DELETE request."
+        },
+        "patch" : {
+            "description" : "Echo a PATCH request.",
+            "operations" : [
+                "ADD",
+                "REMOVE",
+                "REPLACE",
+                "INCREMENT",
+                "COPY",
+                "MOVE",
+                "TRANSFORM"
+            ]
+        },
+        "actions" : [
+            {
+                "description" : "Echo an ACTION request.",
+                "name" : "echo",
+                "request" : {
+                    "type" : "object"
+                },
+                "response" : {
+                    "title" : "Echo action response",
+                    "type" : "object",
+                    "properties" : {
+                        "method" : {
+                            "type" : "string",
+                            "enum" : [
+                                "action"
+                            ]
+                        },
+                        "action" : {
+                            "type" : "string"
+                        },
+                        "content" : {
+                            "type" : "object"
+                        },
+                        "parameters" : {
+                            "type" : "object"
+                        },
+                        "context" : {
+                            "type" : "object"
+                        }
+                    }
+                }
+            }
+        ],
+        "queries" : [
+            {
+                "description" : "Echo a query-filter request.",
+                "type" : "FILTER",
+                "queryableFields" : [
+                    "*"
+                ]
+            },
+            {
+                "description" : "Echo a query-all request.",
+                "type" : "ID",
+                "queryId" : "query-all"
+            },
+            {
+                "description" : "Echo a query-all-ids request.",
+                "type" : "ID",
+                "queryId" : "query-all-ids"
+            }
+        ],
+        "resourceSchema" : {
+            "title" : "Echo resource",
+            "type" : "object",
+            "properties" : {
+                "method" : {
+                    "title" : "CREST method",
+                    "type" : "string"
+                },
+                "resourceName" : {
+                    "type" : "string"
+                },
+                "parameters" : {
+                    "type" : "object"
+                },
+                "context" : {
+                    "type" : "object"
+                }
+            }
+        }
+    }
+}

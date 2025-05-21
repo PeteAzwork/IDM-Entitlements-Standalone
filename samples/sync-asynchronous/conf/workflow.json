@@ -1,0 +1,12 @@
+{
+    "useDataSource" : "default",
+    "workflowDirectory" : "&{idm.instance.dir}/workflow",
+    "userResource" : {
+        "path" : "managed/user",
+        "queryFilter" : "/userName eq \"${username}\""
+    },
+    "groupResource" : {
+        "path" : "managed/group",
+        "queryFilter" : "/id eq \"${gid}\""
+    }
+}

@@ -1,0 +1,36 @@
+{{!--
+  Copyright 2017 ForgeRock AS. All Rights Reserved
+
+  Use of this code requires a commercial software license with ForgeRock AS.
+  or with one of its affiliates. All use shall be exclusively subject
+  to such license between the licensee and ForgeRock AS.
+--}}
+<div class="panel panel-default recon-grid-panel">
+    <div class="panel-heading recon-grid-panel-heading" role="tab" id="failureEntryHeading_{{id}}">
+            <a role="button" data-toggle="collapse" href="#failureEntry_{{id}}" aria-expanded="false" aria-controls="failureEntry_{{id}}">
+                <h5>{{message}}</h5>
+                {{#if messageDetailReport.length }}
+                    <ul class="list-unstyled">
+                        {{#each messageDetailReport}}
+                            <li class="text-muted">{{this}}</li>
+                        {{/each}}
+                    </ul>
+                {{/if}}
+                    <dl class="failure-detail-list">
+                        <dt>Mapping</dt>
+                        <dd>{{mapping}}</dd>
+                        {{#if sourceObjectId}}
+                            <dt>Source</dt>
+                            <dd>{{sourceObjectId}}</dd>
+                        {{/if}}
+                        {{#if targetObjectId}}
+                            <dt>Target</dt>
+                            <dd>{{targetObjectId}}</dd>
+                        {{/if}}
+                    </dl>
+            </a>
+    <div id="failureEntry_{{id}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="failureEntryHeading_{{id}}">
+            <pre class="failure-entry-json">{{originalValue}}</pre>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,50 @@
+{{!
+  Copyright 2015-2017 ForgeRock AS. All Rights Reserved
+
+  Use of this code requires a commercial software license with ForgeRock AS.
+  or with one of its affiliates. All use shall be exclusively subject
+  to such license between the licensee and ForgeRock AS.
+}}
+{{> dashboard/_widgetHeader}}
+<div class="panel-body widget-body">
+    {{#if schema.title}}
+    <div class="toolbar clearfix relationship-toolbar">
+        <div class="tool-group-right">
+            <div class="toolbar-search">
+                <div class="form-group">
+                    <form class="form-inline" role="form">
+                        <div class="form-group selectize-holder">
+                            <div class="form-group">
+                                <select style="width:250px;" type="text" placeholder="{{schema.title}} Search" class="form-control findRelationship" value="{{sample_txt}}"></select>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="pull-left">
+            <h4 class="relationshipChartObjectHeader" >{{schema.title}} {{ t "dashboard.relationshipWidget.links" }}</h4>
+        </div>
+    </div>
+    <div class="relationship-display">
+        <div>
+            <div class="relationshipGraph relationshipTreeView" class="tab-pane">
+                <div class="relationshipGraphStatus">
+                    {{#if resourceUrl}}
+                        <h2>{{ t "dashboard.relationshipWidget.gatheringRelationshipData" }}</h2>
+                    {{else}}
+                        <h2>{{ t "dashboard.relationshipWidget.findA" }} {{schema.title}} {{ t "dashboard.relationshipWidget.inTheSearchFieldAbove" }}</h2>
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+    </div>
+    {{else}}
+    <div class="no-data recon-message">
+        <div class="well">
+            <div class="message-icon text-primary"><i class="fa fa-gear"></i></div>
+            <h3>{{t "dashboard.relationshipWidget.configureWidget"}}</h3>
+        </div>
+    </div>
+    {{/if}}
+</div>

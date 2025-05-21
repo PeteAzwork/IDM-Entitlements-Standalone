@@ -1,0 +1,35 @@
+{{!--
+  Copyright 2018-2020 ForgeRock AS. All Rights Reserved
+
+  Use of this code requires a commercial software license with ForgeRock AS.
+  or with one of its affiliates. All use shall be exclusively subject
+  to such license between the licensee and ForgeRock AS.
+--}}
+
+<div class="container">
+    <div class="page-header">
+        <h1>{{t "templates.admin.RoleList.roles"}}</h1>
+    </div>
+    <div class="tab-menu">
+        <ul id="roleTabHeaders" class="nav nav-tabs" role="tablist">
+            <li role="presentation" {{#equals roleType 'managed'}}class="active" {{/equals}} data-role-type="managed">
+                <a href="" aria-controls="managedTab" role="tab" data-toggle="tab"
+                    aria-expanded="{{#equals roleType 'managed'}}true{{else}}false{{/equals}}">{{t "templates.admin.RoleList.external"}}</a>
+            </li>
+            <li role="presentation" {{#equals roleType 'internal'}}class="active" {{/equals}} data-role-type="internal">
+                <a href="" aria-controls="internalTab" role="tab" data-toggle="tab"
+                    aria-expanded="{{#equals roleType 'internal'}}true{{else}}false{{/equals}}">{{t "templates.admin.RoleList.internal"}}</a>
+            </li>
+        </ul>
+    </div>
+    <div class="panel no-margin-bottom" id="internalExternalRolesTabs">
+        <div class="table-responsive panel-body">
+            <div class="tab-content">
+                <div id="managedTab" class="tab-pane data-list-view {{#equals roleType 'managed'}}active{{/equals}}"
+                    role="tabpanel"></div>
+                <div id="internalTab" class="tab-pane data-list-view {{#equals roleType 'internal'}}active{{/equals}}"
+                    role="tabpanel"></div>
+            </div>
+        </div>
+    </div>
+</div>

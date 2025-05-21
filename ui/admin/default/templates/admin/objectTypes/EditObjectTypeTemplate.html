@@ -1,0 +1,117 @@
+{{!
+  Copyright 2015-2021 ForgeRock AS. All Rights Reserved
+
+  Use of this code requires a commercial software license with ForgeRock AS.
+  or with one of its affiliates. All use shall be exclusively subject
+  to such license between the licensee and ForgeRock AS.
+}}
+<div class="fr-top-bar">
+    <div class="container">
+        <h3 class="fr-breadcrumb">
+            <a href="#connectors/">{{t "templates.connector.objectTypes.connectors"}}</a>
+            <span class="seperator"></span>
+            <a href="#connectors/objectTypes/{{systemType}}_{{connectorId}}/">{{connectorId}}</a>
+            <span class="seperator"></span>
+            <span>{{objectTypeName}}</span>
+        </h3>
+    </div>
+</div>
+
+<div class="container">
+    <div class="page-header clearfix">
+        <span class="header-icon pull-left"><i class="fa fa-cube"></i></span>
+        <h4 class="page-type">{{t "templates.connector.objectTypes.objectType"}}</h4>
+        <div class="page-header-button-group">
+            <a href="#mapping/add/connector/{{connectorId}}">
+                <button type="button" class="btn btn-primary btn-actions">
+                    <i class="fa fa-plus"></i> {{t "templates.connector.addMapping"}}
+                </button>
+            </a>
+            <div class="btn-group">
+                <button type="button" class="btn btn-default btn-secondary dropdown-toggle btn-actions" data-toggle="dropdown" aria-expanded="false">
+                    <i class="fa fa-ellipsis-v fa-lg"></i>
+                </button>
+                <ul class="dropdown-menu pull-right" role="menu">
+                    <li class="data-link"><a href="#connectors/data/{{systemType}}_{{connectorId}}/{{objectTypeName}}"><i class="fa fa-database"></i>{{t "templates.admin.ResourceEdit.data"}}</a></li>
+                    <li class="divider"></li>
+                    <li id="deleteObjectType"><a href="#"><i class="fa fa-times"></i>{{t "common.form.delete"}}</a></li>
+                </ul>
+            </div>
+        </div>
+        <h1 id="objectTypeDisplayName">{{objectTypeName}}</h1>
+    </div>
+</div>
+<div class="container">
+    <div class="tab-menu">
+        <ul class="nav nav-tabs" role="tablist">
+            <li class="dropdown pull-right tabdrop hide">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="icon-align-justify"></i> <i class="fa fa-ellipsis-v"></i></a>
+                <ul class="dropdown-menu"></ul>
+            </li>
+            <li class="active"><a href="#objectTypeSchemaContainer" role="tab" data-toggle="tab" aria-expanded="true">{{t "templates.managed.properties"}}</a></li>
+            <li class=""><a href="#detailsContainer" role="tab" data-toggle="tab" aria-expanded="false">{{t "templates.managed.details"}}</a></li>
+            <li class=""><a href="#syncContainer" role="tab" data-toggle="tab" aria-expanded="false">{{t "templates.connector.syncTab"}}</a></li>
+        </ul>
+    </div>
+    <div class="tab-content">
+        <div role="tabpanel" class="managedContainers tab-pane" id="detailsContainer">
+            <div class="panel no-margin-bottom">
+                <form id="detailsForm" class="form-horizontal" role="form" autocomplete="off">
+                    <div id="generalDetails" aria-labelledby="generalDetails">
+                        <div class="panel-body">
+                            <div class="form-group has-feedback">
+                                <label for="objectTypeName" class="col-sm-3 control-label">{{t "templates.connector.objectTypes.objectTypeName"}}</label>
+                                <div class="col-sm-8">
+                                    <input class="form-control" type="text" id="objectTypeName" name="name" value="{{objectTypeName}}" data-validator="spaceCheck restrictedCharacters" data-validator-event="keyup blur" required autofocus/>
+                                    <div class="validation-message"></div>
+                                    <span class="error form-control-feedback"><i class='fa validation-icon'></i></span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="objectTypeId" class="col-sm-3 control-label">{{t "templates.connector.objectTypes.id"}}</label>
+                                <div class="col-sm-8">
+                                    <input class="form-control" type="text" id="objectTypeId" name="objectTypeId" value="{{objectType.id}}"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="nativeType" class="col-sm-3 control-label">{{t "templates.connector.objectTypes.nativeType"}}</label>
+                                <div class="col-sm-8">
+                                    <input class="form-control" type="text" id="nativeType" name="nativeType" value="{{objectType.nativeType}}"/>
+                                </div>
+                            </div>
+                            <div style="display:none;" role="alert" id="objectTypeErrorMessage" class="changesPending alert alert-warning" style="">
+                                <i class="fa fa-exclamation-circle"></i><strong>{{t "common.form.warning" }}!</strong>
+                                <span class="message"></span>
+                            </div>
+                        </div>
+                    </div>
+                <div class="panel-footer clearfix">
+                    <div class="pull-left">
+                        <div class="changes-pending-container"></div>
+                    </div>
+                    <div class="pull-right">
+                        <input type="button" id="saveObjectType" value="{{t 'common.form.save'}}" class="btn btn-save btn-primary" disabled>
+                    </div>
+                </div>
+                </form>
+            </div>
+        </div>
+        <div role="tabpanel" class="managedContainers tab-pane" id="syncContainer">
+            <div class="panel no-margin-bottom">
+                <div class="panel-body form-horizontal">
+                    <div class="form-group syncTokenContainer">
+                        <label class="col-sm-3 control-label">{{t "templates.scheduler.syncToken"}}</label>
+                        <div class="col-sm-8">
+                            <textarea class="form-control disabled" disabled></textarea>
+                            <button class="btn btn-default margin-top-5" id="syncNowButton">{{t "templates.scheduler.syncNow"}}</button>
+                            <a class="pull-right margin-top-10" href="{{docHelpUrl}}synchronization-guide/manage-livesync.html" target="_blank">Help
+                                <i class="fa fa-question-circle"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div role="tabpanel" class="managedContainers tab-pane active" id="objectTypeSchemaContainer"></div>
+    </div>
+</div>

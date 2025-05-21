@@ -1,0 +1,42 @@
+{{!
+  Copyright 2015-2020 ForgeRock AS. All Rights Reserved
+
+  Use of this code requires a commercial software license with ForgeRock AS.
+  or with one of its affiliates. All use shall be exclusively subject
+  to such license between the licensee and ForgeRock AS.
+}}
+{{#if showSampleSource}}
+<div class="editResourceViewContainer" id="singleRecordReconGridContainer">
+    <div class="clearfix">
+        <div class="pull-left">
+            <div class="page-header profile-header">
+                <div class="media ">
+                    <div class="media-left media-top">
+                        <span class="resource-avatar"><i
+                                class="fa {{#if icon}}{{schema.icon}}{{else}}fa-cube{{/if}}"></i></span>
+                    </div>
+                    <div class="media-body  media-top">
+                        <div class="page-header-button-group">
+                            <button id="syncUser" class="btn btn-primary"
+                                value="{{t "templates.sync.testSync.reconcileSelectedRecord"}}"><i
+                                    class="fa fa-refresh"></i>
+                                {{t "templates.sync.testSync.reconcileSelectedRecord"}}</button>
+                        </div>
+                        <h1>
+                            {{sampleSource_txt}}
+                        </h1>
+                        <span class="text-muted">
+                            {{sampleSource_txt_secondary}}
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        {{#if showChangedPropertyMessage}}<div id="changedPropertyMessage"><span class="fa fa-info-circle"></span>
+            {{ t "templates.sync.testSync.changedPropertyMessage"}}</div>{{/if}}
+        <div id="singleRecordReconGrid"></div>
+    </div>
+</div>
+{{/if}}

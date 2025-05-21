@@ -1,0 +1,45 @@
+{{!--
+  Copyright 2014-2017 ForgeRock AS. All Rights Reserved
+
+  Use of this code requires a commercial software license with ForgeRock AS.
+  or with one of its affiliates. All use shall be exclusively subject
+  to such license between the licensee and ForgeRock AS.
+--}}
+
+{{> form/_basicInput classname="badgeButtonConfig" value=uiConfig.iconBackground label="templates.socialProviders.badgeBackground" property="uiConfig.iconBackground" noValidation="true"}}
+{{> form/_basicInput classname="badgeButtonConfig" value=uiConfig.iconClass label="templates.socialProviders.badgeIconClass" property="uiConfig.iconClass" noValidation="true"}}
+{{> form/_basicInput classname="badgeButtonConfig" value=uiConfig.iconFontColor label="templates.socialProviders.badgeIconFontColor" property="uiConfig.iconFontColor" noValidation="true"}}
+
+<div class="preview-configs form-group">
+    <label class="col-sm-3 control-label"></label>
+    <div class="col-sm-9">
+        {{> providers/_providerBadge}}
+
+        {{> providers/_providerCircle size="small"}}
+
+        {{> providers/_providerCircle size="large"}}
+    </div>
+</div>
+
+{{> form/_basicInput classname="badgeButtonConfig button-image-path-input" value=uiConfig.buttonImage label="templates.socialProviders.buttonImagePath" property="uiConfig.buttonImage"}}
+{{> form/_basicInput classname="badgeButtonConfig" value=uiConfig.buttonClass label="templates.socialProviders.buttonClass" property="uiConfig.buttonClass" noValidation="true"}}
+{{> form/_basicInput classname="badgeButtonConfig" value=uiConfig.buttonDisplayName label="templates.socialProviders.buttonDisplayName" property="uiConfig.buttonDisplayName" noValidation="true"}}
+<div class="form-group">
+    <label class="col-sm-3 control-label">{{t "templates.socialProviders.buttonCustomStyle"}}</label>
+    <div class="col-sm-6">
+        <textarea class="button-html badgeButtonConfig" name="uiConfig.buttonCustomStyle">{{uiConfig.buttonCustomStyle}}</textarea>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-3 control-label">{{t "templates.socialProviders.buttonCustomStyleHover"}}</label>
+    <div class="col-sm-6">
+        <textarea class="button-html badgeButtonConfig" name="uiConfig.buttonCustomStyleHover">{{uiConfig.buttonCustomStyleHover}}</textarea>
+    </div>
+</div>
+
+<div class="preview-configs form-group">
+    <label class="col-sm-3 control-label"></label>
+    <div class="col-sm-9">
+        {{> providers/_providerButton}}
+    </div>
+</div>

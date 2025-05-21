@@ -1,0 +1,13 @@
+{
+    "enabled" : false,
+    "type" : "simple",
+    "repeatInterval" : 3600000,
+    "persisted" : true,
+    "concurrentExecution" : false,
+    "misfirePolicy" : "fireAndProceed",
+    "invokeService" : "sync",
+    "invokeContext" : {
+        "action" : "reconcile",
+        "mapping" : "systemCsvfileAccounts_managedUser"
+    }
+}

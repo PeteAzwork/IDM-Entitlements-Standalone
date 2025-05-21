@@ -1,0 +1,24 @@
+{{!--
+  Copyright 2016-2017 ForgeRock AS. All Rights Reserved
+
+  Use of this code requires a commercial software license with ForgeRock AS.
+  or with one of its affiliates. All use shall be exclusively subject
+  to such license between the licensee and ForgeRock AS.
+--}}
+<div class="form-group schedule-form-element">
+    <label for="{{type}}" class="col-sm-3 control-label">{{camelCaseToTitle type}}</label>
+    <div class="col-sm-6">
+        <select id="select-{{noSpaceType}}" class="form-control " {{#unless noForm2js}}name="{{noSpaceType}}"{{/unless}}>
+            {{#staticSelect resourceMapping}}
+                {{#each resourceMappingOptions as |option| }}
+                    <option value="{{option}}">{{option}}</option>
+                {{/each}}
+            {{/staticSelect}}
+        </select>
+
+
+        {{#if helpKey}}
+        <div class="help-block">{{t helpKey}}</div>
+        {{/if}}
+    </div>
+</div>

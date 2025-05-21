@@ -1,0 +1,43 @@
+{{!
+  Copyright 2015-2017 ForgeRock AS. All Rights Reserved
+
+  Use of this code requires a commercial software license with ForgeRock AS.
+  or with one of its affiliates. All use shall be exclusively subject
+  to such license between the licensee and ForgeRock AS.
+}}
+
+<div role="alert" class="managedLiveSyncDisabled noLiveSyncMessage alert alert-danger" style="display: none;">
+    <i class="fa fa-exclamation-circle"></i>
+    <span class="message">{{t "templates.schedule.liveSyncDisabled" connectorId=connectorId}}</span>
+</div>
+
+<div role="alert" class="managedLiveSyncEnabled systemObjectMessage alert alert-success" style="display: none;">
+    <i class="fa fa-exclamation-circle"></i>
+    <span class="message">{{t "templates.schedule.liveSyncEnabled" connectorId=connectorId}}</span>
+</div>
+
+<div class="form-group row liveSyncEnabledContainer">
+    <label class="col-sm-3 control-label text-right margin-top-15" for="{{this.name}}">{{t "templates.schedule.enableLiveSync"}}</label>
+    <div class="col-sm-8">
+        <div class="checkbox checkbox-slider-primary checkbox-slider checkbox-slider--b checkbox-slider-md">
+            <label>
+                <input class="toggleBoolean advancedMappingParam liveSyncEnabled"
+                    type="checkbox"
+                    value="true" >
+                <span></span>
+            </label>
+
+        </div>
+        <span class="help-block">
+            <p style="display:none;"  class="managedSourceMessage help-block">{{t "templates.schedule.managedObjects"}}</p>
+            <p style="display:none;"  class="systemObjectMessage help-block">
+                {{t "templates.schedule.systemObjects1"}} <span class="liveSyncSeconds">0</span> {{t "templates.schedule.systemObjects2"}}
+            </p>
+        </span>
+
+    </div>
+</div>
+
+<div class="live-sync-footer clearfix">
+    <input type="button" class="pull-right btn btn-primary saveLiveSync" value="{{t 'common.form.save'}}" />
+</div>

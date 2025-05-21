@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<!--
+  Copyright 2015-2021 ForgeRock AS. All Rights Reserved
+
+  Use of this code requires a commercial software license with ForgeRock AS.
+  or with one of its affiliates. All use shall be exclusively subject
+  to such license between the licensee and ForgeRock AS.
+-->
+<html>
+<script src="libs/jquery-3.5.1-min.js"></script>
+<script>
+    (function () {
+        var queryParams = encodeURI(window.location.search).replace("?", "").split("&").reduce(function (map, item) {
+            var parts = item.split("="),
+                decodedValue = [decodeURIComponent(parts[1])];
+            map[parts[0]] = map[parts[0]] ? map[parts[0]].concat(decodedValue) : decodedValue;
+            return map;
+        }, {});
+
+        $.ajax({
+            url: "/openidm/identityProviders?_action=handlePostAuth",
+            type: "POST",
+            dataType: "json",
+            data: JSON.stringify(queryParams),
+            headers: {
+                "Content-type": "application/json",
+                "X-OpenIDM-Username": "anonymous",
+                "X-OpenIDM-Password": "anonymous",
+                "X-OpenIDM-NoSession": "true",
+                "X-OpenIDM-DataStoreToken": localStorage.getItem("dataStoreToken")
+            }
+        })
+            .then(function (response) {
+                localStorage.setItem("dataStoreToken", response.token);
+                window.location.href = response.landingPage;
+            }, function (response) {
+                if (response.responseJSON) {
+                    localStorage.removeItem("dataStoreToken");
+                    window.location.href = response.responseJSON.detail.landingPage;
+                } else {
+                    console.error(response.responseText)
+                }
+            });
+
+    }());
+</script>
+
+</html>

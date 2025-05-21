@@ -1,0 +1,428 @@
+{{!
+  Copyright 2017-2023 ForgeRock AS. All Rights Reserved
+
+  Use of this code requires a commercial software license with ForgeRock AS.
+  or with one of its affiliates. All use shall be exclusively subject
+  to such license between the licensee and ForgeRock AS.
+}}
+<!-- Base Details panel -->
+<div class="panel panel-default panel-collapse" id="scimConnector">
+    <div class="panel-heading" role="tab" id="connectorSpecificBaseHeading">
+        <h4 class="panel-title">
+            <a data-toggle="collapse" href="#connectorSpecificBase" aria-expanded="true" aria-controls="connectorSpecificBase"
+               class="">{{t "templates.connector.baseTitle"}}</a>
+        </h4>
+    </div>
+    <div id="connectorSpecificBase" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="connectorSpecificBaseHeading"
+         aria-expanded="true">
+        <div class="panel-body">
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="SCIMEndpoint">{{t "templates.connector.scim.SCIMEndpoint"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" data-validator="required" type="text" id="SCIMEndpoint"
+                           name="configurationProperties.SCIMEndpoint"
+                           value="{{connectorDefaults.configurationProperties.SCIMEndpoint}}" />
+                    <span class='help-block'>{{t "templates.connector.scim.SCIMEndpointHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="SCIMVersion">{{t "templates.connector.scim.SCIMVersion"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="number" id="SCIMVersion" name="configurationProperties.SCIMVersion"
+                           value="{{connectorDefaults.configurationProperties.SCIMVersion}}" />
+                    <span class='help-block'>{{t "templates.connector.scim.SCIMVersionHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="acceptHeader">{{t "templates.connector.scim.acceptHeader"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="acceptHeader" name="configurationProperties.acceptHeader"
+                           value="{{connectorDefaults.configurationProperties.acceptHeader}}" />
+                    <span class='help-block'>{{t "templates.connector.scim.acceptHeaderHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="contentTypeHeader">{{t "templates.connector.scim.contentTypeHeader"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="contentTypeHeader" name="configurationProperties.contentTypeHeader"
+                           value="{{connectorDefaults.configurationProperties.contentTypeHeader}}" />
+                    <span class='help-block'>{{t "templates.connector.scim.contentTypeHeaderHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="useBasicAuthForOauthTokenNeg">{{t "templates.connector.scim.useBasicAuthForOauthTokenNeg"}}</label>
+                <div class="col-sm-8">
+                    <div class="checkbox checkbox-slider-primary checkbox-slider checkbox-slider--b checkbox-slider-md">
+                        <label>
+                            <input class="toggleBoolean" id="useBasicAuthForOauthTokenNeg" type="checkbox"
+                                   name="configurationProperties.useBasicAuthForOauthTokenNeg"
+                                   value="true" {{#if connectorDefaults.configurationProperties.useBasicAuthForOauthTokenNeg}} checked {{/if}} >
+                            <span></span>
+                        </label>
+                    </div>
+                    <span class='help-block'>{{t "templates.connector.scim.useBasicAuthForOauthTokenNegHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="maximumConnections">{{t "templates.connector.scim.maximumConnections"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="number" id="maximumConnections" name="configurationProperties.maximumConnections"
+                           value="{{connectorDefaults.configurationProperties.maximumConnections}}" />
+                    <span class='help-block'>{{t "templates.connector.scim.maximumConnectionsHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="connectionTimeout">{{t "templates.connector.scim.connectionTimeout"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="number" id="connectionTimeout" name="configurationProperties.connectionTimeout"
+                           value="{{connectorDefaults.configurationProperties.connectionTimeout}}" />
+                    <span class='help-block'>{{t "templates.connector.scim.connectionTimeoutHelp"}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Authentication Panel -->
+<div class="panel panel-default panel-collapse" id="SCIMAuthPanel">
+    <div class="panel-heading" role="tab" id="SCIMConnectorAuthPanelHeading">
+        <h4 class="panel-title">
+            <a data-toggle="collapse" href="#SCIMConnectorAuthPanel" aria-expanded="true" aria-controls="SCIMConnectorAuthPanel"
+               class="">{{t "templates.connector.authentication"}}</a>
+        </h4>
+    </div>
+    <div id="SCIMConnectorAuthPanel" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="SCIMConnectorAuthPanelHeading"
+         aria-expanded="true">
+        <div class="panel-body">
+            <div class="form-group" data-authentication-method="oauth">
+                <label class="col-sm-3 control-label" for="authenticationMethod">{{t "templates.connector.scim.authenticationMethod"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" data-validator="" type="text" id="authenticationMethod"
+                           name="configurationProperties.authenticationMethod"
+                           value="{{connectorDefaults.configurationProperties.authenticationMethod}}" />
+                    <span class='help-block'>{{t "templates.connector.scim.authenticationMethodHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group" data-authentication-method="oauth">
+                <label class="col-sm-3 control-label" for="tokenEndpoint">{{t "templates.connector.scim.tokenEndpoint"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" data-validator="" type="text" id="tokenEndpoint"
+                           name="configurationProperties.tokenEndpoint"
+                           value="{{connectorDefaults.configurationProperties.tokenEndpoint}}" />
+                    <span class='help-block'>{{t "templates.connector.scim.tokenEndpointHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group" data-authentication-method="oauth">
+                <label class="col-sm-3 control-label" for="clientId">{{t "templates.connector.scim.clientId"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" data-validator="" type="text" id="clientId"
+                           name="configurationProperties.clientId"
+                           value="{{connectorDefaults.configurationProperties.clientId}}"  />
+                    <span class='help-block'>{{t "templates.connector.scim.clientIdHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group" data-authentication-method="oauth">
+                <label class="col-sm-3 control-label" for="clientSecret">{{t "templates.connector.scim.clientSecret"}}</label>
+                <div class="col-sm-8">
+                    <!-- autocomplete="new-password" is required to prevent chrome from auto-completing these form fields -->
+                    {{#ifObject connectorDefaults.configurationProperties.clientSecret}}
+                        {{#if connectorDefaults.configurationProperties.clientSecret.$crypto}}
+                            <input id="clientSecret" class="form-control" name="configurationProperties.clientSecret"
+                                   type="password"
+                            {{#if connectorDefaults.configurationProperties.clientSecret}} placeholder="********" {{/if}} autocomplete="new-password" />
+                        {{else}}
+                            <input id="clientSecret" class="form-control" name="configurationProperties.clientSecret" type="password"
+                                   placeholder="{{connectorDefaults.configurationProperties.clientSecret.$base64:decode}}"
+                                   autocomplete="new-password" />
+                        {{/if}}
+                    {{else}}
+                        <input id="clientSecret" class="form-control" data-validator="required" type="password"
+                               name="configurationProperties.clientSecret"
+                               value="{{connectorDefaults.configurationProperties.clientSecret}}" autocomplete="new-password" />
+                    {{/ifObject}}
+                    <span class='help-block'>{{t "templates.connector.scim.clientSecretHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group" data-authentication-method="oauth">
+                <label class="col-sm-3 control-label" for="grantType">{{t "templates.connector.scim.grantType"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="grantType" name="configurationProperties.grantType"
+                           value="{{connectorDefaults.configurationProperties.grantType}}" />
+                    <span class='help-block'>{{t "templates.connector.scim.grantTypeHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group" data-authentication-method="oauth">
+                <label class="col-sm-3 control-label" for="refreshToken">{{t "templates.connector.scim.refreshToken"}}</label>
+                <div class="col-sm-8">
+                    <!-- autocomplete="new-password" is required to prevent chrome from auto-completing these form fields -->
+                    {{#ifObject connectorDefaults.configurationProperties.refreshToken}}
+                    {{#if connectorDefaults.configurationProperties.refreshToken.$crypto}}
+                    <input id="refreshToken" class="form-control" name="configurationProperties.refreshToken"
+                           type="password"
+                           {{#if connectorDefaults.configurationProperties.refreshToken}} placeholder="********" {{/if}} autocomplete="new-password" />
+                    {{else}}
+                    <input id="refreshToken" class="form-control" name="configurationProperties.refreshToken" type="password"
+                           placeholder="{{connectorDefaults.configurationProperties.refreshToken.$base64:decode}}"
+                           autocomplete="new-password" />
+                    {{/if}}
+                    {{else}}
+                    <input id="refreshToken" class="form-control" data-validator="" type="password"
+                           name="configurationProperties.refreshToken"
+                           value="{{connectorDefaults.configurationProperties.refreshToken}}" autocomplete="new-password" />
+                    {{/ifObject}}
+                    <span class='help-block'>{{t "templates.connector.scim.refreshTokenHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group" data-authentication-method="oauth">
+                <label class="col-sm-3 control-label" for="scope">{{t "templates.connector.scim.scope"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="scope" name="configurationProperties.scope"
+                           value="{{connectorDefaults.configurationProperties.scope}}" />
+                    <span class='help-block'>{{t "templates.connector.scim.scopeHelp"}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Additional Options Panel -->
+<div class="panel panel-default panel-collapse" id="SCIMAdditionalOptPanel">
+    <div class="panel-heading" role="tab" id="SCIMAdditionalOptPanelHeading">
+        <h4 class="panel-title">
+            <a data-toggle="collapse" href="#SCIMAdditionalOptPanel" aria-expanded="true" aria-controls="SCIMAdditionalOptPanel"
+               class="">{{t "templates.connector.scim.additionalOptions"}}</a>
+        </h4>
+    </div>
+    <div id="SCIMConnectorAdditionalOptPanel" class="panel-collapse collapse in" role="tabpanel"
+         aria-labelledby="SCIMConnectorAdditionalOptPanelHeading"
+         aria-expanded="true">
+        <div class="panel-body">
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="authToken">{{t "templates.connector.scim.authToken"}}</label>
+                <div class="col-sm-8">
+                    <!-- autocomplete="new-password" is required to prevent chrome from auto-completing these form fields -->
+                    {{#ifObject connectorDefaults.configurationProperties.authToken}}
+                    {{#if connectorDefaults.configurationProperties.authToken.$crypto}}
+                    <input id="authToken" class="form-control" name="configurationProperties.authToken"
+                           type="password"
+                           {{#if connectorDefaults.configurationProperties.authToken}} placeholder="********" {{/if}} autocomplete="new-password" />
+                    {{else}}
+                    <input id="authToken" class="form-control" name="configurationProperties.authToken" type="password"
+                           placeholder="{{connectorDefaults.configurationProperties.authToken.$base64:decode}}"
+                           autocomplete="new-password" />
+                    {{/if}}
+                    {{else}}
+                    <input id="authToken" class="form-control" data-validator="" type="password"
+                           name="configurationProperties.authToken"
+                           value="{{connectorDefaults.configurationProperties.authToken}}" autocomplete="new-password" />
+                    {{/ifObject}}
+                    <span class='help-block'>{{t "templates.connector.scim.authTokenHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="authorizationTokenPrefix">{{t "templates.connector.scim.authorizationTokenPrefix"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" data-validator="" type="text" id="authorizationTokenPrefix"
+                           name="configurationProperties.authorizationTokenPrefix"
+                           value="{{connectorDefaults.configurationProperties.authorizationTokenPrefix}}" />
+                    <span class='help-block'>{{t "templates.connector.scim.authorizationTokenPrefixHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="user">{{t "templates.connector.scim.user"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" data-validator="" type="text" id="user"
+                           name="configurationProperties.user"
+                           value="{{connectorDefaults.configurationProperties.user}}" />
+                    <span class='help-block'>{{t "templates.connector.scim.userHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="password">{{t "templates.connector.scim.password"}}</label>
+                <div class="col-sm-8">
+                    <!-- autocomplete="new-password" is required to prevent chrome from auto-completing these form fields -->
+                    {{#ifObject connectorDefaults.configurationProperties.password}}
+                    {{#if connectorDefaults.configurationProperties.password.$crypto}}
+                    <input id="password" class="form-control" name="configurationProperties.password"
+                           type="password"
+                           {{#if connectorDefaults.configurationProperties.password}} placeholder="********" {{/if}} autocomplete="new-password" />
+                    {{else}}
+                    <input id="password" class="form-control" name="configurationProperties.password" type="password"
+                           placeholder="{{connectorDefaults.configurationProperties.password.$base64:decode}}"
+                           autocomplete="new-password" />
+                    {{/if}}
+                    {{else}}
+                    <input id="password" class="form-control" data-validator="" type="password"
+                           name="configurationProperties.password"
+                           value="{{connectorDefaults.configurationProperties.password}}" autocomplete="new-password" />
+                    {{/ifObject}}
+                    <span class='help-block'>{{t "templates.connector.scim.passwordHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="clientCertAlias">{{t "templates.connector.scim.clientCertAlias"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" data-validator="" type="text" id="clientCertAlias"
+                           name="configurationProperties.clientCertAlias"
+                           value="{{connectorDefaults.configurationProperties.clientCertAlias}}" />
+                    <span class='help-block'>{{t "templates.connector.scim.clientCertAliasHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="clientCertPassword">{{t "templates.connector.scim.clientCertPassword"}}</label>
+                <div class="col-sm-8">
+                    <!-- autocomplete="new-password" is required to prevent chrome from auto-completing these form fields -->
+                    {{#ifObject connectorDefaults.configurationProperties.clientCertPassword}}
+                    {{#if connectorDefaults.configurationProperties.clientCertPassword.$crypto}}
+                    <input id="clientCertPassword" class="form-control" name="configurationProperties.clientCertPassword"
+                           type="password"
+                           {{#if connectorDefaults.configurationProperties.clientCertPassword}} placeholder="********" {{/if}} autocomplete="new-password" />
+                    {{else}}
+                    <input id="clientCertPassword" class="form-control" name="configurationProperties.clientCertPassword" type="password"
+                           placeholder="{{connectorDefaults.configurationProperties.clientCertPassword.$base64:decode}}"
+                           autocomplete="new-password" />
+                    {{/if}}
+                    {{else}}
+                    <input id="clientCertPassword" class="form-control" data-validator="" type="password"
+                           name="configurationProperties.clientCertPassword"
+                           value="{{connectorDefaults.configurationProperties.clientCertPassword}}" autocomplete="new-password" />
+                    {{/ifObject}}
+                    <span class='help-block'>{{t "templates.connector.scim.clientCertPasswordHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="disableHttpCompression">{{t "templates.connector.scim.disableHttpCompression"}}</label>
+                <div class="col-sm-8">
+                    <div class="checkbox checkbox-slider-primary checkbox-slider checkbox-slider--b checkbox-slider-md">
+                        <label>
+                            <input class="toggleBoolean" id="disableHttpCompression" type="checkbox"
+                                   name="configurationProperties.disableHttpCompression"
+                                   value="true" {{#if connectorDefaults.configurationProperties.disableHttpCompression}} checked {{/if}} >
+                            <span></span>
+                        </label>
+                    </div>
+                    <span class='help-block'>{{t "templates.connector.scim.disableHttpCompressionHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="acceptSelfSignedCertificates">{{t "templates.connector.scim.acceptSelfSignedCertificates"}}</label>
+                <div class="col-sm-8">
+                    <div class="checkbox checkbox-slider-primary checkbox-slider checkbox-slider--b checkbox-slider-md">
+                        <label>
+                            <input class="toggleBoolean" id="acceptSelfSignedCertificates" type="checkbox"
+                                   name="configurationProperties.acceptSelfSignedCertificates"
+                                   value="true" {{#if connectorDefaults.configurationProperties.acceptSelfSignedCertificates}} checked {{/if}} >
+                            <span></span>
+                        </label>
+                    </div>
+                    <span class='help-block'>{{t "templates.connector.scim.acceptSelfSignedCertificatesHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="disableHostNameVerifier">{{t "templates.connector.scim.disableHostNameVerifier"}}</label>
+                <div class="col-sm-8">
+                    <div class="checkbox checkbox-slider-primary checkbox-slider checkbox-slider--b checkbox-slider-md">
+                        <label>
+                            <input class="toggleBoolean" id="disableHostNameVerifier" type="checkbox"
+                                   name="configurationProperties.disableHostNameVerifier"
+                                   value="true" {{#if connectorDefaults.configurationProperties.disableHostNameVerifier}} checked {{/if}} >
+                            <span></span>
+                        </label>
+                    </div>
+                    <span class='help-block'>{{t "templates.connector.scim.disableHostNameVerifierHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="readRateLimit">{{t "templates.connector.scim.readRateLimit"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="readRateLimit" name="configurationProperties.readRateLimit"
+                           value="{{connectorDefaults.configurationProperties.readRateLimit}}" />
+                    <span class='help-block'>{{t "templates.connector.scim.readRateLimitHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="writeRateLimit">{{t "templates.connector.scim.writeRateLimit"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="writeRateLimit" name="configurationProperties.writeRateLimit"
+                           value="{{connectorDefaults.configurationProperties.writeRateLimit}}" />
+                    <span class='help-block'>{{t "templates.connector.scim.writeRateLimitHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="readSchema">{{t "templates.connector.scim.readSchema"}}</label>
+                <div class="col-sm-8">
+                    <div class="checkbox checkbox-slider-primary checkbox-slider checkbox-slider--b checkbox-slider-md">
+                        <label>
+                            <input class="toggleBoolean" id="readSchema" type="checkbox"
+                                   name="configurationProperties.readSchema"
+                                   value="true" {{#if connectorDefaults.configurationProperties.readSchema}} checked {{/if}} >
+                            <span></span>
+                        </label>
+                    </div>
+                    <span class='help-block'>{{t "templates.connector.scim.readSchemaHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="usePathForPatchV2">{{t "templates.connector.scim.usePathForPatchV2"}}</label>
+                <div class="col-sm-8">
+                    <div class="checkbox checkbox-slider-primary checkbox-slider checkbox-slider--b checkbox-slider-md">
+                        <label>
+                            <input class="toggleBoolean" id="usePathForPatchV2" type="checkbox"
+                                   name="configurationProperties.usePathForPatchV2"
+                                   value="true" {{#if connectorDefaults.configurationProperties.usePathForPatchV2}} checked {{/if}} >
+                            <span></span>
+                        </label>
+                    </div>
+                    <span class='help-block'>{{t "templates.connector.scim.usePathForPatchV2Help"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="httpProxyHost">{{t "templates.connector.scim.httpProxyHost"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" data-validator="" type="text" id="httpProxyHost"
+                           name="configurationProperties.httpProxyHost"
+                           value="{{connectorDefaults.configurationProperties.httpProxyHost}}" />
+                    <span class='help-block'>{{t "templates.connector.scim.httpProxyHostHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="httpProxyPort">{{t "templates.connector.scim.httpProxyPort"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" data-validator="" type="number" id="httpProxyPort"
+                           name="configurationProperties.httpProxyPort"
+                           value="{{connectorDefaults.configurationProperties.httpProxyPort}}" />
+                    <span class='help-block'>{{t "templates.connector.scim.httpProxyPortHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="httpProxyUsername">{{t "templates.connector.scim.httpProxyUsername"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" data-validator="" type="text" id="httpProxyUsername"
+                           name="configurationProperties.httpProxyUsername"
+                           value="{{connectorDefaults.configurationProperties.httpProxyUsername}}" />
+                    <span class='help-block'>{{t "templates.connector.scim.httpProxyUsernameHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="httpProxyPassword">{{t "templates.connector.scim.httpProxyPassword"}}</label>
+                <div class="col-sm-8">
+                    <!-- autocomplete="new-password" is required to prevent chrome from auto-completing these form fields -->
+                    {{#ifObject connectorDefaults.configurationProperties.httpProxyPassword}}
+                    {{#if connectorDefaults.configurationProperties.httpProxyPassword.$crypto}}
+                    <input id="httpProxyPassword" class="form-control" name="configurationProperties.httpProxyPassword"
+                           type="password"
+                           {{#if connectorDefaults.configurationProperties.httpProxyPassword}} placeholder="********" {{/if}} autocomplete="new-password" />
+                    {{else}}
+                    <input id="httpProxyPassword" class="form-control" name="configurationProperties.httpProxyPassword" type="password"
+                           placeholder="{{connectorDefaults.configurationProperties.httpProxyPassword.$base64:decode}}"
+                           autocomplete="new-password" />
+                    {{/if}}
+                    {{else}}
+                    <input id="httpProxyPassword" class="form-control" data-validator="" type="password"
+                           name="configurationProperties.httpProxyPassword"
+                           value="{{connectorDefaults.configurationProperties.httpProxyPassword}}" autocomplete="new-password" />
+                    {{/ifObject}}
+                    <span class='help-block'>{{t "templates.connector.scim.httpProxyPasswordHelp"}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

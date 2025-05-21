@@ -1,0 +1,193 @@
+{{!
+  Copyright 2016-2023 ForgeRock AS. All Rights Reserved
+
+  Use of this code requires a commercial software license with ForgeRock AS.
+  or with one of its affiliates. All use shall be exclusively subject
+  to such license between the licensee and ForgeRock AS.
+}}
+<!-- Base Details panel -->
+<div class="panel panel-default panel-collapse" id="forKerberosConnector">
+    <div class="panel-heading" role="tab" id="connectorSpecificBaseHeading">
+        <h4 class="panel-title">
+            <a data-toggle="collapse" href="#connectorSpecificBase" aria-expanded="true" aria-controls="connectorSpecificBase" class="">{{t "templates.connector.baseTitle"}}</a>
+        </h4>
+    </div>
+    <div id="connectorSpecificBase" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="connectorSpecificBaseHeading" aria-expanded="true">
+        <div class="panel-body">
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="host">{{t "templates.connector.ssh.hostDisplay"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="host" name="configurationProperties.host" value="{{connectorDefaults.configurationProperties.host}}" data-validator="required" data-validator-event="keyup blur" data-validator-event="keyup blur"/>
+                    <span class="error form-control-feedback"><i class='fa validation-icon'></i></span>
+                </div>
+                <div class="validation-message"></div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="port">{{t "templates.connector.ssh.portDisplay"}}</label>
+                <div class="col-sm-8">
+                    {{#ifObject connectorDefaults.configurationProperties.port}}
+                        <input id="port" type="text" class="form-control" name="configurationProperties.port" value="{{connectorDefaults.configurationProperties.port.$int}}"/>
+                    {{else}}
+                        <input id="port" type="number" class="form-control" name="configurationProperties.port" value="{{connectorDefaults.configurationProperties.port}}"/>
+                    {{/ifObject}}
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="user">{{t "templates.connector.ssh.userDisplay"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="user" name="configurationProperties.user" value="{{connectorDefaults.configurationProperties.user}}" data-validator="required" data-validator-event="keyup blur" />
+                    <span class="error form-control-feedback"><i class='fa validation-icon'></i></span>
+                </div>
+                <div class="validation-message"></div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="password">{{t "templates.connector.ssh.passwordDisplay"}}</label>
+                <div class="col-sm-8">
+                    <!-- autocomplete="new-password" is required to prevent chrome from auto-completing these form fields -->
+                    {{#ifObject connectorDefaults.configurationProperties.password}}
+                        {{#if connectorDefaults.configurationProperties.password.$crypto}}
+                            <input id="clientSecret" class="form-control" type="password" data-validator-event="keyup blur" data-validator="changed" name="configurationProperties.password"
+                            {{#if connectorDefaults.configurationProperties.password}} placeholder="********" {{/if}} autocomplete="new-password" />
+                        {{else}}
+                            <input id="clientSecret" class="form-control" type="password" data-validator-event="keyup blur" data-validator="changed" autocomplete="new-password"
+                            placeholder="{{connectorDefaults.configurationProperties.password.$base64:decode}}"  name="configurationProperties.password" />
+                        {{/if}}
+                    {{else}}
+                        <input id="clientSecret" data-validator-event="keyup blur" data-validator="required" class="form-control" type="password" name="configurationProperties.password" autocomplete="new-password" required />
+                    {{/ifObject}}
+                    <span class="error form-control-feedback"><i class='fa validation-icon'></i></span>
+                </div>
+                <div class="validation-message"></div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="prompt">{{t "templates.connector.ssh.promptDisplay"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="prompt" name="configurationProperties.prompt" value="{{connectorDefaults.configurationProperties.prompt}}" data-validator="required" data-validator-event="keyup blur" />
+                    <span class="error form-control-feedback"><i class='fa validation-icon'></i></span>
+                    <span class="help-block">{{t "templates.connector.ssh.promptHelp"}}</span>
+                </div>
+                <div class="validation-message"></div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="authenticationType">{{t "templates.connector.ssh.authenticationTypeDisplay"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="authenticationType" name="configurationProperties.authenticationType" value="{{connectorDefaults.configurationProperties.authenticationType}}" />
+                    <span class="help-block">{{t "templates.connector.ssh.authenticationTypeHelp"}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Kerberos Specific Details panel -->
+<div class="panel panel-default panel-collapse">
+    <div class="panel-heading" role="tab" id="kerberosSpecificConfigHeading">
+        <div  class="pull-right help-link">
+            <a href="{{docHelpUrl}}connector-reference/kerberos.html" target="_blank">{{t "templates.connector.help"}} <i class="fa fa-question-circle"></i></a>
+        </div>
+        <h4 class="panel-title">
+            <a data-toggle="collapse" href="#kerberosSpecificConfig" aria-expanded="true" aria-controls="kerberosSpecificConfig" class="">{{t "templates.connector.kerberos.kerberosSpecificConfig"}}</a>
+        </h4>
+    </div>
+    <div id="kerberosSpecificConfig" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="kerberosSpecificConfigHeading" aria-expanded="true">
+        <div class="panel-body connector-array-component" id="kerberosSpecificConfigWrapper">
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="customConfiguration">{{t "templates.connector.kerberos.customConfiguration"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="customConfiguration" name="configurationProperties.customConfiguration" value="{{connectorDefaults.configurationProperties.customConfiguration}}" />
+                    <span class="help-block">{{t "templates.connector.kerberos.customConfigurationHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="customSensitiveConfiguration">{{t "templates.connector.kerberos.customSensitiveConfiguration"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="customSensitiveConfiguration" name="configurationProperties.customSensitiveConfiguration" value="" />
+                    <span class="help-block">{{t "templates.connector.kerberos.customSensitiveConfigurationHelp"}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- additional options panel -->
+<div class="panel panel-default panel-collapse">
+    <div class="panel-heading" role="tab" id="additionalOptionsHeading">
+        <h4 class="panel-title">
+            <a data-toggle="collapse" href="#additionalOptions" aria-expanded="false" aria-controls="additionalOptions" class="">{{t "templates.connector.ssh.additionalOptions"}}</a>
+        </h4>
+    </div>
+    <div id="additionalOptions" class="panel-collapse collapse" role="tabpanel" aria-labelledby="additionalOptionsHeading" aria-expanded="false">
+        <div class="panel-body connector-array-component" id="additionalOptionsWrapper">
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="sudoCommand">{{t "templates.connector.ssh.sudoCommandDisplay"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="sudoCommand" name="configurationProperties.sudoCommand" value="{{connectorDefaults.configurationProperties.sudoCommand}}" data-validator="required" data-validator-event="keyup blur"/>
+                    <span class="error form-control-feedback"><i class='fa validation-icon'></i></span>
+                    <span class="help-block">{{t "templates.connector.ssh.sudoCommandHelp"}}</span>
+                </div>
+                <div class="validation-message"></div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="echoOff">{{t "templates.connector.ssh.echoOffDisplay"}}</label>
+                <div class="col-sm-8">
+                    <div class="checkbox checkbox-slider-primary checkbox-slider checkbox-slider--b checkbox-slider-md">
+                        <label>
+                            <input class="toggleBoolean" id="echoOff" type="checkbox" name="configurationProperties.echoOff" value="true" {{#if connectorDefaults.configurationProperties.echoOff}} checked {{/if}}>
+                            <span></span>
+                        </label>
+                        <span class="help-block">{{t "templates.connector.ssh.echoOffHelp"}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="terminalType">{{t "templates.connector.ssh.terminalTypeDisplay"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="terminalType" name="configurationProperties.terminalType" value="{{connectorDefaults.configurationProperties.terminalType}}" />
+                    <span class="help-block">{{t "templates.connector.ssh.terminalTypeHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="setLocale">{{t "templates.connector.ssh.setLocaleDisplay"}}</label>
+                <div class="col-sm-8">
+                    <div class="checkbox checkbox-slider-primary checkbox-slider checkbox-slider--b checkbox-slider-md">
+                        <label>
+                            <input class="toggleBoolean" id="setLocale" type="checkbox" name="configurationProperties.setLocale" value="true" {{#if connectorDefaults.configurationProperties.setLocale}} checked {{/if}}>
+                            <span></span>
+                        </label>
+                        <span class="help-block">{{t "templates.connector.ssh.setLocaleHelp"}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="locale">{{t "templates.connector.ssh.localeDisplay"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="locale" name="configurationProperties.locale" value="{{connectorDefaults.configurationProperties.locale}}" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="connectionTimeout">{{t "templates.connector.ssh.connectionTimeoutDisplay"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="connectionTimeout" name="configurationProperties.connectionTimeout" value="{{connectorDefaults.configurationProperties.connectionTimeout}}" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="expectTimeout">{{t "templates.connector.ssh.expectTimeoutDisplay"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="expectTimeout" name="configurationProperties.expectTimeout" value="{{connectorDefaults.configurationProperties.expectTimeout}}" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="throwOperationTimeoutException">{{t "templates.connector.ssh.throwOperationTimeoutExceptionDisplay"}}</label>
+                <div class="col-sm-8">
+                    <div class="checkbox checkbox-slider-primary checkbox-slider checkbox-slider--b checkbox-slider-md">
+                        <label>
+                            <input class="toggleBoolean" id="throwOperationTimeoutException" type="checkbox" name="configurationProperties.throwOperationTimeoutException" value="true" {{#if connectorDefaults.configurationProperties.throwOperationTimeoutException}} checked {{/if}}>
+                            <span></span>
+                        </label>
+                        <span class="help-block">{{t "templates.connector.ssh.throwOperationTimeoutExceptionHelp"}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

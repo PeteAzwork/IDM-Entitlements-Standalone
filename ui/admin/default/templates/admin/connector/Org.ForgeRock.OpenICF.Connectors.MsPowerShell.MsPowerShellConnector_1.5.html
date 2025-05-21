@@ -1,0 +1,294 @@
+{{!
+Copyright 2016-2023 ForgeRock AS. All Rights Reserved
+
+Use of this code requires a commercial software license with ForgeRock AS.
+or with one of its affiliates. All use shall be exclusively subject
+to such license between the licensee and ForgeRock AS.
+}}
+<div class="panel panel-default panel-collapse">
+    <div class="panel-heading" role="tab" id="connectorSpecificBaseHeading">
+        <h4 class="panel-title">
+            <a data-toggle="collapse" href="#connectorSpecificBase" aria-expanded="true" aria-controls="connectorSpecificBaseHeading" class="">{{t "templates.connector.baseTitle"}}</a>
+        </h4>
+    </div>
+    <div id="connectorSpecificBase" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="connectorSpecificBase" aria-expanded="true">
+        <div class="panel-body">
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="host">{{t "templates.connector.powershell.host"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="host" name="configurationProperties.Host" value="{{connectorDefaults.configurationProperties.Host}}" data-validator="required" data-validator-event="keyup blur"/>
+                    <span class="error form-control-feedback"><i class='fa validation-icon'></i></span>
+                    <span class='help-block'>{{t "templates.connector.powershell.hostHelp"}}</span>
+                </div>
+                <div class="validation-message"></div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="port">{{t "templates.connector.powershell.port"}}</label>
+                <div class="col-sm-8">
+                    {{#ifObject connectorDefaults.configurationProperties.Port}}
+                    <input id="port" type="number" class="form-control" name="configurationProperties.Port" value="{{connectorDefaults.configurationProperties.Port.$int}}" data-validator="required" data-validator-event="keyup blur"/>
+                    {{else}}
+                    <input id="port" type="number" class="form-control" name="configurationProperties.Port" value="{{connectorDefaults.configurationProperties.Port}}" data-validator="required" data-validator-event="keyup blur"/>
+                    {{/ifObject}}
+                    <span class="error form-control-feedback"><i class='fa validation-icon'></i></span>
+                    <span class='help-block'>{{t "templates.connector.powershell.portHelp"}}</span>
+                </div>
+                <div class="validation-message"></div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="login">{{t "templates.connector.powershell.login"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="login" name="configurationProperties.Login" value="{{connectorDefaults.configurationProperties.Login}}"/>
+                    <span class='help-block'>{{t "templates.connector.powershell.loginHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="clientSecret">{{t "templates.connector.powershell.password"}}</label>
+                <div class="col-sm-8">
+                    <!-- autocomplete="new-password" is required to prevent chrome from auto-completing these form fields -->
+                    {{#ifObject connectorDefaults.configurationProperties.Password}}
+                    {{#if connectorDefaults.configurationProperties.Password.$crypto}}
+                    <input id="clientSecret" class="form-control" type="password" data-validator-event="keyup blur" data-validator="changed" name="configurationProperties.Password"
+                           {{#if connectorDefaults.configurationProperties.Password}} placeholder="********" {{/if}} autocomplete="new-password" />
+                    {{else}}
+                    <input id="clientSecret" class="form-control" type="password" data-validator-event="keyup blur" data-validator="required" autocomplete="new-password"
+                           placeholder="{{connectorDefaults.configurationProperties.Password.$base64:decode}}"  name="configurationProperties.Password" />
+                    {{/if}}
+                    {{else}}
+                    <input id="clientSecret" data-validator-event="keyup blur" data-validator="required" class="form-control" type="password" name="configurationProperties.Password" autocomplete="new-password" required />
+                    {{/ifObject}}
+                    <span class="error form-control-feedback"><i class='fa validation-icon'></i></span>
+                    <span class='help-block'>{{t "templates.connector.powershell.passwordHelp"}}</span>
+                </div>
+                <div class="validation-message"></div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="reloadScriptOnExecution">{{t "templates.connector.powershell.reloadScriptOnExecution"}}</label>
+                <div class="col-sm-8">
+                    <div class="checkbox checkbox-slider-primary checkbox-slider checkbox-slider--b checkbox-slider-md">
+                        <label>
+                            <input class="toggleBoolean" id="reloadScriptOnExecution" type="checkbox"
+                                   name="configurationProperties.ReloadScriptOnExecution"
+                                   value="true" {{#if connectorDefaults.configurationProperties.ReloadScriptOnExecution}} checked {{/if}} >
+                            <span></span>
+                        </label>
+                    </div>
+                    <span class='help-block'>{{t "templates.connector.powershell.reloadScriptOnExecutionHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="substituteUidAndNameInQueryFilter">{{t "templates.connector.powershell.substituteUidAndNameInQueryFilter"}}</label>
+                <div class="col-sm-8">
+                    <div class="checkbox checkbox-slider-primary checkbox-slider checkbox-slider--b checkbox-slider-md">
+                        <label>
+                            <input class="toggleBoolean" id="substituteUidAndNameInQueryFilter" type="checkbox"
+                                   name="configurationProperties.SubstituteUidAndNameInQueryFilter"
+                                   value="true" {{#if connectorDefaults.configurationProperties.SubstituteUidAndNameInQueryFilter}} checked {{/if}} >
+                            <span></span>
+                        </label>
+                    </div>
+                    <span class='help-block'>{{t "templates.connector.powershell.substituteUidAndNameInQueryFilterHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="nameAttributeName">{{t "templates.connector.powershell.nameAttributeName"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="nameAttributeName" name="configurationProperties.NameAttributeName" value="{{connectorDefaults.configurationProperties.NameAttributeName}}" />
+                    <span class='help-block'>{{t "templates.connector.powershell.nameAttributeNameHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="uidAttributeName">{{t "templates.connector.powershell.uidAttributeName"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="uidAttributeName" name="configurationProperties.UidAttributeName" value="{{connectorDefaults.configurationProperties.UidAttributeName}}" />
+                    <span class='help-block'>{{t "templates.connector.powershell.uidAttributeNameHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="queryFilterType">{{t "templates.connector.powershell.queryFilterType"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="queryFilterType" name="configurationProperties.QueryFilterType"
+                           data-validator-event="keyup blur" data-validator="required" value="{{connectorDefaults.configurationProperties.QueryFilterType}}" />
+                    <span class="error form-control-feedback"><i class='fa validation-icon'></i></span>
+                    <span class='help-block'>{{t "templates.connector.powershell.queryFilterTypeHelp"}}</span>
+                </div>
+                <div class="validation-message"></div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="variablesPrefix">{{t "templates.connector.powershell.variablesPrefix"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="variablesPrefix" name="configurationProperties.variablesPrefix" value="{{connectorDefaults.configurationProperties.VariablesPrefix}}" />
+                    <span class='help-block'>{{t "templates.connector.powershell.variablesPrefixHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="psModulesToImport">{{t "templates.connector.powershell.psModulesToImport"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="psModulesToImport" name="configurationProperties.PsModulesToImport" value="{{connectorDefaults.configurationProperties.PsModulesToImport}}" />
+                    <span class='help-block'>{{t "templates.connector.powershell.psModulesToImportHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="customProperties">{{t "templates.connector.powershell.customProperties"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="customProperties" name="configurationProperties.CustomProperties" value="{{connectorDefaults.configurationProperties.CustomProperties}}" />
+                    <span class='help-block'>{{t "templates.connector.powershell.customPropertiesHelp"}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="panel panel-default panel-collapse">
+    <div class="panel-heading" role="tab" id="interpreterPoolHeading">
+        <h4 class="panel-title">
+            <a data-toggle="collapse" href="#interpreterPool" aria-expanded="true" aria-controls="interpreterPool" class="">{{t "templates.connector.powershell.interpreterPoolTitle"}}</a>
+        </h4>
+    </div>
+    <div id="interpreterPoolPanel" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="interpreterPoolHeading" aria-expanded="true">
+        <div class="panel-body">
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="useInterpretersPool">{{t "templates.connector.powershell.useInterpretersPool"}}</label>
+                <div class="col-sm-8">
+                    <div class="checkbox checkbox-slider-primary checkbox-slider checkbox-slider--b checkbox-slider-md">
+                        <label>
+                            <input class="toggleBoolean" id="useInterpretersPool" type="checkbox"
+                                   name="configurationProperties.UseInterpretersPool"
+                                   value="true" {{#if connectorDefaults.configurationProperties.UseInterpretersPool}} checked {{/if}} >
+                            <span></span>
+                        </label>
+                    </div>
+                    <span class='help-block'>{{t "templates.connector.powershell.useInterpretersPoolHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group" >
+                <label class="col-sm-3 control-label" for="minInterpretersPoolSize">{{t "templates.connector.powershell.minInterpretersPoolSize"}}</label>
+                <div class="col-sm-8">
+                    {{#ifObject connectorDefaults.configurationProperties.MinInterpretersPoolSize}}
+                    <input id="minInterpretersPoolSize" type="text" class="form-control" name="configurationProperties.MinInterpretersPoolSize" value="{{connectorDefaults.configurationProperties.MinInterpretersPoolSize.$int}}"/>
+                    {{else}}
+                    <input id="minInterpretersPoolSize" type="number" class="form-control" name="configurationProperties.MinInterpretersPoolSize" value="{{connectorDefaults.configurationProperties.MinInterpretersPoolSize}}"/>
+                    {{/ifObject}}
+                    <span class='help-block'>{{t "templates.connector.powershell.minInterpretersPoolSizeHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="maxInterpretersPoolSize">{{t "templates.connector.powershell.maxInterpretersPoolSize"}}</label>
+                <div class="col-sm-8">
+                    {{#ifObject connectorDefaults.configurationProperties.MaxInterpretersPoolSize}}
+                    <input id="maxInterpretersPoolSize" type="text" class="form-control" name="configurationProperties.MaxInterpretersPoolSize" value="{{connectorDefaults.configurationProperties.MaxInterpretersPoolSize.$int}}"/>
+                    {{else}}
+                    <input id="maxInterpretersPoolSize" type="number" class="form-control" name="configurationProperties.MaxInterpretersPoolSize" value="{{connectorDefaults.configurationProperties.MaxInterpretersPoolSize}}"/>
+                    {{/ifObject}}
+                    <span class='help-block'>{{t "templates.connector.powershell.maxInterpretersPoolSizeHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="poolCleanupInterval">{{t "templates.connector.powershell.poolCleanupInterval"}}</label>
+                <div class="col-sm-8">
+                    {{#ifObject connectorDefaults.configurationProperties.PoolCleanupInterval}}
+                    <input id="poolCleanupInterval" type="text" class="form-control" name="configurationProperties.PoolCleanupInterval" value="{{connectorDefaults.configurationProperties.PoolCleanupInterval.$int}}"/>
+                    {{else}}
+                    <input id="poolCleanupInterval" type="number" class="form-control" name="configurationProperties.PoolCleanupInterval" value="{{connectorDefaults.configurationProperties.PoolCleanupInterval}}"/>
+                    {{/ifObject}}
+                    <span class='help-block'>{{t "templates.connector.powershell.poolCleanupIntervalHelp"}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Script Files Panel -->
+<div class="panel panel-default panel-collapse" id="ScriptPanel">
+    <div class="panel-heading" role="tab" id="ConnectorScriptPanelHeading">
+        <h4 class="panel-title">
+            <a data-toggle="collapse" href="#ConnectorScriptPanel" aria-expanded="true" aria-controls="ConnectorScriptPanel"
+               class="">{{t "templates.connector.scriptedShared.scriptsRootsTitle"}}</a>
+        </h4>
+    </div>
+    <div id="ConnectorScriptPanel" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="ConnectorScriptPanelHeading" aria-expanded="true">
+        <div class="panel-body">
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="authenticateScriptFileName">{{t "templates.connector.scriptedShared.authenticateScriptFileName"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="authenticateScriptFileName"
+                           name="configurationProperties.AuthenticateScriptFileName"
+                           value="{{connectorDefaults.configurationProperties.AuthenticateScriptFileName}}" />
+                    <span class='help-block'>{{t "templates.connector.scriptedShared.authenticateScriptFileNameHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="createScriptFileName">{{t "templates.connector.scriptedShared.createScriptFileName"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" data-validator="" type="text" id="createScriptFileName"
+                           name="configurationProperties.CreateScriptFileName"
+                           value="{{connectorDefaults.configurationProperties.CreateScriptFileName}}" />
+                    <span class='help-block'>{{t "templates.connector.scriptedShared.createScriptFileNameHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="deleteScriptFileName">{{t "templates.connector.scriptedShared.deleteScriptFileName"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" data-validator="" type="text" id="deleteScriptFileName"
+                           name="configurationProperties.DeleteScriptFileName"
+                           value="{{connectorDefaults.configurationProperties.DeleteScriptFileName}}" />
+                    <span class='help-block'>{{t "templates.connector.scriptedShared.deleteScriptFileNameHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="resolveUsernameScriptFileName">{{t "templates.connector.scriptedShared.resolveUsernameScriptFileName"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="resolveUsernameScriptFileName"
+                           name="configurationProperties.ResolveUsernameScriptFileName"
+                           value="{{connectorDefaults.configurationProperties.ResolveUsernameScriptFileName}}" />
+                    <span class='help-block'>{{t "templates.connector.scriptedShared.resolveUsernameScriptFileNameHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="schemaScriptFileName">{{t "templates.connector.scriptedShared.schemaScriptFileName"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" data-validator="" type="text" id="schemaScriptFileName"
+                           name="configurationProperties.SchemaScriptFileName"
+                           value="{{connectorDefaults.configurationProperties.SchemaScriptFileName}}" />
+                    <span class='help-block'>{{t "templates.connector.scriptedShared.schemaScriptFileNameHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="searchScriptFileName">{{t "templates.connector.scriptedShared.searchScriptFileName"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" data-validator="" type="text" id="searchScriptFileName"
+                           name="configurationProperties.SearchScriptFileName"
+                           value="{{connectorDefaults.configurationProperties.SearchScriptFileName}}" />
+                    <span class='help-block'>{{t "templates.connector.scriptedShared.searchScriptFileNameHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="syncScriptFileName">{{t "templates.connector.scriptedShared.syncScriptFileName"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="syncScriptFileName"
+                           name="configurationProperties.SyncScriptFileName"
+                           value="{{connectorDefaults.configurationProperties.SyncScriptFileName}}" />
+                    <span class='help-block'>{{t "templates.connector.scriptedShared.syncScriptFileNameHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="testScriptFileName">{{t "templates.connector.scriptedShared.testScriptFileName"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" data-validator="" type="text" id="testScriptFileName"
+                           name="configurationProperties.TestScriptFileName"
+                           value="{{connectorDefaults.configurationProperties.TestScriptFileName}}" />
+                    <span class='help-block'>{{t "templates.connector.scriptedShared.testScriptFileNameHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="updateScriptFileName">{{t "templates.connector.scriptedShared.updateScriptFileName"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" data-validator="" type="text" id="updateScriptFileName"
+                           name="configurationProperties.UpdateScriptFileName"
+                           value="{{connectorDefaults.configurationProperties.UpdateScriptFileName}}" />
+                    <span class='help-block'>{{t "templates.connector.scriptedShared.updateScriptFileNameHelp"}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

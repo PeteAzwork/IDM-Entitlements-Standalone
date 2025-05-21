@@ -1,0 +1,109 @@
+{
+    "mappings" : [
+        {
+            "target" : "system/marketo/account",
+            "source" : "managed/user",
+            "sourceQuery" : {
+                "_fields" : "*,idps",
+                "_queryFilter" : "true"
+            },
+            "name" : "managedUser_systemMarketoAccount",
+            "runTargetPhase" : true,
+            "properties" : [
+                {
+                    "target" : "firstName",
+                    "source" : "givenName"
+                },
+                {
+                    "target" : "lastName",
+                    "source" : "sn"
+                },
+                {
+                    "target" : "email",
+                    "source" : "mail"
+                },
+                {
+                    "target" : "facebookId",
+                    "transform" : {
+                        "type" : "text/javascript",
+                        "globals" : { },
+                        "source" : "var facebookId = \"\";\nvar idps = [];\nif (source.idps) {\n  idps = source.idps;\n} else {\n  var managedUser = openidm.read(\"managed/user/\" + source._id, null, [\"idps\"]);\n  if (managedUser && managedUser.idps) {\n    idps = managedUser.idps;\n  }\n}\nfor (var i = 0; i < idps.length; i++) {\n  if (idps[i][\"_ref\"].indexOf(\"facebook\") > -1) {\n    var ref = idps[i][\"_ref\"].split(\"/\");\n    if (ref.length > 2) {\n      facebookId = ref[2];\n      break;\n    }\n  }\n}\nfacebookId;"
+                    },
+                    "source" : ""
+                },
+                {
+                    "target" : "linkedInId",
+                    "transform" : {
+                        "type" : "text/javascript",
+                        "globals" : { },
+                        "source" : "var linkedInId = \"\";\nvar idps = [];\nif (source.idps) {\n  idps = source.idps;\n} else {\n  var managedUser = openidm.read(\"managed/user/\" + source._id, null, [\"idps\"]);\n  if (managedUser && managedUser.idps) {\n    idps = managedUser.idps;\n  }\n}\nfor (var i = 0; i < idps.length; i++) {\n  if (idps[i][\"_ref\"].indexOf(\"linkedIn\") > -1) {\n    var ref = idps[i][\"_ref\"].split(\"/\");\n    if (ref.length > 2) {\n      linkedInId = ref[2];\n      break;\n    }\n  }\n}\nlinkedInId;"
+                    },
+                    "source" : ""
+                }
+            ],
+            "policies" : [
+                {
+                    "action" : "EXCEPTION",
+                    "situation" : "AMBIGUOUS"
+                },
+                {
+                    "action" : "DELETE",
+                    "situation" : "SOURCE_MISSING"
+                },
+                {
+                    "action" : "EXCEPTION",
+                    "situation" : "MISSING"
+                },
+                {
+                    "action" : "EXCEPTION",
+                    "situation" : "FOUND_ALREADY_LINKED"
+                },
+                {
+                    "action" : "DELETE",
+                    "situation" : "UNQUALIFIED"
+                },
+                {
+                    "action" : "EXCEPTION",
+                    "situation" : "UNASSIGNED"
+                },
+                {
+                    "action" : "EXCEPTION",
+                    "situation" : "LINK_ONLY"
+                },
+                {
+                    "action" : "IGNORE",
+                    "situation" : "TARGET_IGNORED"
+                },
+                {
+                    "action" : "IGNORE",
+                    "situation" : "SOURCE_IGNORED"
+                },
+                {
+                    "action" : "IGNORE",
+                    "situation" : "ALL_GONE"
+                },
+                {
+                    "action" : "UPDATE",
+                    "situation" : "CONFIRMED"
+                },
+                {
+                    "action" : "UPDATE",
+                    "situation" : "FOUND"
+                },
+                {
+                    "action" : "CREATE",
+                    "situation" : "ABSENT"
+                }
+            ],
+            "validSource" : {
+                "type" : "text/javascript",
+                "globals" : {
+                    "preferences" : [
+                        "marketing"
+                    ]
+                },
+                "file" : "ui/preferenceCheck.js"
+            }
+        }
+    ]
+}

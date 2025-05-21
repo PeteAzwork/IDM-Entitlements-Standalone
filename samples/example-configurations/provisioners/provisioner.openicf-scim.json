@@ -1,0 +1,304 @@
+{
+    "connectorRef" : {
+        "displayName" : "Scim Connector",
+        "bundleVersion" : "[1.5.0.0,1.6.0.0]",
+        "systemType" : "provisioner.openicf",
+        "bundleName" : "org.forgerock.openicf.connectors.scim-connector",
+        "connectorName" : "org.forgerock.openicf.connectors.scim.ScimConnector"
+    },
+    "resultsHandlerConfig" : {
+        "enableNormalizingResultsHandler" : false,
+        "enableFilteredResultsHandler" : false,
+        "enableCaseInsensitiveFilter" : false,
+        "enableAttributesToGetSearchResultsHandler" : true
+    },
+    "operationTimeout" : {
+        "CREATE" : -1,
+        "UPDATE" : -1,
+        "DELETE" : -1,
+        "TEST" : -1,
+        "SCRIPT_ON_CONNECTOR" : -1,
+        "SCRIPT_ON_RESOURCE" : -1,
+        "GET" : -1,
+        "RESOLVEUSERNAME" : -1,
+        "AUTHENTICATE" : -1,
+        "SEARCH" : -1,
+        "VALIDATE" : -1,
+        "SYNC" : -1,
+        "SCHEMA" : -1
+    },
+    "configurationProperties" : {
+        "acceptHeader" : null,
+        "acceptSelfSignedCertificates" : false,
+        "authenticationMethod" : "TOKEN",
+        "authorizationTokenPrefix" : null,
+        "authToken" : "CHANGEME",
+        "clientCertAlias" : null,
+        "clientCertPassword" : null,
+        "clientId" : null,
+        "clientSecret" : null,
+        "connectionTimeout" : 30,
+        "contentTypeHeader" : null,
+        "disableHostNameVerifier" : false,
+        "disableHttpCompression" : false,
+        "grantType" : null,
+        "httpProxyHost" : null,
+        "httpProxyPassword" : null,
+        "httpProxyPort" : null,
+        "httpProxyUsername" : null,
+        "maximumConnections" : 10,
+        "password" : null,
+        "readRateLimit" : null,
+        "refreshToken" : null,
+        "SCIMEndpoint" : "https://api.slack.com/scim/v1",
+        "SCIMVersion" : "1",
+        "scope" : null,
+        "tokenEndpoint" : null,
+        "useBasicAuthForOauthTokenNeg" : true,
+        "usePathForPatchV2" : false,
+        "user" : null,
+        "writeRateLimit" : null
+    },
+    "enabled" : true,
+    "objectTypes" : {
+        "group" : {
+            "$schema" : "http://json-schema.org/draft-03/schema",
+            "id" : "__GROUP__",
+            "type" : "object",
+            "nativeType" : "__GROUP__",
+            "properties" : {
+                "displayName" : {
+                    "type" : "string",
+                    "required" : true,
+                    "nativeName" : "__NAME__",
+                    "nativeType" : "string"
+                },
+                "meta" : {
+                    "type" : "object",
+                    "nativeName" : "meta",
+                    "nativeType" : "object",
+                    "flags" : [
+                        "NOT_CREATABLE",
+                        "NOT_UPDATEABLE"
+                    ]
+                },
+                "members" : {
+                    "type" : "array",
+                    "items" : {
+                        "type" : "object",
+                        "nativeType" : "object"
+                    },
+                    "nativeName" : "members",
+                    "nativeType" : "object"
+                },
+                "externalId" : {
+                    "type" : "string",
+                    "nativeName" : "externalId",
+                    "nativeType" : "string"
+                }
+            }
+        },
+        "account" : {
+            "$schema" : "http://json-schema.org/draft-03/schema",
+            "id" : "__ACCOUNT__",
+            "type" : "object",
+            "nativeType" : "__ACCOUNT__",
+            "properties" : {
+                "phoneNumbers" : {
+                    "type" : "array",
+                    "items" : {
+                        "type" : "object",
+                        "nativeType" : "object"
+                    },
+                    "nativeName" : "phoneNumbers",
+                    "nativeType" : "object"
+                },
+                "active" : {
+                    "type" : "boolean",
+                    "nativeName" : "active",
+                    "nativeType" : "boolean"
+                },
+                "groups" : {
+                    "type" : "array",
+                    "items" : {
+                        "type" : "object",
+                        "nativeType" : "object"
+                    },
+                    "nativeName" : "groups",
+                    "nativeType" : "object",
+                    "flags" : [
+                        "NOT_CREATABLE",
+                        "NOT_UPDATEABLE"
+                    ]
+                },
+                "costCenter" : {
+                    "type" : "string",
+                    "nativeName" : "costCenter",
+                    "nativeType" : "string"
+                },
+                "emails" : {
+                    "type" : "array",
+                    "items" : {
+                        "type" : "object",
+                        "nativeType" : "object"
+                    },
+                    "nativeName" : "emails",
+                    "nativeType" : "object"
+                },
+                "division" : {
+                    "type" : "string",
+                    "nativeName" : "division",
+                    "nativeType" : "string"
+                },
+                "employeeNumber" : {
+                    "type" : "string",
+                    "nativeName" : "employeeNumber",
+                    "nativeType" : "string"
+                },
+                "organization" : {
+                    "type" : "string",
+                    "nativeName" : "organization",
+                    "nativeType" : "string"
+                },
+                "profileUrl" : {
+                    "type" : "string",
+                    "nativeName" : "profileUrl",
+                    "nativeType" : "string"
+                },
+                "userType" : {
+                    "type" : "string",
+                    "nativeName" : "userType",
+                    "nativeType" : "string"
+                },
+                "x509Certificates" : {
+                    "type" : "array",
+                    "items" : {
+                        "type" : "object",
+                        "nativeType" : "object"
+                    },
+                    "nativeName" : "x509Certificates",
+                    "nativeType" : "object"
+                },
+                "manager" : {
+                    "type" : "object",
+                    "nativeName" : "manager",
+                    "nativeType" : "object"
+                },
+                "userName" : {
+                    "type" : "string",
+                    "required" : true,
+                    "nativeName" : "__NAME__",
+                    "nativeType" : "string"
+                },
+                "timezone" : {
+                    "type" : "string",
+                    "nativeName" : "timezone",
+                    "nativeType" : "string"
+                },
+                "photos" : {
+                    "type" : "array",
+                    "items" : {
+                        "type" : "object",
+                        "nativeType" : "object"
+                    },
+                    "nativeName" : "photos",
+                    "nativeType" : "object"
+                },
+                "displayName" : {
+                    "type" : "string",
+                    "nativeName" : "displayName",
+                    "nativeType" : "string"
+                },
+                "__PASSWORD__" : {
+                    "type" : "string",
+                    "nativeName" : "__PASSWORD__",
+                    "nativeType" : "JAVA_TYPE_GUARDEDSTRING",
+                    "flags" : [
+                        "NOT_READABLE",
+                        "NOT_RETURNED_BY_DEFAULT"
+                    ]
+                },
+                "meta" : {
+                    "type" : "object",
+                    "nativeName" : "meta",
+                    "nativeType" : "object",
+                    "flags" : [
+                        "NOT_CREATABLE",
+                        "NOT_UPDATEABLE"
+                    ]
+                },
+                "entitlements" : {
+                    "type" : "array",
+                    "items" : {
+                        "type" : "object",
+                        "nativeType" : "object"
+                    },
+                    "nativeName" : "entitlements",
+                    "nativeType" : "object"
+                },
+                "department" : {
+                    "type" : "string",
+                    "nativeName" : "department",
+                    "nativeType" : "string"
+                },
+                "ims" : {
+                    "type" : "array",
+                    "items" : {
+                        "type" : "object",
+                        "nativeType" : "object"
+                    },
+                    "nativeName" : "ims",
+                    "nativeType" : "object"
+                },
+                "name" : {
+                    "type" : "object",
+                    "nativeName" : "name",
+                    "nativeType" : "object"
+                },
+                "nickName" : {
+                    "type" : "string",
+                    "nativeName" : "nickName",
+                    "nativeType" : "string"
+                },
+                "locale" : {
+                    "type" : "string",
+                    "nativeName" : "locale",
+                    "nativeType" : "string"
+                },
+                "roles" : {
+                    "type" : "array",
+                    "items" : {
+                        "type" : "string",
+                        "nativeType" : "string"
+                    },
+                    "nativeName" : "roles",
+                    "nativeType" : "string"
+                },
+                "preferredLanguage" : {
+                    "type" : "string",
+                    "nativeName" : "preferredLanguage",
+                    "nativeType" : "string"
+                },
+                "addresses" : {
+                    "type" : "array",
+                    "items" : {
+                        "type" : "object",
+                        "nativeType" : "object"
+                    },
+                    "nativeName" : "addresses",
+                    "nativeType" : "object"
+                },
+                "title" : {
+                    "type" : "string",
+                    "nativeName" : "title",
+                    "nativeType" : "string"
+                },
+                "externalId" : {
+                    "type" : "string",
+                    "nativeName" : "externalId",
+                    "nativeType" : "string"
+                }
+            }
+        }
+    }
+}

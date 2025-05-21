@@ -1,0 +1,57 @@
+{{!
+  Copyright 2018-2020 ForgeRock AS. All Rights Reserved
+
+  Use of this code requires a commercial software license with ForgeRock AS.
+  or with one of its affiliates. All use shall be exclusively subject
+  to such license between the licensee and ForgeRock AS.
+}}
+<form class="form-horizontal">
+   <div class="form-group has-feedback">
+      <label for="inputName" class="control-label col-sm-2">{{t "templates.admin.RoleEdit.privilegeName"}}</label>
+      <div class="col-sm-9">
+         <div class="control-group">
+            <input type="text" class="form-control" id="privilegeName" value="{{propertyValue.name}}" />
+         </div>
+      </div>
+   </div>
+   <div class="form-group has-feedback">
+      <label for="selectPrivilegePath" class="control-label col-sm-2">{{t "templates.admin.RoleEdit.object"}}</label>
+      <div class="col-sm-9">
+         <div class="control-group">
+            <select class="form-control selectize" id="selectPrivilegePath"></select>
+            <span class="help-block"></span>
+         </div>
+      </div>
+   </div>
+   <div id="privilegeForm" {{#unless propertyValue.path}}style="display:none;" {{/unless}}>
+      <div class="form-group has-feedback">
+         <label for="methodsGroup" class="control-label col-sm-2">{{t "templates.admin.RoleEdit.permissions"}}</label>
+         <div class="col-sm-9">
+            <div class="control-group" id="methodsGroup">
+               {{#each permissionTypes}}
+               <input type="checkbox" id="{{this}}Checkbox" value="this" {{#equals this 'read'}}disabled{{/equals}}
+                  {{#equals this 'query'}}disabled{{/equals}}>
+               <label
+                  class="control-label {{#equals this 'read'}}disabledState{{/equals}} {{#equals this 'query'}}disabledState{{/equals}}"
+                  for="{{this}}Checkbox">{{t "templates.admin.RoleEdit.can"}}
+                  {{#camelCaseToTitle this}}{{/camelCaseToTitle}}</label>
+               {{/each}}
+            </div>
+         </div>
+      </div>
+      <div class="form-group has-feedback" id="attibutesPermissionsContainer">
+         <label class="control-label col-sm-2">{{t "templates.admin.RoleEdit.attributes"}}</label>
+         <div class="col-sm-9 attributes-form form-horizontal">
+            <span class="help-block">{{t "templates.admin.RoleEdit.specifyPermissions"}}</span>
+            <div id="attributesGridContainer"></div>
+         </div>
+      </div>
+      <div class="form-group has-feedback">
+         <label class="control-label col-sm-2">{{t "templates.admin.RoleEdit.filter"}}</label>
+         <div class="col-sm-9 filter-form form-horizontal">
+            <span class="help-block">{{t "templates.admin.RoleEdit.limitSubset"}}</span>
+            <div id="filterFormContainer"></div>
+         </div>
+      </div>
+   </div>
+</form>

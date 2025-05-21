@@ -1,0 +1,695 @@
+{
+    "artifact": {
+        "groupId": "org.forgerock.openidm",
+        "artifactId": "openidm-zip",
+        "version": "7.5.0"
+    },
+    "copyrights": [
+        "Copyright 2011-2024 ForgeRock AS"
+    ],
+    "dependencies": {
+        "adobecm-connector-1.5.20.21": [
+            "Copyright 2017-2023 ForgeRock AS"
+        ],
+        "api-descriptor-26.5.0-20240315145234-7d028cc3ac9ec7e586cf524461da02ad911f2e06": [
+            "Copyright 2015-2024 ForgeRock AS"
+        ],
+        "audit-jdbc-7.5.0": [
+            "Copyright 2013-2021 ForgeRock AS"
+        ],
+        "audit-jms-7.5.0": [
+            "Copyright 2016-2022 ForgeRock AS"
+        ],
+        "aws-s3-7.5.0-20240320142307-a22eca384189d27473ff2b8e2427a5c663211558": [
+            "Portions Copyright 2022 ForgeRock AS"
+        ],
+        "azureblob-7.5.0-20240320142307-a22eca384189d27473ff2b8e2427a5c663211558": [
+            "Portions Copyright 2022 ForgeRock AS"
+        ],
+        "chf-client-apache-async-26.5.0-20240315145234-7d028cc3ac9ec7e586cf524461da02ad911f2e06": [
+            "Copyright 2015-2023 ForgeRock AS"
+        ],
+        "chf-client-apache-common-26.5.0-20240315145234-7d028cc3ac9ec7e586cf524461da02ad911f2e06": [
+            "Copyright 2015-2021 ForgeRock AS"
+        ],
+        "chf-http-core-26.5.0-20240315145234-7d028cc3ac9ec7e586cf524461da02ad911f2e06": [
+            "Copyright 2012-2024 ForgeRock AS",
+            "Copyright 2009-2024 Sun Microsystems, Inc",
+            "Copyright 2010-2011 ApexIdentity Inc",
+            "Portions Copyright 2011-2024 ForgeRock AS",
+            "Portions Copyright 2010-2011 ApexIdentity Inc"
+        ],
+        "chf-http-servlet-26.5.0-20240315145234-7d028cc3ac9ec7e586cf524461da02ad911f2e06": [
+            "Copyright 2012-2024 ForgeRock AS",
+            "Copyright 2010-2011 ApexIdentity Inc",
+            "Portions Copyright 2011-2021 ForgeRock AS"
+        ],
+        "chf-oauth2-26.5.0-20240315145234-7d028cc3ac9ec7e586cf524461da02ad911f2e06": [
+            "Copyright 2014-2024 ForgeRock AS"
+        ],
+        "config-26.5.0-20240315145234-7d028cc3ac9ec7e586cf524461da02ad911f2e06": [
+            "Copyright 2017-2024 ForgeRock AS"
+        ],
+        "connector-framework-1.5.20.21": [
+            "Copyright 2010-2021 ForgeRock AS",
+            "Copyright 2011-2013 Tirasa",
+            "Copyright 2012 ConnId",
+            "Copyright 2008-2009 Sun Microsystems, Inc",
+            "Portions Copyright 2010-2023 ForgeRock AS",
+            "Portions Copyright 2011-2013 ConnId"
+        ],
+        "connector-framework-internal-1.5.20.21": [
+            "Copyright 2010-2021 ForgeRock AS",
+            "Copyright 2013 ConnId",
+            "Copyright 2008-2009 Sun Microsystems, Inc",
+            "Portions Copyright 2010-2023 ForgeRock AS",
+            "Portions Copyright 2013-2014 Evolveum",
+            "Portions Copyright 2010-2014 Tirasa",
+            "Portions Copyright 2013 ConnId"
+        ],
+        "connector-framework-protobuf-1.5.20.21": [
+            "Copyright 2015-2022 ForgeRock AS"
+        ],
+        "connector-framework-rpc-1.5.20.21": [
+            "Copyright 2015-2024 ForgeRock AS"
+        ],
+        "connector-framework-server-1.5.20.21": [
+            "Copyright 2010-2024 ForgeRock AS",
+            "Copyright 2012-2015 Sonatype, Inc",
+            "Portions Copyright 2015-2022 ForgeRock AS"
+        ],
+        "connector-server-jetty-1.5.20.21": [
+            "Copyright 2010-2024 ForgeRock AS"
+        ],
+        "csvfile-connector-1.5.20.21": [
+            "Copyright 2010-2023 ForgeRock AS",
+            "Portions Copyright 2011 Radovan Semancik",
+            "Portions Copyright 2011 Viliam Repan"
+        ],
+        "databasetable-connector-1.5.20.21": [
+            "Copyright 2011-2023 ForgeRock AS",
+            "Copyright 2008-2009 Sun Microsystems, Inc",
+            "Portions Copyright 2015-2023 ForgeRock AS",
+            "Portions Copyright 2013 Radovan Semancik, Evolveum"
+        ],
+        "default-7.5.0": [
+            "Copyright 2011-2023 ForgeRock AS",
+            "Portions Copyright 2011-2022 ForgeRock AS"
+        ],
+        "example-configurations-7.5.0": [
+            "Copyright 2013-2021 ForgeRock AS"
+        ],
+        "forgerock-audit-core-26.5.0-20240315145234-7d028cc3ac9ec7e586cf524461da02ad911f2e06": [
+            "Copyright 2013-2024 ForgeRock AS",
+            "Copyright 2013 Cybernetica AS",
+            "Copyright 2006-2008 Sun Microsystems, Inc",
+            "Portions Copyright 2013-2019 ForgeRock AS"
+        ],
+        "forgerock-audit-handler-csv-26.5.0-20240315145234-7d028cc3ac9ec7e586cf524461da02ad911f2e06": [
+            "Copyright 2015-2024 ForgeRock AS"
+        ],
+        "forgerock-audit-handler-jms-26.5.0-20240315145234-7d028cc3ac9ec7e586cf524461da02ad911f2e06": [
+            "Copyright 2016-2021 ForgeRock AS"
+        ],
+        "forgerock-audit-handler-json-26.5.0-20240315145234-7d028cc3ac9ec7e586cf524461da02ad911f2e06": [
+            "Copyright 2016-2024 ForgeRock AS"
+        ],
+        "forgerock-audit-handler-json-stdout-26.5.0-20240315145234-7d028cc3ac9ec7e586cf524461da02ad911f2e06": [
+            "Copyright 2018-2020 ForgeRock AS"
+        ],
+        "forgerock-audit-handler-syslog-26.5.0-20240315145234-7d028cc3ac9ec7e586cf524461da02ad911f2e06": [
+            "Copyright 2015-2021 ForgeRock AS",
+            "Copyright 2013 Cybernetica AS",
+            "Portions Copyright 2014-2022 ForgeRock AS"
+        ],
+        "forgerock-audit-json-26.5.0-20240315145234-7d028cc3ac9ec7e586cf524461da02ad911f2e06": [
+            "Copyright 2015-2019 ForgeRock AS"
+        ],
+        "forgerock-jaspi-iwa-module-26.5.0-20240315145234-7d028cc3ac9ec7e586cf524461da02ad911f2e06": [
+            "Copyright 2013-2019 ForgeRock AS",
+            "Copyright 2005 Sun Microsystems, Inc",
+            "Copyright 2004 Mikael Grev, MiG InfoCom AB",
+            "Portions Copyright 2011-2019 ForgeRock AS"
+        ],
+        "forgerock-jaspi-jwt-session-module-26.5.0-20240315145234-7d028cc3ac9ec7e586cf524461da02ad911f2e06": [
+            "Copyright 2013-2024 ForgeRock AS",
+            "Portions Copyright 2014-2017 ForgeRock AS"
+        ],
+        "forgerock-jaspi-openam-session-module-26.5.0-20240315145234-7d028cc3ac9ec7e586cf524461da02ad911f2e06": [
+            "Copyright 2014-2023 ForgeRock AS"
+        ],
+        "forgerock-jaspi-runtime-26.5.0-20240315145234-7d028cc3ac9ec7e586cf524461da02ad911f2e06": [
+            "Copyright 2013-2022 ForgeRock AS"
+        ],
+        "forgerock-oauth-core-26.5.0-20240315145234-7d028cc3ac9ec7e586cf524461da02ad911f2e06": [
+            "Copyright 2017-2024 ForgeRock AS"
+        ],
+        "forgerock-openid-resolver-26.5.0-20240315145234-7d028cc3ac9ec7e586cf524461da02ad911f2e06": [
+            "Copyright 2014-2023 ForgeRock AS"
+        ],
+        "forgerock-selfservice-core-26.5.0-20240315145234-7d028cc3ac9ec7e586cf524461da02ad911f2e06": [
+            "Copyright 2015-2023 ForgeRock AS"
+        ],
+        "forgerock-selfservice-json-26.5.0-20240315145234-7d028cc3ac9ec7e586cf524461da02ad911f2e06": [
+            "Copyright 2015-2019 ForgeRock AS"
+        ],
+        "forgerock-selfservice-stages-26.5.0-20240315145234-7d028cc3ac9ec7e586cf524461da02ad911f2e06": [
+            "Copyright 2015-2022 ForgeRock AS"
+        ],
+        "forgerock-ui-commons-26.0.21": [
+            "Copyright 2011-2023 ForgeRock AS",
+            "Copyright 2017 Cloudflare, Inc",
+            "Copyright 2013 present Cloudflare, Inc",
+            "Copyright 2013 present Cloudflare, Inc and contributors",
+            "Copyright 2012 Stefan Petre",
+            "Copyright 2009-2010 Kristopher Michael Kowal"
+        ],
+        "forgerock-util-26.5.0-20240315145234-7d028cc3ac9ec7e586cf524461da02ad911f2e06": [
+            "Copyright 2011-2024 ForgeRock AS",
+            "Copyright 2014-2015 Stack overflow users",
+            "Copyright 2010-2011 ApexIdentity Inc",
+            "Portions Copyright 2011-2023 ForgeRock AS"
+        ],
+        "getting-started-7.5.0": [
+            "Copyright 2015-2021 ForgeRock AS"
+        ],
+        "google-cloud-storage-7.5.0-20240320142307-a22eca384189d27473ff2b8e2427a5c663211558": [
+            "Portions Copyright 2022 ForgeRock AS"
+        ],
+        "googleapps-connector-1.5.20.21": [
+            "Copyright 2011-2024 ForgeRock AS"
+        ],
+        "googlecloud-7.5.0-20240320142307-a22eca384189d27473ff2b8e2427a5c663211558": [
+            "Portions Copyright 2022 ForgeRock AS"
+        ],
+        "groovy-connector-1.5.20.21": [
+            "Copyright 2011-2023 ForgeRock AS"
+        ],
+        "historical-account-linking-7.5.0": [
+            "Copyright 2015-2021 ForgeRock AS"
+        ],
+        "icfl-over-slf4j-1.5.20.21": [
+            "Copyright 2010-2020 ForgeRock AS"
+        ],
+        "jclouds-blobstore-7.5.0-20240320142307-a22eca384189d27473ff2b8e2427a5c663211558": [
+            "Portions Copyright 2022 ForgeRock AS"
+        ],
+        "jclouds-core-7.5.0-20240320142307-a22eca384189d27473ff2b8e2427a5c663211558": [
+            "Portions Copyright 2022-2023 ForgeRock AS"
+        ],
+        "json-crypto-core-26.5.0-20240315145234-7d028cc3ac9ec7e586cf524461da02ad911f2e06": [
+            "Copyright 2011-2024 ForgeRock AS"
+        ],
+        "json-resource-26.5.0-20240315145234-7d028cc3ac9ec7e586cf524461da02ad911f2e06": [
+            "Copyright 2011-2024 ForgeRock AS"
+        ],
+        "json-resource-http-26.5.0-20240315145234-7d028cc3ac9ec7e586cf524461da02ad911f2e06": [
+            "Copyright 2012-2024 ForgeRock AS"
+        ],
+        "json-schema-core-26.5.0-20240315145234-7d028cc3ac9ec7e586cf524461da02ad911f2e06": [
+            "Copyright 2011-2021 ForgeRock AS"
+        ],
+        "json-web-token-26.5.0-20240315145234-7d028cc3ac9ec7e586cf524461da02ad911f2e06": [
+            "Copyright 2011-2024 ForgeRock AS"
+        ],
+        "kerberos-connector-1.5.20.21": [
+            "Copyright 2011-2023 ForgeRock AS"
+        ],
+        "ldap-connector-1.5.20.21": [
+            "Copyright 2011-2024 ForgeRock AS",
+            "Copyright 2007-2023 Sun Microsystems, Inc",
+            "Portions Copyright 2013-2023 ForgeRock AS"
+        ],
+        "livesync-with-ad-7.5.0": [
+            "Copyright 2011-2021 ForgeRock AS"
+        ],
+        "marketo-connector-1.5.20.21": [
+            "Copyright 2011-2023 ForgeRock AS",
+            "Copyright 2010-2011 ApexIdentity Inc",
+            "Portions Copyright 2011-2020 ForgeRock AS"
+        ],
+        "mongodb-connector-1.5.20.21": [
+            "Copyright 2017-2023 ForgeRock AS"
+        ],
+        "monitoring-api-26.5.0-20240315145234-7d028cc3ac9ec7e586cf524461da02ad911f2e06": [
+            "Copyright 2018-2024 ForgeRock AS",
+            "Copyright 2017 Pivotal Software, Inc",
+            "Portions Copyright 2018-2023 ForgeRock AS"
+        ],
+        "monitoring-dropwizard-26.5.0-20240315145234-7d028cc3ac9ec7e586cf524461da02ad911f2e06": [
+            "Copyright 2018-2021 ForgeRock AS",
+            "Copyright 2017 Pivotal Software, Inc",
+            "Portions Copyright 2018 ForgeRock AS"
+        ],
+        "monitoring-http-26.5.0-20240315145234-7d028cc3ac9ec7e586cf524461da02ad911f2e06": [
+            "Copyright 2017-2021 ForgeRock AS",
+            "Copyright 2016-2018 Prometheus contributors",
+            "Portions Copyright 2018-2024 ForgeRock AS"
+        ],
+        "monitoring-json-resource-26.5.0-20240315145234-7d028cc3ac9ec7e586cf524461da02ad911f2e06": [
+            "Copyright 2017-2024 ForgeRock AS"
+        ],
+        "msgraphapi-connector-1.5.20.21": [
+            "Copyright 2011-2023 ForgeRock AS"
+        ],
+        "multiple-account-linking-7.5.0": [
+            "Copyright 2015-2021 ForgeRock AS"
+        ],
+        "multiple-passwords-7.5.0": [
+            "Copyright 2015-2022 ForgeRock AS"
+        ],
+        "oauth-7.5.0-20240320142307-a22eca384189d27473ff2b8e2427a5c663211558": [
+            "Portions Copyright 2022 ForgeRock AS"
+        ],
+        "oauth-apple-client-26.5.0-20240315145234-7d028cc3ac9ec7e586cf524461da02ad911f2e06": [
+            "Copyright 2020-2023 ForgeRock AS"
+        ],
+        "oauth-instagram-client-26.5.0-20240315145234-7d028cc3ac9ec7e586cf524461da02ad911f2e06": [
+            "Copyright 2017-2022 ForgeRock AS"
+        ],
+        "oauth-linkedin-client-26.5.0-20240315145234-7d028cc3ac9ec7e586cf524461da02ad911f2e06": [
+            "Copyright 2019-2024 ForgeRock AS"
+        ],
+        "oauth-oauth2-client-26.5.0-20240315145234-7d028cc3ac9ec7e586cf524461da02ad911f2e06": [
+            "Copyright 2017-2024 ForgeRock AS"
+        ],
+        "oauth-oidc-client-26.5.0-20240315145234-7d028cc3ac9ec7e586cf524461da02ad911f2e06": [
+            "Copyright 2017-2024 ForgeRock AS"
+        ],
+        "oauth-twitter-client-26.5.0-20240315145234-7d028cc3ac9ec7e586cf524461da02ad911f2e06": [
+            "Copyright 2017-2024 ForgeRock AS"
+        ],
+        "oauth-vk-client-26.5.0-20240315145234-7d028cc3ac9ec7e586cf524461da02ad911f2e06": [
+            "Copyright 2017-2024 ForgeRock AS"
+        ],
+        "oauth-wechat-client-26.5.0-20240315145234-7d028cc3ac9ec7e586cf524461da02ad911f2e06": [
+            "Copyright 2017-2024 ForgeRock AS"
+        ],
+        "opendj-cli-7.5.0-20240320142307-a22eca384189d27473ff2b8e2427a5c663211558": [
+            "Copyright 2013-2024 ForgeRock AS",
+            "Copyright 2006-2010 Sun Microsystems, Inc",
+            "Portions Copyright 2011-2024 ForgeRock AS",
+            "Portions Copyright 2011 Nemanja Lukic",
+            "Portions Copyright 2009 Parametric Technology Corporation"
+        ],
+        "opendj-config-7.5.0-20240320142307-a22eca384189d27473ff2b8e2427a5c663211558": [
+            "Copyright 2011-2024 ForgeRock AS",
+            "Copyright 2006-2010 Sun Microsystems, Inc",
+            "Portions Copyright 2010-2024 ForgeRock AS",
+            "Portions Copyright 2015 Edan Idzerda",
+            "Portions Copyright 2012-2014 Manuel Gaupp",
+            "Portions Copyright 2012 profiq, s.r.o.",
+            "Portions Copyright 2007-2010 Sun Microsystems, Inc"
+        ],
+        "opendj-core-7.5.0-20240320142307-a22eca384189d27473ff2b8e2427a5c663211558": [
+            "Copyright 2011-2024 ForgeRock AS",
+            "Copyright 2016 present, RxJava Contributors",
+            "Copyright 2013-2014 Manuel Gaupp",
+            "Copyright 2006-2011 Sun Microsystems, Inc",
+            "Portions Copyright 2011-2024 ForgeRock AS",
+            "Portions Copyright 2016 Matthew Stevenson",
+            "Portions Copyright 2012-2014 Manuel Gaupp",
+            "Portions Copyright 2009 D. J. Hagberg, Millibits Consulting, Inc"
+        ],
+        "opendj-ldap-toolkit-7.5.0-20240320142307-a22eca384189d27473ff2b8e2427a5c663211558": [
+            "Copyright 2011-2024 ForgeRock AS",
+            "Copyright 2006-2010 Sun Microsystems, Inc",
+            "Portions Copyright 2011-2024 ForgeRock AS"
+        ],
+        "opendj-rest2ldap-7.5.0-20240320142307-a22eca384189d27473ff2b8e2427a5c663211558": [
+            "Copyright 2012-2024 ForgeRock AS",
+            "Copyright 2016 present David Karnok",
+            "Portions Copyright 2023-2024 ForgeRock AS"
+        ],
+        "opendj-server-7.5.0-20240320142307-a22eca384189d27473ff2b8e2427a5c663211558": [
+            "Copyright 2010-2024 ForgeRock AS",
+            "Copyright 2002-2018 Oracle and",
+            "Copyright 2013-2017 Dropwizard contributors",
+            "Copyright 2011-2012 profiq, s.r.o.",
+            "Copyright 2002-2011 Sun Microsystems, Inc",
+            "Copyright 2000-2011 The Legion Of The Bouncy Castle",
+            "Copyright 2006 Damien Miller",
+            "Copyright 1984-1988 AT",
+            "Portions Copyright 2010-2024 ForgeRock AS",
+            "Portions Copyright 2016-2018 David Karnok",
+            "Portions Copyright 2016 present, RxJava Contributors",
+            "Portions Copyright 2015 Edan Idzerda",
+            "Portions Copyright 2014 Emidio Stani",
+            "Portions Copyright 2012-2014 Manuel Gaupp",
+            "Portions Copyright 2014 The Apache Software Foundation",
+            "Portions Copyright 2012 Dariusz Janny",
+            "Portions Copyright 2011 profiq, s.r.o.",
+            "Portions Copyright 2009 Parametric Technology Corporation",
+            "Portions Copyright 2006-2008 Sun Microsystems, Inc",
+            "Portions Copyright 2006-2007 Brighton Consulting, Inc"
+        ],
+        "openidm-api-servlet-7.5.0": [
+            "Copyright 2013-2024 ForgeRock AS"
+        ],
+        "openidm-audit-7.5.0": [
+            "Copyright 2011-2024 ForgeRock AS"
+        ],
+        "openidm-authnfilter-7.5.0": [
+            "Copyright 2011-2024 ForgeRock AS"
+        ],
+        "openidm-authz-7.5.0": [
+            "Copyright 2018-2024 ForgeRock AS"
+        ],
+        "openidm-cluster-7.5.0": [
+            "Copyright 2012-2021 ForgeRock AS"
+        ],
+        "openidm-config-7.5.0": [
+            "Copyright 2011-2024 ForgeRock AS"
+        ],
+        "openidm-crypto-7.5.0": [
+            "Copyright 2011-2024 ForgeRock AS"
+        ],
+        "openidm-customendpoint-7.5.0": [
+            "Copyright 2012-2021 ForgeRock AS"
+        ],
+        "openidm-datasource-7.5.0": [
+            "Copyright 2011-2024 ForgeRock AS",
+            "Copyright 2015 YANDEX",
+            "Portions Copyright 2018-2023 ForgeRock AS"
+        ],
+        "openidm-enhanced-config-7.5.0": [
+            "Copyright 2011-2022 ForgeRock AS"
+        ],
+        "openidm-external-email-7.5.0": [
+            "Copyright 2011-2024 ForgeRock AS"
+        ],
+        "openidm-external-idm-7.5.0": [
+            "Copyright 2013-2024 ForgeRock AS"
+        ],
+        "openidm-external-rest-7.5.0": [
+            "Copyright 2011-2023 ForgeRock AS"
+        ],
+        "openidm-feature-7.5.0": [
+            "Copyright 2022-2023 ForgeRock AS"
+        ],
+        "openidm-felix-webconsole-7.5.0": [
+            "Copyright 2016-2023 ForgeRock AS"
+        ],
+        "openidm-file-7.5.0": [
+            "Copyright 2018-2023 ForgeRock AS"
+        ],
+        "openidm-file-handler-filesystem-7.5.0": [
+            "Copyright 2018-2023 ForgeRock AS"
+        ],
+        "openidm-file-handler-repo-7.5.0": [
+            "Copyright 2018-2023 ForgeRock AS"
+        ],
+        "openidm-httpcontext-7.5.0": [
+            "Copyright 2011-2021 ForgeRock AS"
+        ],
+        "openidm-identity-provider-7.5.0": [
+            "Copyright 2016-2023 ForgeRock AS"
+        ],
+        "openidm-import-7.5.0": [
+            "Copyright 2019-2024 ForgeRock AS"
+        ],
+        "openidm-infoservice-7.5.0": [
+            "Copyright 2012-2023 ForgeRock AS"
+        ],
+        "openidm-internal-7.5.0": [
+            "Copyright 2015-2024 ForgeRock AS"
+        ],
+        "openidm-jetty-fragment-7.5.0": [
+            "Copyright 2011-2023 ForgeRock AS"
+        ],
+        "openidm-json-store-7.5.0": [
+            "Copyright 2017-2024 ForgeRock AS"
+        ],
+        "openidm-launcher-7.5.0": [
+            "Copyright 2012-2021 ForgeRock AS"
+        ],
+        "openidm-lock-7.5.0": [
+            "Copyright 2018-2023 ForgeRock AS"
+        ],
+        "openidm-managed-7.5.0": [
+            "Copyright 2011-2024 ForgeRock AS"
+        ],
+        "openidm-messaging-7.5.0": [
+            "Copyright 2016-2022 ForgeRock AS"
+        ],
+        "openidm-metrics-7.5.0": [
+            "Copyright 2017-2024 ForgeRock AS",
+            "Copyright 2013-2017 Dropwizard contributors",
+            "Portions Copyright 2022 ForgeRock AS"
+        ],
+        "openidm-notification-7.5.0": [
+            "Copyright 2018-2024 ForgeRock AS"
+        ],
+        "openidm-policy-7.5.0": [
+            "Copyright 2012-2023 ForgeRock AS"
+        ],
+        "openidm-project-7.5.0": [
+            "Copyright 2010-2024 ForgeRock AS",
+            "Copyright 2013-2017 Dropwizard contributors",
+            "Copyright 2015 YANDEX",
+            "Copyright 2015 by original authors",
+            "Copyright 1999-2012 The Apache Software Foundation",
+            "Copyright 2005-2010 Sun Microsystems, Inc",
+            "Portions Copyright 2010-2024 ForgeRock AS"
+        ],
+        "openidm-provisioner-7.5.0": [
+            "Copyright 2011-2024 ForgeRock AS"
+        ],
+        "openidm-provisioner-openicf-7.5.0": [
+            "Copyright 2010-2024 ForgeRock AS"
+        ],
+        "openidm-quartz-fragment-7.5.0": [
+            "Copyright 2011-2024 ForgeRock AS",
+            "Portions Copyright 2018-2024 ForgeRock AS"
+        ],
+        "openidm-relationship-7.5.0": [
+            "Copyright 2011-2024 ForgeRock AS"
+        ],
+        "openidm-repo-7.5.0": [
+            "Copyright 2011-2024 ForgeRock AS"
+        ],
+        "openidm-repo-init-7.5.0": [
+            "Copyright 2018-2022 ForgeRock AS"
+        ],
+        "openidm-repo-jdbc-7.5.0": [
+            "Copyright 2011-2024 ForgeRock AS"
+        ],
+        "openidm-repo-opendj-7.5.0": [
+            "Copyright 2017-2024 ForgeRock AS"
+        ],
+        "openidm-reporting-7.5.0": [
+            "Copyright 2011-2023 ForgeRock AS"
+        ],
+        "openidm-router-7.5.0": [
+            "Copyright 2011-2023 ForgeRock AS"
+        ],
+        "openidm-router-api-7.5.0": [
+            "Copyright 2013-2024 ForgeRock AS"
+        ],
+        "openidm-router-filter-7.5.0": [
+            "Copyright 2013-2024 ForgeRock AS"
+        ],
+        "openidm-runtime-7.5.0": [
+            "Copyright 2011-2024 ForgeRock AS",
+            "Copyright 1999-2012 The Apache Software Foundation"
+        ],
+        "openidm-scheduler-7.5.0": [
+            "Copyright 2011-2024 ForgeRock AS"
+        ],
+        "openidm-schema-7.5.0": [
+            "Copyright 2015-2024 ForgeRock AS"
+        ],
+        "openidm-scr-starter-7.5.0": [
+            "Copyright 2021 ForgeRock AS"
+        ],
+        "openidm-script-7.5.0": [
+            "Copyright 2012-2023 ForgeRock AS"
+        ],
+        "openidm-script-common-7.5.0": [
+            "Copyright 2011-2024 ForgeRock AS",
+            "Copyright 2005 Sun Microsystems, Inc",
+            "Portions Copyright 2012-2019 ForgeRock AS"
+        ],
+        "openidm-script-groovy-7.5.0": [
+            "Copyright 2012-2021 ForgeRock AS",
+            "Copyright 2006 Sun Microsystems, Inc",
+            "Portions Copyright 2012-2022 ForgeRock AS"
+        ],
+        "openidm-script-javascript-7.5.0": [
+            "Copyright 2012-2023 ForgeRock AS",
+            "Copyright 2006 Sun Microsystems, Inc",
+            "Portions Copyright 2012-2024 ForgeRock AS"
+        ],
+        "openidm-script-javascript-lib-7.5.0": [
+            "Copyright 2019-2023 ForgeRock AS"
+        ],
+        "openidm-secrets-7.5.0": [
+            "Copyright 2018-2024 ForgeRock AS"
+        ],
+        "openidm-security-jetty-7.5.0": [
+            "Copyright 2011-2021 ForgeRock AS"
+        ],
+        "openidm-selfservice-7.5.0": [
+            "Copyright 2012-2024 ForgeRock AS"
+        ],
+        "openidm-servlet-7.5.0": [
+            "Copyright 2011-2024 ForgeRock AS",
+            "Portions Copyright 2013-2024 ForgeRock AS"
+        ],
+        "openidm-servlet-registrator-7.5.0": [
+            "Copyright 2011-2021 ForgeRock AS"
+        ],
+        "openidm-shell-7.5.0": [
+            "Copyright 2011-2024 ForgeRock AS"
+        ],
+        "openidm-sync-7.5.0": [
+            "Copyright 2011-2024 ForgeRock AS"
+        ],
+        "openidm-system-7.5.0": [
+            "Copyright 2011-2024 ForgeRock AS",
+            "Copyright 2006-2010 Sun Microsystems, Inc",
+            "Portions Copyright 2010-2022 ForgeRock AS"
+        ],
+        "openidm-ui-admin-7.5.0": [
+            "Copyright 2011-2024 ForgeRock AS",
+            "Copyright 2015 by original authors"
+        ],
+        "openidm-ui-api-7.5.0": [
+            "Copyright 2016-2021 ForgeRock AS"
+        ],
+        "openidm-ui-common-7.5.0": [
+            "Copyright 2011-2024 ForgeRock AS"
+        ],
+        "openidm-ui-mirai-7.5.0": [
+            "Copyright 2020-2024 ForgeRock",
+            "Copyright 2019-2020 ForgeRock AS"
+        ],
+        "openidm-ui-oauth-7.5.0": [
+            "Copyright 2015-2021 ForgeRock AS"
+        ],
+        "openidm-util-7.5.0": [
+            "Copyright 2011-2024 ForgeRock AS",
+            "Copyright 2008-2009 Sun Microsystems, Inc",
+            "Portions Copyright 2013-2020 ForgeRock AS"
+        ],
+        "openidm-workflow-activiti-7.5.0": [
+            "Copyright 2011-2024 ForgeRock AS",
+            "Portions Copyright 2020 ForgeRock AS"
+        ],
+        "provisioners-7.5.0": [
+            "Copyright 2014-2021 ForgeRock AS"
+        ],
+        "provisioning-with-roles-7.5.0": [
+            "Copyright 2015-2021 ForgeRock AS"
+        ],
+        "provisioning-with-workflow-7.5.0": [
+            "Copyright 2011-2021 ForgeRock AS"
+        ],
+        "repo-config-7.5.0": [
+            "Copyright 2016-2021 ForgeRock AS"
+        ],
+        "s3-7.5.0-20240320142307-a22eca384189d27473ff2b8e2427a5c663211558": [
+            "Portions Copyright 2022 ForgeRock AS"
+        ],
+        "salesforce-connector-1.5.20.21": [
+            "Copyright 2014-2024 ForgeRock AS"
+        ],
+        "scim-connector-1.5.20.21": [
+            "Copyright 2017-2023 ForgeRock AS",
+            "Portions Copyright 2019 Agile Digital Engineering Pty Ltd"
+        ],
+        "scripted-jms-subscriber-7.5.0": [
+            "Copyright 2016-2021 ForgeRock AS"
+        ],
+        "scripted-powershell-with-ad-7.5.0": [
+            "Copyright 2014-2022 ForgeRock AS"
+        ],
+        "scripted-rest-with-dj-7.5.0": [
+            "Copyright 2014-2023 ForgeRock AS"
+        ],
+        "scripted-sql-with-mysql-7.5.0": [
+            "Copyright 2010-2021 ForgeRock AS"
+        ],
+        "scriptedrest-connector-1.5.20.21": [
+            "Copyright 2011-2024 ForgeRock AS"
+        ],
+        "scriptedsql-connector-1.5.20.21": [
+            "Copyright 2010-2023 ForgeRock AS"
+        ],
+        "secrets-api-26.5.0-20240315145234-7d028cc3ac9ec7e586cf524461da02ad911f2e06": [
+            "Copyright 2017-2024 ForgeRock AS"
+        ],
+        "secrets-backend-keystore-26.5.0-20240315145234-7d028cc3ac9ec7e586cf524461da02ad911f2e06": [
+            "Copyright 2017-2024 ForgeRock AS"
+        ],
+        "secrets-backend-oauth2-26.5.0-20240315145234-7d028cc3ac9ec7e586cf524461da02ad911f2e06": [
+            "Copyright 2019-2022 ForgeRock AS"
+        ],
+        "secrets-backend-propertyresolver-26.5.0-20240315145234-7d028cc3ac9ec7e586cf524461da02ad911f2e06": [
+            "Copyright 2018-2024 ForgeRock AS"
+        ],
+        "secrets-credentials-json-mapper-26.5.0-20240315145234-7d028cc3ac9ec7e586cf524461da02ad911f2e06": [
+            "Copyright 2011-2024 ForgeRock AS"
+        ],
+        "security-26.5.0-20240315145234-7d028cc3ac9ec7e586cf524461da02ad911f2e06": [
+            "Copyright 2013-2024 ForgeRock AS"
+        ],
+        "servicenow-connector-1.5.20.21": [
+            "Copyright 2011-2023 ForgeRock AS"
+        ],
+        "ssh-connector-1.5.20.21": [
+            "Copyright 2011-2023 ForgeRock AS"
+        ],
+        "sts-7.5.0-20240320142307-a22eca384189d27473ff2b8e2427a5c663211558": [
+            "Portions Copyright 2022 ForgeRock AS"
+        ],
+        "sync-asynchronous-7.5.0": [
+            "Copyright 2014-2021 ForgeRock AS"
+        ],
+        "sync-two-external-resources-7.5.0": [
+            "Copyright 2011-2021 ForgeRock AS"
+        ],
+        "sync-with-azuread-7.5.0": [
+            "Copyright 2021 ForgeRock AS"
+        ],
+        "sync-with-csv-7.5.0": [
+            "Copyright 2014-2021 ForgeRock AS"
+        ],
+        "sync-with-docusign-7.5.0": [
+            "Copyright 2018-2021 ForgeRock AS"
+        ],
+        "sync-with-google-7.5.0": [
+            "Copyright 2014-2021 ForgeRock AS"
+        ],
+        "sync-with-hubspot-7.5.0": [
+            "Copyright 2018-2021 ForgeRock AS"
+        ],
+        "sync-with-kerberos-7.5.0": [
+            "Copyright 2016-2021 ForgeRock AS"
+        ],
+        "sync-with-ldap-7.5.0": [
+            "Copyright 2014-2021 ForgeRock AS"
+        ],
+        "sync-with-ldap-bidirectional-7.5.0": [
+            "Copyright 2014-2021 ForgeRock AS"
+        ],
+        "sync-with-ldap-group-membership-7.5.0": [
+            "Copyright 2014-2021 ForgeRock AS"
+        ],
+        "sync-with-ldap-groups-7.5.0": [
+            "Copyright 2014-2021 ForgeRock AS"
+        ],
+        "sync-with-mongodb-7.5.0": [
+            "Copyright 2018-2021 ForgeRock AS"
+        ],
+        "sync-with-salesforce-7.5.0": [
+            "Copyright 2014-2021 ForgeRock AS"
+        ],
+        "sync-with-scim-7.5.0": [
+            "Copyright 2018-2021 ForgeRock AS"
+        ],
+        "trusted-servlet-filter-7.5.0": [
+            "Copyright 2015-2024 ForgeRock AS"
+        ]
+    }
+}

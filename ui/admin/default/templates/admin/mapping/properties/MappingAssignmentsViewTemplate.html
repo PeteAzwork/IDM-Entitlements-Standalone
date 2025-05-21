@@ -1,0 +1,79 @@
+{{!
+  Copyright 2015-2020 ForgeRock AS. All Rights Reserved
+
+  Use of this code requires a commercial software license with ForgeRock AS.
+  or with one of its affiliates. All use shall be exclusively subject
+  to such license between the licensee and ForgeRock AS.
+}}
+<div class="panel-body">
+    {{#if assignments}}
+        <p class="section-help">{{t "templates.admin.AssignmentTemplate.mappingAssignmentHelp"}}</p>
+        {{#each assignments}}
+        <div style="margin-bottom: 3em;">
+            {{#each items}}
+            <div class="mapped-assignment">
+                <div class="mapped-assignment-heading">
+                    <div class="media">
+                        <div class="media-left">
+                            <div>
+                                <i class="fr-small-circle bg-primary fa fa-key"></i>
+                            </div>
+                        </div>
+                        <div class="media-body media-middle">
+                            <h4 class="media-heading"><a href="#resource/managed/{{../objectName}}/edit/{{_id}}/">{{name}}</a></h4>
+                            <span class="text-muted text-sm-left">({{ ../title }})</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="list-table">
+                    <ul class="list-group">
+                        <li class="list-group-header">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    {{t "templates.mapping.targetProperty"}}
+                                </div>
+                                <div class="col-md-5">
+                                    {{t "templates.admin.AssignmentTemplate.value"}}
+                                </div>
+                                <div class="col-md-4">
+                                    {{t "templates.admin.AssignmentTemplate.operations"}}
+                                </div>
+                            </div>
+                        </li>
+                        {{#if attributes}}
+                            {{#each attributes}}
+                            <li class="list-group-item">
+                                <div class="list-group-item-content">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            {{name}}
+                                        </div>
+                                        <div class="col-md-5">
+                                            <pre>{{{stringify value}}}</pre>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <span class="text-muted">{{t "templates.admin.AssignmentTemplate.onAssignment"}}:</span> {{assignmentOperation}}<br>
+                                            <span class="text-muted">{{t "templates.admin.AssignmentTemplate.unAssignment"}}:</span> {{unassignmentOperation}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            {{/each}}
+                        {{else}}
+                            <div class="text-center no-data">{{t "templates.admin.AssignmentTemplate.noAssignmentProperties"}}</div>
+                        {{/if}}
+                    </ul>
+                </div>
+            </div>
+            {{/each}}
+            {{#if items.length}}
+            <a href="#resource/managed/{{objectName}}/add/"><button type="button" class="btn btn-default"><i class="fa fa-plus"></i>{{t "common.form.add"}} {{t "templates.admin.ResourceEdit.new"}} {{ title }}</button></a>
+            {{/if}}
+        </div>
+        {{/each}}
+    {{else}}
+        <div class="fr-no-data text-center well">
+            <h4 class="text-muted">{{t "templates.admin.AssignmentTemplate.noMappingAssignments"}}</h4>
+        </div>
+    {{/if}}
+</div>

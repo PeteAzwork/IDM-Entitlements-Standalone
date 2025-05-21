@@ -1,0 +1,813 @@
+{{!
+  Copyright 2022 ForgeRock AS. All Rights Reserved
+
+  Use of this code requires a commercial software license with ForgeRock AS.
+  or with one of its affiliates. All use shall be exclusively subject
+  to such license between the licensee and ForgeRock AS.
+}}
+<div class="panel panel-default panel-collapse" id="forWorkdayConnector">
+    <div class="panel-heading" role="tab" id="connectorSpecificBaseHeading">
+        <h4 class="panel-title">
+            <a data-toggle="collapse" href="#connectorSpecificBase" aria-expanded="true" aria-controls="connectorSpecificBaseHeading" class="">{{t "templates.connector.baseTitle"}}</a>
+        </h4>
+    </div>
+    <div id="connectorSpecificBase" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="connectorSpecificBase" aria-expanded="true">
+        <div class="panel-body">
+            <!-- REQUIRED TEXT FIELDS -->
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="hostname">{{t "templates.connector.workday.hostname"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="hostname" name="configurationProperties.hostname" value="{{connectorDefaults.configurationProperties.hostname}}" data-validator-event="keyup blur" data-validator="required"  />
+                    <span class="error form-control-feedback"><i class='fa validation-icon'></i></span>
+                    <span class="help-block">{{t "templates.connector.workday.hostnameHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="tenant">{{t "templates.connector.workday.tenant"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="tenant" name="configurationProperties.tenant" value="{{connectorDefaults.configurationProperties.tenant}}" data-validator-event="keyup blur" data-validator="required"  />
+                    <span class="error form-control-feedback"><i class='fa validation-icon'></i></span>
+                    <span class="help-block">{{t "templates.connector.workday.tenantHelp"}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="username">{{t "templates.connector.workday.username"}}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" id="username" name="configurationProperties.username" value="{{connectorDefaults.configurationProperties.username}}" data-validator-event="keyup blur" data-validator="required"  />
+                    <span class="error form-control-feedback"><i class='fa validation-icon'></i></span>
+                    <span class="help-block"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="password">{{t "templates.connector.workday.password"}}</label>
+                <div class="col-sm-8">
+                    <!-- autocomplete="new-password" is required to prevent chrome from auto-completing these form fields -->
+                    {{#ifObject connectorDefaults.configurationProperties.password}}
+                        {{#if connectorDefaults.configurationProperties.password.$crypto}}
+                            <input id="password" class="form-control" name="configurationProperties.password" type="password" {{#if connectorDefaults.configurationProperties.password}} placeholder="********" {{/if}} />
+                        {{else}}
+                            <input id="password" class="form-control" name="configurationProperties.password" type="password" placeholder="{{connectorDefaults.configurationProperties.password.$base64:decode}}" />
+                        {{/if}}
+                    {{else}}
+                        <input id="password" class="form-control" name="configurationProperties.password" type="password" autocomplete="new-password" name="configurationProperties.password" value="{{connectorDefaults.configurationProperties.password}}" data-validator-event="keyup blur" data-validator="required" />
+                    {{/ifObject}}
+
+                    <span class="error form-control-feedback"><i class='fa validation-icon'></i></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ADVANCED PROPERTIES  -->
+<div class="panel panel-default panel-collapse">
+    <div class="panel-heading" role="tab" id="advancedPropertiesHeading">
+        <h4 class="panel-title">
+            <a data-toggle="collapse" href="#advancedProperties" aria-expanded="false" aria-controls="advancedProperties" class="">{{t "templates.connector.workday.advancedProperties"}}</a>
+        </h4>
+    </div>
+    <div id="advancedProperties" class="panel-collapse collapse" role="tabpanel" aria-labelledby="advancedPropertiesHeading" aria-expanded="false">
+        <div class="form-group">
+            <label class="col-sm-3 control-label" for="connectionTimeout">{{t "templates.connector.workday.connectionTimeout"}}</label>
+            <div class="col-sm-8">
+                <input class="form-control" type="text" id="connectionTimeout" name="configurationProperties.connectionTimeout" value="{{connectorDefaults.configurationProperties.connectionTimeout}}" data-validator-event="keyup blur" data-validator="required"  />
+                <span class="error form-control-feedback"><i class='fa validation-icon'></i></span>
+                <span class="help-block">{{t "templates.connector.workday.connectionTimeoutHelp"}}</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label" for="receiveTimeout">{{t "templates.connector.workday.receiveTimeout"}}</label>
+            <div class="col-sm-8">
+                <input class="form-control" type="text" id="receiveTimeout" name="configurationProperties.receiveTimeout" value="{{connectorDefaults.configurationProperties.receiveTimeout}}" data-validator-event="keyup blur" data-validator="required"  />
+                <span class="error form-control-feedback"><i class='fa validation-icon'></i></span>
+                <span class="help-block">{{t "templates.connector.workday.receiveTimeoutHelp"}}</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label" for="proxyPort">{{t "templates.connector.workday.proxyPort"}}</label>
+            <div class="col-sm-8">
+                <input class="form-control" type="text" id="proxyPort" name="configurationProperties.proxyPort" value="{{connectorDefaults.configurationProperties.proxyPort}}" data-validator-event="keyup blur" data-validator="required"  />
+                <span class="error form-control-feedback"><i class='fa validation-icon'></i></span>
+                <span class="help-block"></span>
+            </div>
+        </div>
+
+        <!-- NON-REQUIRED TEXT FIELDS -->
+        <div class="form-group">
+            <label class="col-sm-3 control-label" for="proxyHost">{{t "templates.connector.workday.proxyHost"}}</label>
+            <div class="col-sm-8">
+                <input class="form-control" type="text" id="proxyHost" name="configurationProperties.proxyHost" value="{{connectorDefaults.configurationProperties.proxyHost}}" />
+                <span class="error form-control-feedback"><i class='fa validation-icon'></i></span>
+                <span class="help-block">{{t "templates.connector.workday.proxyHostHelp"}}</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label" for="xslTransformer">{{t "templates.connector.workday.xslTransformer"}}</label>
+            <div class="col-sm-8">
+                <input class="form-control" type="text" id="xslTransformer" name="configurationProperties.xslTransformer" value="{{connectorDefaults.configurationProperties.xslTransformer}}" />
+                <span class="error form-control-feedback"><i class='fa validation-icon'></i></span>
+                <span class="help-block">{{t "templates.connector.workday.xslTransformerHelp"}}</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label" for="asOfEffectiveDate">{{t "templates.connector.workday.asOfEffectiveDate"}}</label>
+            <div class="col-sm-8">
+                <input class="form-control" type="text" id="asOfEffectiveDate" name="configurationProperties.asOfEffectiveDate" value="{{connectorDefaults.configurationProperties.asOfEffectiveDate}}" />
+                <span class="error form-control-feedback"><i class='fa validation-icon'></i></span>
+                <span class="help-block">{{t "templates.connector.workday.asOfEffectiveDateHelp"}}</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label" for="effectiveFrom">{{t "templates.connector.workday.effectiveFrom"}}</label>
+            <div class="col-sm-8">
+                <input class="form-control" type="text" id="effectiveFrom" name="configurationProperties.effectiveFrom" value="{{connectorDefaults.configurationProperties.effectiveFrom}}" />
+                <span class="error form-control-feedback"><i class='fa validation-icon'></i></span>
+                <span class="help-block">{{t "templates.connector.workday.effectiveFromHelp"}}</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label" for="effectiveThrough">{{t "templates.connector.workday.effectiveThrough"}}</label>
+            <div class="col-sm-8">
+                <input class="form-control" type="text" id="effectiveThrough" name="configurationProperties.effectiveThrough" value="{{connectorDefaults.configurationProperties.effectiveThrough}}" />
+                <span class="error form-control-feedback"><i class='fa validation-icon'></i></span>
+                <span class="help-block">{{t "templates.connector.workday.effectiveThroughHelp"}}</span>
+            </div>
+        </div>
+
+        <!-- INCLUDES BOOLEAN FIELDS -->
+        <div class="form-group includes-boolean-fields">
+            <label class="col-sm-3 control-label" for="includeWorkerDocuments">{{t "templates.connector.workday.includeWorkerDocuments"}}</label>
+            <div class="col-sm-8">
+                <div class="checkbox checkbox-slider-primary checkbox-slider checkbox-slider--b checkbox-slider-md">
+                    <label>
+                        <input class="toggleBoolean" id="includeWorkerDocuments" type="checkbox" name="configurationProperties.includeWorkerDocuments" value="true" {{#if connectorDefaults.configurationProperties.includeWorkerDocuments}} checked {{/if}}>
+                        <span></span>
+                    </label>
+                </div>
+                <span class="help-block">{{t "templates.connector.workday.includeWorkerDocumentsHelp"}}</span>
+            </div>
+        </div>
+        <div class="form-group includes-boolean-fields">
+            <label class="col-sm-3 control-label" for="includeDevelopmentItems">{{t "templates.connector.workday.includeDevelopmentItems"}}</label>
+            <div class="col-sm-8">
+                <div class="checkbox checkbox-slider-primary checkbox-slider checkbox-slider--b checkbox-slider-md">
+                    <label>
+                        <input class="toggleBoolean" id="includeDevelopmentItems" type="checkbox" name="configurationProperties.includeDevelopmentItems" value="true" {{#if connectorDefaults.configurationProperties.includeDevelopmentItems}} checked {{/if}}>
+                        <span></span>
+                    </label>
+                </div>
+                <span class="help-block">{{t "templates.connector.workday.includeDevelopmentItemsHelp"}}</span>
+            </div>
+        </div>
+        <div class="form-group includes-boolean-fields">
+            <label class="col-sm-3 control-label" for="includeRoles">{{t "templates.connector.workday.includeRoles"}}</label>
+            <div class="col-sm-8">
+                <div class="checkbox checkbox-slider-primary checkbox-slider checkbox-slider--b checkbox-slider-md">
+                    <label>
+                        <input class="toggleBoolean" id="includeRoles" type="checkbox" name="configurationProperties.includeRoles" value="true" {{#if connectorDefaults.configurationProperties.includeRoles}} checked {{/if}}>
+                        <span></span>
+                    </label>
+                </div>
+                <span class="help-block">{{t "templates.connector.workday.includeRolesHelp"}}</span>
+            </div>
+        </div>
+        <div class="form-group includes-boolean-fields">
+            <label class="col-sm-3 control-label" for="includeRolesData">{{t "templates.connector.workday.includeRolesData"}}</label>
+            <div class="col-sm-8">
+                <div class="checkbox checkbox-slider-primary checkbox-slider checkbox-slider--b checkbox-slider-md">
+                    <label>
+                        <input class="toggleBoolean" id="includeRolesData" type="checkbox" name="configurationProperties.includeRolesData" value="true" {{#if connectorDefaults.configurationProperties.includeRolesData}} checked {{/if}}>
+                        <span></span>
+                    </label>
+                </div>
+                <span class="help-block">{{t "templates.connector.workday.includeRolesDataHelp"}}</span>
+            </div>
+        </div>
+        <div class="form-group includes-boolean-fields">
+            <label class="col-sm-3 control-label" for="includeTransactionLogData">{{t "templates.connector.workday.includeTransactionLogData"}}</label>
+            <div class="col-sm-8">
+                <div class="checkbox checkbox-slider-primary checkbox-slider checkbox-slider--b checkbox-slider-md">
+                    <label>
+                        <input class="toggleBoolean" id="includeTransactionLogData" type="checkbox" name="configurationProperties.includeTransactionLogData" value="true" {{#if connectorDefaults.configurationProperties.includeTransactionLogData}} checked {{/if}}>
+                        <span></span>
+                    </label>
+                </div>
+                <span class="help-block">{{t "templates.connector.workday.includeTransactionLogDataHelp"}}</span>
+            </div>
+        </div>
+        <div class="form-group includes-boolean-fields">
+            <label class="col-sm-3 control-label" for="includeQualifications">{{t "templates.connector.workday.includeQualifications"}}</label>
+            <div class="col-sm-8">
+                <div class="checkbox checkbox-slider-primary checkbox-slider checkbox-slider--b checkbox-slider-md">
+                    <label>
+                        <input class="toggleBoolean" id="includeQualifications" type="checkbox" name="configurationProperties.includeQualifications" value="true" {{#if connectorDefaults.configurationProperties.includeQualifications}} checked {{/if}}>
+                        <span></span>
+                    </label>
+                </div>
+                <span class="help-block">{{t "templates.connector.workday.includeQualificationsHelp"}}</span>
+            </div>
+        </div>
+        <div class="form-group includes-boolean-fields">
+            <label class="col-sm-3 control-label" for="includeCareer">{{t "templates.connector.workday.includeCareer"}}</label>
+            <div class="col-sm-8">
+                <div class="checkbox checkbox-slider-primary checkbox-slider checkbox-slider--b checkbox-slider-md">
+                    <label>
+                        <input class="toggleBoolean" id="includeCareer" type="checkbox" name="configurationProperties.includeCareer" value="true" {{#if connectorDefaults.configurationProperties.includeCareer}} checked {{/if}}>
+                        <span></span>
+                    </label>
+                </div>
+                <span class="help-block">{{t "templates.connector.workday.includeCareerHelp"}}</span>
+            </div>
+        </div>
+        <div class="form-group includes-boolean-fields">
+            <label class="col-sm-3 control-label" for="includeContingentWorkerTaxAuthorityFormInformation">{{t "templates.connector.workday.includeContingentWorkerTaxAuthorityFormInformation"}}</label>
+            <div class="col-sm-8">
+                <div class="checkbox checkbox-slider-primary checkbox-slider checkbox-slider--b checkbox-slider-md">
+                    <label>
+                        <input class="toggleBoolean" id="includeContingentWorkerTaxAuthorityFormInformation" type="checkbox" name="configurationProperties.includeContingentWorkerTaxAuthorityFormInformation" value="true" {{#if connectorDefaults.configurationProperties.includeContingentWorkerTaxAuthorityFormInformation}} checked {{/if}}>
+                        <span></span>
+                    </label>
+                </div>
+                <span class="help-block">{{t "templates.connector.workday.includeContingentWorkerTaxAuthorityFormInformationHelp"}}</span>
+            </div>
+        </div>
+        <div class="form-group includes-boolean-fields">
+            <label class="col-sm-3 control-label" for="includeUserAccount">{{t "templates.connector.workday.includeUserAccount"}}</label>
+            <div class="col-sm-8">
+                <div class="checkbox checkbox-slider-primary checkbox-slider checkbox-slider--b checkbox-slider-md">
+                    <label>
+                        <input class="toggleBoolean" id="includeUserAccount" type="checkbox" name="configurationProperties.includeUserAccount" value="true" {{#if connectorDefaults.configurationProperties.includeUserAccount}} checked {{/if}}>
+                        <span></span>
+                    </label>
+                </div>
+                <span class="help-block">{{t "templates.connector.workday.includeUserAccountHelp"}}</span>
+            </div>
+        </div>
+        <div class="form-group includes-boolean-fields">
+            <label class="col-sm-3 control-label" for="includeFeedbackReceived">{{t "templates.connector.workday.includeFeedbackReceived"}}</label>
+            <div class="col-sm-8">
+                <div class="checkbox checkbox-slider-primary checkbox-slider checkbox-slider--b checkbox-slider-md">
+                    <label>
+                        <input class="toggleBoolean" id="includeFeedbackReceived" type="checkbox" name="configurationProperties.includeFeedbackReceived" value="true" {{#if connectorDefaults.configurationProperties.includeFeedbackReceived}} checked {{/if}}>
+                        <span></span>
+                    </label>
+                </div>
+                <span class="help-block">{{t "templates.connector.workday.includeFeedbackReceivedHelp"}}</span>
+            </div>
+        </div>
+        <div class="form-group includes-boolean-fields">
+            <label class="col-sm-3 control-label" for="includeEmployeeContractData">{{t "templates.connector.workday.includeEmployeeContractData"}}</label>
+            <div class="col-sm-8">
+                <div class="checkbox checkbox-slider-primary checkbox-slider checkbox-slider--b checkbox-slider-md">
+                    <label>
+                        <input class="toggleBoolean" id="includeEmployeeContractData" type="checkbox" name="configurationProperties.includeEmployeeContractData" value="true" {{#if connectorDefaults.configurationProperties.includeEmployeeContractData}} checked {{/if}}>
+                        <span></span>
+                    </label>
+                </div>
+                <span class="help-block">{{t "templates.connector.workday.includeEmployeeContractDataHelp"}}</span>
+            </div>
+        </div>
+        <div class="form-group includes-boolean-fields">
+            <label class="col-sm-3 control-label" for="includeSkills">{{t "templates.connector.workday.includeSkills"}}</label>
+            <div class="col-sm-8">
+                <div class="checkbox checkbox-slider-primary checkbox-slider checkbox-slider--b checkbox-slider-md">
+                    <label>
+                        <input class="toggleBoolean" id="includeSkills" type="checkbox" name="configurationProperties.includeSkills" value="true" {{#if connectorDefaults.configurationProperties.includeSkills}} checked {{/if}}>
+                        <span></span>
+                    </label>
+                </div>
+                <span class="help-block">{{t "templates.connector.workday.includeSkillsHelp"}}</span>
+            </div>
+        </div>
+        <div class="form-group includes-boolean-fields">
+            <label class="col-sm-3 control-label" for="includeStaffingRestrictionsData">{{t "templates.connector.workday.includeStaffingRestrictionsData"}}</label>
+            <div class="col-sm-8">
+                <div class="checkbox checkbox-slider-primary checkbox-slider checkbox-slider--b checkbox-slider-md">
+                    <label>
+                        <input class="toggleBoolean" id="includeStaffingRestrictionsData" type="checkbox" name="configurationProperties.includeStaffingRestrictionsData" value="true" {{#if connectorDefaults.configurationProperties.includeStaffingRestrictionsData}} checked {{/if}}>
+                        <span></span>
+                    </label>
+                </div>
+                <span class="help-block">{{t "templates.connector.workday.includeStaffingRestrictionsDataHelp"}}</span>
+            </div>
+        </div>
+        <div class="form-group includes-boolean-fields">
+            <label class="col-sm-3 control-label" for="includeAccountProvisioning">{{t "templates.connector.workday.includeAccountProvisioning"}}</label>
+            <div class="col-sm-8">
+                <div class="checkbox checkbox-slider-primary checkbox-slider checkbox-slider--b checkbox-slider-md">
+                    <label>
+                        <input class="toggleBoolean" id="includeAccountProvisioning" type="checkbox" name="configurationProperties.includeAccountProvisioning" value="true" {{#if connectorDefaults.configurationProperties.includeAccountProvisioning}} checked {{/if}}>
+                        <span></span>
+                    </label>
+                </div>
+                <span class="help-block">{{t "templates.connector.workday.includeAccountProvisioningHelp"}}</span>
+            </div>
+        </div>
+        <div class="form-group includes-boolean-fields">
+            <label class="col-sm-3 control-label" for="includeAdditionalJobs">{{t "templates.connector.workday.includeAdditionalJobs"}}</label>
+            <div class="col-sm-8">
+                <div class="checkbox checkbox-slider-primary checkbox-slider checkbox-slider--b checkbox-slider-md">
+                    <label>
+                        <input class="toggleBoolean" id="includeAdditionalJobs" type="checkbox" name="configurationProperties.includeAdditionalJobs" value="true" {{#if connectorDefaults.configurationProperties.includeAdditionalJobs}} checked {{/if}}>
+                        <span></span>
+                    </label>
+                </div>
+                <span class="help-block">{{t "templates.connector.workday.includeAdditionalJobsHelp"}}</span>
+            </div>
+        </div>
+        <div class="form-group includes-boolean-fields">
+            <label class="col-sm-3 control-label" for="includeGoals">{{t "templates.connector.workday.includeGoals"}}</label>
+            <div class="col-sm-8">
+                <div class="checkbox checkbox-slider-primary checkbox-slider checkbox-slider--b checkbox-slider-md">
+                    <label>
+                        <input class="toggleBoolean" id="includeGoals" type="checkbox" name="configurationProperties.includeGoals" value="true" {{#if connectorDefaults.configurationProperties.includeGoals}} checked {{/if}}>
+                        <span></span>
+                    </label>
+                </div>
+                <span class="help-block">{{t "templates.connector.workday.includeGoalsHelp"}}</span>
+            </div>
+        </div>
+        <div class="form-group includes-boolean-fields">
+            <label class="col-sm-3 control-label" for="includeHierarchyData">{{t "templates.connector.workday.includeHierarchyData"}}</label>
+            <div class="col-sm-8">
+                <div class="checkbox checkbox-slider-primary checkbox-slider checkbox-slider--b checkbox-slider-md">
+                    <label>
+                        <input class="toggleBoolean" id="includeHierarchyData" type="checkbox" name="configurationProperties.includeHierarchyData" value="true" {{#if connectorDefaults.configurationProperties.includeHierarchyData}} checked {{/if}}>
+                        <span></span>
+                    </label>
+                </div>
+                <span class="help-block">{{t "templates.connector.workday.includeHierarchyDataHelp"}}</span>
+            </div>
+        </div>
+        <div class="form-group includes-boolean-fields">
+            <label class="col-sm-3 control-label" for="includeSuccessionProfile">{{t "templates.connector.workday.includeSuccessionProfile"}}</label>
+            <div class="col-sm-8">
+                <div class="checkbox checkbox-slider-primary checkbox-slider checkbox-slider--b checkbox-slider-md">
+                    <label>
+                        <input class="toggleBoolean" id="includeSuccessionProfile" type="checkbox" name="configurationProperties.includeSuccessionProfile" value="true" {{#if connectorDefaults.configurationProperties.includeSuccessionProfile}} checked {{/if}}>
+                        <span></span>
+                    </label>
+                </div>
+                <span class="help-block">{{t "templates.connector.workday.includeSuccessionProfileHelp"}}</span>
+            </div>
+        </div>
+        <div class="form-group includes-boolean-fields">
+            <label class="col-sm-3 control-label" for="includeSupervisoryData">{{t "templates.connector.workday.includeSupervisoryData"}}</label>
+            <div class="col-sm-8">
+                <div class="checkbox checkbox-slider-primary checkbox-slider checkbox-slider--b checkbox-slider-md">
+                    <label>
+                        <input class="toggleBoolean" id="includeSupervisoryData" type="checkbox" name="configurationProperties.includeSupervisoryData" value="true" {{#if connectorDefaults.configurationProperties.includeSupervisoryData}} checked {{/if}}>
+                        <span></span>
+                    </label>
+                </div>
+                <span class="help-block">{{t "templates.connector.workday.includeSupervisoryDataHelp"}}</span>
+            </div>
+        </div>
+        <div class="form-group includes-boolean-fields">
+            <label class="col-sm-3 control-label" for="includeBackgroundCheckData">{{t "templates.connector.workday.includeBackgroundCheckData"}}</label>
+            <div class="col-sm-8">
+                <div class="checkbox checkbox-slider-primary checkbox-slider checkbox-slider--b checkbox-slider-md">
+                    <label>
+                        <input class="toggleBoolean" id="includeBackgroundCheckData" type="checkbox" name="configurationProperties.includeBackgroundCheckData" value="true" {{#if connectorDefaults.configurationProperties.includeBackgroundCheckData}} checked {{/if}}>
+                        <span></span>
+                    </label>
+                </div>
+                <span class="help-block">{{t "templates.connector.workday.includeBackgroundCheckDataHelp"}}</span>
+            </div>
+        </div>
+        <div class="form-group includes-boolean-fields">
+            <label class="col-sm-3 control-label" for="includeEmployeeReview">{{t "templates.connector.workday.includeEmployeeReview"}}</label>
+            <div class="col-sm-8">
+                <div class="checkbox checkbox-slider-primary checkbox-slider checkbox-slider--b checkbox-slider-md">
+                    <label>
+                        <input class="toggleBoolean" id="includeEmployeeReview" type="checkbox" name="configurationProperties.includeEmployeeReview" value="true" {{#if connectorDefaults.configurationProperties.includeEmployeeReview}} checked {{/if}}>
+                        <span></span>
+                    </label>
+                </div>
+                <span class="help-block">{{t "templates.connector.workday.includeEmployeeReviewHelp"}}</span>
+            </div>
+        </div>
+        <div class="form-group includes-boolean-fields">
+            <label class="col-sm-3 control-label" for="includeManagementChainData">{{t "templates.connector.workday.includeManagementChainData"}}</label>
+            <div class="col-sm-8">
+                <div class="checkbox checkbox-slider-primary checkbox-slider checkbox-slider--b checkbox-slider-md">
+                    <label>
+                        <input class="toggleBoolean" id="includeManagementChainData" type="checkbox" name="configurationProperties.includeManagementChainData" value="true" {{#if connectorDefaults.configurationProperties.includeManagementChainData}} checked {{/if}}>
+                        <span></span>
+                    </label>
+                </div>
+                <span class="help-block">{{t "templates.connector.workday.includeManagementChainDataHelp"}}</span>
+            </div>
+        </div>
+        <div class="form-group includes-boolean-fields">
+            <label class="col-sm-3 control-label" for="includeMultipleManagersInManagementChainData">{{t "templates.connector.workday.includeMultipleManagersInManagementChainData"}}</label>
+            <div class="col-sm-8">
+                <div class="checkbox checkbox-slider-primary checkbox-slider checkbox-slider--b checkbox-slider-md">
+                    <label>
+                        <input class="toggleBoolean" id="includeMultipleManagersInManagementChainData" type="checkbox" name="configurationProperties.includeMultipleManagersInManagementChainData" value="true" {{#if connectorDefaults.configurationProperties.includeMultipleManagersInManagementChainData}} checked {{/if}}>
+                        <span></span>
+                    </label>
+                </div>
+                <span class="help-block">{{t "templates.connector.workday.includeMultipleManagersInManagementChainDataHelp"}}</span>
+            </div>
+        </div>
+        <div class="form-group includes-boolean-fields">
+            <label class="col-sm-3 control-label" for="includePhoto">{{t "templates.connector.workday.includePhoto"}}</label>
+            <div class="col-sm-8">
+                <div class="checkbox checkbox-slider-primary checkbox-slider checkbox-slider--b checkbox-slider-md">
+                    <label>
+                        <input class="toggleBoolean" id="includePhoto" type="checkbox" name="configurationProperties.includePhoto" value="true" {{#if connectorDefaults.configurationProperties.includePhoto}} checked {{/if}}>
+                        <span></span>
+                    </label>
+                </div>
+                <span class="help-block">{{t "templates.connector.workday.includePhotoHelp"}}</span>
+            </div>
+        </div>
+        <div class="form-group includes-boolean-fields">
+            <label class="col-sm-3 control-label" for="includeRelatedPersons">{{t "templates.connector.workday.includeRelatedPersons"}}</label>
+            <div class="col-sm-8">
+                <div class="checkbox checkbox-slider-primary checkbox-slider checkbox-slider--b checkbox-slider-md">
+                    <label>
+                        <input class="toggleBoolean" id="includeRelatedPersons" type="checkbox" name="configurationProperties.includeRelatedPersons" value="true" {{#if connectorDefaults.configurationProperties.includeRelatedPersons}} checked {{/if}}>
+                        <span></span>
+                    </label>
+                </div>
+                <span class="help-block">{{t "templates.connector.workday.includeRelatedPersonsHelp"}}</span>
+            </div>
+        </div>
+        <div class="form-group includes-boolean-fields">
+            <label class="col-sm-3 control-label" for="includeBenefitEligibility">{{t "templates.connector.workday.includeBenefitEligibility"}}</label>
+            <div class="col-sm-8">
+                <div class="checkbox checkbox-slider-primary checkbox-slider checkbox-slider--b checkbox-slider-md">
+                    <label>
+                        <input class="toggleBoolean" id="includeBenefitEligibility" type="checkbox" name="configurationProperties.includeBenefitEligibility" value="true" {{#if connectorDefaults.configurationProperties.includeBenefitEligibility}} checked {{/if}}>
+                        <span></span>
+                    </label>
+                </div>
+                <span class="help-block">{{t "templates.connector.workday.includeBenefitEligibilityHelp"}}</span>
+            </div>
+        </div>
+        <div class="form-group includes-boolean-fields">
+            <label class="col-sm-3 control-label" for="includeTalentAssessment">{{t "templates.connector.workday.includeTalentAssessment"}}</label>
+            <div class="col-sm-8">
+                <div class="checkbox checkbox-slider-primary checkbox-slider checkbox-slider--b checkbox-slider-md">
+                    <label>
+                        <input class="toggleBoolean" id="includeTalentAssessment" type="checkbox" name="configurationProperties.includeTalentAssessment" value="true" {{#if connectorDefaults.configurationProperties.includeTalentAssessment}} checked {{/if}}>
+                        <span></span>
+                    </label>
+                </div>
+                <span class="help-block">{{t "templates.connector.workday.includeTalentAssessmentHelp"}}</span>
+            </div>
+        </div>
+        <div class="form-group includes-boolean-fields">
+            <label class="col-sm-3 control-label" for="includeBenefitEnrollments">{{t "templates.connector.workday.includeBenefitEnrollments"}}</label>
+            <div class="col-sm-8">
+                <div class="checkbox checkbox-slider-primary checkbox-slider checkbox-slider--b checkbox-slider-md">
+                    <label>
+                        <input class="toggleBoolean" id="includeBenefitEnrollments" type="checkbox" name="configurationProperties.includeBenefitEnrollments" value="true" {{#if connectorDefaults.configurationProperties.includeBenefitEnrollments}} checked {{/if}}>
+                        <span></span>
+                    </label>
+                </div>
+                <span class="help-block">{{t "templates.connector.workday.includeBenefitEnrollmentsHelp"}}</span>
+            </div>
+        </div>
+        <div class="form-group includes-boolean-fields">
+            <label class="col-sm-3 control-label" for="includeCompensation">{{t "templates.connector.workday.includeCompensation"}}</label>
+            <div class="col-sm-8">
+                <div class="checkbox checkbox-slider-primary checkbox-slider checkbox-slider--b checkbox-slider-md">
+                    <label>
+                        <input class="toggleBoolean" id="includeCompensation" type="checkbox" name="configurationProperties.includeCompensation" value="true" {{#if connectorDefaults.configurationProperties.includeCompensation}} checked {{/if}}>
+                        <span></span>
+                    </label>
+                </div>
+                <span class="help-block">{{t "templates.connector.workday.includeCompensationHelp"}}</span>
+            </div>
+        </div>
+        <div class="form-group includes-boolean-fields">
+            <label class="col-sm-3 control-label" for="includeOrganizations">{{t "templates.connector.workday.includeOrganizations"}}</label>
+            <div class="col-sm-8">
+                <div class="checkbox checkbox-slider-primary checkbox-slider checkbox-slider--b checkbox-slider-md">
+                    <label>
+                        <input class="toggleBoolean" id="includeOrganizations" type="checkbox" name="configurationProperties.includeOrganizations" value="true" {{#if connectorDefaults.configurationProperties.includeOrganizations}} checked {{/if}}>
+                        <span></span>
+                    </label>
+                </div>
+                <span class="help-block">{{t "templates.connector.workday.includeOrganizationsHelp"}}</span>
+            </div>
+        </div>
+
+
+        <!-- EXCLUDES BOOLEAN FIELDS -->
+        <div class="form-group excludes-boolean-fields">
+            <label class="col-sm-3 control-label" for="excludeCompanies">{{t "templates.connector.workday.excludeCompanies"}}</label>
+            <div class="col-sm-8">
+                <div class="checkbox checkbox-slider-primary checkbox-slider checkbox-slider--b checkbox-slider-md">
+                    <label>
+                        <input class="toggleBoolean" id="excludeCompanies" type="checkbox" name="configurationProperties.excludeCompanies" value="true" {{#if connectorDefaults.configurationProperties.excludeCompanies}} checked {{/if}}>
+                        <span></span>
+                    </label>
+                </div>
+                <span class="help-block">{{t "templates.connector.workday.excludeCompaniesHelp"}}</span>
+            </div>
+        </div>
+        <div class="form-group excludes-boolean-fields">
+            <label class="col-sm-3 control-label" for="excludeBusinessUnits">{{t "templates.connector.workday.excludeBusinessUnits"}}</label>
+            <div class="col-sm-8">
+                <div class="checkbox checkbox-slider-primary checkbox-slider checkbox-slider--b checkbox-slider-md">
+                    <label>
+                        <input class="toggleBoolean" id="excludeBusinessUnits" type="checkbox" name="configurationProperties.excludeBusinessUnits" value="true" {{#if connectorDefaults.configurationProperties.excludeBusinessUnits}} checked {{/if}}>
+                        <span></span>
+                    </label>
+                </div>
+                <span class="help-block">{{t "templates.connector.workday.excludeBusinessUnitsHelp"}}</span>
+            </div>
+        </div>
+        <div class="form-group excludes-boolean-fields">
+            <label class="col-sm-3 control-label" for="excludeCustomOrganizations">{{t "templates.connector.workday.excludeCustomOrganizations"}}</label>
+            <div class="col-sm-8">
+                <div class="checkbox checkbox-slider-primary checkbox-slider checkbox-slider--b checkbox-slider-md">
+                    <label>
+                        <input class="toggleBoolean" id="excludeCustomOrganizations" type="checkbox" name="configurationProperties.excludeCustomOrganizations" value="true" {{#if connectorDefaults.configurationProperties.excludeCustomOrganizations}} checked {{/if}}>
+                        <span></span>
+                    </label>
+                </div>
+                <span class="help-block">{{t "templates.connector.workday.excludeCustomOrganizationsHelp"}}</span>
+            </div>
+        </div>
+        <div class="form-group excludes-boolean-fields">
+            <label class="col-sm-3 control-label" for="excludeMatrixOrganizations">{{t "templates.connector.workday.excludeMatrixOrganizations"}}</label>
+            <div class="col-sm-8">
+                <div class="checkbox checkbox-slider-primary checkbox-slider checkbox-slider--b checkbox-slider-md">
+                    <label>
+                        <input class="toggleBoolean" id="excludeMatrixOrganizations" type="checkbox" name="configurationProperties.excludeMatrixOrganizations" value="true" {{#if connectorDefaults.configurationProperties.excludeMatrixOrganizations}} checked {{/if}}>
+                        <span></span>
+                    </label>
+                </div>
+                <span class="help-block">{{t "templates.connector.workday.excludeMatrixOrganizationsHelp"}}</span>
+            </div>
+        </div>
+        <div class="form-group excludes-boolean-fields">
+            <label class="col-sm-3 control-label" for="excludeGiftHierarchies">{{t "templates.connector.workday.excludeGiftHierarchies"}}</label>
+            <div class="col-sm-8">
+                <div class="checkbox checkbox-slider-primary checkbox-slider checkbox-slider--b checkbox-slider-md">
+                    <label>
+                        <input class="toggleBoolean" id="excludeGiftHierarchies" type="checkbox" name="configurationProperties.excludeGiftHierarchies" value="true" {{#if connectorDefaults.configurationProperties.excludeGiftHierarchies}} checked {{/if}}>
+                        <span></span>
+                    </label>
+                </div>
+                <span class="help-block">{{t "templates.connector.workday.excludeGiftHierarchiesHelp"}}</span>
+            </div>
+        </div>
+        <div class="form-group excludes-boolean-fields">
+            <label class="col-sm-3 control-label" for="excludeCostCenterHierarchies">{{t "templates.connector.workday.excludeCostCenterHierarchies"}}</label>
+            <div class="col-sm-8">
+                <div class="checkbox checkbox-slider-primary checkbox-slider checkbox-slider--b checkbox-slider-md">
+                    <label>
+                        <input class="toggleBoolean" id="excludeCostCenterHierarchies" type="checkbox" name="configurationProperties.excludeCostCenterHierarchies" value="true" {{#if connectorDefaults.configurationProperties.excludeCostCenterHierarchies}} checked {{/if}}>
+                        <span></span>
+                    </label>
+                </div>
+                <span class="help-block">{{t "templates.connector.workday.excludeCostCenterHierarchiesHelp"}}</span>
+            </div>
+        </div>
+        <div class="form-group excludes-boolean-fields">
+            <label class="col-sm-3 control-label" for="excludeGrants">{{t "templates.connector.workday.excludeGrants"}}</label>
+            <div class="col-sm-8">
+                <div class="checkbox checkbox-slider-primary checkbox-slider checkbox-slider--b checkbox-slider-md">
+                    <label>
+                        <input class="toggleBoolean" id="excludeGrants" type="checkbox" name="configurationProperties.excludeGrants" value="true" {{#if connectorDefaults.configurationProperties.excludeGrants}} checked {{/if}}>
+                        <span></span>
+                    </label>
+                </div>
+                <span class="help-block">{{t "templates.connector.workday.excludeGrantsHelp"}}</span>
+            </div>
+        </div>
+        <div class="form-group excludes-boolean-fields">
+            <label class="col-sm-3 control-label" for="excludeProgramHierarchies">{{t "templates.connector.workday.excludeProgramHierarchies"}}</label>
+            <div class="col-sm-8">
+                <div class="checkbox checkbox-slider-primary checkbox-slider checkbox-slider--b checkbox-slider-md">
+                    <label>
+                        <input class="toggleBoolean" id="excludeProgramHierarchies" type="checkbox" name="configurationProperties.excludeProgramHierarchies" value="true" {{#if connectorDefaults.configurationProperties.excludeProgramHierarchies}} checked {{/if}}>
+                        <span></span>
+                    </label>
+                </div>
+                <span class="help-block">{{t "templates.connector.workday.excludeProgramHierarchiesHelp"}}</span>
+            </div>
+        </div>
+        <div class="form-group excludes-boolean-fields">
+            <label class="col-sm-3 control-label" for="excludeCompanyHierarchies">{{t "templates.connector.workday.excludeCompanyHierarchies"}}</label>
+            <div class="col-sm-8">
+                <div class="checkbox checkbox-slider-primary checkbox-slider checkbox-slider--b checkbox-slider-md">
+                    <label>
+                        <input class="toggleBoolean" id="excludeCompanyHierarchies" type="checkbox" name="configurationProperties.excludeCompanyHierarchies" value="true" {{#if connectorDefaults.configurationProperties.excludeCompanyHierarchies}} checked {{/if}}>
+                        <span></span>
+                    </label>
+                </div>
+                <span class="help-block">{{t "templates.connector.workday.excludeCompanyHierarchiesHelp"}}</span>
+            </div>
+        </div>
+        <div class="form-group excludes-boolean-fields">
+            <label class="col-sm-3 control-label" for="excludeFunds">{{t "templates.connector.workday.excludeFunds"}}</label>
+            <div class="col-sm-8">
+                <div class="checkbox checkbox-slider-primary checkbox-slider checkbox-slider--b checkbox-slider-md">
+                    <label>
+                        <input class="toggleBoolean" id="excludeFunds" type="checkbox" name="configurationProperties.excludeFunds" value="true" {{#if connectorDefaults.configurationProperties.excludeFunds}} checked {{/if}}>
+                        <span></span>
+                    </label>
+                </div>
+                <span class="help-block">{{t "templates.connector.workday.excludeFundsHelp"}}</span>
+            </div>
+        </div>
+        <div class="form-group excludes-boolean-fields">
+            <label class="col-sm-3 control-label" for="excludeOrganizationSupportRoleData">{{t "templates.connector.workday.excludeOrganizationSupportRoleData"}}</label>
+            <div class="col-sm-8">
+                <div class="checkbox checkbox-slider-primary checkbox-slider checkbox-slider--b checkbox-slider-md">
+                    <label>
+                        <input class="toggleBoolean" id="excludeOrganizationSupportRoleData" type="checkbox" name="configurationProperties.excludeOrganizationSupportRoleData" value="true" {{#if connectorDefaults.configurationProperties.excludeOrganizationSupportRoleData}} checked {{/if}}>
+                        <span></span>
+                    </label>
+                </div>
+                <span class="help-block">{{t "templates.connector.workday.excludeOrganizationSupportRoleDataHelp"}}</span>
+            </div>
+        </div>
+        <div class="form-group excludes-boolean-fields">
+            <label class="col-sm-3 control-label" for="excludeGifts">{{t "templates.connector.workday.excludeGifts"}}</label>
+            <div class="col-sm-8">
+                <div class="checkbox checkbox-slider-primary checkbox-slider checkbox-slider--b checkbox-slider-md">
+                    <label>
+                        <input class="toggleBoolean" id="excludeGifts" type="checkbox" name="configurationProperties.excludeGifts" value="true" {{#if connectorDefaults.configurationProperties.excludeGifts}} checked {{/if}}>
+                        <span></span>
+                    </label>
+                </div>
+                <span class="help-block">{{t "templates.connector.workday.excludeGiftsHelp"}}</span>
+            </div>
+        </div>
+        <div class="form-group excludes-boolean-fields">
+            <label class="col-sm-3 control-label" for="excludeBusinessUnitHierarchies">{{t "templates.connector.workday.excludeBusinessUnitHierarchies"}}</label>
+            <div class="col-sm-8">
+                <div class="checkbox checkbox-slider-primary checkbox-slider checkbox-slider--b checkbox-slider-md">
+                    <label>
+                        <input class="toggleBoolean" id="excludeBusinessUnitHierarchies" type="checkbox" name="configurationProperties.excludeBusinessUnitHierarchies" value="true" {{#if connectorDefaults.configurationProperties.excludeBusinessUnitHierarchies}} checked {{/if}}>
+                        <span></span>
+                    </label>
+                </div>
+                <span class="help-block">{{t "templates.connector.workday.excludeBusinessUnitHierarchiesHelp"}}</span>
+            </div>
+        </div>
+        <div class="form-group excludes-boolean-fields">
+            <label class="col-sm-3 control-label" for="excludeCostCenters">{{t "templates.connector.workday.excludeCostCenters"}}</label>
+            <div class="col-sm-8">
+                <div class="checkbox checkbox-slider-primary checkbox-slider checkbox-slider--b checkbox-slider-md">
+                    <label>
+                        <input class="toggleBoolean" id="excludeCostCenters" type="checkbox" name="configurationProperties.excludeCostCenters" value="true" {{#if connectorDefaults.configurationProperties.excludeCostCenters}} checked {{/if}}>
+                        <span></span>
+                    </label>
+                </div>
+                <span class="help-block">{{t "templates.connector.workday.excludeCostCentersHelp"}}</span>
+            </div>
+        </div>
+        <div class="form-group excludes-boolean-fields">
+            <label class="col-sm-3 control-label" for="excludePrograms">{{t "templates.connector.workday.excludePrograms"}}</label>
+            <div class="col-sm-8">
+                <div class="checkbox checkbox-slider-primary checkbox-slider checkbox-slider--b checkbox-slider-md">
+                    <label>
+                        <input class="toggleBoolean" id="excludePrograms" type="checkbox" name="configurationProperties.excludePrograms" value="true" {{#if connectorDefaults.configurationProperties.excludePrograms}} checked {{/if}}>
+                        <span></span>
+                    </label>
+                </div>
+                <span class="help-block">{{t "templates.connector.workday.excludeProgramsHelp"}}</span>
+            </div>
+        </div>
+        <div class="form-group excludes-boolean-fields">
+            <label class="col-sm-3 control-label" for="excludeSupervisoryOrganizations">{{t "templates.connector.workday.excludeSupervisoryOrganizations"}}</label>
+            <div class="col-sm-8">
+                <div class="checkbox checkbox-slider-primary checkbox-slider checkbox-slider--b checkbox-slider-md">
+                    <label>
+                        <input class="toggleBoolean" id="excludeSupervisoryOrganizations" type="checkbox" name="configurationProperties.excludeSupervisoryOrganizations" value="true" {{#if connectorDefaults.configurationProperties.excludeSupervisoryOrganizations}} checked {{/if}}>
+                        <span></span>
+                    </label>
+                </div>
+                <span class="help-block">{{t "templates.connector.workday.excludeSupervisoryOrganizationsHelp"}}</span>
+            </div>
+        </div>
+        <div class="form-group excludes-boolean-fields">
+            <label class="col-sm-3 control-label" for="excludeRegionHierarchies">{{t "templates.connector.workday.excludeRegionHierarchies"}}</label>
+            <div class="col-sm-8">
+                <div class="checkbox checkbox-slider-primary checkbox-slider checkbox-slider--b checkbox-slider-md">
+                    <label>
+                        <input class="toggleBoolean" id="excludeRegionHierarchies" type="checkbox" name="configurationProperties.excludeRegionHierarchies" value="true" {{#if connectorDefaults.configurationProperties.excludeRegionHierarchies}} checked {{/if}}>
+                        <span></span>
+                    </label>
+                </div>
+                <span class="help-block">{{t "templates.connector.workday.excludeRegionHierarchiesHelp"}}</span>
+            </div>
+        </div>
+        <div class="form-group excludes-boolean-fields">
+            <label class="col-sm-3 control-label" for="excludeTeams">{{t "templates.connector.workday.excludeTeams"}}</label>
+            <div class="col-sm-8">
+                <div class="checkbox checkbox-slider-primary checkbox-slider checkbox-slider--b checkbox-slider-md">
+                    <label>
+                        <input class="toggleBoolean" id="excludeTeams" type="checkbox" name="configurationProperties.excludeTeams" value="true" {{#if connectorDefaults.configurationProperties.excludeTeams}} checked {{/if}}>
+                        <span></span>
+                    </label>
+                </div>
+                <span class="help-block">{{t "templates.connector.workday.excludeTeamsHelp"}}</span>
+            </div>
+        </div>
+        <div class="form-group excludes-boolean-fields">
+            <label class="col-sm-3 control-label" for="excludeLocationHierarchies">{{t "templates.connector.workday.excludeLocationHierarchies"}}</label>
+            <div class="col-sm-8">
+                <div class="checkbox checkbox-slider-primary checkbox-slider checkbox-slider--b checkbox-slider-md">
+                    <label>
+                        <input class="toggleBoolean" id="excludeLocationHierarchies" type="checkbox" name="configurationProperties.excludeLocationHierarchies" value="true" {{#if connectorDefaults.configurationProperties.excludeLocationHierarchies}} checked {{/if}}>
+                        <span></span>
+                    </label>
+                </div>
+                <span class="help-block">{{t "templates.connector.workday.excludeLocationHierarchiesHelp"}}</span>
+            </div>
+        </div>
+        <div class="form-group excludes-boolean-fields">
+            <label class="col-sm-3 control-label" for="excludeRegions">{{t "templates.connector.workday.excludeRegions"}}</label>
+            <div class="col-sm-8">
+                <div class="checkbox checkbox-slider-primary checkbox-slider checkbox-slider--b checkbox-slider-md">
+                    <label>
+                        <input class="toggleBoolean" id="excludeRegions" type="checkbox" name="configurationProperties.excludeRegions" value="true" {{#if connectorDefaults.configurationProperties.excludeRegions}} checked {{/if}}>
+                        <span></span>
+                    </label>
+                </div>
+                <span class="help-block">{{t "templates.connector.workday.excludeRegionsHelp"}}</span>
+            </div>
+        </div>
+        <div class="form-group excludes-boolean-fields">
+            <label class="col-sm-3 control-label" for="excludePayGroups">{{t "templates.connector.workday.excludePayGroups"}}</label>
+            <div class="col-sm-8">
+                <div class="checkbox checkbox-slider-primary checkbox-slider checkbox-slider--b checkbox-slider-md">
+                    <label>
+                        <input class="toggleBoolean" id="excludePayGroups" type="checkbox" name="configurationProperties.excludePayGroups" value="true" {{#if connectorDefaults.configurationProperties.excludePayGroups}} checked {{/if}}>
+                        <span></span>
+                    </label>
+                </div>
+                <span class="help-block">{{t "templates.connector.workday.excludePayGroupsHelp"}}</span>
+            </div>
+        </div>
+        <div class="form-group excludes-boolean-fields">
+            <label class="col-sm-3 control-label" for="excludeFundHierarchies">{{t "templates.connector.workday.excludeFundHierarchies"}}</label>
+            <div class="col-sm-8">
+                <div class="checkbox checkbox-slider-primary checkbox-slider checkbox-slider--b checkbox-slider-md">
+                    <label>
+                        <input class="toggleBoolean" id="excludeFundHierarchies" type="checkbox" name="configurationProperties.excludeFundHierarchies" value="true" {{#if connectorDefaults.configurationProperties.excludeFundHierarchies}} checked {{/if}}>
+                        <span></span>
+                    </label>
+                </div>
+                <span class="help-block">{{t "templates.connector.workday.excludeFundHierarchiesHelp"}}</span>
+            </div>
+        </div>
+        <div class="form-group excludes-boolean-fields">
+            <label class="col-sm-3 control-label" for="excludeGrantHierarchies">{{t "templates.connector.workday.excludeGrantHierarchies"}}</label>
+            <div class="col-sm-8">
+                <div class="checkbox checkbox-slider-primary checkbox-slider checkbox-slider--b checkbox-slider-md">
+                    <label>
+                        <input class="toggleBoolean" id="excludeGrantHierarchies" type="checkbox" name="configurationProperties.excludeGrantHierarchies" value="true" {{#if connectorDefaults.configurationProperties.excludeGrantHierarchies}} checked {{/if}}>
+                        <span></span>
+                    </label>
+                </div>
+                <span class="help-block">{{t "templates.connector.workday.excludeGrantHierarchiesHelp"}}</span>
+            </div>
+        </div>
+        <div class="form-group excludes-boolean-fields">
+            <label class="col-sm-3 control-label" for="excludeInactiveWorkers">{{t "templates.connector.workday.excludeInactiveWorkers"}}</label>
+            <div class="col-sm-8">
+                <div class="checkbox checkbox-slider-primary checkbox-slider checkbox-slider--b checkbox-slider-md">
+                    <label>
+                        <input class="toggleBoolean" id="excludeInactiveWorkers" type="checkbox" name="configurationProperties.excludeInactiveWorkers" value="true" {{#if connectorDefaults.configurationProperties.excludeInactiveWorkers}} checked {{/if}}>
+                        <span></span>
+                    </label>
+                </div>
+                <span class="help-block">{{t "templates.connector.workday.excludeInactiveWorkersHelp"}}</span>
+            </div>
+        </div>
+        <div class="form-group excludes-boolean-fields">
+            <label class="col-sm-3 control-label" for="excludeContingentWorkers">{{t "templates.connector.workday.excludeContingentWorkers"}}</label>
+            <div class="col-sm-8">
+                <div class="checkbox checkbox-slider-primary checkbox-slider checkbox-slider--b checkbox-slider-md">
+                    <label>
+                        <input class="toggleBoolean" id="excludeContingentWorkers" type="checkbox" name="configurationProperties.excludeContingentWorkers" value="true" {{#if connectorDefaults.configurationProperties.excludeContingentWorkers}} checked {{/if}}>
+                        <span></span>
+                    </label>
+                </div>
+                <span class="help-block">{{t "templates.connector.workday.excludeContingentWorkersHelp"}}</span>
+            </div>
+        </div>
+        <div class="form-group excludes-boolean-fields">
+            <label class="col-sm-3 control-label" for="excludeEmployees">{{t "templates.connector.workday.excludeEmployees"}}</label>
+            <div class="col-sm-8">
+                <div class="checkbox checkbox-slider-primary checkbox-slider checkbox-slider--b checkbox-slider-md">
+                    <label>
+                        <input class="toggleBoolean" id="excludeEmployees" type="checkbox" name="configurationProperties.excludeEmployees" value="true" {{#if connectorDefaults.configurationProperties.excludeEmployees}} checked {{/if}}>
+                        <span></span>
+                    </label>
+                </div>
+                <span class="help-block">{{t "templates.connector.workday.excludeEmployeesHelp"}}</span>
+            </div>
+        </div>
+    </div>
+</div>

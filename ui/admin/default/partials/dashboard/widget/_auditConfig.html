@@ -1,0 +1,93 @@
+{{!--
+  Copyright 2017 ForgeRock AS. All Rights Reserved
+
+  Use of this code requires a commercial software license with ForgeRock AS.
+  or with one of its affiliates. All use shall be exclusively subject
+  to such license between the licensee and ForgeRock AS.
+--}}
+<form class="form-horizontal auditWidgetSettings">
+
+    <div class="form-group">
+        <label for="title" class="col-sm-3 control-label">{{t "dashboard.auditData.titleLabel"}}</label>
+        <div class="col-sm-6">
+            <input id="title" type="text" class="form-control" placeholder='{{t "dashboard.auditData.widgetTitle"}}' value="{{title}}"/>
+        </div>
+    </div>
+
+    {{> dashboard/widget/_timezoneGroup}}
+
+    <div class="form-group color-group min-color">
+        <label class="col-sm-3 control-label">{{t "dashboard.auditData.minColor"}}</label>
+        <div class="col-sm-2">
+            <input type="text" class="hex form-control" value="{{minRange}}"/>
+        </div>
+        <div class="col-sm-2">
+            <input type="color" class="color form-control" value="{{minRange}}"/>
+        </div>
+    </div>
+
+    <div class="form-group color-group max-color">
+        <label class="col-sm-3 control-label">{{t "dashboard.auditData.maxColor"}}</label>
+        <div class="col-sm-2">
+            <input type="text" class="hex form-control" value="{{maxRange}}"/>
+        </div>
+        <div class="col-sm-2">
+            <input type="color" class="color form-control" value="{{maxRange}}"/>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-3 control-label">{{t "dashboard.auditData.legendRangeWeek"}}</label>
+        <div class="col-sm-6">
+            <input type="text" class="auditRangeSelect" data-granularity="week" value="{{legendRange.week}}"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">{{t "dashboard.auditData.legendRangeMonth"}}</label>
+        <div class="col-sm-6">
+            <input type="text" class="auditRangeSelect" data-granularity="month"value="{{legendRange.month}}"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">{{t "dashboard.auditData.legendRangeYear"}}</label>
+        <div class="col-sm-6">
+            <input type="text" class="auditRangeSelect" data-granularity="year" value="{{legendRange.year}}"/>
+            <span class="help-block">{{t "dashboard.auditData.legendRangeHelp"}}</span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="filterSelection" class="col-sm-3 control-label">{{t "dashboard.auditData.displaySettings"}}</label>
+        <div class="col-sm-6">
+            <select id="filterSelection">
+                <option value="interactive">{{t "dashboard.auditData.interactive"}}</option>
+                <option value="interactiveFilter">{{t "dashboard.auditData.interactiveFilter"}}</option>
+                <option value="presetFilter">{{t "dashboard.auditData.presetFilter"}}</option>
+                <option value="queryFilter">{{t "dashboard.auditData.queryFilter"}}</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="filter-sub-selection form-group" id="eventTopicsContainer" style="display:none;">
+        <label class="col-sm-3 control-label">{{t "dashboard.auditData.topic"}}</label>
+        <div class="col-sm-6">
+            {{> dashboard/widget/_auditTopics}}
+        </div>
+    </div>
+
+    <div class="filter-sub-selection form-group" id="eventPresetFiltersContainer" style="display:none;">
+        <label class="col-sm-3 control-label">{{t "dashboard.auditData.filter"}}</label>
+        <div class="col-sm-6">
+            {{> dashboard/widget/_filters}}
+        </div>
+    </div>
+
+    <div class="filter-sub-selection form-group" id="eventQueryFilterContainer" style="display:none;">
+        <div class="label-container text-center col-sm-offset-1 col-sm-10">
+            <label for="eventQueryFilter" class="control-label">{{t "dashboard.auditData.custom"}}</label>
+        </div>
+        <div class="col-sm-offset-1 col-sm-10">
+            <div id="eventQueryFilter" class="filter-form"></div>
+        </div>
+    </div>
+</form>

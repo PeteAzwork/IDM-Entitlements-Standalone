@@ -1,0 +1,11 @@
+<span class='time-constraint-cell {{#if active}}text-success{{else}}text-muted{{/if}}' data-toggle="popover">
+    <i class='fa fa-clock-o'></i> {{#if active}}
+                                    {{t "templates.admin.RoleList.active"}}
+                                {{else}}
+                                    {{#if expired}}
+                                        {{t "templates.admin.RoleList.expired"}}
+                                    {{else}}
+                                        {{t "templates.admin.RoleList.scheduled"}}
+                                    {{/if}}
+                                {{/if}}
+</span>
