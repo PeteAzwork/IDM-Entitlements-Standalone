@@ -1873,18 +1873,18 @@
             }
         },
         {
-            "name": "Customer",  
-            "onCreate" : {
-                "type" : "text/javascript",
-                "file" : "script/createCustomer.js"
+            "name": "Customer",
+            "onCreate": {
+                "type": "text/javascript",
+                "file": "script/createCustomer.js"
             },
-            "onUpdate" : {
-                "type" : "text/javascript",
-                "file" : "script/updateCustomer.js"
+            "onUpdate": {
+                "type": "text/javascript",
+                "file": "script/updateCustomer.js"
             },
-            "onDelete" : {
-                "type" : "text/javascript",
-                "file" : "script/deleteCustomer.js"
+            "onDelete": {
+                "type": "text/javascript",
+                "file": "script/deleteCustomer.js"
             },
             "schema": {
                 "$schema": "http://forgerock.org/json-schema#",
@@ -1904,7 +1904,7 @@
                         "isVirtual": false
                     },
                     "Name": {
-                        "title": null,
+                        "title": "Name",
                         "type": "string",
                         "viewable": true,
                         "searchable": true,
@@ -1915,7 +1915,7 @@
                     },
                     "RelatedCustomers": {
                         "description": null,
-                        "title": "Relatedcustomers",
+                        "title": "Related Customers",
                         "viewable": true,
                         "searchable": false,
                         "userEditable": false,
@@ -1934,11 +1934,16 @@
                                     "type": "object",
                                     "properties": {
                                         "_id": {
-                                            "type": "string"
+                                            "type": "string",
+                                            "required": false,
+                                            "propName": "_id"
                                         },
                                         "Type": {
                                             "label": "Relationship",
-                                            "type": "string"
+                                            "type": "string",
+                                            "required": false,
+                                            "propName": "Type",
+                                            "labelText": "Relationship"
                                         }
                                     }
                                 }
