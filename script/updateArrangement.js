@@ -5,19 +5,19 @@ let headers = {
     "Content-Type": "application/json",
     "X-API-Key": API_KEY  
 }
-let method = "POST";
+let method = "PUT";
 
-logger.info("Create Customer.js - object: " + JSON.stringify(object));
+logger.info("Update Arrangement.js - object: " + JSON.stringify(object));
 
 // Add the entity to the graph
-let url = BASE_URL + '/admin/entities'
+let url = BASE_URL + '/admin/entities/' + object.ID
 
 let req = {
     url,
     method,
     headers,
     body: JSON.stringify({
-        "BaseType": 4,
+        "BaseType": 2,
         "attributes": object
     })
 };

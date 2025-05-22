@@ -2018,22 +2018,43 @@
                             "id": "urn:jsonschema:org:forgerock:openidm:managed:api:Customer:Arrangements:items"
                         },
                         "id": "urn:jsonschema:org:forgerock:openidm:managed:api:Customer:Arrangements"
+                    },
+                    "Age": {
+                        "title": null,
+                        "type": "string",
+                        "viewable": true,
+                        "searchable": false,
+                        "userEditable": true
                     }
                 },
                 "order": [
                     "ID",
                     "Name",
                     "RelatedCustomers",
-                    "Arrangements"
+                    "Arrangements",
+                    "Age"
                 ],
                 "required": [
                     "ID",
-                    "Name"
+                    "Name",
+                    "Age"
                 ]
             }
         },
         {
             "name": "Arrangement",
+            "onCreate": {
+                "type": "text/javascript",
+                "file": "script/createArrangement.js"
+            },
+            "onUpdate": {
+                "type": "text/javascript",
+                "file": "script/updateArrangement.js"
+            },
+            "onDelete": {
+                "type": "text/javascript",
+                "file": "script/deleteArrangement.js"
+            },
             "schema": {
                 "$schema": "http://forgerock.org/json-schema#",
                 "type": "object",
@@ -2042,16 +2063,6 @@
                 "icon": "fa-euro",
                 "properties": {
                     "ID": {
-                        "title": null,
-                        "type": "string",
-                        "viewable": true,
-                        "searchable": true,
-                        "userEditable": true,
-                        "description": null,
-                        "format": null,
-                        "isVirtual": false
-                    },
-                    "AdminCode": {
                         "title": null,
                         "type": "string",
                         "viewable": true,
@@ -2074,13 +2085,11 @@
                 },
                 "order": [
                     "ID",
-                    "AdminCode",
                     "ProductCode"
                 ],
                 "required": [
                     "ID",
-                    "ProductCode",
-                    "AdminCode"
+                    "ProductCode"
                 ]
             }
         }

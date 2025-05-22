@@ -7,7 +7,7 @@ let headers = {
 }
 let method = "POST";
 
-logger.info("Create Customer.js - object: " + JSON.stringify(object));
+logger.info("Create Arrangement.js - object: " + JSON.stringify(object));
 
 // Add the entity to the graph
 let url = BASE_URL + '/admin/entities'
@@ -17,7 +17,7 @@ let req = {
     method,
     headers,
     body: JSON.stringify({
-        "BaseType": 4,
+        "BaseType": 2,
         "attributes": object
     })
 };
